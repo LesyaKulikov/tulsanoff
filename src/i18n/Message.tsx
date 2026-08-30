@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { useIntl } from 'react-intl'
-import { resolveMessage } from './messages'
+import { resolveMessage, type LocaleKey } from './messages'
 
 interface MessageProps {
   id: string
@@ -16,7 +16,7 @@ interface MessageProps {
  */
 export function Message({ id, values }: MessageProps) {
   const intl = useIntl()
-  const raw = resolveMessage(id)
+  const raw = resolveMessage(id, intl.locale as LocaleKey)
 
   if (typeof raw === 'string' && raw.length > 0) {
     return <>{intl.formatMessage({ id }, values)}</>

@@ -1,21 +1,20 @@
-.video {
+.story {
   padding: 170px var(--gutter) 0;
   color: var(--text);
-  text-align: center;
 }
 
 .heading {
   font-size: 58px;
   font-weight: 500;
   letter-spacing: -1.5px;
+  text-transform: uppercase;
   max-width: 900px;
-  margin: 0 auto;
 }
 
 .subheading {
   font-size: 18px;
   opacity: 0.9;
-  margin: 28px auto 56px;
+  margin: 28px 0 56px;
   max-width: 520px;
 }
 
@@ -24,7 +23,6 @@
   border-radius: var(--radius);
   overflow: hidden;
   max-width: 1127px;
-  margin: 0 auto;
   box-shadow: 0 20px 60px var(--shadow);
 }
 

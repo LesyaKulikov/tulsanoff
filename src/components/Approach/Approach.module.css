@@ -1,0 +1,36 @@
+.approach {
+  padding: 120px var(--gutter) 0;
+  color: var(--text);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.num {
+  font-size: 96px;
+  font-weight: 600;
+  line-height: 0.9;
+  color: rgba(255, 253, 251, 0.35);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+}
+
+.body {
+  font-size: 18px;
+  line-height: 1.55;
+  opacity: 0.9;
+  max-width: 360px;
+}

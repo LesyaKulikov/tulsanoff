@@ -1,18 +1,16 @@
-import { Button } from '../Button/Button'
-import { Arrow } from '../Arrow/Arrow'
 import { Message } from '../../i18n/Message'
-import styles from './BigCards.module.css'
+import styles from './Masters.module.css'
 
 const CARDS = [
   { n: '0', src: '/images/big-card-a.jpg' },
   { n: '1', src: '/images/big-card-b.jpg' },
 ] as const
 
-export function BigCards() {
+export function Masters() {
   return (
-    <section className={styles.bigCards}>
+    <section className={styles.masters}>
       <h2 className={styles.heading}>
-        <Message id="bigCards.heading" />
+        <Message id="masters.heading" />
       </h2>
 
       <div className={styles.grid}>
@@ -21,16 +19,15 @@ export function BigCards() {
             <img className={styles.photo} src={card.src} alt="" />
             <div className={styles.overlay} />
             <div className={styles.text}>
-              <h3 className={styles.title}>
-                <Message id={`bigCards.${card.n}.title`} />
+              <h3 className={styles.name}>
+                <Message id={`masters.${card.n}.name`} />
               </h3>
-              <p className={styles.subtitle}>
-                <Message id={`bigCards.${card.n}.subtitle`} />
+              <p className={styles.note}>
+                <Message id={`masters.${card.n}.note`} />
               </p>
-              <Button variant="inverse" href="#cta">
-                <Message id={`bigCards.${card.n}.cta`} />
-                <Arrow color="#000" />
-              </Button>
+              <a className={styles.cta} href="#cta">
+                <Message id={`masters.${card.n}.cta`} />
+              </a>
             </div>
           </article>
         ))}

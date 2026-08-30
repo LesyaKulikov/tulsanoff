@@ -1,10 +1,9 @@
 import { Header } from './components/Header/Header'
 import { Hero } from './components/Hero/Hero'
+import { Approach } from './components/Approach/Approach'
 import { Services } from './components/Services/Services'
-import { Stats } from './components/Stats/Stats'
-import { Gallery } from './components/Gallery/Gallery'
-import { BigCards } from './components/BigCards/BigCards'
-import { Video } from './components/Video/Video'
+import { Masters } from './components/Masters/Masters'
+import { Story } from './components/Story/Story'
 import { Testimonials } from './components/Testimonials/Testimonials'
 import { FaqList } from './components/FaqList/FaqList'
 import { CtaBand } from './components/CtaBand/CtaBand'
@@ -16,11 +15,10 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Approach />
         <Services />
-        <Stats />
-        <Gallery />
-        <BigCards />
-        <Video />
+        <Masters />
+        <Story />
         <Testimonials />
         <FaqList />
         <CtaBand />

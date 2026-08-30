@@ -7,16 +7,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 140px;
+  height: 118px;
   padding: 0 var(--gutter);
   color: var(--text);
 }
 
-.left {
-  max-width: 300px;
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navLink {
   font-size: 14px;
-  letter-spacing: 0.5px;
-  opacity: 0.95;
+  color: var(--text);
+  transition: color 0.15s ease;
+}
+
+.navLink:hover {
+  color: var(--accent);
 }
 
 .center {
@@ -26,23 +35,34 @@
 }
 
 .logo {
-  height: 47px;
+  height: 44px;
   width: auto;
 }
 
 .right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
 }
 
-.pill {
-  height: 43px;
+.lang {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 16px;
+  padding: 0;
+}
+
+.cta {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
+  height: 43px;
   padding: 0 18px;
-  background: var(--panel);
-  border-radius: 8px;
-  font-size: 13px;
-  color: var(--text);
+  background: var(--button);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
 }

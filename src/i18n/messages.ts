@@ -1,11 +1,13 @@
 import enUS from './en-US.json'
+import ruRU from './ru-RU.json'
 
 export type MessageValue = string
 
-export const DEFAULT_LOCALE = 'en-US'
+export const DEFAULT_LOCALE = 'ru-RU'
 
 export const locales = {
-  [DEFAULT_LOCALE]: { messages: enUS },
+  [DEFAULT_LOCALE]: { messages: ruRU },
+  'en-US': { messages: enUS },
 } as const
 
 export type LocaleKey = keyof typeof locales
@@ -30,12 +32,15 @@ function flatten(
   return out
 }
 
-const flatMessages = flatten(enUS)
-
-export function resolveMessage(id: string): string | undefined {
-  return flatMessages[id]
+const flatMessages: Record<LocaleKey, Record<string, string>> = {
+  'ru-RU': flatten(ruRU),
+  'en-US': flatten(enUS),
 }
 
-export function loadMessages(_locale: LocaleKey): Record<string, string> {
-  return flatten(locales[_locale].messages)
+export function resolveMessage(id: string, locale: LocaleKey): string | undefined {
+  return flatMessages[locale][id]
+}
+
+export function loadMessages(locale: LocaleKey): Record<string, string> {
+  return flatten(locales[locale].messages)
 }

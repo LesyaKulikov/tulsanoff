@@ -1,142 +1,133 @@
 {
   "nav": {
-    "note": "",
-    "pill": "",
-    "cta": "",
+    "link0": "Services",
+    "link1": "Certificates",
+    "link2": "About us",
+    "link3": "Contacts",
+    "lang": "HEB",
+    "cta": "Book a session",
     "logoAlt": "TULSANOFF"
   },
   "hero": {
-    "chip": "",
-    "title": "",
-    "cta": "",
-    "note": ""
+    "chip": "20% off your first massage",
+    "title": "INDIVIDUAL DIAGNOSTICS AND THERAPEUTIC MASSAGE IN ISRAEL",
+    "cta": "Book a session",
+    "note": "We help you restore your resources, feel tone in your body and return to deep, quality rest."
+  },
+  "approach": {
+    "0": {
+      "num": "01",
+      "title": "Targeted diagnostics",
+      "body": "We address the very cause of pain and specific tension points"
+    },
+    "1": {
+      "num": "02",
+      "title": "Individual plan",
+      "body": "we tailor the technique and intensity to each client"
+    },
+    "2": {
+      "num": "03",
+      "title": "Long-term effect",
+      "body": "We bring back muscle tone so the lightness lasts"
+    }
   },
   "services": {
-    "heading": "",
+    "heading": "services",
+    "cat0": "Therapy & wellness",
+    "cat1": "Relax & aesthetics",
+    "cat2": "Special formats",
     "0": {
-      "title": "",
-      "body": ""
+      "label": "medical"
     },
     "1": {
-      "title": "",
-      "body": ""
+      "label": "lymphatic drainage"
     },
     "2": {
-      "title": "",
-      "body": ""
+      "label": "sports"
     }
   },
-  "stats": {
-    "heading": "",
+  "masters": {
+    "heading": "our masters",
     "0": {
-      "value": "",
-      "label": ""
+      "name": "Mark Tulsanoff",
+      "note": "We bring back muscle tone so the lightness lasts",
+      "cta": "Book a session"
     },
     "1": {
-      "value": "",
-      "label": ""
-    },
-    "2": {
-      "value": "",
-      "label": ""
+      "name": "Larisa Kulikova",
+      "note": "We bring back muscle tone so the lightness lasts",
+      "cta": "Book a session"
     }
   },
-  "gallery": {
-    "heading": "",
-    "0": {
-      "caption": ""
-    },
-    "1": {
-      "caption": ""
-    },
-    "2": {
-      "caption": ""
-    }
-  },
-  "bigCards": {
-    "heading": "",
-    "0": {
-      "title": "",
-      "subtitle": "",
-      "cta": ""
-    },
-    "1": {
-      "title": "",
-      "subtitle": "",
-      "cta": ""
-    }
-  },
-  "video": {
-    "heading": "",
-    "subheading": "",
-    "playAlt": ""
+  "story": {
+    "heading": "THE STORY OF OUR STUDIO",
+    "subheading": "We help you restore your resources, feel tone in your body and return to deep, quality rest.",
+    "playAlt": "Watch video"
   },
   "testimonials": {
-    "heading": "",
+    "heading": "reviews",
     "0": {
-      "name": "",
-      "body": ""
+      "name": "Elena Makarova",
+      "body": "We bring back muscle tone so the lightness lasts"
     },
     "1": {
-      "name": "",
-      "body": ""
+      "name": "Zhenya Serov",
+      "body": "We bring back muscle tone so the lightness lasts"
     },
     "2": {
-      "name": "",
-      "body": ""
+      "name": "Elena Makarova",
+      "body": "We bring back muscle tone so the lightness lasts"
     }
   },
   "faq": {
-    "heading": "",
+    "heading": "FREQUENTLY ASKED QUESTIONS",
     "0": {
-      "label": "",
-      "body": ""
+      "label": "HOW TO BOOK A MASSAGE?",
+      "body": "We bring back muscle tone so the lightness lasts"
     },
     "1": {
-      "label": ""
+      "label": "WHY IS A MASSAGE NEEDED?"
     },
     "2": {
-      "label": ""
+      "label": "WHO AM I?"
     },
     "3": {
-      "label": ""
+      "label": "WHO IS IT FOR?"
     },
     "4": {
-      "label": ""
+      "label": "HOW OFTEN DO YOU NEED A MASSAGE"
     }
   },
   "cta": {
-    "heading": "",
-    "body": "",
-    "button": ""
+    "heading": "We help you restore your resources, feel tone in your body and return to deep, quality rest.",
+    "body": "We help you restore your resources, feel tone in your body and return to deep, quality rest.",
+    "button": "Book a session"
   },
   "footer": {
-    "col1": {
-      "heading": "",
-      "0": "",
-      "1": "",
-      "2": "",
-      "3": ""
+    "addresses": {
+      "heading": "ADDRESSES",
+      "0": "Bialik 63/4 Ramat Gan",
+      "1": "Bat Galim 6 Haifa"
     },
-    "col2": {
-      "heading": "",
-      "0": "",
-      "1": "",
-      "2": "",
-      "3": ""
+    "contacts": {
+      "heading": "CONTACTS",
+      "0": "PHONE:",
+      "1": "+972 50 408 2976",
+      "2": "+972 50 000 0000",
+      "3": "LMLMASSAGE@gmail.com"
     },
-    "col3": {
-      "heading": "",
-      "0": "",
-      "1": "",
-      "2": "",
-      "3": ""
+    "nav": {
+      "heading": "NAVIGATION",
+      "0": "about us",
+      "1": "certificates",
+      "2": "services",
+      "3": "contacts"
     },
-    "cta": "",
+    "cta": "Book Now",
     "social": {
-      "igAlt": "",
-      "fbAlt": "",
-      "waAlt": ""
+      "igAlt": "Instagram",
+      "fbAlt": "Facebook",
+      "waAlt": "WhatsApp"
     }
   }
 }

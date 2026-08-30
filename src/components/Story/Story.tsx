@@ -1,21 +1,21 @@
 import { Message } from '../../i18n/Message'
-import styles from './Video.module.css'
+import styles from './Story.module.css'
 
-export function Video() {
+export function Story() {
   return (
-    <section className={styles.video}>
+    <section className={styles.story}>
       <h2 className={styles.heading}>
-        <Message id="video.heading" />
+        <Message id="story.heading" />
       </h2>
       <p className={styles.subheading}>
-        <Message id="video.subheading" />
+        <Message id="story.subheading" />
       </p>
 
       <div className={styles.frame}>
         <img className={styles.poster} src="/images/video-frame.jpg" alt="" />
-        <div className={styles.play} aria-label="play">
+        <button type="button" className={styles.play} aria-label="Play video">
           <span className={styles.triangle} />
-        </div>
+        </button>
       </div>
     </section>
   )

@@ -1,10 +1,12 @@
-import { Button } from '../Button/Button'
 import { Arrow } from '../Arrow/Arrow'
 import { Message } from '../../i18n/Message'
 import styles from './Footer.module.css'
 
-const COLS = ['col1', 'col2', 'col3'] as const
-const LINK_IDS = ['0', '1', '2', '3'] as const
+const COLS = [
+  { key: 'addresses', items: ['0', '1'] },
+  { key: 'contacts', items: ['0', '1', '2', '3'] },
+  { key: 'nav', items: ['0', '1', '2', '3'] },
+] as const
 
 const SOCIALS: { alt: string; src?: string }[] = [
   { alt: 'footer.social.igAlt', src: '/images/social-icon-2.png' },
@@ -17,14 +19,14 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={styles.columns}>
         {COLS.map((col) => (
-          <nav key={col}>
+          <nav key={col.key}>
             <h3 className={styles.columnHeading}>
-              <Message id={`footer.${col}.heading`} />
+              <Message id={`footer.${col.key}.heading`} />
             </h3>
             <ul className={styles.linkList}>
-              {LINK_IDS.map((n) => (
+              {col.items.map((n) => (
                 <li key={n} className={styles.link}>
-                  <Message id={`footer.${col}.${n}`} />
+                  <Message id={`footer.${col.key}.${n}`} />
                 </li>
               ))}
             </ul>
@@ -50,10 +52,10 @@ export function Footer() {
           ))}
         </div>
 
-        <Button variant="primary">
+        <a className={styles.bookBtn} href="#cta">
           <Message id="footer.cta" />
           <Arrow />
-        </Button>
+        </a>
       </div>
     </footer>
   )
