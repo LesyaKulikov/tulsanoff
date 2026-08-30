@@ -1,0 +1,63 @@
+.testimonials {
+  position: relative;
+  padding: 170px 0 0;
+  color: var(--text);
+}
+
+.heading {
+  position: absolute;
+  left: var(--gutter);
+  top: 170px;
+  font-size: 44px;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+.row {
+  display: flex;
+  gap: 24px;
+  padding: 250px var(--gutter) 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.card {
+  flex: 0 0 558px;
+  background: var(--panel-strong);
+  border-radius: var(--radius);
+  padding: 44px 40px;
+  min-height: 289px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+  color: var(--accent);
+}
+
+.body {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.92;
+}

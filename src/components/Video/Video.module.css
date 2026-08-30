@@ -1,0 +1,60 @@
+.video {
+  padding: 170px var(--gutter) 0;
+  color: var(--text);
+  text-align: center;
+}
+
+.heading {
+  font-size: 58px;
+  font-weight: 500;
+  letter-spacing: -1.5px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.subheading {
+  font-size: 18px;
+  opacity: 0.9;
+  margin: 28px auto 56px;
+  max-width: 520px;
+}
+
+.frame {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  max-width: 1127px;
+  margin: 0 auto;
+  box-shadow: 0 20px 60px var(--shadow);
+}
+
+.poster {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1127 / 669;
+  object-fit: cover;
+}
+
+.play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 173px;
+  height: 173px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel);
+  color: #fff;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 30px solid #fff;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  margin-left: 8px;
+}

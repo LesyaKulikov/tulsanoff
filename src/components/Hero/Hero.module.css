@@ -1,0 +1,61 @@
+.hero {
+  position: relative;
+  height: 713px;
+  color: var(--text);
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 10, 7, 0.35) 0%, rgba(8, 10, 7, 0) 40%);
+}
+
+.content {
+  position: absolute;
+  top: 306px;
+  left: var(--gutter);
+  right: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.chip {
+  height: 37px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 16px;
+  background: var(--panel);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  max-width: 480px;
+}
+
+.note {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 48px;
+  max-width: 320px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: right;
+  opacity: 0.9;
+}

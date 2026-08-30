@@ -1,0 +1,38 @@
+.gallery {
+  padding: 140px var(--gutter) 0;
+  color: var(--text);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 232px;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.captionBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: var(--panel-strong);
+  color: var(--text);
+  font-size: 15px;
+}

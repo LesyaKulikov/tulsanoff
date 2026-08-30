@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "note": "",
+    "pill": "",
+    "cta": "",
+    "logoAlt": "TULSANOFF"
+  },
+  "hero": {
+    "chip": "",
+    "title": "",
+    "cta": "",
+    "note": ""
+  },
+  "services": {
+    "heading": "",
+    "0": {
+      "title": "",
+      "body": ""
+    },
+    "1": {
+      "title": "",
+      "body": ""
+    },
+    "2": {
+      "title": "",
+      "body": ""
+    }
+  },
+  "stats": {
+    "heading": "",
+    "0": {
+      "value": "",
+      "label": ""
+    },
+    "1": {
+      "value": "",
+      "label": ""
+    },
+    "2": {
+      "value": "",
+      "label": ""
+    }
+  },
+  "gallery": {
+    "heading": "",
+    "0": {
+      "caption": ""
+    },
+    "1": {
+      "caption": ""
+    },
+    "2": {
+      "caption": ""
+    }
+  },
+  "bigCards": {
+    "heading": "",
+    "0": {
+      "title": "",
+      "subtitle": "",
+      "cta": ""
+    },
+    "1": {
+      "title": "",
+      "subtitle": "",
+      "cta": ""
+    }
+  },
+  "video": {
+    "heading": "",
+    "subheading": "",
+    "playAlt": ""
+  },
+  "testimonials": {
+    "heading": "",
+    "0": {
+      "name": "",
+      "body": ""
+    },
+    "1": {
+      "name": "",
+      "body": ""
+    },
+    "2": {
+      "name": "",
+      "body": ""
+    }
+  },
+  "faq": {
+    "heading": "",
+    "0": {
+      "label": "",
+      "body": ""
+    },
+    "1": {
+      "label": ""
+    },
+    "2": {
+      "label": ""
+    },
+    "3": {
+      "label": ""
+    },
+    "4": {
+      "label": ""
+    }
+  },
+  "cta": {
+    "heading": "",
+    "body": "",
+    "button": ""
+  },
+  "footer": {
+    "col1": {
+      "heading": "",
+      "0": "",
+      "1": "",
+      "2": "",
+      "3": ""
+    },
+    "col2": {
+      "heading": "",
+      "0": "",
+      "1": "",
+      "2": "",
+      "3": ""
+    },
+    "col3": {
+      "heading": "",
+      "0": "",
+      "1": "",
+      "2": "",
+      "3": ""
+    },
+    "cta": "",
+    "social": {
+      "igAlt": "",
+      "fbAlt": "",
+      "waAlt": ""
+    }
+  }
+}

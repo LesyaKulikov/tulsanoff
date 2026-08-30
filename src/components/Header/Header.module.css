@@ -1,0 +1,48 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 140px;
+  padding: 0 var(--gutter);
+  color: var(--text);
+}
+
+.left {
+  max-width: 300px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  opacity: 0.95;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo {
+  height: 47px;
+  width: auto;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pill {
+  height: 43px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 18px;
+  background: var(--panel);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text);
+}
