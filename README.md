@@ -1,32 +1,49 @@
-# React + TypeScript + Vite
+# TULSANOFF
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Homepage for **TULSANOFF** — a massage studio website built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Layer | Tool |
+|-------|------|
+| Framework | React 19 + TypeScript |
+| Build | Vite 8 |
+| Linting | Oxlint |
+| Styling | CSS Modules |
+| Typography | Inter (variable) |
+| i18n | react-intl |
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server |
+| `npm run build` | Type-check + production build |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run Oxlint |
+
+## Project Structure
+
+```
+src/
+├── components/    # UI components, each with a CSS module
+├── i18n/          # Locale files (en-US.json + future locales)
+├── assets/        # Static assets
+├── App.tsx        # Root component
+└── main.tsx       # Entry point
+```
+
+## i18n
+
+All user-facing copy lives in locale files under `src/i18n/` as message IDs. The default locale is `en-US`; additional locales are planned.
+
+## License
+
+Private — not for distribution.
