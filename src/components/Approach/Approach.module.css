@@ -1,6 +1,16 @@
 .approach {
-  padding: 120px var(--gutter) 0;
+  padding: 90px var(--gutter) 90px;
   color: var(--text);
+}
+
+.note {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 10%;
+  line-height: 173%;
+  margin: 0 auto 81px;
+  max-width: var(--container);
 }
 
 .grid {
@@ -9,28 +19,34 @@
   gap: 24px;
 }
 
-.step {
+.card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 13px;
+  height: 452px;
+  padding: 30px 23px;
+  background: rgba(255, 253, 251, 0.13);
+  backdrop-filter: blur(6px);
 }
 
 .num {
-  font-size: 96px;
-  font-weight: 600;
-  line-height: 0.9;
-  color: rgba(255, 253, 251, 0.35);
+  font-size: 128px;
+  font-weight: 700;
+  line-height: 136%;
+  letter-spacing: 6%;
+  color: var(--accent);
 }
 
 .title {
   font-size: 24px;
-  font-weight: 500;
-  letter-spacing: -0.3px;
+  font-weight: 700;
+  letter-spacing: 10%;
+  line-height: 144%;
 }
 
 .body {
-  font-size: 18px;
-  line-height: 1.55;
-  opacity: 0.9;
-  max-width: 360px;
+  font-size: 20px;
+  line-height: 144%;
+  letter-spacing: 10%;
+  max-width: 280px;
 }
