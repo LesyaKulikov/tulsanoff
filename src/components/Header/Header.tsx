@@ -1,4 +1,5 @@
 import { Arrow } from '../Arrow/Arrow'
+import { Button } from '../Button/Button'
 import { Message } from '../../i18n/Message'
 import styles from './Header.module.css'
 
@@ -23,10 +24,10 @@ export function Header() {
         <button type="button" className={styles.lang} aria-label="Language" data-test-id="lang-toggle">
           <Message id="nav.lang" />
         </button>
-        <a className={styles.cta} href="#cta" data-test-id="header-cta">
+        <Button href="#cta" data-test-id="header-cta">
           <Message id="nav.cta" />
           <Arrow />
-        </a>
+        </Button>
       </div>
     </header>
   )

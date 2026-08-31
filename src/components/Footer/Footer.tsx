@@ -1,4 +1,5 @@
 import { Arrow } from '../Arrow/Arrow'
+import { Button } from '../Button/Button'
 import { Message } from '../../i18n/Message'
 import styles from './Footer.module.css'
 
@@ -58,10 +59,10 @@ export function Footer() {
           ))}
         </div>
 
-        <a className={styles.bookBtn} href="#cta" data-test-id="footer-book">
+        <Button href="#cta" data-test-id="footer-book">
           <Message id="footer.cta" />
           <Arrow />
-        </a>
+        </Button>
       </div>
     </footer>
   )

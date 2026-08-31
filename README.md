@@ -1,6 +1,16 @@
-# TULSANOFF
+<p align="center">
+  <img src="public/images/logo.png" alt="TULSANOFF logo" width="180" />
+</p>
 
-Homepage for **TULSANOFF** — a massage studio website built with React, TypeScript, and Vite.
+<h1 align="center">TULSANOFF</h1>
+
+<p align="center">
+  Homepage for **TULSANOFF** — a massage studio website built with React, TypeScript, and Vite.
+</p>
+
+<p align="center">
+  <img src="public/images/hero.jpg" alt="TULSANOFF hero" width="720" />
+</p>
 
 ## Tech Stack
 
@@ -43,6 +53,14 @@ src/
 ## i18n
 
 All user-facing copy lives in locale files under `src/i18n/` as message IDs. The default locale is `en-US`; additional locales are planned.
+
+## Gallery
+
+<p align="center">
+  <img src="public/images/gallery-1.jpg" alt="Gallery" width="32%" />
+  <img src="public/images/gallery-2.jpg" alt="Gallery" width="32%" />
+  <img src="public/images/gallery-3.jpg" alt="Gallery" width="32%" />
+</p>
 
 ## License
 

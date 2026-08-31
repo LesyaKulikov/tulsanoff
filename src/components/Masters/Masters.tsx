@@ -1,4 +1,5 @@
 import { Message } from '../../i18n/Message'
+import { Button } from '../Button/Button'
 import styles from './Masters.module.css'
 
 const CARDS = [
@@ -25,9 +26,9 @@ export function Masters() {
               <p className={styles.note}>
                 <Message id={`masters.${card.n}.note`} />
               </p>
-              <a className={styles.cta} href="#cta" data-test-id={`master-card-${card.n}-cta`}>
+              <Button variant="primary" href="#cta" data-test-id={`master-card-${card.n}-cta`}>
                 <Message id={`masters.${card.n}.cta`} />
-              </a>
+              </Button>
             </div>
           </article>
         ))}

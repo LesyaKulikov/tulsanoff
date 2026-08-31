@@ -65,17 +65,3 @@
   object-fit: contain;
   opacity: 1;
 }
-
-.bookBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 44px;
-  padding: 0 20px;
-  background: var(--button);
-  color: #fff;
-  border-radius: 999px;
-  font-size: 15px;
-  font-weight: 600;
-  white-space: nowrap;
-}

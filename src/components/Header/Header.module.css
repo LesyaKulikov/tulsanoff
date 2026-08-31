@@ -53,19 +53,6 @@
   padding: 0;
 }
 
-.cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 43px;
-  padding: 0 18px;
-  background: var(--button);
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
 @media (min-width: 1500px) {
   .logo {
     height: 80px;

@@ -63,15 +63,3 @@
   max-width: 360px;
   margin-bottom: 14px;
 }
-
-.cta {
-  display: inline-flex;
-  align-items: center;
-  height: 43px;
-  padding: 0 18px;
-  background: var(--button);
-  color: #fff;
-  border-radius: 999px;
-  font-size: 15px;
-  font-weight: 600;
-}
