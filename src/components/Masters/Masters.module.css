@@ -19,7 +19,6 @@
 
 .card {
   position: relative;
-  border-radius: var(--radius);
   overflow: hidden;
   aspect-ratio: 551 / 667;
 }

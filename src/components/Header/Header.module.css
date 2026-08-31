@@ -46,11 +46,10 @@
 }
 
 .lang {
-  background: none;
-  border: none;
+  composes: glass from global;
   color: var(--text);
   font-size: 16px;
-  padding: 0;
+  padding: 12px 14px;
 }
 
 @media (min-width: 1500px) {

@@ -1,4 +1,5 @@
 @import '@fontsource-variable/inter';
+@import './glass.css';
 
 @font-face {
   font-family: 'Neutral Face';
@@ -27,7 +28,6 @@
 
   --container: 1128px;
   --gutter: 156px;
-  --radius: 24px;
 
   --sans: 'Inter Variable', system-ui, 'Segoe UI', Roboto, sans-serif;
   --display: 'Neutral Face', var(--sans);

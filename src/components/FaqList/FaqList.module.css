@@ -12,7 +12,6 @@
 
 .panel {
   background: var(--panel-strong);
-  border-radius: var(--radius);
   padding: 0 40px;
 }
 

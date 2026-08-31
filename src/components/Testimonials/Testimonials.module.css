@@ -24,7 +24,6 @@
 .card {
   flex: 0 0 558px;
   background: var(--panel-strong);
-  border-radius: var(--radius);
   padding: 44px 40px;
   min-height: 289px;
   display: flex;
