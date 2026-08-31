@@ -16,16 +16,16 @@ const SOCIALS: { alt: string; src?: string }[] = [
 
 export function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} data-test-id="footer">
       <div className={styles.columns}>
         {COLS.map((col) => (
-          <nav key={col.key}>
+          <nav key={col.key} data-test-id={`footer-col-${col.key}`}>
             <h3 className={styles.columnHeading}>
               <Message id={`footer.${col.key}.heading`} />
             </h3>
             <ul className={styles.linkList}>
               {col.items.map((n) => (
-                <li key={n} className={styles.link}>
+                <li key={n} className={styles.link} data-test-id={`footer-${col.key}-${n}`}>
                   <Message id={`footer.${col.key}.${n}`} />
                 </li>
               ))}
@@ -37,7 +37,13 @@ export function Footer() {
       <div className={styles.bottom}>
         <div className={styles.socials}>
           {SOCIALS.map((social, i) => (
-            <a key={i} className={styles.social} href="#" aria-label={social.alt}>
+            <a
+              key={i}
+              className={styles.social}
+              href="#"
+              aria-label={social.alt}
+              data-test-id={`footer-social-${i}`}
+            >
               {social.src ? (
                 <img src={social.src} alt="" />
               ) : (
@@ -52,7 +58,7 @@ export function Footer() {
           ))}
         </div>
 
-        <a className={styles.bookBtn} href="#cta">
+        <a className={styles.bookBtn} href="#cta" data-test-id="footer-book">
           <Message id="footer.cta" />
           <Arrow />
         </a>

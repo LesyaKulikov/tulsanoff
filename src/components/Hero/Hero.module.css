@@ -1,8 +1,11 @@
 .hero {
   position: relative;
-  height: 713px;
+  min-height: 80vh;
   color: var(--text);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .background {
@@ -20,42 +23,55 @@
 }
 
 .content {
-  position: absolute;
-  top: 306px;
-  left: var(--gutter);
-  right: var(--gutter);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 var(--gutter) 52px;
+  height: fit-content;
+}
+
+.left {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
+  gap: 25px;
+  max-width: 456px;
 }
 
 .chip {
+  width: fit-content;
   height: 37px;
   display: inline-flex;
   align-items: center;
-  padding: 0 16px;
-  background: var(--panel);
-  border-radius: 8px;
-  font-size: 14px;
+  padding: 9px 15px;
+  background: rgba(255, 254, 250, 0.13);
+  backdrop-filter: blur(6px);
+  font-size: 16px;
   color: var(--text);
 }
 
 .title {
-  font-size: 64px;
-  font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -1.5px;
-  max-width: 480px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 144%;
+  letter-spacing: 10%;
+  text-transform: uppercase;
+  max-width: 456px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 456px;
+  flex-shrink: 0;
 }
 
 .note {
-  position: absolute;
-  right: var(--gutter);
-  bottom: 48px;
-  max-width: 320px;
   font-size: 14px;
-  line-height: 1.5;
-  text-align: right;
+  line-height: 144%;
+  letter-spacing: 10%;
   opacity: 0.9;
+  max-width: 456px;
 }

@@ -7,14 +7,14 @@ const EXPANDED = '0'
 
 export function FaqList() {
   return (
-    <section className={styles.faq}>
-      <h2 className={styles.heading}>
+    <section className={styles.faq} data-test-id="faq">
+      <h2 className={styles.heading} data-test-id="faq-heading">
         <Message id="faq.heading" />
       </h2>
 
       <div className={styles.panel}>
         {ROW_IDS.map((n) => (
-          <div key={n} className={`${styles.row} ${n === EXPANDED ? styles.open : ''}`}>
+          <div key={n} className={`${styles.row} ${n === EXPANDED ? styles.open : ''}`} data-test-id={`faq-row-${n}`}>
             <div className={styles.details}>
               <p className={styles.label}>
                 <Message id={`faq.${n}.label`} />

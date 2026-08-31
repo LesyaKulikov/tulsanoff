@@ -11,17 +11,18 @@ const CARDS = [
 
 export function Services() {
   return (
-    <section className={styles.services}>
-      <h2 className={styles.heading}>
+    <section className={styles.services} data-test-id="services">
+      <h2 className={styles.heading} data-test-id="services-heading">
         <Message id="services.heading" />
       </h2>
 
-      <div className={styles.categories}>
+      <div className={styles.categories} data-test-id="services-categories">
         {CATS.map((cat, i) => (
           <button
             type="button"
             key={cat}
             className={i === 0 ? styles.categoryActive : styles.category}
+            data-test-id={`services-category-${i}`}
           >
             <Message id={`services.${cat}`} />
           </button>
@@ -30,7 +31,7 @@ export function Services() {
 
       <div className={styles.grid}>
         {CARDS.map((card) => (
-          <a key={card.n} href="#" className={styles.card}>
+          <a key={card.n} href="#" className={styles.card} data-test-id={`service-card-${card.n}`}>
             <img className={styles.photo} src={card.src} alt="" />
             <span className={styles.labelBar}>
               <span>

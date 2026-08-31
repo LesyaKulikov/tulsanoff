@@ -8,14 +8,14 @@ const CARDS = [
 
 export function Masters() {
   return (
-    <section className={styles.masters}>
-      <h2 className={styles.heading}>
+    <section className={styles.masters} data-test-id="masters">
+      <h2 className={styles.heading} data-test-id="masters-heading">
         <Message id="masters.heading" />
       </h2>
 
       <div className={styles.grid}>
         {CARDS.map((card) => (
-          <article key={card.n} className={styles.card}>
+          <article key={card.n} className={styles.card} data-test-id={`master-card-${card.n}`}>
             <img className={styles.photo} src={card.src} alt="" />
             <div className={styles.overlay} />
             <div className={styles.text}>
@@ -25,7 +25,7 @@ export function Masters() {
               <p className={styles.note}>
                 <Message id={`masters.${card.n}.note`} />
               </p>
-              <a className={styles.cta} href="#cta">
+              <a className={styles.cta} href="#cta" data-test-id={`master-card-${card.n}-cta`}>
                 <Message id={`masters.${card.n}.cta`} />
               </a>
             </div>

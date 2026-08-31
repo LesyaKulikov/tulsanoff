@@ -24,14 +24,14 @@ function Stars() {
 
 export function Testimonials() {
   return (
-    <section className={styles.testimonials}>
-      <h2 className={styles.heading}>
+    <section className={styles.testimonials} data-test-id="testimonials">
+      <h2 className={styles.heading} data-test-id="testimonials-heading">
         <Message id="testimonials.heading" />
       </h2>
 
       <div className={styles.row}>
         {REVIEWS.map((review) => (
-          <article key={review.n} className={styles.card}>
+          <article key={review.n} className={styles.card} data-test-id={`review-card-${review.n}`}>
             <div className={styles.top}>
               <img className={styles.avatar} src={review.src} alt="" />
               <span className={styles.name}>
