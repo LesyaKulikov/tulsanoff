@@ -11,7 +11,7 @@ import { Footer } from './components/Footer/Footer'
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Header />
       <main>
         <Hero />
@@ -24,7 +24,7 @@ function App() {
         <CtaBand />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

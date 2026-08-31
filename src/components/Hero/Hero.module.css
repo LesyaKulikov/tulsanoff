@@ -2,7 +2,7 @@
   position: relative;
   min-height: 80vh;
   color: var(--text);
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -10,8 +10,10 @@
 
 .background {
   position: absolute;
-  inset: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: none;
   height: 100%;
   object-fit: cover;
   opacity: 1;
@@ -25,7 +27,10 @@
 
 .mediaLayer {
   position: absolute;
-  inset: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
 }
 
 .video {
@@ -45,7 +50,10 @@
 
 .scrim {
   position: absolute;
-  inset: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
   background: linear-gradient(180deg, rgba(8, 10, 7, 0.35) 0%, rgba(8, 10, 7, 0) 40%);
 }
 
