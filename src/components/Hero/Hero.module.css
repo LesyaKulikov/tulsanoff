@@ -86,6 +86,7 @@
 }
 
 .title {
+  font-family: var(--display);
   font-size: 24px;
   font-weight: 700;
   line-height: 144%;
@@ -106,7 +107,7 @@
 .note {
   font-size: 14px;
   line-height: 144%;
-  letter-spacing: 10%;
+  letter-spacing: 0;
   opacity: 0.9;
   max-width: 456px;
 }

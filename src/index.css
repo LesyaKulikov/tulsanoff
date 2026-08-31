@@ -1,3 +1,19 @@
+@import '@fontsource-variable/inter';
+
+@font-face {
+  font-family: 'Neutral Face';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/NeutralFace.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Neutral Face';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/NeutralFaceBold.woff') format('woff');
+}
+
 :root {
   --bg: #080a07;
   --bg-tint: #4d6546;
@@ -13,7 +29,8 @@
   --gutter: 156px;
   --radius: 24px;
 
-  --sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: 'Inter Variable', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --display: 'Neutral Face', var(--sans);
 
   font: 16px/1.45 var(--sans);
   color-scheme: dark;

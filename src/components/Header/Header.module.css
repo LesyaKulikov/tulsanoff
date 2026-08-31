@@ -65,3 +65,9 @@
   font-weight: 600;
   white-space: nowrap;
 }
+
+@media (min-width: 1500px) {
+  .logo {
+    height: 80px;
+  }
+}
