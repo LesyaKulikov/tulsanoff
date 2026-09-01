@@ -6,7 +6,7 @@ export function CtaBand() {
       <iframe
         className={styles.map}
         title="Map"
-        src="https://www.google.com/maps?q=Odem+St+5+Petah+Tikva+4951788&output=embed"
+        src="https://www.google.com/maps?q=Odem+St+8+Petah+Tikva&output=embed"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         data-test-id="cta-band-map"

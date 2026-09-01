@@ -27,8 +27,7 @@
 .frame {
   position: relative;
   overflow: hidden;
-  max-width: 1129px;
-  margin: 0 auto;
+  width: 100%;
   box-shadow: 0 20px 60px var(--shadow);
 }
 
