@@ -50,7 +50,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: var(--bg);
+  background: var(--bg) url('/images/background.png') center -450px / cover no-repeat;
 }
 
 body {
