@@ -1,6 +1,7 @@
 .massages {
   padding: 170px var(--gutter) 0;
   color: var(--text);
+  max-width: 1920px;
 }
 
 .heading {
@@ -17,16 +18,22 @@
 }
 
 .heroPhoto {
-  width: 648px;
+  flex: 1;
+  width: auto;
   height: 395px;
   object-fit: cover;
 }
 
+.card {
+  width: calc((100% - 48px) / 3);
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 360px);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 25px;
+  max-width: 1920px;
 }
 
 .tile {
@@ -67,7 +74,8 @@
 }
 
 .rowPhoto {
-  width: 647px;
+  flex: 1;
+  width: auto;
   height: 395px;
   object-fit: cover;
 }

@@ -17,6 +17,7 @@ const PHOTO = [
 ] as const
 
 export function MassagesSection() {
+  const cardClass = styles.card
   return (
     <section className={styles.massages} data-test-id="services-massages">
       <h2 className={styles.heading} data-test-id="services-massages-heading">
@@ -25,7 +26,7 @@ export function MassagesSection() {
 
       <div className={styles.hero} data-test-id="services-massages-hero">
         <img className={styles.heroPhoto} src="/images/hero.jpg" alt="" />
-        <StudioCard index={0} />
+        <StudioCard index={0} className={cardClass} />
       </div>
 
       <div className={styles.grid} data-test-id="services-massages-grid">
@@ -41,13 +42,13 @@ export function MassagesSection() {
       </div>
 
       <div className={styles.row}>
-        <StudioCard index={1} />
+        <StudioCard index={1} className={cardClass} />
         <img className={styles.rowPhoto} src={PHOTO[0].src} alt="" />
       </div>
 
       <div className={styles.row}>
         <img className={styles.rowPhoto} src={PHOTO[1].src} alt="" />
-        <StudioCard index={2} />
+        <StudioCard index={2} className={cardClass} />
       </div>
     </section>
   )
