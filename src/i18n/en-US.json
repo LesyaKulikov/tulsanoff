@@ -102,6 +102,57 @@
     "body": "We help you restore your resources, feel tone in your body and return to deep, quality rest.",
     "button": "Book a session"
   },
+  "about": {
+    "heading": "About us"
+  },
+  "certificates": {
+    "heading": "Certificates"
+  },
+  "contacts": {
+    "heading": "Contacts"
+  },
+  "servicesPage": {
+    "heading": "massages",
+    "card": {
+      "0": {
+        "title": "medical massage",
+        "type": "author's technique",
+        "body": "We bring back muscle tone so the lightness lasts"
+      },
+      "1": {
+        "title": "facial massage",
+        "type": "author's technique",
+        "body": "We bring back muscle tone so the lightness lasts"
+      },
+      "2": {
+        "title": "massage for couples",
+        "type": "author's technique",
+        "body": "We bring back muscle tone so the lightness lasts"
+      }
+    },
+    "more": "learn more",
+    "label": {
+      "0": "relax",
+      "1": "sports",
+      "2": "deep tissue",
+      "3": "swedish",
+      "4": "lymphatic drainage",
+      "5": "anti-cellulite"
+    },
+    "plan": {
+      "heading": "subscription",
+      "title": "6 massages",
+      "type": "10% discount",
+      "body": "We bring back muscle tone so the lightness lasts",
+      "price": "from 200 ILS"
+    },
+    "loyalty": {
+      "heading": "loyalty card",
+      "number": "09\\10",
+      "note": "every 10th massage is free",
+      "cta": "Book a session"
+    }
+  },
   "footer": {
     "addresses": {
       "heading": "ADDRESSES",

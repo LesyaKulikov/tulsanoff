@@ -31,5 +31,5 @@
 
 .inverse {
   background: #fff;
-  color: #000;
+  color: var(--button);
 }

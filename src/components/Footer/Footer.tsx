@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom'
 import { Arrow } from '../Arrow/Arrow'
 import { Button } from '../Button/Button'
 import { Message } from '../../i18n/Message'
+import { ROUTES } from '../../routes'
 import styles from './Footer.module.css'
+
+const FOOTER_ROUTES = [ROUTES.about, ROUTES.certificates, ROUTES.services, ROUTES.contacts] as const
 
 const COLS = [
   { key: 'addresses', items: ['0', '1'] },
@@ -9,7 +13,7 @@ const COLS = [
   { key: 'nav', items: ['0', '1', '2', '3'] },
 ] as const
 
-const SOCIALS: { alt: string; src?: string }[] = [
+const SOCIALS: { alt: string; src?: string; to?: string }[] = [
   { alt: 'footer.social.igAlt', src: '/images/social-icon-2.png' },
   { alt: 'footer.social.fbAlt', src: '/images/social-icon-3.png' },
   { alt: 'footer.social.waAlt' },
@@ -19,29 +23,46 @@ export function Footer() {
   return (
     <footer className={styles.footer} data-test-id="footer">
       <div className={styles.columns}>
-        {COLS.map((col) => (
-          <nav key={col.key} data-test-id={`footer-col-${col.key}`}>
-            <h3 className={styles.columnHeading}>
-              <Message id={`footer.${col.key}.heading`} />
-            </h3>
-            <ul className={styles.linkList}>
-              {col.items.map((n) => (
-                <li key={n} className={styles.link} data-test-id={`footer-${col.key}-${n}`}>
-                  <Message id={`footer.${col.key}.${n}`} />
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ))}
+        {COLS.map((col) =>
+          col.key === 'nav' ? (
+            <nav key={col.key} data-test-id={`footer-col-${col.key}`}>
+              <h3 className={styles.columnHeading}>
+                <Message id={`footer.${col.key}.heading`} />
+              </h3>
+              <ul className={styles.linkList}>
+                {col.items.map((n, i) => (
+                  <li key={n} className={styles.link} data-test-id={`footer-${col.key}-${n}`}>
+                    <Link to={FOOTER_ROUTES[i]}>
+                      <Message id={`footer.${col.key}.${n}`} />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ) : (
+            <nav key={col.key} data-test-id={`footer-col-${col.key}`}>
+              <h3 className={styles.columnHeading}>
+                <Message id={`footer.${col.key}.heading`} />
+              </h3>
+              <ul className={styles.linkList}>
+                {col.items.map((n) => (
+                  <li key={n} className={styles.link} data-test-id={`footer-${col.key}-${n}`}>
+                    <Message id={`footer.${col.key}.${n}`} />
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ),
+        )}
       </div>
 
       <div className={styles.bottom}>
         <div className={styles.socials}>
           {SOCIALS.map((social, i) => (
-            <a
+            <Link
               key={i}
               className={styles.social}
-              href="#"
+              to={social.to ?? ROUTES.home}
               aria-label={social.alt}
               data-test-id={`footer-social-${i}`}
             >
@@ -55,11 +76,11 @@ export function Footer() {
                   />
                 </svg>
               )}
-            </a>
+            </Link>
           ))}
         </div>
 
-        <Button href="#cta" data-test-id="footer-book">
+        <Button to={ROUTES.contacts} data-test-id="footer-book">
           <Message id="footer.cta" />
           <Arrow />
         </Button>

@@ -1,30 +1,39 @@
+import { Link } from 'react-router-dom'
 import { Arrow } from '../Arrow/Arrow'
 import { Button } from '../Button/Button'
 import { Message } from '../../i18n/Message'
+import { ROUTES } from '../../routes'
 import styles from './Header.module.css'
 
-const NAV_LINKS = ['link0', 'link1', 'link2', 'link3'] as const
+const NAV_LINKS = [
+  { key: 'link0', to: ROUTES.services },
+  { key: 'link1', to: ROUTES.certificates },
+  { key: 'link2', to: ROUTES.about },
+  { key: 'link3', to: ROUTES.contacts },
+] as const
 
 export function Header() {
   return (
     <header className={styles.header} data-test-id="header">
       <nav className={styles.nav} aria-label="main" data-test-id="nav">
         {NAV_LINKS.map((link) => (
-          <a key={link} className={styles.navLink} href="#" data-test-id={`nav-link-${link}`}>
-            <Message id={`nav.${link}`} />
-          </a>
+          <Link key={link.key} className={styles.navLink} to={link.to} data-test-id={`nav-link-${link.key}`}>
+            <Message id={`nav.${link.key}`} />
+          </Link>
         ))}
       </nav>
 
       <div className={styles.center} data-test-id="logo">
-        <img className={styles.logo} src="/images/logo.png" alt="TULSANOFF" />
+        <Link to={ROUTES.home}>
+          <img className={styles.logo} src="/images/logo.png" alt="TULSANOFF" />
+        </Link>
       </div>
 
       <div className={styles.right}>
         <button type="button" className={styles.lang} aria-label="Language" data-test-id="lang-toggle">
           <Message id="nav.lang" />
         </button>
-        <Button href="#cta" data-test-id="header-cta">
+        <Button to={ROUTES.contacts} data-test-id="header-cta">
           <Message id="nav.cta" />
           <Arrow />
         </Button>
