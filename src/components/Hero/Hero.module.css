@@ -60,17 +60,10 @@
 .content {
   position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 0 var(--gutter) 52px;
-  height: fit-content;
-}
-
-.left {
-  display: flex;
   flex-direction: column;
   gap: 25px;
-  max-width: 456px;
+  padding: 0 var(--gutter) 52px;
+  height: fit-content;
 }
 
 .chip {
@@ -84,6 +77,13 @@
   color: var(--text);
 }
 
+.titleRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+}
+
 .title {
   font-family: var(--display);
   font-size: 24px;
@@ -91,39 +91,36 @@
   line-height: 144%;
   letter-spacing: 10%;
   text-transform: uppercase;
-  max-width: 456px;
+  flex: 1;
+  min-width: 0;
+  max-width: 680px;
 }
 
-.right {
+.socials {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  width: 456px;
+  gap: 10px;
   flex-shrink: 0;
+  margin-left: 40px;
 }
 
-.note {
-  font-size: 14px;
-  line-height: 144%;
-  letter-spacing: 0;
-  opacity: 0.9;
-  max-width: 456px;
+.socialBtn {
+  composes: glass from global;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: opacity 0.2s;
+}
+
+.socialBtn:hover {
+  opacity: 0.85;
 }
 
 @media (min-width: 1500px) {
-  .left {
-    width: 700px;
-    max-width: none;
-    flex-shrink: 0;
-  }
-
   .title {
     font-size: 36px;
-    max-width: 700px;
-  }
-  .note {
-    font-size: 20px;
-    letter-spacing: 0;
   }
 }
