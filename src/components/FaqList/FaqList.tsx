@@ -25,7 +25,7 @@ export function FaqList() {
                 </p>
               )}
             </div>
-            <Chevron />
+            <Chevron direction={n === EXPANDED ? 'up' : 'down'} />
           </div>
         ))}
       </div>

@@ -8,9 +8,11 @@
   position: absolute;
   left: var(--gutter);
   top: 170px;
-  font-size: 44px;
-  font-weight: 500;
-  letter-spacing: -1px;
+  font-family: var(--display);
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 6%;
+  line-height: 121.75%;
 }
 
 .row {
@@ -22,8 +24,8 @@
 }
 
 .card {
+  composes: glass from global;
   flex: 0 0 558px;
-  background: var(--panel-strong);
   padding: 44px 40px;
   min-height: 289px;
   display: flex;
@@ -31,32 +33,23 @@
   gap: 14px;
 }
 
-.top {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 .name {
-  font-size: 18px;
-  font-weight: 500;
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 10%;
+  line-height: 144%;
 }
 
 .stars {
   display: flex;
-  gap: 4px;
-  color: var(--accent);
+  gap: 6px;
+  color: var(--text);
 }
 
 .body {
-  font-size: 16px;
-  line-height: 1.6;
-  opacity: 0.92;
+  font-size: 20px;
+  line-height: 144%;
+  letter-spacing: 10%;
+  opacity: 0.9;
 }

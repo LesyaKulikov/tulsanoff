@@ -1,10 +1,13 @@
-import { Message } from '../i18n/Message'
-import styles from './Page.module.css'
+import { CertificateHero } from '../components/CertificateHero/CertificateHero'
+import { FaqList } from '../components/FaqList/FaqList'
+import { Testimonials } from '../components/Testimonials/Testimonials'
 
 export function CertificatesPage() {
   return (
-    <section className={styles.page} data-test-id="certificates-page">
-      <Message id="certificates.heading" />
-    </section>
+    <>
+      <CertificateHero />
+      <FaqList />
+      <Testimonials />
+    </>
   )
 }

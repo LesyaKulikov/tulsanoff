@@ -1,5 +1,5 @@
 interface ChevronProps {
-  direction?: 'down' | 'right'
+  direction?: 'up' | 'down' | 'right'
 }
 
 export function Chevron({ direction = 'right' }: ChevronProps) {
@@ -10,7 +10,14 @@ export function Chevron({ direction = 'right' }: ChevronProps) {
       viewBox="0 0 16 16"
       fill="none"
       aria-hidden="true"
-      style={{ transform: direction === 'down' ? 'rotate(90deg)' : undefined }}
+      style={{
+        transform:
+          direction === 'down'
+            ? 'rotate(90deg)'
+            : direction === 'up'
+              ? 'rotate(-90deg)'
+              : undefined,
+      }}
     >
       <path
         d="M6 3.5 10.5 8 6 12.5"

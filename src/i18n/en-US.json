@@ -106,7 +106,13 @@
     "heading": "About us"
   },
   "certificates": {
-    "heading": "Certificates"
+    "heading": "Certificates",
+    "hero": {
+      "title": "gift card",
+      "discount": "10% discount",
+      "body": "We bring back muscle tone so the lightness lasts",
+      "cta": "LEARN MORE"
+    }
   },
   "contacts": {
     "heading": "Contacts"

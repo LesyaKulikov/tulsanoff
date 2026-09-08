@@ -1,0 +1,71 @@
+.hero {
+  position: relative;
+  color: var(--text);
+  padding-top: 170px;
+}
+
+.band {
+  position: relative;
+  min-height: 513px;
+  overflow: hidden;
+}
+
+.photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card {
+  composes: glass from global;
+  position: absolute;
+  top: 29px;
+  right: var(--gutter);
+  width: 565px;
+  height: 456px;
+  padding: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 136%;
+  letter-spacing: 4%;
+  text-shadow: 0 4px 40px rgba(36, 28, 26, 0.25);
+}
+
+.discount {
+  margin-top: 75px;
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 144%;
+  letter-spacing: 10%;
+}
+
+.body {
+  margin-top: 22px;
+  max-width: 403px;
+  font-size: 20px;
+  line-height: 144%;
+  letter-spacing: 10%;
+}
+
+.bottom {
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+@media (max-width: 1200px) {
+  .card {
+    right: 50%;
+    transform: translateX(50%);
+    max-width: calc(100vw - 40px);
+  }
+}
