@@ -131,6 +131,87 @@
       }
     },
     "more": "learn more",
+    "detail": {
+      "back": "back to massages",
+      "classification": "classification",
+      "duration": "duration",
+      "forWhom": "for whom",
+      "book": "Book a session"
+    },
+    "massage": {
+      "meditsinskiy": {
+        "title": "medical massage",
+        "subtitle": "author's technique",
+        "description": "We bring back muscle tone so the lightness lasts. We address the cause of pain and specific tension points, tailoring the technique and intensity to each client.",
+        "classification": "therapy",
+        "duration": "45\\60\\90",
+        "forWhom": "everyone"
+      },
+      "massazh-litsa": {
+        "title": "facial massage",
+        "subtitle": "author's technique",
+        "description": "We bring back muscle tone so the lightness lasts. We address the cause of pain and specific tension points, tailoring the technique and intensity to each client.",
+        "classification": "aesthetics",
+        "duration": "45\\60",
+        "forWhom": "everyone"
+      },
+      "dlya-par": {
+        "title": "massage for couples",
+        "subtitle": "author's technique",
+        "description": "We bring back muscle tone so the lightness lasts. We address the cause of pain and specific tension points, tailoring the technique and intensity to each client.",
+        "classification": "special format",
+        "duration": "60\\90",
+        "forWhom": "couples"
+      },
+      "relaks": {
+        "title": "relax",
+        "subtitle": "author's technique",
+        "description": "We bring back muscle tone so the lightness lasts. We help you restore your resources, feel tone in your body and return to deep, quality rest.",
+        "classification": "relax & aesthetics",
+        "duration": "45\\60\\90",
+        "forWhom": "everyone"
+      },
+      "sport": {
+        "title": "sports massage",
+        "subtitle": "author's technique",
+        "description": "We bring back muscle tone so the lightness lasts. We tailor the technique and intensity to each client to support recovery after training.",
+        "classification": "therapy & wellness",
+        "duration": "45\\60\\90",
+        "forWhom": "athletes"
+      },
+      "glubokotkanniy": {
+        "title": "deep tissue",
+        "subtitle": "author's technique",
+        "description": "We bring back muscle tone so the lightness lasts. We address the cause of pain and specific tension points, tailoring the technique and intensity to each client.",
+        "classification": "therapy & wellness",
+        "duration": "60\\90",
+        "forWhom": "everyone"
+      },
+      "shvedskiy": {
+        "title": "swedish massage",
+        "subtitle": "classic technique",
+        "description": "We bring back muscle tone so the lightness lasts. We help you restore your resources, feel tone in your body and return to deep, quality rest.",
+        "classification": "relax & aesthetics",
+        "duration": "45\\60",
+        "forWhom": "everyone"
+      },
+      "limfaticheskiy": {
+        "title": "lymphatic drainage",
+        "subtitle": "author's technique",
+        "description": "We bring back muscle tone so the lightness lasts. We address the cause of pain and specific tension points, tailoring the technique and intensity to each client.",
+        "classification": "therapy & wellness",
+        "duration": "45\\60\\90",
+        "forWhom": "everyone"
+      },
+      "anti-tsellyulit": {
+        "title": "anti-cellulite",
+        "subtitle": "author's technique",
+        "description": "We bring back muscle tone so the lightness lasts. We help you restore your resources, feel tone in your body and return to deep, quality rest.",
+        "classification": "relax & aesthetics",
+        "duration": "45\\60\\90",
+        "forWhom": "everyone"
+      }
+    },
     "label": {
       "0": "relax",
       "1": "sports",

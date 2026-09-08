@@ -5,9 +5,10 @@ import styles from './StudioCard.module.css'
 interface StudioCardProps {
   index: number
   className?: string
+  to?: string
 }
 
-export function StudioCard({ index, className }: StudioCardProps) {
+export function StudioCard({ index, className, to }: StudioCardProps) {
   return (
     <article className={[styles.card, className].filter(Boolean).join(' ')} data-test-id={`service-card-${index}`}>
       <h3 className={styles.title}>
@@ -19,7 +20,7 @@ export function StudioCard({ index, className }: StudioCardProps) {
       <p className={styles.body}>
         <Message id={`servicesPage.card.${index}.body`} />
       </p>
-      <Button variant="inverse" to="/contacts" className={styles.cta} data-test-id={`service-card-${index}-cta`}>
+      <Button variant="inverse" to={to ?? '/contacts'} className={styles.cta} data-test-id={`service-card-${index}-cta`}>
         <Message id="servicesPage.more" />
       </Button>
     </article>

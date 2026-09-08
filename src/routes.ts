@@ -7,3 +7,7 @@ export const ROUTES = {
 } as const
 
 export type RouteKey = keyof typeof ROUTES
+
+export function massageRoute(id: string): string {
+  return `${ROUTES.services}/${id}`
+}
