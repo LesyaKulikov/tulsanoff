@@ -1,0 +1,14 @@
+.cta {
+  position: relative;
+}
+
+.image {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  width: 100vw;
+  max-width: none;
+  height: 461px;
+  object-fit: cover;
+}

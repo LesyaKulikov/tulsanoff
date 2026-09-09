@@ -240,6 +240,32 @@
       "cta": "Book a session"
     }
   },
+  "aboutPage": {
+    "studio": {
+      "chip": "Petah Tikva",
+      "heading": "Our studio"
+    },
+    "intro": {
+      "brand": "tulsanoff",
+      "tagline": "long-term effect",
+      "body": "We bring back muscle tone so the lightness lasts"
+    },
+    "masters": {
+      "0": {
+        "name": "Mark Tulsanoff",
+        "tagline": "long-term effect",
+        "body": "We bring back muscle tone so the lightness lasts"
+      },
+      "1": {
+        "name": "Larisa Kulikova",
+        "tagline": "long-term effect",
+        "body": "We bring back muscle tone so the lightness lasts"
+      }
+    },
+    "faq": {
+      "heading": "FREQUENTLY ASKED QUESTIONS"
+    }
+  },
   "footer": {
     "addresses": {
       "heading": "ADDRESSES",

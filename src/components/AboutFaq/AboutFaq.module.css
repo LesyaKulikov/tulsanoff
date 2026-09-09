@@ -1,0 +1,38 @@
+.faq {
+  padding: 138px var(--gutter) 137px;
+  color: var(--text);
+}
+
+.heading {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.36;
+  margin-bottom: 60px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+}
+
+.row {
+  composes: glass from global;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 54px;
+  padding: 9px 15px;
+}
+
+.question {
+  font-size: 20px;
+  line-height: 1.44;
+}
+
+.row svg {
+  flex-shrink: 0;
+}

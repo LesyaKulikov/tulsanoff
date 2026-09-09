@@ -1,0 +1,45 @@
+.intro {
+  padding: 68px var(--gutter) 0;
+  color: var(--text);
+}
+
+.card {
+  composes: glass from global;
+  display: flex;
+  justify-content: space-between;
+  gap: 92px;
+  padding: 60px 42px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.title {
+  font-family: var(--display);
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.22;
+  white-space: nowrap;
+}
+
+.tagline {
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.44;
+}
+
+.body {
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  line-height: 1.44;
+  flex: 0 0 auto;
+  max-width: 385px;
+}

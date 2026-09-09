@@ -1,10 +1,19 @@
-import { Message } from '../i18n/Message'
-import styles from './Page.module.css'
+import { AboutHero } from '../components/AboutHero/AboutHero'
+import { AboutGallery } from '../components/AboutGallery/AboutGallery'
+import { AboutIntro } from '../components/AboutIntro/AboutIntro'
+import { AboutMasters } from '../components/AboutMasters/AboutMasters'
+import { AboutFaq } from '../components/AboutFaq/AboutFaq'
+import { AboutCta } from '../components/AboutCta/AboutCta'
 
 export function AboutPage() {
   return (
-    <section className={styles.page} data-test-id="about-page">
-      <Message id="about.heading" />
-    </section>
+    <>
+      <AboutHero />
+      <AboutGallery />
+      <AboutIntro />
+      <AboutMasters />
+      <AboutFaq />
+      <AboutCta />
+    </>
   )
 }

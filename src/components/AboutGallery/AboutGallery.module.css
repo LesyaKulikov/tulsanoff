@@ -1,0 +1,39 @@
+.gallery {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: none;
+  height: 383px;
+  margin-top: 36px;
+  overflow: hidden;
+}
+
+.strip {
+  display: flex;
+  gap: 24px;
+  height: 100%;
+}
+
+.tile {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tile:nth-child(1) {
+  flex-grow: 3.4;
+}
+
+.tile:nth-child(2) {
+  flex-grow: 1.9;
+}
+
+.tile:nth-child(3) {
+  flex-grow: 2.4;
+}
+
+.tile:nth-child(4) {
+  flex-grow: 2.4;
+}
