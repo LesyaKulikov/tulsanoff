@@ -4,7 +4,6 @@ import { Masters } from '../components/Masters/Masters'
 import { Story } from '../components/Story/Story'
 import { Testimonials } from '../components/Testimonials/Testimonials'
 import { FaqList } from '../components/FaqList/FaqList'
-import { CtaBand } from '../components/CtaBand/CtaBand'
 import { Hero } from '../components/Hero/Hero'
 
 export function HomePage() {
@@ -17,7 +16,6 @@ export function HomePage() {
       <Story />
       <Testimonials />
       <FaqList />
-      <CtaBand />
     </>
   )
 }

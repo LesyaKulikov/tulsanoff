@@ -19,10 +19,6 @@ export function LoyaltyCard() {
       <Button to="/contacts" className={styles.cta} data-test-id="services-loyalty-cta">
         <Message id="servicesPage.loyalty.cta" />
       </Button>
-
-      <div className={styles.strip} data-test-id="services-loyalty-strip">
-        <img className={styles.stripPhoto} src="/images/cta-band.png" alt="" />
-      </div>
     </section>
   )
 }
