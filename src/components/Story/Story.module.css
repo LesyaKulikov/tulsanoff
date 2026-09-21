@@ -1,5 +1,5 @@
 .story {
-  padding: 170px var(--gutter) 0;
+  padding: 90px var(--gutter) 90px;
   color: var(--text);
 }
 

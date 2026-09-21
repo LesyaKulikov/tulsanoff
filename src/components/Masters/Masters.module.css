@@ -1,12 +1,13 @@
 .masters {
-  padding: 160px var(--gutter) 0;
+  padding: 90px var(--gutter) 90px;
   color: var(--text);
 }
 
 .heading {
+  font-family: var(--display);
   font-size: 64px;
-  font-weight: 500;
-  letter-spacing: -1.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 72px;
 }
@@ -50,10 +51,18 @@
 }
 
 .name {
-  font-size: 72px;
-  font-weight: 500;
-  letter-spacing: -0.5px;
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 144%;
+  letter-spacing: 10%;
   text-transform: uppercase;
+}
+
+@media (min-width: 1500px) {
+  .name {
+    font-size: 36px;
+  }
 }
 
 .note {

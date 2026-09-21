@@ -2,9 +2,9 @@ import { Message } from '../../i18n/Message'
 import styles from './Testimonials.module.css'
 
 const REVIEWS = [
-  { n: '0' },
-  { n: '1' },
-  { n: '2' },
+  { n: '0', src: '/images/avatar-1.png' },
+  { n: '1', src: '/images/avatar-2.png' },
+  { n: '2', src: '/images/avatar-3.png' },
 ] as const
 
 function Stars() {
@@ -32,13 +32,16 @@ export function Testimonials() {
       <div className={styles.row}>
         {REVIEWS.map((review) => (
           <article key={review.n} className={styles.card} data-test-id={`review-card-${review.n}`}>
-            <span className={styles.name}>
-              <Message id={`testimonials.${review.n}.name`} />
-            </span>
-            <Stars />
-            <p className={styles.body}>
-              <Message id={`testimonials.${review.n}.body`} />
-            </p>
+            <img className={styles.avatar} src={review.src} alt="" />
+            <div className={styles.meta}>
+              <span className={styles.name}>
+                <Message id={`testimonials.${review.n}.name`} />
+              </span>
+              <Stars />
+              <p className={styles.body}>
+                <Message id={`testimonials.${review.n}.body`} />
+              </p>
+            </div>
           </article>
         ))}
       </div>
