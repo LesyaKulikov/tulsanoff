@@ -1,13 +1,13 @@
 .testimonials {
   position: relative;
-  padding: 90px 0 90px;
+  padding: 120px 0 120px;
   color: var(--text);
 }
 
 .heading {
   position: absolute;
   left: var(--gutter);
-  top: 90px;
+  top: 120px;
   font-family: var(--display);
   font-size: 64px;
   font-weight: 700;
@@ -18,7 +18,7 @@
 .row {
   display: flex;
   gap: 24px;
-  padding: 170px var(--gutter) 0;
+  padding: 200px var(--gutter) 0;
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;

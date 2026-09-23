@@ -1,5 +1,5 @@
 .masters {
-  padding: 90px var(--gutter) 90px;
+  padding: 120px var(--gutter) 120px;
   color: var(--text);
 }
 
@@ -9,7 +9,7 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 72px;
+  margin-bottom: 60px;
 }
 
 .grid {
@@ -45,14 +45,21 @@
   bottom: 0;
   padding: 36px;
   display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.info {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0;
+  min-width: 0;
 }
 
 .name {
   font-family: var(--display);
-  font-size: 24px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 144%;
   letter-spacing: 10%;
@@ -61,7 +68,7 @@
 
 @media (min-width: 1500px) {
   .name {
-    font-size: 36px;
+    font-size: 54px;
   }
 }
 
@@ -69,6 +76,5 @@
   font-size: 24px;
   opacity: 0.92;
   max-width: 360px;
-  margin-bottom: 14px;
   white-space: nowrap;
 }

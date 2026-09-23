@@ -1,4 +1,5 @@
 import { Message } from '../../i18n/Message'
+import { ROUTES } from '../../routes'
 import { Button } from '../Button/Button'
 import styles from './Masters.module.css'
 
@@ -20,13 +21,15 @@ export function Masters() {
             <img className={styles.photo} src={card.src} alt="" />
             <div className={styles.overlay} />
             <div className={styles.text}>
-              <h3 className={styles.name}>
-                <Message id={`masters.${card.n}.name`} />
-              </h3>
-              <p className={styles.note}>
-                <Message id={`masters.${card.n}.note`} />
-              </p>
-              <Button variant="primary" href="#cta" data-test-id={`master-card-${card.n}-cta`}>
+              <div className={styles.info}>
+                <h3 className={styles.name}>
+                  <Message id={`masters.${card.n}.name`} />
+                </h3>
+                <p className={styles.note}>
+                  <Message id={`masters.${card.n}.note`} />
+                </p>
+              </div>
+              <Button variant="primary" to={ROUTES.about} data-test-id={`master-card-${card.n}-cta`}>
                 <Message id={`masters.${card.n}.cta`} />
               </Button>
             </div>

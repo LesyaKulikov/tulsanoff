@@ -1,6 +1,6 @@
 .services {
   container-type: inline-size;
-  padding: 90px var(--gutter) 90px;
+  padding: 120px var(--gutter) 120px;
   color: var(--text);
 }
 
@@ -9,7 +9,7 @@
   font-size: 64px;
   font-weight: 700;
   letter-spacing: 0.06em;
-  margin-bottom: 29px;
+  margin-bottom: 60px;
 }
 
 .categories {
