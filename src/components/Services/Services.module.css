@@ -1,4 +1,5 @@
 .services {
+  container-type: inline-size;
   padding: 90px var(--gutter) 90px;
   color: var(--text);
 }
@@ -69,11 +70,14 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 26px;
   row-gap: 30px;
+  align-content: start;
+  min-height: calc((100cqw - 26px) * 269 / 551 + 30px);
 }
 
 @media (max-width: 1200px) {
   .grid {
     grid-template-columns: 1fr;
+    min-height: calc(100cqw * 269 / 551 * 4 + 90px);
   }
 }
 
