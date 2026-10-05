@@ -25,9 +25,6 @@ export function Masters() {
                 <h3 className={styles.name}>
                   <Message id={`masters.${card.n}.name`} />
                 </h3>
-                <p className={styles.note}>
-                  <Message id={`masters.${card.n}.note`} />
-                </p>
               </div>
               <Button variant="primary" to={ROUTES.about} data-test-id={`master-card-${card.n}-cta`}>
                 <Message id={`masters.${card.n}.cta`} />

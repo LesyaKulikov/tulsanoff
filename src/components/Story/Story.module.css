@@ -5,7 +5,7 @@
 
 .heading {
   font-family: var(--display);
-  font-size: 64px;
+  font-size: 42px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-align: center;
@@ -60,4 +60,10 @@
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
   margin-left: 8px;
+}
+
+@media (min-width: 1500px) {
+  .heading {
+    font-size: 64px;
+  }
 }
