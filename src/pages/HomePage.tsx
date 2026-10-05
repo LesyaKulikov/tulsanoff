@@ -5,11 +5,13 @@ import { Story } from '../components/Story/Story'
 import { Testimonials } from '../components/Testimonials/Testimonials'
 import { FaqList } from '../components/FaqList/FaqList'
 import { Hero } from '../components/Hero/Hero'
+import { Promise } from '../components/Promise/Promise'
 
 export function HomePage() {
   return (
     <>
       <Hero />
+      <Promise />
       <Approach />
       <Services />
       <Masters />
