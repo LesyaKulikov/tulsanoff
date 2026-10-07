@@ -1,6 +1,6 @@
 .promise {
   margin-left: calc(50% - 50vw);
-  padding: 90px var(--gutter) 90px 0;
+  padding: 180px var(--gutter) 90px 0;
   color: var(--text);
 }
 

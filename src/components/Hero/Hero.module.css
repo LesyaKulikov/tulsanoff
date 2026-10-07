@@ -107,6 +107,7 @@
   composes: glass from global;
   width: 64px;
   height: 64px;
+  border: none;
   border-radius: 32px;
   display: flex;
   align-items: center;

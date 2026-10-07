@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Arrow } from '../Arrow/Arrow'
+import { BlinkText } from '../BlinkText/BlinkText'
 import { Button } from '../Button/Button'
 import { Message } from '../../i18n/Message'
 import { ROUTES } from '../../routes'
@@ -18,7 +19,7 @@ export function Header() {
       <nav className={styles.nav} aria-label="main" data-test-id="nav">
         {NAV_LINKS.map((link) => (
           <Link key={link.key} className={styles.navLink} to={link.to} data-test-id={`nav-link-${link.key}`}>
-            <Message id={`nav.${link.key}`} />
+            <BlinkText id={`nav.${link.key}`} />
           </Link>
         ))}
       </nav>
