@@ -27,6 +27,7 @@
 }
 
 .num {
+  font-family: var(--display);
   font-size: 84px;
   font-weight: 700;
   line-height: 136%;
@@ -35,6 +36,7 @@
 }
 
 .title {
+  font-family: var(--display);
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 10%;
@@ -45,7 +47,6 @@
   font-size: 14px;
   line-height: 144%;
   letter-spacing: 10%;
-  max-width: 280px;
 }
 
 @media (min-width: 1500px) {
