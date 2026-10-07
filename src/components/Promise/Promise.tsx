@@ -7,7 +7,7 @@ export function Promise() {
       <div className={styles.band}>
         <img
           className={styles.lead}
-          src="/images/big-card-a.jpg"
+          src="/images/promise-lead.jpg"
           alt=""
           data-test-id="promise-media-lead"
         />
