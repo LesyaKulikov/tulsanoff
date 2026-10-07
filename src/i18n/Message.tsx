@@ -4,7 +4,7 @@ import { resolveMessage, type LocaleKey } from './messages'
 
 interface MessageProps {
   id: string
-  values?: Record<string, ReactNode>
+  values?: Record<string, ReactNode | ((chunks: ReactNode) => ReactNode)>
 }
 
 /**

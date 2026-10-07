@@ -1,4 +1,5 @@
 .promise {
+  margin-left: calc(50% - 50vw);
   padding: 90px var(--gutter) 90px 0;
   color: var(--text);
 }
@@ -23,14 +24,19 @@
   flex-direction: column;
   gap: 55px;
   text-align: left;
+  container-type: inline-size;
 }
 
 .title {
   font-family: var(--display);
-  font-size: 44px;
+  font-size: clamp(44px, 6.5cqw, 120px);
   font-weight: 700;
   letter-spacing: 0.02em;
   line-height: 1.2;
+}
+
+.accent {
+  color: var(--accent);
 }
 
 .body {
@@ -47,10 +53,6 @@
   .copy {
     flex: 1114 1 0;
     gap: clamp(55px, calc(4vw - 5px), 72px);
-  }
-
-  .title {
-    font-size: clamp(48px, calc(4vw - 12px), 64px);
   }
 
   .body {

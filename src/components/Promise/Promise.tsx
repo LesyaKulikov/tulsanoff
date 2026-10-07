@@ -14,7 +14,12 @@ export function Promise() {
 
         <div className={styles.copy} data-test-id="promise-copy">
           <h2 className={styles.title} data-test-id="promise-title">
-            <Message id="promise.title" />
+            <Message
+              id="promise.title"
+              values={{
+                accent: (chunks) => <span className={styles.accent}>{chunks}</span>,
+              }}
+            />
           </h2>
           <p className={styles.body} data-test-id="promise-body">
             <Message id="promise.body" />
