@@ -1,68 +1,59 @@
 .promise {
-  --stagger: clamp(72px, 5.6vw, 108px);
-  padding: 120px var(--gutter) 120px;
+  padding: 90px var(--gutter) 90px 0;
   color: var(--text);
 }
 
 .band {
   display: flex;
-  align-items: flex-start;
-  gap: 95px;
+  align-items: center;
+  gap: 26px;
 }
 
 .lead {
-  flex: 380 1 0;
+  flex: 418 1 0;
   min-width: 0;
-  aspect-ratio: 380 / 409;
-  object-fit: cover;
-}
-
-.trail {
-  flex: 380 1 0;
-  min-width: 0;
-  margin-top: var(--stagger);
-  aspect-ratio: 380 / 435;
+  aspect-ratio: 418 / 307;
   object-fit: cover;
 }
 
 .copy {
-  flex: 658 1 0;
+  flex: 828 1 0;
   min-width: 0;
-  margin-top: var(--stagger);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 36px;
-  text-align: center;
-}
-
-.lede {
-  max-width: 580px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
+  gap: 55px;
+  text-align: left;
 }
 
 .title {
-  max-width: 518px;
   font-family: var(--display);
-  font-size: 36px;
+  font-size: 44px;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  line-height: 1.36;
-}
-
-.tagline {
-  font-family: var(--display);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  line-height: 1.73;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
 }
 
 .body {
-  font-size: 20px;
-  line-height: 1.44;
-  letter-spacing: 0.1em;
+  font-size: 24px;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 1500px) {
+  .lead {
+    flex: 624 1 0;
+  }
+
+  .copy {
+    flex: 1114 1 0;
+    gap: clamp(55px, calc(4vw - 5px), 72px);
+  }
+
+  .title {
+    font-size: clamp(48px, calc(4vw - 12px), 64px);
+  }
+
+  .body {
+    font-size: clamp(24px, calc(2vw - 6px), 32px);
+  }
 }
