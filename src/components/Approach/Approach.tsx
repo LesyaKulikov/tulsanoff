@@ -6,6 +6,10 @@ const STEPS = ['0', '1', '2'] as const
 export function Approach() {
   return (
     <section className={styles.approach} data-test-id="approach">
+      <h2 className={styles.heading} data-test-id="approach-heading">
+        <Message id="approach.heading" />
+      </h2>
+
       <div className={styles.grid}>
         {STEPS.map((n) => (
           <article key={n} className={styles.card} data-test-id={`approach-step-${n}`}>

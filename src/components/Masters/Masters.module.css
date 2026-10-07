@@ -21,7 +21,7 @@
 .card {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 551 / 667;
+  aspect-ratio: 552 / 537;
 }
 
 .photo {
@@ -35,7 +35,12 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.82) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(5, 7, 5, 0) 0%,
+    rgba(5, 7, 5, 0.15) 36%,
+    rgba(5, 7, 5, 0.6) 100%
+  );
 }
 
 .text {
@@ -43,27 +48,66 @@
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 36px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.info {
+  padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  min-width: 0;
+  gap: 12px;
 }
 
 .name {
   font-family: var(--display);
-  font-size: 36px;
+  font-size: 64px;
   font-weight: 700;
-  line-height: 144%;
+  line-height: 121.75%;
+  letter-spacing: 6%;
+}
+
+.role {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 173%;
   letter-spacing: 10%;
-  text-transform: uppercase;
+}
+
+.hoverOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 7, 5, 0.66);
+  backdrop-filter: blur(11.4px);
+  -webkit-backdrop-filter: blur(11.4px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hoverLink {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hoverText {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 8%;
+  line-height: 30px;
+  color: #fff;
+}
+
+.card:hover .hoverOverlay {
+  opacity: 1;
+}
+
+.card:hover .hoverLink {
+  opacity: 1;
 }
 
 @media (min-width: 1500px) {
@@ -72,7 +116,7 @@
   }
 
   .name {
-    font-size: 54px;
+    font-size: 64px;
   }
 
 }

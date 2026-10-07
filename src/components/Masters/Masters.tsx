@@ -1,6 +1,5 @@
 import { Message } from '../../i18n/Message'
-import { ROUTES } from '../../routes'
-import { Button } from '../Button/Button'
+import { Arrow } from '../Arrow/Arrow'
 import styles from './Masters.module.css'
 
 const CARDS = [
@@ -21,14 +20,19 @@ export function Masters() {
             <img className={styles.photo} src={card.src} alt="" />
             <div className={styles.overlay} />
             <div className={styles.text}>
-              <div className={styles.info}>
-                <h3 className={styles.name}>
-                  <Message id={`masters.${card.n}.name`} />
-                </h3>
-              </div>
-              <Button variant="primary" to={ROUTES.about} data-test-id={`master-card-${card.n}-cta`}>
+              <h3 className={styles.name}>
+                <Message id={`masters.${card.n}.name`} />
+              </h3>
+              <p className={styles.role}>
+                <Message id={`masters.${card.n}.role`} />
+              </p>
+            </div>
+            <div className={styles.hoverOverlay} />
+            <div className={styles.hoverLink}>
+              <span className={styles.hoverText}>
                 <Message id={`masters.${card.n}.cta`} />
-              </Button>
+              </span>
+              <Arrow style={{ width: 16, height: 16 }} />
             </div>
           </article>
         ))}

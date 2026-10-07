@@ -3,6 +3,14 @@
   color: var(--text);
 }
 
+.heading {
+  font-family: var(--display);
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 60px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -41,6 +49,10 @@
 }
 
 @media (min-width: 1500px) {
+  .heading {
+    font-size: 64px;
+  }
+
   .card {
     height: 452px;
   }

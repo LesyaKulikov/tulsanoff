@@ -17,6 +17,7 @@
     "body": "Instead of standard schemes we use targeted diagnostics and authorial healing techniques aimed precisely at your problem."
   },
   "approach": {
+    "heading": "our approach",
     "note": "We help you restore your resources, feel tone in your body and return to deep, quality rest.",
     "0": {
       "num": "01",
@@ -68,12 +69,12 @@
     "heading": "our masters",
     "0": {
       "name": "Mark Tulsanoff",
-      "note": "We bring back muscle tone so the lightness lasts",
+      "role": "specialist in therapeutic massage",
       "cta": "Learn more"
     },
     "1": {
       "name": "Larisa Kulikova",
-      "note": "We bring back muscle tone so the lightness lasts",
+      "role": "specialist in medical massage",
       "cta": "Learn more"
     }
   },
