@@ -101,20 +101,20 @@
   "faq": {
     "heading": "FREQUENTLY ASKED QUESTIONS",
     "0": {
-      "label": "HOW TO BOOK A MASSAGE?",
-      "body": "We bring back muscle tone so the lightness lasts"
+      "label": "How to prepare for a massage session?",
+      "body": "Avoid heavy meals 1.5 hours before the session. It is advisable to take a hygienic shower before the procedure."
     },
     "1": {
-      "label": "WHY IS A MASSAGE NEEDED?"
+      "label": "Which massage to choose if it's my first time?",
+      "body": "For the first time, a classic relaxing full-body massage or a back and neck massage is a great choice."
     },
     "2": {
-      "label": "WHO AM I?"
+      "label": "How many sessions are needed for a noticeable effect?",
+      "body": "To relieve severe tension and improve health, a course of 8–10 sessions 2–3 times per week is recommended. For maintenance, 1 session per week is enough."
     },
     "3": {
-      "label": "WHO IS IT FOR?"
-    },
-    "4": {
-      "label": "HOW OFTEN DO YOU NEED A MASSAGE"
+      "label": "Is it normal to feel pain after a massage?",
+      "body": "Mild soreness (like after a workout) for 1–2 days after deep muscle work is a normal body reaction."
     }
   },
   "cta": {

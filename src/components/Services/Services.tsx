@@ -45,7 +45,7 @@ export function Services() {
         ))}
       </div>
 
-      <div className={styles.grid}>
+      <div className={styles.grid} key={active}>
         {CARDS[active].map((card) => (
           <a
             key={card.n}

@@ -1,15 +1,16 @@
 .services {
   container-type: inline-size;
-  padding: 120px var(--gutter) 120px;
+  padding: 90px var(--gutter) 90px;
   color: var(--text);
 }
 
 .heading {
   font-family: var(--display);
-  font-size: 42px;
+  font-size: 64px;
   font-weight: 700;
   letter-spacing: 0.06em;
-  margin-bottom: 60px;
+  line-height: 121.75%;
+  margin-bottom: 29px;
 }
 
 .categories {
@@ -19,6 +20,7 @@
 
 .category,
 .categoryActive {
+  position: relative;
   height: 57px;
   flex: 1 1 0;
   display: flex;
@@ -26,43 +28,52 @@
   justify-content: center;
   padding: 0 10px;
   font-family: var(--display);
-  font-weight: 400;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  line-height: 30px;
   border: 0;
-  border-bottom: 1px solid var(--text);
   background: transparent;
   transition:
-    color 0.15s ease,
-    border-color 0.15s ease,
-    background 0.15s ease;
+    color 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .category {
-  font-size: 16px;
   color: var(--text);
-  letter-spacing: 0.1em;
+  opacity: 0.6;
 }
 
 .category:hover {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 251, 248, 0) 0%,
-    rgba(255, 251, 248, 0.08) 100%
-  );
+  opacity: 1;
 }
 
 .categoryActive {
-  font-size: 16px;
-  font-weight: 700;
   color: var(--accent);
-  border-bottom-color: var(--accent);
+  opacity: 1;
 }
 
-.categoryActive:hover {
-  background: linear-gradient(
-    180deg,
-    rgba(212, 249, 200, 0) 0%,
-    rgba(212, 249, 200, 0.08) 100%
-  );
+.categoryActive::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: var(--accent);
+  animation: tab-underline 0.3s ease;
+}
+
+@keyframes tab-underline {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
 }
 
 .grid {
@@ -72,6 +83,16 @@
   row-gap: 30px;
   align-content: start;
   min-height: calc((100cqw - 26px) * 269 / 551 + 30px);
+  animation: dissolve 0.3s ease;
+}
+
+@keyframes dissolve {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -131,7 +152,7 @@
   font-family: var(--display);
   font-size: 16px;
   font-weight: 700;
-  line-height: 144%;
+  line-height: 173%;
   letter-spacing: 0.1em;
   color: var(--text);
   white-space: nowrap;
@@ -159,16 +180,3 @@
   color: var(--accent);
 }
 
-@media (min-width: 1500px) {
-  .heading {
-    font-size: 64px;
-  }
-
-  .categoryActive {
-    font-size: 20px;
-  }
-
-  .label {
-    font-size: 24px;
-  }
-}

@@ -1,21 +1,21 @@
 .faq {
-  padding: 120px var(--gutter) 120px;
+  padding: 90px var(--gutter) 90px;
   color: var(--text);
 }
 
 .heading {
   font-family: var(--display);
-  font-size: 42px;
+  font-size: 64px;
   font-weight: 700;
-  letter-spacing: 6%;
+  letter-spacing: 0.06em;
   line-height: 121.75%;
-  margin-bottom: 60px;
+  margin-bottom: 25px;
 }
 
 .panel {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 0;
 }
 
 .row {
@@ -23,9 +23,16 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 9px 15px;
-  border: 1px solid rgba(213, 213, 213, 0.3);
+  padding: 20px 15px;
+  border-top: 1px solid rgba(213, 213, 213, 0.3);
+  border-bottom: 1px solid rgba(213, 213, 213, 0.3);
   background: transparent;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.row + .row {
+  border-top: none;
 }
 
 .open {
@@ -37,41 +44,54 @@
 }
 
 .label {
-  font-size: 14px;
+  font-family: var(--display);
+  font-size: 16px;
   font-weight: 400;
-  line-height: 144%;
+  line-height: 173%;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
 }
 
 .open .label {
-  font-family: var(--display);
   font-weight: 700;
+  color: var(--accent);
 }
 
 .details {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 10px;
   width: 100%;
 }
 
 .body {
-  font-size: 14px;
-  line-height: 144%;
-  letter-spacing: 10%;
-  max-width: 740px;
-  opacity: 0.9;
+  font-size: 16px;
+  line-height: 173%;
+  letter-spacing: 0.1em;
+  max-width: 1000px;
+  animation: fadeIn 0.3s ease;
 }
 
-@media (min-width: 1500px) {
-  .heading {
-    font-size: 64px;
-  }
+.icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: transform 0.3s ease;
+}
 
-  .label {
-    font-size: 20px;
-  }
+.iconOpen {
+  transform: rotate(45deg);
+}
 
-  .body {
-    font-size: 20px;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
