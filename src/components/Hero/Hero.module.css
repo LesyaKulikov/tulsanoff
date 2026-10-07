@@ -113,11 +113,18 @@
   align-items: center;
   justify-content: center;
   color: var(--text);
-  transition: opacity 0.2s;
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease;
 }
 
 .socialBtn:hover {
-  opacity: 0.85;
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.socialBtn:active {
+  transform: translateY(0);
 }
 
 @media (min-width: 1500px) {
