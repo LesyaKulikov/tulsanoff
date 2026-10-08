@@ -308,9 +308,9 @@
     },
     "cta": "Book Now",
     "social": {
+      "tgAlt": "Telegram",
       "igAlt": "Instagram",
-      "fbAlt": "Facebook",
-      "waAlt": "WhatsApp"
+      "fbAlt": "Facebook"
     }
   }
 }

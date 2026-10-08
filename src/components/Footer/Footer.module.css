@@ -45,23 +45,29 @@
 
 .socials {
   display: flex;
-  gap: 16px;
+  gap: 10px;
 }
 
 .social {
+  composes: glass from global;
   width: 64px;
   height: 64px;
-  border-radius: 50%;
-  background: var(--panel);
+  border: none;
+  border-radius: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text);
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease;
 }
 
-.social img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  opacity: 1;
+.social:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.social:active {
+  transform: translateY(0);
 }
