@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Arrow } from '../Arrow/Arrow'
 import { BlinkText } from '../BlinkText/BlinkText'
-import { Button } from '../Button/Button'
+import { CtaButton } from '../CtaButton/CtaButton'
 import { Message } from '../../i18n/Message'
 import { ROUTES } from '../../routes'
 import { enter, fadeUp } from '../../animation/variants'
@@ -47,10 +46,7 @@ export function Header() {
         <button type="button" className={styles.lang} aria-label="Language" data-test-id="lang-toggle">
           <Message id="nav.lang" />
         </button>
-        <Button to={ROUTES.contacts} data-test-id="header-cta">
-          <Message id="nav.cta" />
-          <Arrow />
-        </Button>
+        <CtaButton testId="header-cta" />
       </motion.div>
     </motion.header>
   )

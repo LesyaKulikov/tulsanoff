@@ -2,8 +2,7 @@ import type { ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useIntl } from 'react-intl'
-import { Arrow } from '../Arrow/Arrow'
-import { Button } from '../Button/Button'
+import { CtaButton } from '../CtaButton/CtaButton'
 import { Message } from '../../i18n/Message'
 import { resolveMessage, type LocaleKey } from '../../i18n/messages'
 import { ROUTES } from '../../routes'
@@ -126,10 +125,7 @@ export function Footer() {
           })}
         </div>
 
-          <Button to={ROUTES.contacts} data-test-id="footer-book">
-            <Message id="footer.cta" />
-            <Arrow />
-          </Button>
+          <CtaButton messageId="footer.cta" testId="footer-book" />
         </motion.div>
       </footer>
   )
