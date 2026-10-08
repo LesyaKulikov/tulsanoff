@@ -79,10 +79,6 @@ export function Services() {
                   alt=""
                   data-test-id={`service-card-${card.n}-photo`}
                 />
-                <span
-                  className={styles.overlay}
-                  data-test-id={`service-card-${card.n}-overlay`}
-                />
               </div>
               <span
                 className={styles.labelBar}
