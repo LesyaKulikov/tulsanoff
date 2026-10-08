@@ -83,16 +83,6 @@
   row-gap: 30px;
   align-content: start;
   min-height: calc((100cqw - 26px) * 269 / 551 + 30px);
-  animation: dissolve 0.3s ease;
-}
-
-@keyframes dissolve {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 @media (max-width: 1200px) {

@@ -1,7 +1,9 @@
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Message } from '../../i18n/Message'
 import { StudioCard } from '../StudioCard/StudioCard'
 import { massageRoute } from '../../routes'
+import { reveal, fadeUp, scaleIn } from '../../animation/variants'
 import styles from './MassagesSection.module.css'
 
 const GRID = [
@@ -24,45 +26,56 @@ const PHOTO = [
   { n: '1', src: '/images/gallery-1.jpg' },
 ] as const
 
+const MotionLink = motion.create(Link)
+
 export function MassagesSection() {
   const cardClass = styles.card
   return (
     <section className={styles.massages} data-test-id="services-massages">
-      <h2 className={styles.heading} data-test-id="services-massages-heading">
+      <motion.h2
+        className={styles.heading}
+        data-test-id="services-massages-heading"
+        {...reveal(fadeUp(0, { duration: 0.8, distance: 32 }))}
+      >
         <Message id="servicesPage.heading" />
-      </h2>
+      </motion.h2>
 
-      <div className={styles.hero} data-test-id="services-massages-hero">
+      <motion.div
+        className={styles.hero}
+        data-test-id="services-massages-hero"
+        {...reveal(scaleIn(0.08, { from: 0.98, distance: 40, duration: 0.95 }))}
+      >
         <img className={styles.heroPhoto} src="/images/hero.jpg" alt="" />
         <StudioCard index={CARDS[0].index} className={cardClass} to={massageRoute(CARDS[0].slug)} />
-      </div>
+      </motion.div>
 
       <div className={styles.grid} data-test-id="services-massages-grid">
-        {GRID.map((card) => (
-          <Link
+        {GRID.map((card, i) => (
+          <MotionLink
             key={card.n}
             className={styles.tile}
             to={massageRoute(card.slug)}
             data-test-id={`services-massage-${card.n}`}
+            {...reveal(fadeUp(0.05 + (i % 3) * 0.09, { duration: 0.75, distance: 30 }))}
           >
             <img className={styles.tilePhoto} src={card.src} alt="" />
             <span className={styles.tileOverlay} />
             <span className={styles.tileLabel}>
               <Message id={`servicesPage.label.${card.n}`} />
             </span>
-          </Link>
+          </MotionLink>
         ))}
       </div>
 
-      <div className={styles.row}>
+      <motion.div className={styles.row} {...reveal(scaleIn(0.1, { from: 0.98, distance: 40, duration: 0.95 }))}>
         <StudioCard index={CARDS[1].index} className={cardClass} to={massageRoute(CARDS[1].slug)} />
         <img className={styles.rowPhoto} src={PHOTO[0].src} alt="" />
-      </div>
+      </motion.div>
 
-      <div className={styles.row}>
+      <motion.div className={styles.row} {...reveal(scaleIn(0.1, { from: 0.98, distance: 40, duration: 0.95 }))}>
         <img className={styles.rowPhoto} src={PHOTO[1].src} alt="" />
         <StudioCard index={CARDS[2].index} className={cardClass} to={massageRoute(CARDS[2].slug)} />
-      </div>
+      </motion.div>
     </section>
   )
 }

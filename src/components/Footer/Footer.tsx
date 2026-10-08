@@ -1,8 +1,10 @@
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Arrow } from '../Arrow/Arrow'
 import { Button } from '../Button/Button'
 import { Message } from '../../i18n/Message'
 import { ROUTES } from '../../routes'
+import { reveal, fadeUp } from '../../animation/variants'
 import styles from './Footer.module.css'
 
 const FOOTER_ROUTES = [ROUTES.about, ROUTES.certificates, ROUTES.services, ROUTES.contacts] as const
@@ -23,24 +25,32 @@ export function Footer() {
   return (
     <footer className={styles.footer} data-test-id="footer">
       <div className={styles.columns}>
-        {COLS.map((col) =>
+        {COLS.map((col, i) =>
           col.key === 'nav' ? (
-            <nav key={col.key} data-test-id={`footer-col-${col.key}`}>
+            <motion.nav
+              key={col.key}
+              data-test-id={`footer-col-${col.key}`}
+              {...reveal(fadeUp(i * 0.1, { duration: 0.75, distance: 30 }))}
+            >
               <h3 className={styles.columnHeading}>
                 <Message id={`footer.${col.key}.heading`} />
               </h3>
               <ul className={styles.linkList}>
-                {col.items.map((n, i) => (
+                {col.items.map((n, j) => (
                   <li key={n} className={styles.link} data-test-id={`footer-${col.key}-${n}`}>
-                    <Link to={FOOTER_ROUTES[i]}>
+                    <Link to={FOOTER_ROUTES[j]}>
                       <Message id={`footer.${col.key}.${n}`} />
                     </Link>
                   </li>
                 ))}
               </ul>
-            </nav>
+            </motion.nav>
           ) : (
-            <nav key={col.key} data-test-id={`footer-col-${col.key}`}>
+            <motion.nav
+              key={col.key}
+              data-test-id={`footer-col-${col.key}`}
+              {...reveal(fadeUp(i * 0.1, { duration: 0.75, distance: 30 }))}
+            >
               <h3 className={styles.columnHeading}>
                 <Message id={`footer.${col.key}.heading`} />
               </h3>
@@ -51,12 +61,12 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </nav>
+            </motion.nav>
           ),
         )}
       </div>
 
-      <div className={styles.bottom}>
+      <motion.div className={styles.bottom} {...reveal(fadeUp(0.3, { duration: 0.75, distance: 30 }))}>
         <div className={styles.socials}>
           {SOCIALS.map((social, i) => (
             <Link
@@ -80,11 +90,11 @@ export function Footer() {
           ))}
         </div>
 
-        <Button to={ROUTES.contacts} data-test-id="footer-book">
-          <Message id="footer.cta" />
-          <Arrow />
-        </Button>
-      </div>
-    </footer>
+          <Button to={ROUTES.contacts} data-test-id="footer-book">
+            <Message id="footer.cta" />
+            <Arrow />
+          </Button>
+        </motion.div>
+      </footer>
   )
 }

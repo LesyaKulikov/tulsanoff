@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
 import { Arrow } from '../Arrow/Arrow'
+import { reveal, fadeUp, scaleIn } from '../../animation/variants'
 import styles from './Masters.module.css'
 
 const CARDS = [
@@ -10,13 +12,22 @@ const CARDS = [
 export function Masters() {
   return (
     <section className={styles.masters} data-test-id="masters">
-      <h2 className={styles.heading} data-test-id="masters-heading">
+      <motion.h2
+        className={styles.heading}
+        data-test-id="masters-heading"
+        {...reveal(fadeUp(0, { duration: 0.8, distance: 32 }))}
+      >
         <Message id="masters.heading" />
-      </h2>
+      </motion.h2>
 
       <div className={styles.grid}>
-        {CARDS.map((card) => (
-          <article key={card.n} className={styles.card} data-test-id={`master-card-${card.n}`}>
+        {CARDS.map((card, i) => (
+          <motion.article
+            key={card.n}
+            className={styles.card}
+            data-test-id={`master-card-${card.n}`}
+            {...reveal(scaleIn(i * 0.12, { from: 0.97, distance: 44, duration: 0.95 }))}
+          >
             <img className={styles.photo} src={card.src} alt="" />
             <div className={styles.overlay} />
             <div className={styles.text}>
@@ -34,7 +45,7 @@ export function Masters() {
               </span>
               <Arrow style={{ width: 16, height: 16 }} />
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
     </section>

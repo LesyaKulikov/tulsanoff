@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
 import { Arrow } from '../Arrow/Arrow'
 import { massageRoute } from '../../routes'
+import { reveal, fadeUp, scaleIn, EASE } from '../../animation/variants'
 import styles from './Services.module.css'
 
 const CATS = ['cat0', 'cat1', 'cat2'] as const
@@ -26,11 +28,19 @@ export function Services() {
 
   return (
     <section className={styles.services} data-test-id="services">
-      <h2 className={styles.heading} data-test-id="services-heading">
+      <motion.h2
+        className={styles.heading}
+        data-test-id="services-heading"
+        {...reveal(fadeUp(0, { duration: 0.8, distance: 32 }))}
+      >
         <Message id="services.heading" />
-      </h2>
+      </motion.h2>
 
-      <div className={styles.categories} data-test-id="services-categories">
+      <motion.div
+        className={styles.categories}
+        data-test-id="services-categories"
+        {...reveal(fadeUp(0.1, { duration: 0.7, distance: 24 }))}
+      >
         {CATS.map((cat, i) => (
           <button
             type="button"
@@ -43,45 +53,52 @@ export function Services() {
             <Message id={`services.${cat}`} />
           </button>
         ))}
-      </div>
+      </motion.div>
 
-      <div className={styles.grid} key={active}>
-        {CARDS[active].map((card) => (
-          <a
-            key={card.n}
-            href={massageRoute(card.slug)}
-            className={styles.card}
-            data-test-id={`service-card-${card.n}`}
-          >
-            <div
-              className={styles.media}
-              data-test-id={`service-card-${card.n}-media`}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={active}
+          className={styles.grid}
+          exit={{ opacity: 0, transition: { duration: 0.2, ease: EASE } }}
+        >
+          {CARDS[active].map((card, i) => (
+            <motion.a
+              key={card.n}
+              href={massageRoute(card.slug)}
+              className={styles.card}
+              data-test-id={`service-card-${card.n}`}
+              {...reveal(scaleIn(i * 0.08, { from: 0.97, distance: 34, duration: 0.85 }))}
             >
-              <img
-                className={styles.photo}
-                src={card.src}
-                alt=""
-                data-test-id={`service-card-${card.n}-photo`}
-              />
+              <div
+                className={styles.media}
+                data-test-id={`service-card-${card.n}-media`}
+              >
+                <img
+                  className={styles.photo}
+                  src={card.src}
+                  alt=""
+                  data-test-id={`service-card-${card.n}-photo`}
+                />
+                <span
+                  className={styles.overlay}
+                  data-test-id={`service-card-${card.n}-overlay`}
+                />
+              </div>
               <span
-                className={styles.overlay}
-                data-test-id={`service-card-${card.n}-overlay`}
-              />
-            </div>
-            <span
-              className={styles.labelBar}
-              data-test-id={`service-card-${card.n}-label-bar`}
-            >
-              <span className={styles.label} data-test-id={`service-card-${card.n}-label`}>
-                <Message id={`services.${card.n}.label`} />
+                className={styles.labelBar}
+                data-test-id={`service-card-${card.n}-label-bar`}
+              >
+                <span className={styles.label} data-test-id={`service-card-${card.n}-label`}>
+                  <Message id={`services.${card.n}.label`} />
+                </span>
+                <span className={styles.arrow} data-test-id={`service-card-${card.n}-arrow`}>
+                  <Arrow style={{ width: 28, height: 28 }} />
+                </span>
               </span>
-              <span className={styles.arrow} data-test-id={`service-card-${card.n}-arrow`}>
-                <Arrow style={{ width: 28, height: 28 }} />
-              </span>
-            </span>
-          </a>
-        ))}
-      </div>
+            </motion.a>
+          ))}
+        </motion.div>
+      </AnimatePresence>
     </section>
   )
 }

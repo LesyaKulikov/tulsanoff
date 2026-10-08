@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
+import { reveal, fadeUp, scaleIn } from '../../animation/variants'
 import styles from './Testimonials.module.css'
 
 const REVIEWS = [
@@ -25,13 +27,22 @@ function Stars() {
 export function Testimonials() {
   return (
     <section className={styles.testimonials} data-test-id="testimonials">
-      <h2 className={styles.heading} data-test-id="testimonials-heading">
+      <motion.h2
+        className={styles.heading}
+        data-test-id="testimonials-heading"
+        {...reveal(fadeUp(0, { duration: 0.8, distance: 32 }))}
+      >
         <Message id="testimonials.heading" />
-      </h2>
+      </motion.h2>
 
       <div className={styles.row}>
-        {REVIEWS.map((review) => (
-          <article key={review.n} className={styles.card} data-test-id={`review-card-${review.n}`}>
+        {REVIEWS.map((review, i) => (
+          <motion.article
+            key={review.n}
+            className={styles.card}
+            data-test-id={`review-card-${review.n}`}
+            {...reveal(scaleIn(i * 0.1, { from: 0.98, distance: 36, duration: 0.9 }))}
+          >
             <img className={styles.avatar} src={review.src} alt="" />
             <div className={styles.meta}>
               <span className={styles.name}>
@@ -42,7 +53,7 @@ export function Testimonials() {
                 <Message id={`testimonials.${review.n}.body`} />
               </p>
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
     </section>

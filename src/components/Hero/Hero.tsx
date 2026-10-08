@@ -1,5 +1,7 @@
 import { useRef, useState, useCallback, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
+import { enter, fadeUp } from '../../animation/variants'
 import styles from './Hero.module.css'
 
 const VIDEOS = ['/hero-video1.mp4', '/hero-video2.mp4']
@@ -52,14 +54,18 @@ export function Hero() {
       <div className={styles.scrim} />
 
       <div className={styles.content}>
-        <span className={styles.chip} data-test-id="hero-chip">
+        <motion.span className={styles.chip} data-test-id="hero-chip" {...enter(fadeUp(0.15, { duration: 0.7, distance: 24 }))}>
           <Message id="hero.chip" />
-        </span>
+        </motion.span>
         <div className={styles.titleRow}>
-          <h1 className={styles.title} data-test-id="hero-title">
+          <motion.h1
+            className={styles.title}
+            data-test-id="hero-title"
+            {...enter(fadeUp(0.28, { duration: 0.9, distance: 44 }))}
+          >
             <Message id="hero.title" />
-          </h1>
-          <div className={styles.socials}>
+          </motion.h1>
+          <motion.div className={styles.socials} {...enter(fadeUp(0.5, { duration: 0.7, distance: 24 }))}>
             <a
               href="https://t.me/tulsanoff_massage_studio"
               target="_blank"
@@ -84,7 +90,7 @@ export function Hero() {
                 <path fillRule="evenodd" clipRule="evenodd" d="M7.5 1H16.5A6.5 6.5 0 0 1 23 7.5V16.5A6.5 6.5 0 0 1 16.5 23H7.5A6.5 6.5 0 0 1 1 16.5V7.5A6.5 6.5 0 0 1 7.5 1ZM12 7.1A4.9 4.9 0 1 0 12 16.9A4.9 4.9 0 1 0 12 7.1ZM12 8.65A3.35 3.35 0 1 0 12 15.35A3.35 3.35 0 1 0 12 8.65ZM17.2 5.4A1.4 1.4 0 1 0 17.2 8.2A1.4 1.4 0 1 0 17.2 5.4Z" fill="currentColor"/>
               </svg>
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

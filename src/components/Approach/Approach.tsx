@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
+import { reveal, fadeUp } from '../../animation/variants'
 import styles from './Approach.module.css'
 
 const STEPS = ['0', '1', '2'] as const
@@ -6,13 +8,22 @@ const STEPS = ['0', '1', '2'] as const
 export function Approach() {
   return (
     <section className={styles.approach} data-test-id="approach">
-      <h2 className={styles.heading} data-test-id="approach-heading">
+      <motion.h2
+        className={styles.heading}
+        data-test-id="approach-heading"
+        {...reveal(fadeUp(0, { duration: 0.8, distance: 32 }))}
+      >
         <Message id="approach.heading" />
-      </h2>
+      </motion.h2>
 
       <div className={styles.grid}>
-        {STEPS.map((n) => (
-          <article key={n} className={styles.card} data-test-id={`approach-step-${n}`}>
+        {STEPS.map((n, i) => (
+          <motion.article
+            key={n}
+            className={styles.card}
+            data-test-id={`approach-step-${n}`}
+            {...reveal(fadeUp(0.1 + i * 0.1, { duration: 0.85, distance: 40 }))}
+          >
             <span className={styles.num}>
               <Message id={`approach.${n}.num`} />
             </span>
@@ -22,7 +33,7 @@ export function Approach() {
             <p className={styles.body}>
               <Message id={`approach.${n}.body`} />
             </p>
-          </article>
+          </motion.article>
         ))}
       </div>
     </section>

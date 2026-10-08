@@ -1,9 +1,11 @@
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Arrow } from '../Arrow/Arrow'
 import { BlinkText } from '../BlinkText/BlinkText'
 import { Button } from '../Button/Button'
 import { Message } from '../../i18n/Message'
 import { ROUTES } from '../../routes'
+import { enter, fadeUp } from '../../animation/variants'
 import styles from './Header.module.css'
 
 const NAV_LINKS = [
@@ -15,22 +17,33 @@ const NAV_LINKS = [
 
 export function Header() {
   return (
-    <header className={styles.header} data-test-id="header">
+    <motion.header
+      className={styles.header}
+      data-test-id="header"
+      {...enter(fadeUp(0, { duration: 0.7, distance: -24 }))}
+    >
       <nav className={styles.nav} aria-label="main" data-test-id="nav">
-        {NAV_LINKS.map((link) => (
-          <Link key={link.key} className={styles.navLink} to={link.to} data-test-id={`nav-link-${link.key}`}>
-            <BlinkText id={`nav.${link.key}`} />
-          </Link>
+        {NAV_LINKS.map((link, i) => (
+          <motion.div key={link.key} {...enter(fadeUp(0.18 + i * 0.07, { duration: 0.6, distance: -12 }))}>
+            <Link className={styles.navLink} to={link.to} data-test-id={`nav-link-${link.key}`}>
+              <BlinkText id={`nav.${link.key}`} />
+            </Link>
+          </motion.div>
         ))}
       </nav>
 
       <div className={styles.center} data-test-id="logo">
         <Link to={ROUTES.home}>
-          <img className={styles.logo} src="/images/logo.png" alt="TULSANOFF" />
+          <motion.img
+            className={styles.logo}
+            src="/images/logo.png"
+            alt="TULSANOFF"
+            {...enter(fadeUp(0.1, { duration: 0.7, distance: -12 }))}
+          />
         </Link>
       </div>
 
-      <div className={styles.right}>
+      <motion.div className={styles.right} {...enter(fadeUp(0.34, { duration: 0.6, distance: -12 }))}>
         <button type="button" className={styles.lang} aria-label="Language" data-test-id="lang-toggle">
           <Message id="nav.lang" />
         </button>
@@ -38,7 +51,7 @@ export function Header() {
           <Message id="nav.cta" />
           <Arrow />
         </Button>
-      </div>
-    </header>
+      </motion.div>
+    </motion.header>
   )
 }

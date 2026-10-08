@@ -1,11 +1,17 @@
+import { motion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
 import { Button } from '../Button/Button'
+import { reveal, fadeUp } from '../../animation/variants'
 import styles from './SubscriptionBand.module.css'
 
 export function SubscriptionBand() {
   return (
     <section className={styles.plan} data-test-id="services-plan">
-      <div className={styles.band} data-test-id="services-plan-band">
+      <motion.div
+        className={styles.band}
+        data-test-id="services-plan-band"
+        {...reveal(fadeUp(0, { duration: 0.95, distance: 48 }))}
+      >
         <img className={styles.photo} src="/images/spa-bleed.png" alt="" />
         <div className={styles.glow} />
 
@@ -32,7 +38,7 @@ export function SubscriptionBand() {
             </Button>
           </div>
         </article>
-      </div>
+      </motion.div>
     </section>
   )
 }
