@@ -5,11 +5,12 @@
 }
 
 .heading {
+  font-family: var(--display);
   font-size: 64px;
   font-weight: 700;
   letter-spacing: 6%;
   line-height: 121.75%;
-  margin-bottom: 60px;
+  margin-bottom: 48px;
 }
 
 .hero {
@@ -25,7 +26,8 @@
 }
 
 .card {
-  width: calc((100% - 48px) / 3);
+  width: 456px;
+  height: 395px;
 }
 
 .grid {

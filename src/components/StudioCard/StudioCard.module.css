@@ -34,4 +34,10 @@
 
 .cta {
   margin-top: auto;
+  margin-left: auto;
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
 }
