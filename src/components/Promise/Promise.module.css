@@ -22,7 +22,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 55px;
+  gap: 48px;
   text-align: left;
   container-type: inline-size;
 }

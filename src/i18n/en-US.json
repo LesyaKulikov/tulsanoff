@@ -301,10 +301,10 @@
     },
     "nav": {
       "heading": "NAVIGATION",
-      "0": "about us",
-      "1": "certificates",
-      "2": "services",
-      "3": "contacts"
+      "0": "Services",
+      "1": "Certificates",
+      "2": "About us",
+      "3": "Contacts"
     },
     "cta": "Book Now",
     "social": {

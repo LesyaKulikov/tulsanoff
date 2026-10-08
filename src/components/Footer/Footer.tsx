@@ -10,7 +10,7 @@ import { ROUTES } from '../../routes'
 import { reveal, fadeUp } from '../../animation/variants'
 import styles from './Footer.module.css'
 
-const FOOTER_ROUTES = [ROUTES.about, ROUTES.certificates, ROUTES.services, ROUTES.contacts] as const
+const FOOTER_ROUTES = [ROUTES.services, ROUTES.certificates, ROUTES.about, ROUTES.contacts] as const
 
 const COLS = [
   { key: 'addresses', items: ['0', '1'] },
