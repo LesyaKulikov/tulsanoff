@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  height: 566px;
+  min-height: 80vh;
   color: var(--text);
   overflow: hidden;
 }
