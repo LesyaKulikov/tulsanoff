@@ -1,12 +1,20 @@
 import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { Header } from './components/Header/Header'
 import { CtaBand } from './components/CtaBand/CtaBand'
 import { Footer } from './components/Footer/Footer'
 import { EASE } from './animation/variants'
+import { ROUTES } from './routes'
 
 export function Layout() {
   const location = useLocation()
+
+  useEffect(() => {
+    const offset = location.pathname !== ROUTES.home
+    document.documentElement.classList.toggle('bg-offset', offset)
+    document.body.classList.toggle('bg-offset', offset)
+  }, [location.pathname])
 
   return (
     <div className="app">
