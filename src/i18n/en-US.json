@@ -271,15 +271,36 @@
       "body": "We bring back muscle tone so the lightness lasts"
     },
     "masters": {
+      "heading": "our masters",
       "0": {
-        "name": "Mark Tulsanoff",
-        "tagline": "long-term effect",
-        "body": "We bring back muscle tone so the lightness lasts"
+        "index": "01",
+        "name": "Mark",
+        "role": "certified specialist in therapeutic massage",
+        "experience": "8+",
+        "experienceLabel": "years of experience",
+        "bio": "Founder and driving force behind the tulsanoff massage studio. Trained in medical massage at the Wingate National Institute of Physical Education and Sport (Israel) and completed a course in sports, Swedish and spa massage.",
+        "bio2": "Completed an internship and training with the well-known practitioner of Chinese and alternative medicine Gil Salam (Israel). Certified specialist in cosmetic acupuncture (Israel). Works with an integrated approach drawing on Chinese medicine and osteopathy.",
+        "credentials": {
+          "0": "medical massage · Wingate Institute",
+          "1": "sports, Swedish and spa massage",
+          "2": "internship · Gil Salam",
+          "3": "cosmetic acupuncture"
+        }
       },
       "1": {
-        "name": "Larisa Kulikova",
-        "tagline": "long-term effect",
-        "body": "We bring back muscle tone so the lightness lasts"
+        "index": "02",
+        "name": "Lora",
+        "role": "specialist in medical massage",
+        "experience": "9+",
+        "experienceLabel": "years of experience",
+        "bio": "Trained in medical, sports, Swedish and spa massage at the Wingate National Institute of Physical Education and Sport (Israel). Also holds a diploma in classical massage from Newman College (Israel).",
+        "bio2": "Certified hatha yoga teacher (Yoga Center Tapas Israel) and IQ chair massage specialist (Massage school of Elena Zemskova). Always ready to reach new horizons and bring fresh skills into her work.",
+        "credentials": {
+          "0": "medical, sports, Swedish and spa massage",
+          "1": "classical massage · Newman College",
+          "2": "hatha yoga · Yoga Center Tapas Israel",
+          "3": "IQ chair massage · Massage school of Elena Zemskova"
+        }
       }
     },
     "faq": {
