@@ -12,7 +12,7 @@ export function SubscriptionBand() {
         data-test-id="services-plan-band"
         {...reveal(fadeUp(0, { duration: 0.95, distance: 48 }))}
       >
-        <img className={styles.photo} src="/images/spa-bleed.png" alt="" />
+        <img className={styles.photo} src="/images/plan-band.jpg" alt="" />
         <div className={styles.glow} />
 
         <div className={styles.inner} data-test-id="services-plan-inner">
