@@ -30,6 +30,9 @@ export function SubscriptionBand() {
             <p className={styles.body}>
               <Message id="servicesPage.plan.body" />
             </p>
+            <p className={styles.note}>
+              <Message id="servicesPage.plan.note" />
+            </p>
             <div className={styles.bottom}>
               <CtaButton testId="services-plan-cta" />
             </div>

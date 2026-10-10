@@ -59,7 +59,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 22px;
+  gap: 16px;
 }
 
 .title {
@@ -83,6 +83,13 @@
   line-height: 144%;
   letter-spacing: 10%;
   max-width: 403px;
+}
+
+.note {
+  font-size: 16px;
+  line-height: 144%;
+  letter-spacing: 6%;
+  opacity: 0.75;
 }
 
 .bottom {
