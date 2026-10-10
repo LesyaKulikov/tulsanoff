@@ -75,6 +75,7 @@
   font-weight: 700;
   line-height: 144%;
   letter-spacing: 10%;
+  color: var(--accent);
 }
 
 .body {
