@@ -1,0 +1,33 @@
+.services {
+  container-type: inline-size;
+  padding: 170px var(--gutter) 0;
+  color: var(--text);
+  max-width: 1920px;
+}
+
+.heading {
+  font-family: var(--display);
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 121.75%;
+  margin-bottom: 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+@container (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -3,7 +3,7 @@ export interface Massage {
   image: string
 }
 
-const MASSAGES: Massage[] = [
+export const MASSAGES: Massage[] = [
   { id: 'meditsinskiy', image: '/images/meditsinskiy.jpg' },
   { id: 'massazh-litsa', image: '/images/massazh-litsa.jpg' },
   { id: 'dlya-par', image: '/images/dlya-par.jpg' },
