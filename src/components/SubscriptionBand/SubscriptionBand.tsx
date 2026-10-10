@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
-import { Button } from '../Button/Button'
+import { CtaButton } from '../CtaButton/CtaButton'
 import { reveal, fadeUp } from '../../animation/variants'
 import styles from './SubscriptionBand.module.css'
 
@@ -31,12 +31,7 @@ export function SubscriptionBand() {
               <Message id="servicesPage.plan.body" />
             </p>
             <div className={styles.bottom}>
-              <span className={styles.price}>
-                <Message id="servicesPage.plan.price" />
-              </span>
-              <Button variant="inverse" to="/contacts" data-test-id="services-plan-cta">
-                <Message id="servicesPage.more" />
-              </Button>
+              <CtaButton testId="services-plan-cta" />
             </div>
           </article>
         </div>
