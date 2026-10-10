@@ -51,6 +51,11 @@
   font-size: 16px;
   height: 43px;
   padding: 0 14px;
+  transition: color 0.15s ease;
+}
+
+.lang:hover {
+  color: var(--accent);
 }
 
 @media (min-width: 1500px) {

@@ -24,12 +24,12 @@
 .panel {
   composes: glass from global;
   display: grid;
-  grid-template-columns: 400px minmax(0, 1fr);
+  grid-template-columns: 1fr 2fr;
   overflow: hidden;
 }
 
 .panel.reverse {
-  grid-template-columns: minmax(0, 1fr) 400px;
+  grid-template-columns: 2fr 1fr;
 }
 
 .panel.reverse .media {
@@ -80,7 +80,6 @@
 }
 
 .exp {
-  composes: glass from global;
   display: inline-flex;
   align-items: baseline;
   gap: 10px;
@@ -201,12 +200,13 @@
     font-size: 64px;
   }
 
-  .panel {
-    grid-template-columns: 460px minmax(0, 1fr);
+  .panel,
+  .panel.reverse {
+    grid-template-columns: 1fr 2fr;
   }
 
   .panel.reverse {
-    grid-template-columns: minmax(0, 1fr) 460px;
+    grid-template-columns: 2fr 1fr;
   }
 
   .content {
