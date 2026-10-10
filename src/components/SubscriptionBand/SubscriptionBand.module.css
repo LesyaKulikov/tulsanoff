@@ -49,7 +49,8 @@
 .card {
   composes: glass from global;
   position: absolute;
-  top: 29px;
+  top: 50%;
+  transform: translateY(-50%);
   left: var(--gutter);
   width: 565px;
   height: 456px;
@@ -100,7 +101,7 @@
 @media (max-width: 1200px) {
   .card {
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     max-width: calc(100vw - 40px);
   }
 }
