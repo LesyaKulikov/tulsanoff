@@ -2,7 +2,8 @@
   position: relative;
   color: var(--text);
   margin-top: 185px;
-  max-width: 1920px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
 }
 
 .band {
