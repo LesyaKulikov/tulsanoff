@@ -29,7 +29,7 @@ const IMAGE_MAP: Record<string, string> = {
   relaks: '/images/relaks.jpg',
   sport: '/images/sport.jpg',
   glubokotkanniy: '/images/gallery-3.jpg',
-  shvedskiy: '/images/big-card-a.jpg',
+  shvedskiy: '/images/video-frame.jpg',
   limfaticheskiy: '/images/limfaticheskiy.jpg',
   'anti-tsellyulit': '/images/anti-tsellyulit.jpg',
 }
