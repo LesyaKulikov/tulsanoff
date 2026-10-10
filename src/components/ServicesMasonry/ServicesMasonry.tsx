@@ -7,12 +7,12 @@ import styles from './ServicesMasonry.module.css'
 const CATEGORIES = [
   {
     id: 'cat0',
-    slugs: ['meditsinskiy', 'sport', 'glubokotkanniy', 'limfaticheskiy'],
+    slugs: ['meditsinskiy', 'sport', 'limfaticheskiy'],
     featured: ['meditsinskiy'],
   },
   {
     id: 'cat1',
-    slugs: ['massazh-litsa', 'relaks', 'anti-tsellyulit'],
+    slugs: ['massazh-litsa', 'relaks', 'shvedskiy', 'anti-tsellyulit'],
     featured: ['relaks'],
   },
   {
@@ -28,7 +28,7 @@ const IMAGE_MAP: Record<string, string> = {
   'dlya-par': '/images/dlya-par.jpg',
   relaks: '/images/relaks.jpg',
   sport: '/images/sport.jpg',
-  glubokotkanniy: '/images/gallery-3.jpg',
+  shvedskiy: '/images/video-frame.jpg',
   limfaticheskiy: '/images/limfaticheskiy.jpg',
   'anti-tsellyulit': '/images/anti-tsellyulit.jpg',
 }
