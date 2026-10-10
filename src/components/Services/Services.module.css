@@ -1,6 +1,6 @@
 .services {
   container-type: inline-size;
-  padding: 90px var(--gutter) 90px;
+  padding: 100px var(--gutter);
   color: var(--text);
 }
 
@@ -82,13 +82,13 @@
   column-gap: 26px;
   row-gap: 30px;
   align-content: start;
-  min-height: calc((100cqw - 26px) * 269 / 551 + 30px);
+  min-height: calc((100cqw - 26px) * 299 / 551 + 30px);
 }
 
 @media (max-width: 1200px) {
   .grid {
     grid-template-columns: 1fr;
-    min-height: calc(100cqw * 269 / 551 * 4 + 90px);
+    min-height: calc(100cqw * 299 / 551 * 4 + 90px);
   }
 }
 
@@ -96,7 +96,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  aspect-ratio: 551 / 269;
+  aspect-ratio: 551 / 299;
 }
 
 .media {
@@ -117,6 +117,13 @@
 
 .card:hover .photo {
   transform: scale(1.03);
+}
+
+.tint {
+  position: absolute;
+  inset: 0;
+  background: rgba(60, 36, 10, 0.22);
+  pointer-events: none;
 }
 
 .labelBar {

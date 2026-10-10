@@ -8,14 +8,6 @@ const STEPS = ['0', '1', '2'] as const
 export function Approach() {
   return (
     <section className={styles.approach} data-test-id="approach">
-      <motion.h2
-        className={styles.heading}
-        data-test-id="approach-heading"
-        {...reveal(fadeUp(0, { duration: 0.8, distance: 32 }))}
-      >
-        <Message id="approach.heading" />
-      </motion.h2>
-
       <div className={styles.grid}>
         {STEPS.map((n, i) => (
           <motion.article

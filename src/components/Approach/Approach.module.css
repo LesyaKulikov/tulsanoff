@@ -1,65 +1,56 @@
 .approach {
-  padding: 120px var(--gutter) 120px;
+  padding: 100px var(--gutter);
   color: var(--text);
-}
-
-.heading {
-  font-family: var(--display);
-  font-size: 42px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  margin-bottom: 48px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .card {
   composes: glass from global;
   display: flex;
   flex-direction: column;
-  gap: 13px;
-  height: 340px;
-  padding: 30px 23px;
+  padding: 36px 28px;
+  min-height: 280px;
 }
 
 .num {
   font-family: var(--display);
-  font-size: 84px;
+  font-size: 56px;
   font-weight: 700;
-  line-height: 136%;
-  letter-spacing: 6%;
+  line-height: 1;
+  letter-spacing: 0.02em;
   color: var(--accent);
+  margin-bottom: 28px;
 }
 
 .title {
   font-family: var(--display);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: 10%;
-  line-height: 144%;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  margin-bottom: 18px;
 }
 
 .body {
-  font-size: 14px;
-  line-height: 144%;
-  letter-spacing: 10%;
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  opacity: 0.88;
 }
 
 @media (min-width: 1500px) {
-  .heading {
-    font-size: 64px;
-  }
-
   .card {
-    height: 452px;
+    min-height: 340px;
+    padding: 44px 36px;
   }
 
   .num {
-    font-size: 128px;
+    font-size: 72px;
   }
 
   .title {
@@ -67,6 +58,6 @@
   }
 
   .body {
-    font-size: 20px;
+    font-size: 17px;
   }
 }

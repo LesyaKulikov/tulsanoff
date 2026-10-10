@@ -10,17 +10,17 @@ const CATS = ['cat0', 'cat1', 'cat2'] as const
 
 const CARDS: ReadonlyArray<ReadonlyArray<{ n: number; src: string; slug: string }>> = [
   [
-    { n: 0, src: '/images/gallery-1.jpg', slug: 'meditsinskiy' },
-    { n: 1, src: '/images/gallery-2.jpg', slug: 'limfaticheskiy' },
-    { n: 2, src: '/images/gallery-3.jpg', slug: 'sport' },
+    { n: 0, src: '/images/meditsinskiy.jpg', slug: 'meditsinskiy' },
+    { n: 1, src: '/images/limfaticheskiy.jpg', slug: 'limfaticheskiy' },
+    { n: 2, src: '/images/sport.jpg', slug: 'sport' },
   ],
   [
-    { n: 3, src: '/images/big-card-a.jpg', slug: 'massazh-litsa' },
-    { n: 4, src: '/images/hero.jpg', slug: 'relaks' },
+    { n: 3, src: '/images/massazh-litsa.jpg', slug: 'massazh-litsa' },
+    { n: 4, src: '/images/relaks.jpg', slug: 'relaks' },
     { n: 5, src: '/images/video-frame.jpg', slug: 'shvedskiy' },
-    { n: 6, src: '/images/big-card-b.jpg', slug: 'anti-tsellyulit' },
+    { n: 6, src: '/images/anti-tsellyulit.jpg', slug: 'anti-tsellyulit' },
   ],
-  [{ n: 7, src: '/images/gallery-1.jpg', slug: 'dlya-par' }],
+    [{ n: 7, src: '/images/dlya-par.jpg', slug: 'dlya-par' }],
 ]
 
 export function Services() {
@@ -78,7 +78,15 @@ export function Services() {
                   src={card.src}
                   alt=""
                   data-test-id={`service-card-${card.n}-photo`}
+                  style={
+                    card.slug === 'limfaticheskiy'
+                      ? { objectPosition: 'center calc(50% + 40px)' }
+                      : card.slug === 'dlya-par'
+                        ? { objectPosition: 'center calc(50% - 80px)' }
+                        : undefined
+                  }
                 />
+                {card.slug === 'sport' && <div className={styles.tint} />}
               </div>
               <span
                 className={styles.labelBar}

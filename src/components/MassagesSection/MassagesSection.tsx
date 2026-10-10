@@ -7,12 +7,10 @@ import { reveal, fadeUp, scaleIn } from '../../animation/variants'
 import styles from './MassagesSection.module.css'
 
 const GRID = [
-  { n: '0', src: '/images/gallery-1.jpg', slug: 'relaks' },
-  { n: '1', src: '/images/gallery-2.jpg', slug: 'sport' },
-  { n: '2', src: '/images/gallery-3.jpg', slug: 'glubokotkanniy' },
-  { n: '3', src: '/images/video-frame.jpg', slug: 'shvedskiy' },
-  { n: '4', src: '/images/big-card-a.jpg', slug: 'limfaticheskiy' },
-  { n: '5', src: '/images/big-card-b.jpg', slug: 'anti-tsellyulit' },
+  { n: '0', src: '/images/meditsinskiy.jpg', slug: 'meditsinskiy' },
+  { n: '1', src: '/images/massazh-litsa.jpg', slug: 'massazh-litsa' },
+  { n: '2', src: '/images/limfaticheskiy.jpg', slug: 'limfaticheskiy' },
+  { n: '3', src: '/images/sport.jpg', slug: 'sport' },
 ] as const
 
 const CARDS = [
