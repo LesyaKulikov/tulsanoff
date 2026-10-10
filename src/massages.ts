@@ -6,13 +6,12 @@ export interface Massage {
 export const MASSAGES: Massage[] = [
   { id: 'meditsinskiy', image: '/images/meditsinskiy.jpg' },
   { id: 'massazh-litsa', image: '/images/massazh-litsa.jpg' },
-  { id: 'dlya-par', image: '/images/dlya-par.jpg' },
   { id: 'relaks', image: '/images/relaks.jpg' },
   { id: 'sport', image: '/images/sport.jpg' },
   { id: 'glubokotkanniy', image: '/images/gallery-3.jpg' },
-  { id: 'shvedskiy', image: '/images/video-frame.jpg' },
   { id: 'limfaticheskiy', image: '/images/limfaticheskiy.jpg' },
   { id: 'anti-tsellyulit', image: '/images/anti-tsellyulit.jpg' },
+  { id: 'dlya-par', image: '/images/dlya-par.jpg' },
 ]
 
 export function getMassage(id: string): Massage | undefined {

@@ -12,7 +12,7 @@ const CATEGORIES = [
   },
   {
     id: 'cat1',
-    slugs: ['massazh-litsa', 'relaks', 'shvedskiy', 'anti-tsellyulit'],
+    slugs: ['massazh-litsa', 'relaks', 'anti-tsellyulit'],
     featured: ['relaks'],
   },
   {
@@ -29,7 +29,6 @@ const IMAGE_MAP: Record<string, string> = {
   relaks: '/images/relaks.jpg',
   sport: '/images/sport.jpg',
   glubokotkanniy: '/images/gallery-3.jpg',
-  shvedskiy: '/images/video-frame.jpg',
   limfaticheskiy: '/images/limfaticheskiy.jpg',
   'anti-tsellyulit': '/images/anti-tsellyulit.jpg',
 }

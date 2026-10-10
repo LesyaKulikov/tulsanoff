@@ -17,7 +17,6 @@ const CARDS: ReadonlyArray<ReadonlyArray<{ n: number; src: string; slug: string 
   [
     { n: 3, src: '/images/massazh-litsa.jpg', slug: 'massazh-litsa' },
     { n: 4, src: '/images/relaks.jpg', slug: 'relaks' },
-    { n: 5, src: '/images/video-frame.jpg', slug: 'shvedskiy' },
     { n: 6, src: '/images/anti-tsellyulit.jpg', slug: 'anti-tsellyulit' },
   ],
     [{ n: 7, src: '/images/dlya-par.jpg', slug: 'dlya-par' }],
