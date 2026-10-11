@@ -99,19 +99,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 253, 251, 0.35);
-  border-radius: 50%;
   font-size: 22px;
   line-height: 1;
-  transition:
-    color 0.25s ease,
-    border-color 0.25s ease;
+  transition: color 0.25s ease;
 }
 
 .head:hover .plus,
 .headOpen .plus {
   color: var(--accent);
-  border-color: var(--accent);
 }
 
 .body {
