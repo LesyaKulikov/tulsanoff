@@ -61,9 +61,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 14px;
   padding: 0 var(--gutter) 52px;
   height: fit-content;
+}
+
+.cta {
+  align-self: flex-start;
 }
 
 .chip {

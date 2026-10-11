@@ -1,10 +1,10 @@
 import { useRef, useState, useCallback, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
-import { Button } from '../Button/Button'
+import { CtaButton } from '../CtaButton/CtaButton'
 import { enter, fadeUp } from '../../animation/variants'
-import { ROUTES } from '../../routes'
 import styles from './Hero.module.css'
+
 
 const VIDEOS = ['/hero-video1.mp4', '/hero-video2.mp4']
 
@@ -58,6 +58,9 @@ export function Hero() {
       <div className={styles.scrim} />
 
       <div className={styles.content}>
+        <motion.div className={styles.cta} {...enter(fadeUp(0.62, { duration: 0.7, distance: 24 }))}>
+          <CtaButton testId="hero-cta" />
+        </motion.div>
         <motion.span className={styles.chip} data-test-id="hero-chip" {...enter(fadeUp(0.15, { duration: 0.7, distance: 24 }))}>
           <Message id="hero.chip" />
         </motion.span>
@@ -99,11 +102,6 @@ export function Hero() {
             </a>
           </motion.div>
         </div>
-        <motion.div {...enter(fadeUp(0.62, { duration: 0.7, distance: 24 }))}>
-          <Button to={ROUTES.services} data-test-id="hero-cta">
-            <Message id="nav.cta" />
-          </Button>
-        </motion.div>
       </div>
     </section>
   )

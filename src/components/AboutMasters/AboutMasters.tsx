@@ -25,6 +25,7 @@ function MasterCard({ n, src, reverse, delay }: MasterCardProps) {
 
   return (
     <motion.article
+      id={`about-master-${n}`}
       className={`${styles.panel} ${reverse ? styles.reverse : ''}`}
       data-test-id={`about-master-${n}`}
       {...reveal(scaleIn(delay, { from: 0.98, distance: 48, duration: 1 }))}

@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { Message } from '../../i18n/Message'
 import { Arrow } from '../Arrow/Arrow'
 import { reveal, fadeUp, scaleIn } from '../../animation/variants'
+import { ROUTES } from '../../routes'
 import styles from './Masters.module.css'
+
+const MotionLink = motion.create(Link)
 
 const CARDS = [
   { n: '0', src: '/images/big-card-a.jpg' },
@@ -22,8 +26,9 @@ export function Masters() {
 
       <div className={styles.grid}>
         {CARDS.map((card, i) => (
-          <motion.article
+          <MotionLink
             key={card.n}
+            to={{ pathname: ROUTES.about, hash: `#about-master-${card.n}` }}
             className={styles.card}
             data-test-id={`master-card-${card.n}`}
             {...reveal(scaleIn(i * 0.12, { from: 0.97, distance: 44, duration: 0.95 }))}
@@ -45,7 +50,7 @@ export function Masters() {
               </span>
               <Arrow style={{ width: 16, height: 16 }} />
             </div>
-          </motion.article>
+          </MotionLink>
         ))}
       </div>
     </section>
