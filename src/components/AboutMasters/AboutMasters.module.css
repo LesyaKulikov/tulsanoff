@@ -143,6 +143,68 @@
   opacity: 0.92;
 }
 
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 26px;
+}
+
+.tab,
+.tabActive {
+  position: relative;
+  padding: 0 2px 9px;
+  border: 0;
+  background: transparent;
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.tab {
+  color: var(--text);
+  opacity: 0.55;
+}
+
+.tab:hover {
+  opacity: 1;
+}
+
+.tabActive {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.tabActive::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--accent);
+  animation: tab-underline 0.3s ease;
+}
+
+@keyframes tab-underline {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.tabpanel {
+  min-height: 136px;
+}
+
 .credentials {
   list-style: none;
   margin: 0;
@@ -193,6 +255,10 @@
   .name {
     font-size: 44px;
   }
+
+  .tabpanel {
+    min-height: 150px;
+  }
 }
 
 @media (min-width: 1500px) {
@@ -228,6 +294,10 @@
 
   .body {
     font-size: 18px;
+  }
+
+  .tabpanel {
+    min-height: 168px;
   }
 
   .credential {

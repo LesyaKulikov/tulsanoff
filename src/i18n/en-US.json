@@ -277,6 +277,11 @@
     },
     "masters": {
       "heading": "our masters",
+      "tabs": {
+        "about": "about",
+        "training": "training",
+        "qualifications": "qualifications"
+      },
       "0": {
         "index": "01",
         "name": "Mark",
