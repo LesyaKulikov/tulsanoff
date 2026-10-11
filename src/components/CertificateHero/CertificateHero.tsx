@@ -12,20 +12,18 @@ export function CertificateHero() {
       <div className={styles.band}>
         <motion.img
           className={styles.photo}
-          src="/images/spa-bleed.webp"
+          src="/images/certificates-hero.webp"
           alt=""
           decoding="async"
           fetchPriority="high"
           {...reveal(scaleIn(0, { from: 1.06, distance: 0, duration: 1.2 }))}
         />
+
         <article className={styles.card} data-test-id="certificates-hero-card">
           <motion.h2 className={styles.title} {...reveal(fadeUp(0.12, { duration: 0.85, distance: 32 }))}>
             <Message id="certificates.hero.title" />
           </motion.h2>
-          <motion.p className={styles.discount} {...reveal(fadeUp(0.2, { duration: 0.8, distance: 28 }))}>
-            <Message id="certificates.hero.discount" />
-          </motion.p>
-          <motion.p className={styles.body} {...reveal(fadeUp(0.28, { duration: 0.8, distance: 24 }))}>
+          <motion.p className={styles.body} {...reveal(fadeUp(0.2, { duration: 0.8, distance: 24 }))}>
             <Message id="certificates.hero.body" />
           </motion.p>
           <motion.div className={styles.bottom} {...reveal(fadeUp(0.36, { duration: 0.7, distance: 24 }))}>

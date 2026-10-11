@@ -6,7 +6,9 @@
 
 .band {
   position: relative;
-  min-height: 513px;
+  min-height: 743px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   overflow: hidden;
 }
 
@@ -16,45 +18,37 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center calc(35% - 110px);
 }
 
 .card {
-  composes: glass from global;
   position: absolute;
-  top: 29px;
-  right: var(--gutter);
+  top: 50%;
+  transform: translateY(-50%);
+  right: calc(var(--gutter) + max(0px, (100vw - 1920px) / 2));
   width: 565px;
-  height: 456px;
+  min-height: 456px;
   padding: 55px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  color: var(--bg);
 }
 
 .title {
   font-family: var(--display);
-  font-size: 36px;
+  font-size: 42px;
   font-weight: 700;
   line-height: 136%;
   letter-spacing: 4%;
-  text-shadow: 0 4px 40px rgba(36, 28, 26, 0.25);
-}
-
-.discount {
-  margin-top: 75px;
-  font-family: var(--display);
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 144%;
-  letter-spacing: 10%;
 }
 
 .body {
-  margin-top: 22px;
-  max-width: 403px;
-  font-size: 20px;
+  margin-top: 24px;
+  max-width: 430px;
+  font-size: 22px;
   line-height: 144%;
-  letter-spacing: 10%;
+  letter-spacing: 8%;
 }
 
 .bottom {
@@ -65,7 +59,18 @@
 @media (max-width: 1200px) {
   .card {
     right: 50%;
-    transform: translateX(50%);
+    transform: translate(50%, -50%);
     max-width: calc(100vw - 40px);
+  }
+}
+
+@media (min-width: 1500px) {
+  .title {
+    font-size: 48px;
+  }
+
+  .body {
+    font-size: 24px;
+    max-width: 470px;
   }
 }
