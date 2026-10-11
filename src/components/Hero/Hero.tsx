@@ -1,7 +1,9 @@
 import { useRef, useState, useCallback, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
+import { Button } from '../Button/Button'
 import { enter, fadeUp } from '../../animation/variants'
+import { ROUTES } from '../../routes'
 import styles from './Hero.module.css'
 
 const VIDEOS = ['/hero-video1.mp4', '/hero-video2.mp4']
@@ -97,6 +99,11 @@ export function Hero() {
             </a>
           </motion.div>
         </div>
+        <motion.div {...enter(fadeUp(0.62, { duration: 0.7, distance: 24 }))}>
+          <Button to={ROUTES.services} data-test-id="hero-cta">
+            <Message id="nav.cta" />
+          </Button>
+        </motion.div>
       </div>
     </section>
   )
