@@ -57,6 +57,8 @@ export function MassageDetailPage() {
             className={styles.photo}
             src={massage.image}
             alt=""
+            decoding="async"
+            fetchPriority="high"
             data-test-id="massage-photo"
             {...reveal(fadeUp(0.1, { duration: 0.9, distance: 44 }))}
           />

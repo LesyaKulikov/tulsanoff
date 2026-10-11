@@ -77,6 +77,8 @@ export function Services() {
                   className={styles.photo}
                   src={card.src}
                   alt=""
+                  loading="lazy"
+                  decoding="async"
                   data-test-id={`service-card-${card.n}-photo`}
                   style={
                     card.slug === 'limfaticheskiy'

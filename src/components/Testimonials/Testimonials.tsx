@@ -43,7 +43,7 @@ export function Testimonials() {
             data-test-id={`review-card-${review.n}`}
             {...reveal(scaleIn(i * 0.1, { from: 0.98, distance: 36, duration: 0.9 }))}
           >
-            <img className={styles.avatar} src={review.src} alt="" />
+            <img className={styles.avatar} src={review.src} alt="" loading="lazy" decoding="async" />
             <div className={styles.meta}>
               <span className={styles.name}>
                 <Message id={`testimonials.${review.n}.name`} />

@@ -6,7 +6,7 @@ import styles from './AboutHero.module.css'
 export function AboutHero() {
   return (
     <section className={styles.hero} data-test-id="about-hero">
-      <img className={styles.image} src="/images/about-hero.webp" alt="" />
+      <img className={styles.image} src="/images/about-hero.webp" alt="" decoding="async" fetchPriority="high" />
 
       <div className={styles.content}>
         <motion.span

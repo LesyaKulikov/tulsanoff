@@ -28,7 +28,7 @@ export function AboutMasters() {
             {...reveal(scaleIn(i * 0.12, { from: 0.98, distance: 48, duration: 1 }))}
           >
             <div className={styles.media}>
-              <img className={styles.photo} src={card.src} alt="" />
+              <img className={styles.photo} src={card.src} alt="" loading="lazy" decoding="async" />
             </div>
 
             <div className={styles.content}>

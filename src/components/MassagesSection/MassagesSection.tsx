@@ -43,7 +43,7 @@ export function MassagesSection() {
         data-test-id="services-massages-hero"
         {...reveal(scaleIn(0.08, { from: 0.98, distance: 40, duration: 0.95 }))}
       >
-        <img className={styles.heroPhoto} src="/images/hero.jpg" alt="" />
+        <img className={styles.heroPhoto} src="/images/hero.jpg" alt="" loading="lazy" decoding="async" />
         <StudioCard index={CARDS[0].index} className={cardClass} to={massageRoute(CARDS[0].slug)} />
       </motion.div>
 
@@ -56,7 +56,7 @@ export function MassagesSection() {
             data-test-id={`services-massage-${card.n}`}
             {...reveal(fadeUp(0.05 + (i % 3) * 0.09, { duration: 0.75, distance: 30 }))}
           >
-            <img className={styles.tilePhoto} src={card.src} alt="" />
+            <img className={styles.tilePhoto} src={card.src} alt="" loading="lazy" decoding="async" />
             <span className={styles.tileOverlay} />
             <span className={styles.tileLabel}>
               <Message id={`servicesPage.label.${card.n}`} />
@@ -67,11 +67,11 @@ export function MassagesSection() {
 
       <motion.div className={styles.row} {...reveal(scaleIn(0.1, { from: 0.98, distance: 40, duration: 0.95 }))}>
         <StudioCard index={CARDS[1].index} className={cardClass} to={massageRoute(CARDS[1].slug)} />
-        <img className={styles.rowPhoto} src={PHOTO[0].src} alt="" />
+        <img className={styles.rowPhoto} src={PHOTO[0].src} alt="" loading="lazy" decoding="async" />
       </motion.div>
 
       <motion.div className={styles.row} {...reveal(scaleIn(0.1, { from: 0.98, distance: 40, duration: 0.95 }))}>
-        <img className={styles.rowPhoto} src={PHOTO[1].src} alt="" />
+        <img className={styles.rowPhoto} src={PHOTO[1].src} alt="" loading="lazy" decoding="async" />
         <StudioCard index={CARDS[2].index} className={cardClass} to={massageRoute(CARDS[2].slug)} />
       </motion.div>
     </section>

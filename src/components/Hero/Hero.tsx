@@ -36,6 +36,8 @@ export function Hero() {
         className={`${styles.background} ${showVideo ? styles.hidden : ''}`}
         src="/images/hero.jpg"
         alt=""
+        decoding="async"
+        fetchPriority="high"
       />
       <div className={styles.mediaLayer}>
         {VIDEOS.map((src, i) => (

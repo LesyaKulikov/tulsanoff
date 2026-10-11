@@ -28,7 +28,7 @@ export function Masters() {
             data-test-id={`master-card-${card.n}`}
             {...reveal(scaleIn(i * 0.12, { from: 0.97, distance: 44, duration: 0.95 }))}
           >
-            <img className={styles.photo} src={card.src} alt="" />
+            <img className={styles.photo} src={card.src} alt="" loading="lazy" decoding="async" />
             <div className={styles.overlay} />
             <div className={styles.text}>
               <h3 className={styles.name}>

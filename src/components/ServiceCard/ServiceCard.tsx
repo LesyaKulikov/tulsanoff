@@ -28,6 +28,8 @@ export function ServiceCard({ slug, image, label, index = 0, className, objectPo
             className={styles.photo}
             src={image}
             alt=""
+            loading="lazy"
+            decoding="async"
             style={objectPosition ? { objectPosition } : undefined}
           />
         </div>

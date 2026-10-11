@@ -12,8 +12,10 @@ export function CertificateHero() {
       <div className={styles.band}>
         <motion.img
           className={styles.photo}
-          src="/images/spa-bleed.png"
+          src="/images/spa-bleed.webp"
           alt=""
+          decoding="async"
+          fetchPriority="high"
           {...reveal(scaleIn(0, { from: 1.06, distance: 0, duration: 1.2 }))}
         />
         <article className={styles.card} data-test-id="certificates-hero-card">
