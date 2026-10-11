@@ -255,8 +255,13 @@
     },
     "loyalty": {
       "heading": "loyalty card",
-      "number": "09\\10",
-      "note": "every 10th massage is free",
+      "title": "<accent>A token of attention</accent> to your own health",
+      "note": "We value your trust: with the loyalty card every visit brings you closer to a pleasant bonus.",
+      "perks": {
+        "0": "9 sessions at your own pace",
+        "1": "10th massage free",
+        "2": "No time limit"
+      },
       "cta": "Book a session"
     }
   },

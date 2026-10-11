@@ -3,6 +3,7 @@ import { ServicesGrid } from '../components/ServicesGrid/ServicesGrid'
 import { ServicesMasonry } from '../components/ServicesMasonry/ServicesMasonry'
 import { SubscriptionBand } from '../components/SubscriptionBand/SubscriptionBand'
 import { LoyaltyCard } from '../components/LoyaltyCard/LoyaltyCard'
+import { FaqList } from '../components/FaqList/FaqList'
 
 export function ServicesPage() {
   const [searchParams] = useSearchParams()
@@ -13,6 +14,7 @@ export function ServicesPage() {
       {layout === 'masonry' ? <ServicesMasonry /> : <ServicesGrid />}
       <SubscriptionBand />
       <LoyaltyCard />
+      <FaqList />
     </>
   )
 }

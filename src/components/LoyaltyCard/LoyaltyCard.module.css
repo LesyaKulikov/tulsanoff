@@ -1,32 +1,106 @@
 .loyalty {
-  padding: 203px var(--gutter) 0;
+  padding: 203px var(--gutter) 140px;
   color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
 }
 
-.heading {
-  font-size: 64px;
-  font-weight: 700;
-  letter-spacing: 6%;
-  line-height: 121.75%;
+.mark {
+  font-size: 15px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  line-height: 1.7;
 }
 
-.number {
-  font-size: 128px;
+.title {
+  font-family: var(--display);
+  font-size: clamp(44px, 6vw, 96px);
   font-weight: 700;
-  line-height: 136%;
-  letter-spacing: 6%;
+  letter-spacing: 0.01em;
+  line-height: 1.08;
+  max-width: 18ch;
+}
+
+.accent {
   color: var(--accent);
-  margin: 8px 0 0 5px;
+}
+
+.line {
+  width: 120px;
+  height: 2px;
+  background: var(--accent);
 }
 
 .note {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 144%;
-  letter-spacing: 10%;
-  margin: 4px 0 0 5px;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+  max-width: 60ch;
+}
+
+.perks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 40px;
+}
+
+.perk {
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.perk::before {
+  content: '— ';
+  color: var(--accent);
 }
 
 .cta {
-  margin-top: 32px;
+  margin-top: 4px;
+}
+
+.stage {
+  width: 100%;
+  margin: 0;
+  perspective: 1400px;
+}
+
+.card {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+@media (hover: none) {
+  .stage {
+    perspective: none;
+  }
 }
