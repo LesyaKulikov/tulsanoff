@@ -1,6 +1,7 @@
 .cta {
   position: relative;
   color: var(--text);
+  padding-top: 90px;
 }
 
 .map {
