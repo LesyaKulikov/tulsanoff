@@ -14,19 +14,128 @@
   margin-bottom: 48px;
 }
 
+.rows {
+  border-top: 1px solid rgba(217, 217, 217, 0.28);
+}
+
+.row {
+  border-bottom: 1px solid rgba(217, 217, 217, 0.28);
+}
+
+.head,
+.headOpen {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 36px;
+  padding: 34px 0;
+  background: transparent;
+  border: 0;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.index {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+
+.title {
+  font-family: var(--display);
+  font-size: clamp(28px, 4.2vw, 52px);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 115%;
+  transition:
+    color 0.25s ease,
+    letter-spacing 0.3s ease;
+}
+
+.head:hover .title,
+.headOpen .title {
+  color: var(--accent);
+  letter-spacing: 0.07em;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.strip {
+  display: block;
+  width: 150px;
+  height: 84px;
+  overflow: hidden;
+  flex: none;
+  opacity: 0.85;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.head:hover .strip,
+.headOpen .strip {
+  opacity: 1;
+  transform: translateX(-6px);
+}
+
+.strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.plus {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 253, 251, 0.35);
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.head:hover .plus,
+.headOpen .plus {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.body {
+  overflow: hidden;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 26px;
-}
-
-@container (max-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  padding: 4px 0 44px;
 }
 
 @container (max-width: 800px) {
+  .head,
+  .headOpen {
+    gap: 18px;
+    padding: 24px 0;
+  }
+
+  .strip {
+    display: none;
+  }
+
   .grid {
     grid-template-columns: 1fr;
   }

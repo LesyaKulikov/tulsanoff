@@ -1,11 +1,20 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
-import { MASSAGES } from '../../massages'
 import { ServiceCard } from '../ServiceCard/ServiceCard'
-import { reveal, fadeUp } from '../../animation/variants'
+import { getMassage } from '../../massages'
+import { reveal, fadeUp, EASE } from '../../animation/variants'
 import styles from './ServicesGrid.module.css'
 
+const CATEGORIES = [
+  { id: 'cat0', slugs: ['meditsinskiy', 'limfaticheskiy', 'sport'] },
+  { id: 'cat1', slugs: ['massazh-litsa', 'relaks', 'shvedskiy', 'anti-tsellyulit'] },
+  { id: 'cat2', slugs: ['dlya-par'] },
+] as const
+
 export function ServicesGrid() {
+  const [open, setOpen] = useState<number | null>(0)
+
   return (
     <section className={styles.services} data-test-id="services-grid">
       <motion.h2
@@ -15,16 +24,58 @@ export function ServicesGrid() {
       >
         <Message id="servicesPage.heading" />
       </motion.h2>
-      <div className={styles.grid}>
-        {MASSAGES.map((m, i) => (
-          <ServiceCard
-            key={m.id}
-            slug={m.id}
-            image={m.image}
-            label={`servicesPage.massage.${m.id}.title`}
-            index={i}
-          />
-        ))}
+
+      <div className={styles.rows} data-test-id="services-grid-rows">
+        {CATEGORIES.map((cat, i) => {
+          const isOpen = open === i
+          const hero = getMassage(cat.slugs[0])?.image
+          return (
+            <div key={cat.id} className={styles.row} data-test-id={`services-grid-row-${i}`}>
+              <button
+                type="button"
+                className={isOpen ? styles.headOpen : styles.head}
+                onClick={() => setOpen(isOpen ? null : i)}
+                aria-expanded={isOpen}
+                data-test-id={`services-grid-head-${i}`}
+              >
+                <span className={styles.index}>0{i + 1}</span>
+                <span className={styles.title}>
+                  <Message id={`services.${cat.id}`} />
+                </span>
+                <span className={styles.meta}>
+                  <span className={styles.strip}>
+                    <img src={hero} alt="" loading="lazy" decoding="async" />
+                  </span>
+                  <span className={styles.plus}>{isOpen ? '−' : '+'}</span>
+                </span>
+              </button>
+
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    key="body"
+                    className={styles.body}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1, transition: { duration: 0.5, ease: EASE } }}
+                    exit={{ height: 0, opacity: 0, transition: { duration: 0.35, ease: EASE } }}
+                  >
+                    <div className={styles.grid}>
+                      {cat.slugs.map((slug, j) => (
+                        <ServiceCard
+                          key={slug}
+                          slug={slug}
+                          image={getMassage(slug)?.image ?? ''}
+                          label={`servicesPage.massage.${slug}.title`}
+                          index={j}
+                        />
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          )
+        })}
       </div>
     </section>
   )
