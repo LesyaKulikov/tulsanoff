@@ -1,7 +1,6 @@
-.detail {
+.page {
   padding: 158px var(--gutter) 0;
   color: var(--text);
-  position: relative;
 }
 
 .back {
@@ -9,306 +8,317 @@
   align-items: center;
   gap: 12px;
   font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 10%;
+  letter-spacing: 0.06em;
   line-height: 144%;
-  color: var(--text);
 }
 
-.head {
+.top {
   display: flex;
-  align-items: center;
-  gap: 40px;
-  margin-top: 36px;
-}
-
-.info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 34px;
+  padding-bottom: 34px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 .title {
   font-family: var(--display);
-  font-size: 68px;
+  font-size: clamp(48px, 7vw, 104px);
   font-weight: 700;
-  letter-spacing: 4%;
-  line-height: 108%;
+  letter-spacing: 0.02em;
+  line-height: 0.98;
   text-transform: uppercase;
-  text-shadow: 0 4px 40px var(--shadow);
+}
+
+.eyebrow {
+  flex: none;
+  padding-bottom: 14px;
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-align: right;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: 72px;
+  margin-top: 48px;
+  align-items: start;
+}
+
+.rail {
+  position: sticky;
+  top: 132px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-self: start;
 }
 
 .photo {
-  width: 420px;
-  height: 545px;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 42vh;
   object-fit: cover;
-  flex-shrink: 0;
 }
 
 .facts {
   display: flex;
   flex-direction: column;
-  margin-top: 44px;
-  max-width: 560px;
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 .fact {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 24px;
-  padding: 16px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.28);
-}
-
-.fact:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  gap: 16px;
+  margin: 0;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .factLabel {
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0.14em;
-  line-height: 1.4;
   text-transform: uppercase;
   opacity: 0.65;
 }
 
 .factValue {
+  margin: 0;
   font-family: var(--display);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  line-height: 1.2;
+  letter-spacing: 0.04em;
   text-align: right;
   text-transform: uppercase;
   color: var(--accent);
 }
 
-.panel {
-  composes: glass from global;
-  margin-top: 40px;
-  padding: 34px 40px 42px;
+.book {
+  width: 100%;
 }
 
-.tabs {
+.content {
   display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.columnsSolo {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.columnsSolo .rail {
+  position: static;
+  flex-direction: row;
   flex-wrap: wrap;
-  gap: 6px 30px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  align-items: flex-end;
+  gap: 32px;
 }
 
-.tab,
-.tabActive {
-  position: relative;
-  padding: 0 2px 9px;
-  border: 0;
-  background: transparent;
+.columnsSolo .photo {
+  flex: none;
+  width: min(340px, 100%);
+}
+
+.columnsSolo .facts {
+  flex: 1 1 320px;
+}
+
+.columnsSolo .book {
+  width: auto;
+}
+
+.section {
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.section:first-of-type {
+  padding-top: 0;
+}
+
+.section:last-child {
+  padding-bottom: 8px;
+  border-bottom: 0;
+}
+
+.sectionHead {
+  margin-bottom: 22px;
+}
+
+.sectionLabel {
   font-family: var(--display);
-  font-size: 15px;
+  font-size: clamp(22px, 2vw, 30px);
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
   text-transform: uppercase;
-  transition:
-    color 0.3s ease,
-    opacity 0.3s ease;
 }
 
-.tab {
-  color: var(--text);
-  opacity: 0.55;
-}
-
-.tab:hover {
-  opacity: 1;
-}
-
-.tabActive {
-  color: var(--accent);
-  opacity: 1;
-}
-
-.tabActive::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background: var(--accent);
-  animation: tab-underline 0.3s ease;
-}
-
-@keyframes tab-underline {
-  from {
-    transform: scaleX(0);
-    opacity: 0;
-  }
-  to {
-    transform: scaleX(1);
-    opacity: 1;
-  }
-}
-
-.tabpanel {
-  min-height: 268px;
-  padding-top: 26px;
-}
-
-.body {
+.prose {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 78ch;
+  max-width: 74ch;
   font-size: 17px;
-  letter-spacing: 0.04em;
-  line-height: 1.65;
+  letter-spacing: 0.02em;
+  line-height: 1.7;
   opacity: 0.92;
 }
 
 .lead {
   font-family: var(--display);
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  line-height: 1.5;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: var(--accent);
 }
 
 .chips {
-  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  list-style: none;
 }
 
 .chip {
-  composes: glass from global;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  font-size: 15px;
-  letter-spacing: 0.06em;
-  line-height: 1.4;
-}
-
-.chip::before {
-  content: '';
-  flex: none;
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
+  display: flex;
+  gap: 14px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.07);
+  border-left: 2px solid var(--accent);
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
 }
 
 .numbered {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .item {
   display: flex;
   align-items: baseline;
-  gap: 24px;
+  gap: 22px;
   padding: 16px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .item:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .itemIndex {
   flex: none;
-  width: 36px;
+  width: 34px;
   font-family: var(--display);
   font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  line-height: 1.44;
+  letter-spacing: 0.12em;
   color: var(--accent);
 }
 
 .itemText {
-  font-size: 18px;
-  letter-spacing: 0.06em;
-  line-height: 1.44;
-}
-
-.cta {
-  margin-top: 32px;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  line-height: 1.55;
 }
 
 @media (max-width: 1200px) {
-  .head {
-    flex-direction: column;
-    align-items: stretch;
+  .page {
+    padding-top: 134px;
   }
 
-  .title {
-    font-size: 44px;
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding-bottom: 26px;
+  }
+
+  .eyebrow {
+    padding-bottom: 0;
+    text-align: left;
+  }
+
+  .columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 44px;
+    margin-top: 36px;
+  }
+
+  .rail {
+    position: static;
+    gap: 22px;
   }
 
   .photo {
+    aspect-ratio: 16 / 9;
+    max-height: 360px;
+  }
+
+  .book {
+    width: auto;
+    align-self: flex-start;
+  }
+
+  .columnsSolo .rail {
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .columnsSolo .photo {
     width: 100%;
-    height: auto;
-    max-height: 480px;
   }
 
-  .facts {
-    max-width: none;
+  .columnsSolo .facts {
+    flex: none;
   }
 
-  .panel {
-    padding: 28px 24px 34px;
+  .section {
+    padding: 32px 0;
   }
 
-  .tabpanel {
-    min-height: 0;
+  .prose {
+    font-size: 16.5px;
   }
 }
 
 @media (min-width: 1500px) {
-  .title {
-    font-size: 84px;
-  }
-
-  .fact {
-    padding: 18px 0;
+  .columns {
+    grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+    gap: 88px;
   }
 
   .factValue {
-    font-size: 28px;
+    font-size: 22px;
   }
 
-  .panel {
-    padding: 42px 56px 52px;
-  }
-
-  .tab,
-  .tabActive {
-    font-size: 17px;
-  }
-
-  .tabpanel {
-    min-height: 300px;
-  }
-
-  .body {
+  .prose {
     font-size: 19px;
   }
 
-  .lead {
-    font-size: 20px;
+  .itemText {
+    font-size: 19px;
   }
 
-  .itemText {
-    font-size: 20px;
+  .chip {
+    font-size: 17px;
   }
 }
