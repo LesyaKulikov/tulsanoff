@@ -37,7 +37,6 @@
 }
 
 .title {
-  font-family: var(--display);
   font-size: 36px;
   font-weight: 700;
   line-height: 136%;
