@@ -207,26 +207,77 @@
       "massazh-litsa": {
         "title": "facial massage",
         "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. We address the cause of pain and specific tension points, tailoring the technique and intensity to each client.",
+        "description": "We bring back muscle tone so the lightness lasts. Natural rejuvenation and recovery after cosmetic procedures.",
         "classification": "aesthetics",
         "duration": "45\\60",
-        "forWhom": "everyone"
+        "forWhom": "everyone",
+        "content": {
+          "about": {
+            "0": "IQ hiro massage — youthful face without compromise and a fast recovery!",
+            "1": "IQ hiro massage — relaxation, beauty and recovery in a single session.",
+            "2": "Want to stay youthful, improve your facial contour and recover faster after cosmetic procedures? IQ hiro massage is the ideal solution for natural rejuvenation and rehabilitation.",
+            "3": "The massage is adapted to your individual features, keeping it comfortable and safe at every stage of facial care."
+          },
+          "benefits": {
+            "lead": "What IQ hiro massage gives you:",
+            "0": "effective lymphatic drainage — reduces puffiness, flushes toxins and improves the complexion",
+            "1": "deep muscle work — releases tension, helps prevent wrinkles and keeps the skin toned",
+            "2": "fast recovery after a lift, correction or blepharoplasty — helps resolve swelling and bruises sooner, improves blood circulation and stimulates tissue regeneration",
+            "3": "natural lifting — without injections or aggressive intervention"
+          }
+        }
       },
       "dlya-par": {
         "title": "massage for couples",
         "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. We address the cause of pain and specific tension points, tailoring the technique and intensity to each client.",
+        "description": "We bring back muscle tone so the lightness lasts. Shared rest and care for your health in a single session.",
         "classification": "special format",
         "duration": "60\\90",
-        "forWhom": "couples"
+        "forWhom": "couples",
+        "content": {
+          "about": {
+            "0": "Massage for two — harmony, care and rest next to the person you love!",
+            "1": "Want to relax, restore your energy and simply enjoy the moment? A shared massage is not only pleasure, but also care for your health."
+          },
+          "benefits": {
+            "lead": "5 reasons to book a massage for couples:",
+            "0": "stress relief — help yourself and your partner release tension and tiredness",
+            "1": "care for your health — better blood circulation, less muscular tension and overall recovery",
+            "2": "energy and balance — after the massage you feel lightness and a surge of energy",
+            "3": "quality rest — shared relaxation helps you sleep and recover better",
+            "4": "a new experience — an unusual and pleasant time together worth trying"
+          }
+        }
       },
       "relaks": {
         "title": "relax",
         "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. We help you restore your resources, feel tone in your body and return to deep, quality rest.",
+        "description": "We bring back muscle tone so the lightness lasts. A soft technique for deep relaxation and recovery after a busy day.",
         "classification": "relax & aesthetics",
         "duration": "45\\60\\90",
-        "forWhom": "everyone"
+        "forWhom": "everyone",
+        "content": {
+          "about": {
+            "0": "Relaxation massage is a soft and calm technique focused on deep relaxation of the body, easing muscular and emotional tension and recovery after a busy day.",
+            "1": "Smooth rhythmic movements help gradually release the accumulated tension, calm down and shift from a constant state of activity into rest. Special attention is paid to the areas where tiredness accumulates most often — the back, neck, shoulders and legs.",
+            "2": "The intensity and pace of the massage are chosen individually so the session is as comfortable as possible and lets you truly rest — physically and emotionally."
+          },
+          "indications": {
+            "lead": "The massage especially suits periods of:",
+            "0": "stress and high load",
+            "1": "overstrain and fatigue",
+            "2": "simply wanting to stop and let the body rest fully"
+          },
+          "benefits": {
+            "lead": "Relaxation massage helps to:",
+            "0": "relieve muscular tension",
+            "1": "reduce the feeling of tiredness",
+            "2": "relax after physical and emotional loads",
+            "3": "improve overall wellbeing",
+            "4": "feel lightness and comfort in the body",
+            "5": "restore a sense of inner calm"
+          }
+        }
       },
       "sport": {
         "title": "sports massage",
@@ -259,10 +310,30 @@
       "shvedskiy": {
         "title": "swedish massage",
         "subtitle": "classic technique",
-        "description": "We bring back muscle tone so the lightness lasts. We help you restore your resources, feel tone in your body and return to deep, quality rest.",
+        "description": "We bring back muscle tone so the lightness lasts. A classic relaxing massage with an individually chosen intensity.",
         "classification": "relax & aesthetics",
         "duration": "45\\60",
-        "forWhom": "everyone"
+        "forWhom": "everyone",
+        "content": {
+          "about": {
+            "0": "Swedish massage is a classic full-body massage focused on relaxing the muscles, easing tension and recovery after everyday loads.",
+            "1": "It combines smooth stroking, rubbing, kneading and gentle vibration techniques.",
+            "2": "In our studio the intensity and depth of the work are chosen individually — taking into account the condition of the muscles, your sensitivity and your preferences."
+          },
+          "indications": {
+            "lead": "The massage suits those who:",
+            "0": "want to release accumulated tiredness",
+            "1": "want to relax",
+            "2": "want to feel lightness in the body"
+          },
+          "benefits": {
+            "lead": "Swedish massage helps to:",
+            "0": "improve blood circulation",
+            "1": "reduce muscular stiffness",
+            "2": "lower the stress level",
+            "3": "improve overall wellbeing"
+          }
+        }
       },
       "limfaticheskiy": {
         "title": "lymphatic drainage",
@@ -297,10 +368,23 @@
       "anti-tsellyulit": {
         "title": "anti-cellulite",
         "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. We help you restore your resources, feel tone in your body and return to deep, quality rest.",
+        "description": "We bring back muscle tone so the lightness lasts. Intense work with the subcutaneous tissues for smoother, firmer skin.",
         "classification": "relax & aesthetics",
         "duration": "45\\60\\90",
-        "forWhom": "everyone"
+        "forWhom": "everyone",
+        "content": {
+          "about": {
+            "0": "Anti-cellulite massage is an intense massage focused on improving the look of the skin, reducing puffiness and working with the subcutaneous tissues.",
+            "1": "It combines deep kneading, rubbing and special massage techniques that stimulate local blood circulation and help reduce fluid retention in the tissues.",
+            "2": "The strength and technique depend on how the tissues respond: the specialist takes into account skin sensitivity, the degree of puffiness and overall wellbeing, keeping the procedure effective and comfortable.",
+            "3": "A course of procedures is recommended to maintain the effect."
+          },
+          "benefits": {
+            "lead": "Effect of the procedure:",
+            "0": "the skin can look smoother and firmer",
+            "1": "signs of cellulite become less visible"
+          }
+        }
       }
     },
     "label": {
