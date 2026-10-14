@@ -23,8 +23,16 @@ export function CertificateHero() {
           <motion.h2 className={styles.title} {...reveal(fadeUp(0.12, { duration: 0.85, distance: 32 }))}>
             <Message id="certificates.hero.title" />
           </motion.h2>
+          <motion.p className={styles.type} {...reveal(fadeUp(0.16, { duration: 0.85, distance: 28 }))}>
+            <Message id="certificates.hero.type" />
+          </motion.p>
           <motion.p className={styles.body} {...reveal(fadeUp(0.2, { duration: 0.8, distance: 24 }))}>
-            <Message id="certificates.hero.body" />
+            <Message
+              id="certificates.hero.body"
+              values={{
+                gift: (chunks) => <span className={styles.nowrap}>{chunks}</span>,
+              }}
+            />
           </motion.p>
           <motion.p
             className={styles.note}

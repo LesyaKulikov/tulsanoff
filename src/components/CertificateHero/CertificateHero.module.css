@@ -21,6 +21,12 @@
   object-position: center calc(35% - 30px);
 }
 
+@media (max-width: 1920px) {
+  .photo {
+    object-position: calc(50% - 60px) calc(35% - 30px);
+  }
+}
+
 .card {
   composes: glass from global;
   background: linear-gradient(180deg, rgba(255, 254, 250, 0.12) 0%, rgba(255, 254, 250, 0.32) 100%);
@@ -45,11 +51,23 @@
   text-shadow: 0 4px 40px rgba(36, 28, 26, 0.25);
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
+.type {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 144%;
+  letter-spacing: 10%;
+  color: var(--accent);
+}
+
 .body {
   font-size: 20px;
   line-height: 144%;
   letter-spacing: 10%;
-  max-width: 403px;
+  max-width: 450px;
 }
 
 .note {
