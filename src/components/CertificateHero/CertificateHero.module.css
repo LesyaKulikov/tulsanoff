@@ -23,6 +23,7 @@
 
 .card {
   composes: glass from global;
+  background: linear-gradient(180deg, rgba(255, 254, 250, 0.12) 0%, rgba(255, 254, 250, 0.32) 100%);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -49,6 +50,13 @@
   line-height: 144%;
   letter-spacing: 10%;
   max-width: 403px;
+}
+
+.note {
+  font-size: 16px;
+  line-height: 144%;
+  letter-spacing: 6%;
+  opacity: 0.75;
 }
 
 .bottom {

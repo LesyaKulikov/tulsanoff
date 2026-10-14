@@ -26,6 +26,12 @@ export function CertificateHero() {
           <motion.p className={styles.body} {...reveal(fadeUp(0.2, { duration: 0.8, distance: 24 }))}>
             <Message id="certificates.hero.body" />
           </motion.p>
+          <motion.p
+            className={styles.note}
+            {...reveal(fadeUp(0.28, { duration: 0.8, distance: 24, opacity: 0.75 }))}
+          >
+            <Message id="certificates.hero.note" />
+          </motion.p>
           <motion.div className={styles.bottom} {...reveal(fadeUp(0.36, { duration: 0.7, distance: 24 }))}>
             <Button to={ROUTES.contacts} data-test-id="certificates-hero-cta">
               <Message id="certificates.hero.cta" />
