@@ -41,6 +41,15 @@ export function resolveMessage(id: string, locale: LocaleKey): string | undefine
   return flatMessages[locale][id]
 }
 
+/**
+ * True when `id` has copy in `locale`. Lets a section decide it has nothing to
+ * show yet instead of falling back to rendering the id itself.
+ */
+export function hasMessage(id: string, locale: LocaleKey): boolean {
+  const value = flatMessages[locale][id]
+  return typeof value === 'string' && value.length > 0
+}
+
 export function loadMessages(locale: LocaleKey): Record<string, string> {
   return flatten(locales[locale].messages)
 }

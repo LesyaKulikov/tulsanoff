@@ -12,11 +12,11 @@ _Avoid_: the studio, the business (when TULSANOFF would be clearer)
 The single page in scope for the first build. Other pages are not yet planned.
 
 **Massage**:
-A single bookable massage type with its own URL detail page (`/services/:id`) showing its title, subtitle, description, classification, duration, for-whom, and image. The 6 gallery tiles and the 3 studio cards on the services page are all Massages; clicking one opens its detail.
+A single bookable massage type with its own URL detail page (`/services/:id`) showing its title, image, a fact list (classification, duration, for-whom), and a tabbed section (description, indications, results, approach) when that massage has content authored for it. The 6 gallery tiles and the 3 studio cards on the services page are all Massages; clicking one opens its detail.
 _Avoid_: service type, booking (when "Massage" is clearer)
 
 **Message id**:
-A unique semantic key into a locale file used for all user-facing copy, grouped by section (e.g. `footer.contact.phone`). When a message id has no value in the active locale file, the UI renders the id itself. Because copy is deferred, message ids are the canonical checklist of unfinished content.
+A unique semantic key into a locale file used for all user-facing copy, grouped by section (e.g. `footer.contact.phone`). When a message id has no value in the active locale file, the UI renders the id itself. Because copy is deferred, message ids are the canonical checklist of unfinished content. A whole section may instead probe for the id's presence (`hasMessage`) and hide itself until its copy is authored.
 _Avoid_: translation key, string key
 
 **Locale file**:

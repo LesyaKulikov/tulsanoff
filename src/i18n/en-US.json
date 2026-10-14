@@ -163,6 +163,12 @@
       "classification": "classification",
       "duration": "duration",
       "forWhom": "for whom",
+      "tabs": {
+        "about": "about",
+        "indications": "indications",
+        "benefits": "results",
+        "approach": "approach"
+      },
       "book": "Book a session"
     },
     "massage": {
@@ -172,7 +178,31 @@
         "description": "We bring back muscle tone so the lightness lasts. We address the cause of pain and specific tension points, tailoring the technique and intensity to each client.",
         "classification": "therapy",
         "duration": "45\\60\\90",
-        "forWhom": "everyone"
+        "forWhom": "everyone",
+        "content": {
+          "about": {
+            "0": "Medical massage is a targeted work with muscles and soft tissues that helps ease tension and discomfort, improve mobility and support the body's recovery.",
+            "1": "Unlike a general relaxation massage, the focus here is on specific problem areas. The technique and intensity are chosen individually — taking into account the person's condition, lifestyle, physical activity and body features."
+          },
+          "indications": {
+            "lead": "The massage may help with:",
+            "0": "muscle overexertion, stiffness and limited movement",
+            "1": "discomfort in the back, neck and shoulders",
+            "2": "recovery after physical loads"
+          },
+          "benefits": {
+            "lead": "Medical massage helps to:",
+            "0": "reduce muscle tension and spasms",
+            "1": "ease the feeling of pain and discomfort",
+            "2": "improve mobility and tissue elasticity",
+            "3": "boost circulation in the treated area",
+            "4": "speed up recovery after physical loads",
+            "5": "give the body a feeling of freedom and comfort"
+          },
+          "approach": {
+            "0": "Every session is built individually: we identify the areas that need special attention and choose techniques according to your current condition and goals."
+          }
+        }
       },
       "massazh-litsa": {
         "title": "facial massage",
