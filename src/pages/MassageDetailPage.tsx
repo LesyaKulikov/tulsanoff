@@ -17,18 +17,31 @@ type TabKind = 'prose' | 'chips' | 'numbered'
 interface TabDef {
   id: string
   kind: TabKind
-  count: number
+  max: number
 }
 
 const TABS: TabDef[] = [
-  { id: 'about', kind: 'prose', count: 2 },
-  { id: 'indications', kind: 'chips', count: 3 },
-  { id: 'benefits', kind: 'numbered', count: 6 },
+  { id: 'about', kind: 'prose', max: 6 },
+  { id: 'indications', kind: 'chips', max: 6 },
+  { id: 'benefits', kind: 'numbered', max: 8 },
 ]
 
-function TabPanel({ slug, tab }: { slug: string; tab: TabDef }) {
+function useTabItems(slug: string, tab: TabDef) {
+  const intl = useIntl()
+  const locale = intl.locale as LocaleKey
   const base = `servicesPage.massage.${slug}.content.${tab.id}`
-  const items = Array.from({ length: tab.count }, (_, i) => `${base}.${i}`)
+  const items: string[] = []
+
+  for (let i = 0; i < tab.max; i++) {
+    const id = `${base}.${i}`
+    if (hasMessage(id, locale)) items.push(id)
+  }
+
+  return { base, items }
+}
+
+function TabPanel({ slug, tab }: { slug: string; tab: TabDef }) {
+  const { base, items } = useTabItems(slug, tab)
 
   if (tab.kind === 'prose') {
     return (

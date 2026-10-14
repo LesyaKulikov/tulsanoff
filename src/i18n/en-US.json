@@ -231,10 +231,22 @@
       "sport": {
         "title": "sports massage",
         "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. We tailor the technique and intensity to each client to support recovery after training.",
+        "description": "We bring back muscle tone so the lightness lasts. A specialized technique for improving physical condition and recovery after loads.",
         "classification": "therapy & wellness",
         "duration": "45\\60\\90",
-        "forWhom": "athletes"
+        "forWhom": "athletes",
+        "content": {
+          "about": {
+            "0": "Sports massage is a specialized massage technique focused on improving physical condition, supporting recovery after physical loads and preventing injuries in athletes.",
+            "1": "This massage helps relax the muscles, improve blood circulation, relieve tension and speed up recovery after intense training or competition."
+          },
+          "benefits": {
+            "lead": "Depending on the goal, different methods may be used:",
+            "0": "warming-up massage — done before a workout or competition to prepare the muscles for the load and improve their flexibility",
+            "1": "relaxation massage — applied after a training to relieve tension, speed up the removal of lactic acid and improve recovery",
+            "2": "therapeutic massage — used to treat injuries and pain in the muscles or joints"
+          }
+        }
       },
       "glubokotkanniy": {
         "title": "deep tissue",
@@ -255,10 +267,32 @@
       "limfaticheskiy": {
         "title": "lymphatic drainage",
         "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. We address the cause of pain and specific tension points, tailoring the technique and intensity to each client.",
+        "description": "We bring back muscle tone so the lightness lasts. A gentle technique for improving lymph flow and reducing fluid retention in the tissues.",
         "classification": "therapy & wellness",
         "duration": "45\\60\\90",
-        "forWhom": "everyone"
+        "forWhom": "everyone",
+        "content": {
+          "about": {
+            "0": "Lymphatic drainage massage is a gentle technique focused on improving lymph flow and reducing fluid retention in the tissues.",
+            "1": "Smooth rhythmic movements help ease swelling and the feeling of heaviness, especially in the legs, support the natural work of the lymphatic system and promote recovery after physical loads.",
+            "2": "After a session you often feel a pleasant sense of lightness, relaxation and freedom of movement."
+          },
+          "indications": {
+            "lead": "The massage suits those who:",
+            "0": "spend a lot of time sitting or on their feet",
+            "1": "feel a heavy body and are prone to swelling",
+            "2": "want massage as part of overall body care"
+          },
+          "benefits": {
+            "lead": "Lymphatic drainage massage helps to:",
+            "0": "reduce swelling and fluid retention",
+            "1": "ease the feeling of heaviness in the legs",
+            "2": "improve microcirculation",
+            "3": "support recovery after physical loads",
+            "4": "improve the look and condition of the tissues",
+            "5": "give the body a feeling of lightness"
+          }
+        }
       },
       "anti-tsellyulit": {
         "title": "anti-cellulite",
