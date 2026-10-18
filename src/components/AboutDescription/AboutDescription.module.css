@@ -39,7 +39,6 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: calc(26px * var(--scale)) calc(40px * var(--scale));
   width: 100%;
-  text-align: left;
 }
 
 .column {
