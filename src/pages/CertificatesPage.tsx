@@ -5,7 +5,7 @@ export function CertificatesPage() {
   return (
     <>
       <CertificateHero />
-      <FaqList />
+      <FaqList base="certificates.faq" testId="certificates-faq" />
     </>
   )
 }

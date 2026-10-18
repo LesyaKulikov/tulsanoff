@@ -5,6 +5,8 @@ import { AboutDescription } from '../components/AboutDescription/AboutDescriptio
 import { AboutMasters } from '../components/AboutMasters/AboutMasters'
 import { FaqList } from '../components/FaqList/FaqList'
 
+const ABOUT_FAQ_ROWS = ['0', '1', '2', '3', '4', '5'] as const
+
 export function AboutPage() {
   const location = useLocation()
 
@@ -19,7 +21,7 @@ export function AboutPage() {
       <AboutHero />
       <AboutDescription />
       <AboutMasters />
-      <FaqList />
+      <FaqList base="aboutPage.faq" rowIds={ABOUT_FAQ_ROWS} testId="about-faq" />
     </>
   )
 }

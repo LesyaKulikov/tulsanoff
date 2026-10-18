@@ -6,27 +6,40 @@ import styles from './FaqList.module.css'
 
 const ROW_IDS = ['0', '1', '2', '3'] as const
 
-export function FaqList() {
+interface FaqListProps {
+  /**
+   * Message-id prefix for the heading and rows, e.g. `certificates.faq` renders
+   * `certificates.faq.heading` and `certificates.faq.<n>.{label,body}`. Defaults
+   * to the shared `faq` block used by the home and services pages.
+   */
+  base?: string
+  /** Row keys to render, in order. Defaults to the four shared rows. */
+  rowIds?: readonly string[]
+  /** `data-test-id` for the section, so multiple lists stay addressable. */
+  testId?: string
+}
+
+export function FaqList({ base = 'faq', rowIds = ROW_IDS, testId = 'faq' }: FaqListProps) {
   const [open, setOpen] = useState<string | null>(null)
 
   return (
-    <section className={styles.faq} data-test-id="faq">
+    <section className={styles.faq} data-test-id={testId}>
       <motion.h2
         className={styles.heading}
-        data-test-id="faq-heading"
+        data-test-id={`${testId}-heading`}
         {...reveal(fadeUp(0, { duration: 0.8, distance: 32 }))}
       >
-        <Message id="faq.heading" />
+        <Message id={`${base}.heading`} />
       </motion.h2>
 
       <div className={styles.panel}>
-        {ROW_IDS.map((n, i) => {
+        {rowIds.map((n, i) => {
           const isOpen = open === n
           return (
             <motion.div
               key={n}
               className={`${styles.row} ${isOpen ? styles.open : ''}`}
-              data-test-id={`faq-row-${n}`}
+              data-test-id={`${testId}-row-${n}`}
               onClick={() => setOpen(isOpen ? null : n)}
               role="button"
               tabIndex={0}
@@ -41,7 +54,7 @@ export function FaqList() {
             >
               <div className={styles.details}>
                 <p className={styles.label}>
-                  <Message id={`faq.${n}.label`} />
+                  <Message id={`${base}.${n}.label`} />
                 </p>
                 <AnimatePresence initial={false}>
                   {isOpen && (
@@ -53,7 +66,7 @@ export function FaqList() {
                       transition={{ duration: 0.35, ease: EASE }}
                     >
                       <p className={styles.body}>
-                        <Message id={`faq.${n}.body`} />
+                        <Message id={`${base}.${n}.body`} />
                       </p>
                     </motion.div>
                   )}

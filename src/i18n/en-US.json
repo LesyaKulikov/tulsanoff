@@ -133,6 +133,25 @@
       "body": "Here you can buy <gift>gift cards</gift> and massage certificates as a gift for your loved ones and friends",
       "note": "The certificate or gift card is available in both printed and digital versions",
       "cta": "LEARN MORE"
+    },
+    "faq": {
+      "heading": "CERTIFICATE QUESTIONS",
+      "0": {
+        "label": "In what form can I purchase a certificate?",
+        "body": "Digital — we'll send it by email, WhatsApp or Telegram, whichever you prefer. Physical in a gift envelope — you can pick it up at the studio."
+      },
+      "1": {
+        "label": "How long is a gift certificate valid?",
+        "body": "The certificate is valid (6 / 12 months) from the date of purchase. The exact term is stated on the voucher."
+      },
+      "2": {
+        "label": "What amount or service can a certificate be issued for?",
+        "body": "For any service value, or for a specific treatment / SPA subscription without stating a price."
+      },
+      "3": {
+        "label": "Can I add a personal congratulation to the certificate?",
+        "body": "Yes — when ordering, please give the name of the person you're gifting it to, your own name and a message, and we'll add them to the voucher or the digital email."
+      }
     }
   },
   "contacts": {
@@ -480,7 +499,31 @@
       }
     },
     "faq": {
-      "heading": "FREQUENTLY ASKED QUESTIONS"
+      "heading": "FREQUENTLY ASKED QUESTIONS",
+      "0": {
+        "label": "What types of massage do you offer at your studio?",
+        "body": "We offer medical, sports, restorative, Swedish, relaxing, lymphatic drainage and anti-cellulite massage, as well as IQ bodywork. The technique is chosen individually."
+      },
+      "1": {
+        "label": "How do I know which massage is right for me?",
+        "body": "Before your first session we hold a consultation, clarifying your complaints, health condition and your preferences. On this basis we select the appropriate massage technique."
+      },
+      "2": {
+        "label": "Can I book a massage if I have back and neck pain?",
+        "body": "Yes, we work with muscle tension, stiffness and discomfort in the back and neck. Before the procedure we assess your condition and rule out any contraindications."
+      },
+      "3": {
+        "label": "Where is your studio located?",
+        "body": "We see clients at two branches — in Ramat Gan and Petah Tikva. You can choose whichever location is most convenient for you."
+      },
+      "4": {
+        "label": "Can I buy a pass for several sessions?",
+        "body": "You can buy passes, certificates or gift cards as you wish. The terms for issuing them can be clarified when booking. We will also help you choose the optimal frequency of procedures depending on your goals."
+      },
+      "5": {
+        "label": "How do I book a massage?",
+        "body": "Message us on WhatsApp or Telegram, telling us the service you would like and your preferred branch. We will help you choose a specialist and arrange a time for your visit."
+      }
     }
   },
   "footer": {
