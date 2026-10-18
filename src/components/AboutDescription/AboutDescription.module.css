@@ -1,26 +1,23 @@
 .section {
-  padding: 72px var(--gutter);
+  /* One knob for how large this section reads: 1 is the base size, the
+     media queries at the bottom raise it on wide screens so type and spacing
+     grow together. The columns row spans the full section width (the app
+     shell minus the gutter), like the panels in the other sections; the
+     text blocks keep their ch-based reading measures, which follow their
+     font size automatically. */
+  --scale: 1;
+  padding: calc(72px * var(--scale)) var(--gutter);
   color: var(--text);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 30px;
-}
-
-.heading {
-  font-family: var(--display);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.24em;
-  line-height: 1.4;
-  text-transform: uppercase;
-  color: var(--accent);
+  gap: calc(30px * var(--scale));
 }
 
 .statement {
   font-family: var(--display);
-  font-size: clamp(32px, 4.6vw, 68px);
+  font-size: clamp(32px, 4.6vw, calc(68px * var(--scale)));
   font-weight: 700;
   letter-spacing: 0.02em;
   line-height: 1.12;
@@ -32,46 +29,28 @@
 }
 
 .line {
-  width: 120px;
+  width: calc(120px * var(--scale));
   height: 2px;
   background: var(--accent);
-}
-
-.note {
-  font-size: 14px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  opacity: 0.65;
-  max-width: 60ch;
-  line-height: 1.7;
-}
-
-.lead {
-  font-size: 19px;
-  line-height: 1.65;
-  letter-spacing: 0.03em;
-  max-width: 68ch;
-  opacity: 0.95;
 }
 
 .columns {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 26px 40px;
+  gap: calc(26px * var(--scale)) calc(40px * var(--scale));
   width: 100%;
-  max-width: 1040px;
   text-align: left;
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: calc(12px * var(--scale));
 }
 
 .columnLabel {
   font-family: var(--display);
-  font-size: 13px;
+  font-size: calc(13px * var(--scale));
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -79,7 +58,7 @@
 }
 
 .columnBody {
-  font-size: 16px;
+  font-size: calc(16px * var(--scale));
   line-height: 1.65;
   letter-spacing: 0.03em;
   opacity: 0.92;
@@ -87,50 +66,21 @@
 
 .philosophy {
   max-width: 64ch;
-  padding-top: 26px;
+  padding-top: calc(26px * var(--scale));
   border-top: 1px solid rgba(255, 255, 255, 0.22);
-  font-size: clamp(18px, 1.8vw, 23px);
+  font-size: clamp(18px, 1.8vw, calc(23px * var(--scale)));
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 1.55;
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.chip {
-  composes: glass from global;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 15px;
-  font-size: 14px;
-  letter-spacing: 0.06em;
-  line-height: 1.4;
-}
-
-.chip::before {
-  content: '';
-  flex: none;
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
 }
 
 .branches {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 26px;
+  gap: calc(26px * var(--scale));
   font-family: var(--display);
-  font-size: 15px;
+  font-size: calc(15px * var(--scale));
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -144,20 +94,9 @@
 
 .branch::before {
   content: '';
-  width: 6px;
-  height: 6px;
+  width: calc(6px * var(--scale));
+  height: calc(6px * var(--scale));
   background: var(--accent);
-}
-
-.signoff {
-  font-family: var(--display);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  line-height: 1.6;
-  text-transform: uppercase;
-  opacity: 0.75;
-  max-width: 56ch;
 }
 
 @media (max-width: 1200px) {
@@ -170,30 +109,18 @@
     gap: 22px;
     max-width: 68ch;
   }
+}
 
-  .lead {
-    font-size: 17.5px;
+/* Big screens: the page shell (src/index.css) caps at 1920px, so the section
+   grows in two steps rather than chasing the raw viewport width. */
+@media (min-width: 1500px) {
+  .section {
+    --scale: 1.12;
   }
 }
 
-@media (min-width: 1500px) {
-  .lead {
-    font-size: 21px;
-  }
-
-  .columnBody {
-    font-size: 18px;
-  }
-
-  .chip {
-    font-size: 16px;
-  }
-
-  .branches {
-    font-size: 17px;
-  }
-
-  .signoff {
-    font-size: 17px;
+@media (min-width: 1800px) {
+  .section {
+    --scale: 1.28;
   }
 }

@@ -9,13 +9,6 @@ export function AboutHero() {
       <img className={styles.image} src="/images/about-hero.webp" alt="" decoding="async" fetchPriority="high" />
 
       <div className={styles.content}>
-        <motion.span
-          className={styles.chip}
-          data-test-id="about-hero-chip"
-          {...reveal(fadeUp(0.05, { duration: 0.7, distance: 24 }))}
-        >
-          <Message id="aboutPage.studio.chip" />
-        </motion.span>
         <motion.h2
           className={styles.heading}
           data-test-id="about-hero-heading"

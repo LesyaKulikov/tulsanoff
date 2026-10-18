@@ -3,8 +3,6 @@ import { Message } from '../../i18n/Message'
 import { reveal, fadeUp } from '../../animation/variants'
 import styles from './AboutDescription.module.css'
 
-const TECHNIQUES = ['0', '1', '2', '3', '4', '5'] as const
-
 const BRANCHES = ['0', '1'] as const
 
 const COLUMNS = [
@@ -16,14 +14,6 @@ const COLUMNS = [
 export function AboutDescription() {
   return (
     <section className={styles.section} data-test-id="about-description">
-      <motion.h2
-        className={styles.heading}
-        data-test-id="about-description-heading"
-        {...reveal(fadeUp(0.05, { duration: 0.8, distance: 32 }))}
-      >
-        <Message id="aboutPage.description.heading" />
-      </motion.h2>
-
       <motion.h3
         className={styles.statement}
         data-test-id="about-description-statement"
@@ -41,22 +31,6 @@ export function AboutDescription() {
         className={styles.line}
         {...reveal(fadeUp(0.18, { duration: 0.7, distance: 14 }))}
       />
-
-      <motion.span
-        className={styles.note}
-        data-test-id="about-description-note"
-        {...reveal(fadeUp(0.2, { duration: 0.7, distance: 18 }))}
-      >
-        <Message id="aboutPage.description.note" />
-      </motion.span>
-
-      <motion.p
-        className={styles.lead}
-        data-test-id="about-description-lead"
-        {...reveal(fadeUp(0.24, { duration: 0.8, distance: 26 }))}
-      >
-        <Message id="aboutPage.description.lead" />
-      </motion.p>
 
       <div className={styles.columns} data-test-id="about-description-columns">
         {COLUMNS.map((col, i) => (
@@ -83,18 +57,6 @@ export function AboutDescription() {
         <Message id="aboutPage.description.philosophy" />
       </motion.p>
 
-      <motion.ul
-        className={styles.chips}
-        data-test-id="about-description-techniques"
-        {...reveal(fadeUp(0.46, { duration: 0.8, distance: 24 }))}
-      >
-        {TECHNIQUES.map((n) => (
-          <li className={styles.chip} key={n}>
-            <Message id={`aboutPage.description.techniques.${n}`} />
-          </li>
-        ))}
-      </motion.ul>
-
       <motion.div
         className={styles.branches}
         data-test-id="about-description-branches"
@@ -106,14 +68,6 @@ export function AboutDescription() {
           </span>
         ))}
       </motion.div>
-
-      <motion.p
-        className={styles.signoff}
-        data-test-id="about-description-signoff"
-        {...reveal(fadeUp(0.58, { duration: 0.8, distance: 22 }))}
-      >
-        <Message id="aboutPage.description.signoff" />
-      </motion.p>
     </section>
   )
 }
