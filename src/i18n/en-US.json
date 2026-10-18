@@ -419,6 +419,36 @@
       "chip": "Petah Tikva",
       "heading": "Our studio"
     },
+    "description": {
+      "heading": "about us",
+      "note": "professional massage · ramat gan • petah tikva",
+      "statement": "<accent>understand first</accent> — then work",
+      "lead": "A professional massage studio with two branches — in Ramat Gan and Petah Tikva: medical, sports, lymphatic drainage and relaxation massage with an individual approach to every client.",
+      "education": "At the core is professional training at the Wingate Institute of Physical Education and Sport, years of hands-on practice and continuous refinement of technique.",
+      "scope": "We work with muscle tension, pain, the aftermath of physical overload, restricted mobility, stress and chronic fatigue.",
+      "principle": {
+        "body": "Before the session — an interview and a condition assessment: complaints, health specifics and possible contraindications. After the session we give recovery recommendations when they are needed."
+      },
+      "philosophy": "Massage is not just relaxation, but deliberate work with the body: less discomfort, better wellbeing, freedom of movement.",
+      "signoff": "A professional approach, attention to detail and care built on knowledge.",
+      "labels": {
+        "education": "education",
+        "scope": "what we work with",
+        "principle": "our principle"
+      },
+      "techniques": {
+        "0": "medical",
+        "1": "sports",
+        "2": "Swedish",
+        "3": "lymphatic drainage",
+        "4": "anti-cellulite",
+        "5": "IQ chiromassage"
+      },
+      "branches": {
+        "0": "ramat gan",
+        "1": "petah tikva"
+      }
+    },
     "intro": {
       "brand": "tulsanoff",
       "tagline": "long-term effect",

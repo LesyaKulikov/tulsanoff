@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { AboutHero } from '../components/AboutHero/AboutHero'
+import { AboutDescription } from '../components/AboutDescription/AboutDescription'
 import { AboutMasters } from '../components/AboutMasters/AboutMasters'
 import { FaqList } from '../components/FaqList/FaqList'
 
@@ -16,6 +17,7 @@ export function AboutPage() {
   return (
     <>
       <AboutHero />
+      <AboutDescription />
       <AboutMasters />
       <FaqList />
     </>
