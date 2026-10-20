@@ -74,6 +74,11 @@ ALONE so a break here is unambiguous.
       `--header-h`/`--page-top`/RTL/focus/srOnly all inert this phase.
       Conclusion: index.css is NOT the layout-break culprit → suspect moves to
       component CSS (phase 6) and/or glass.css.*
+- [x] **2.2 glass.css — tokenization.** Pull `src/glass.css` (`.glass` now reads
+      `--panel` / `--glass-edge` / `--divider-strong` / `--radius-flat`).
+      *Done. tsc/oxlint/build clean. Pure no-op visually: each token resolves to the
+      baseline literal (panel 13%, glass-edge ~14%≈#ffffff23, divider-strong 45%≈45.5%,
+      radius-flat 0). Only rewires .glass to the 2a tokens.*
 
 ## Phase 3 — Routing & app shell
 

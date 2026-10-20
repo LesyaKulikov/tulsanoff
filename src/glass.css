@@ -1,8 +1,12 @@
+/* Shared translucent surface. Consumers that need a different radius or no border
+   must override with doubled specificity (e.g. `.social.social { ... }`) so the
+   winner does not depend on stylesheet order between this global file and a
+   CSS module. */
 .glass {
-  background: rgba(255, 254, 250, 0.13);
+  background: var(--panel);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  border-block: 0.5px solid #ffffff23;
-  border-inline: 1px solid rgba(255, 255, 255, 0.455);
-  border-radius: 0;
+  border-block: 0.5px solid var(--glass-edge);
+  border-inline: 1px solid var(--divider-strong);
+  border-radius: var(--radius-flat);
 }
