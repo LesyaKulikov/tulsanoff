@@ -66,8 +66,14 @@ This rewrote `src/index.css` (token values, `--gutter`, `--header-h`,
 token-driven. **This is the prime suspect** because it is global. Apply it
 ALONE so a break here is unambiguous.
 
-- [ ] **2.1 Tokens + glass.** Pull `src/index.css`, `src/glass.css`. Verify
-      EVERY page and BOTH widths carefully. If layout breaks, it is here.
+- [x] **2.1 index.css — tokens only.** Pull `src/index.css` alone (`glass.css` stays
+      baseline). Verify EVERY page and BOTH widths carefully.
+      *Done. tsc/oxlint/build clean. Visual: CLEAN (user-confirmed).
+      Gutter `156px`→`clamp(20px,10.83vw,156px)` is identical ≥1440px, shrinks below
+      (intended). Overflow breakout is gutter-independent (50%-50vw) so unaffected.
+      `--header-h`/`--page-top`/RTL/focus/srOnly all inert this phase.
+      Conclusion: index.css is NOT the layout-break culprit → suspect moves to
+      component CSS (phase 6) and/or glass.css.*
 
 ## Phase 3 — Routing & app shell
 
