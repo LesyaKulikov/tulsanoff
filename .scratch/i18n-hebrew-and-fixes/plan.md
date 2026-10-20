@@ -52,8 +52,12 @@ in isolation.
 
 Logic only. Should not alter layout at all. Prerequisite for locale work.
 
-- [ ] **1.1 Core i18n modules.** Pull `src/i18n/messages.ts`,
+- [x] **1.1 Core i18n modules.** Pull `src/i18n/messages.ts`,
       `src/i18n/Message.tsx`. Commit. Verify no visual change.
+      *Done `84d9815`. Also had to pull `he-IL.json` (messages.ts hard-imports
+      it). Proven no-visual-change: ru-RU/en-US copy byte-identical, DEFAULT_LOCALE
+      still ru-RU, main.tsx still mounts IntlProvider directly, he-IL unread.
+      tsc/oxlint/build all clean.*
 
 ## Phase 2 — Design tokens (HIGH layout risk — isolate this)
 
