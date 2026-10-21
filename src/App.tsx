@@ -6,6 +6,7 @@ import { MassageDetailPage } from './pages/MassageDetailPage'
 import { CertificatesPage } from './pages/CertificatesPage'
 import { AboutPage } from './pages/AboutPage'
 import { ContactsPage } from './pages/ContactsPage'
+import { NotFoundPage } from './pages/NotFoundPage'
 import { ROUTES } from './routes'
 
 function App() {
@@ -14,10 +15,11 @@ function App() {
       <Route element={<Layout />}>
         <Route path={ROUTES.home} element={<HomePage />} />
         <Route path={ROUTES.services} element={<ServicesPage />} />
-        <Route path={`${ROUTES.services}/:id`} element={<MassageDetailPage />} />
+        <Route path={ROUTES.serviceDetail} element={<MassageDetailPage />} />
         <Route path={ROUTES.certificates} element={<CertificatesPage />} />
         <Route path={ROUTES.about} element={<AboutPage />} />
         <Route path={ROUTES.contacts} element={<ContactsPage />} />
+        <Route path={ROUTES.notFound} element={<NotFoundPage />} />
       </Route>
     </Routes>
   )
