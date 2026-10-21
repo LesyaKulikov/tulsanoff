@@ -150,14 +150,20 @@ languages.
 
 Localized to the Contacts page + Footer.
 
-- [ ] **5.1 Shared contact data.** Pull `src/contacts.ts`,
+- [x] **5.1 Shared contact data.** Pull `src/contacts.ts`,
       `src/components/SocialLinks/`. (SocialLinks not rendered yet — no visual
       change expected.)
-- [ ] **5.2 Contacts page.** Pull `src/pages/ContactsPage.tsx`,
+      *Done. New data + component, not yet imported — provably no visual change.*
+- [x] **5.2 Contacts page.** Pull `src/pages/ContactsPage.tsx`,
       `src/pages/ContactsPage.module.css`. Verify map, branches, phones/email
       tappable.
-- [ ] **5.3 Footer contact links.** Pull `src/components/Footer/Footer.tsx`,
+      *Done. H1 КОНТАКТЫ, 2 `tel:` + 1 `mailto:`, 1 map iframe, both branches,
+      SocialLinks rendered, no overflow/errors. (Map tiles are dark in headless —
+      environment, not layout.)*
+- [x] **5.3 Footer contact links.** Pull `src/components/Footer/Footer.tsx`,
       `src/components/Footer/Footer.module.css`. Verify `tel:`/`mailto:` links.
+      *Done. Footer has 3 `tel:` + 1 `mailto:`, localized АДРЕСА/КОНТАКТЫ/НАВИГАЦИЯ,
+      3 social links, no errors.*
 
 ## Phase 6 — Component fixes (one component at a time)
 
