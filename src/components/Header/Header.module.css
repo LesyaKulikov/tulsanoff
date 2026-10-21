@@ -1,14 +1,13 @@
 .header {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset-block-start: 0;
+  inset-inline: 0;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 118px;
-  padding: 0 var(--gutter);
+  block-size: var(--header-h);
+  padding-inline: var(--gutter);
   color: var(--text);
 }
 
@@ -21,22 +20,23 @@
 .navLink {
   font-size: 14px;
   color: var(--text);
-  transition: color 0.15s ease;
+  transition: color var(--dur-fast) var(--ease);
 }
 
-.navLink:hover {
+.navLink:hover,
+.navLinkActive {
   color: var(--accent);
 }
 
 .center {
   position: absolute;
-  left: 50%;
+  inset-inline-start: 50%;
   transform: translateX(-50%);
 }
 
 .logo {
-  height: 44px;
-  width: auto;
+  block-size: 44px;
+  inline-size: auto;
 }
 
 .right {
@@ -45,21 +45,116 @@
   gap: 20px;
 }
 
+.cta {
+  display: contents;
+}
+
 .lang {
   composes: glass from global;
   color: var(--text);
   font-size: 16px;
-  height: 43px;
-  padding: 0 14px;
-  transition: color 0.15s ease;
+  block-size: 43px;
+  padding-inline: 14px;
+  transition: color var(--dur-fast) var(--ease);
 }
 
 .lang:hover {
   color: var(--accent);
 }
 
+/* Burger — only ever visible once the inline nav has collapsed. */
+.menuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  inline-size: 44px;
+  block-size: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+}
+
+.menuIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  inline-size: 22px;
+  block-size: 14px;
+}
+
+.menuIcon > span {
+  display: block;
+  block-size: 2px;
+  inline-size: 100%;
+  background: currentColor;
+  transition: opacity var(--dur-fast) var(--ease);
+}
+
+.menuButton[aria-expanded='true'] .menuIcon > span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu {
+  position: absolute;
+  inset-block-start: var(--header-h);
+  inset-inline: 0;
+  padding: 8px var(--gutter) 24px;
+  background: var(--panel-strong);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-block-end: 1px solid var(--glass-edge);
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menuLink {
+  display: block;
+  padding-block: 12px;
+  font-size: 18px;
+  color: var(--text);
+  border-block-end: 1px solid var(--glass-edge);
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.menuLink:hover,
+.menuLinkActive {
+  color: var(--accent);
+}
+
+.menuLink:last-child {
+  border-block-end: 0;
+}
+
+@media (max-width: 1024px) {
+  .nav {
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 720px) {
+  .cta {
+    display: none;
+  }
+
+  .logo {
+    block-size: 34px;
+  }
+}
+
 @media (min-width: 1500px) {
   .logo {
-    height: 80px;
+    block-size: 80px;
   }
 }
