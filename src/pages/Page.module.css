@@ -1,10 +1,46 @@
 .page {
-  min-height: 100vh;
-  padding-top: 118px;
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding-block: var(--page-top) 96px;
+  padding-inline: var(--gutter);
+}
+
+/* Display type belongs on the heading only. Uppercasing `.page` itself would
+   style every future paragraph in the section as a 32px uppercase headline. */
+.heading {
   font-family: var(--display);
-  font-size: 32px;
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 400;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+}
+
+.body {
+  max-width: 58ch;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  height: 43px;
+  padding-inline: 20px;
+  background: var(--button);
+  font-family: var(--display);
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.link:hover {
+  background: var(--accent);
+  color: var(--bg);
 }

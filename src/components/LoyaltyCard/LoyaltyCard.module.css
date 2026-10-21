@@ -12,7 +12,6 @@
   font-size: 15px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  opacity: 0.6;
   line-height: 1.7;
 }
 
@@ -39,7 +38,6 @@
   font-size: 20px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  opacity: 0.85;
   max-width: 60ch;
 }
 
@@ -79,8 +77,12 @@
   position: relative;
   width: 50%;
   margin: 0 auto;
-  border-radius: 12px;
-  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55);
+  /* Matches the jpg's intrinsic 1600×861, so the box (and everything below
+     it) is reserved before the image loads. */
+  aspect-ratio: 1600 / 861;
+  border-radius: var(--radius-card);
+  box-shadow: 0 40px 90px var(--shadow-deep);
+  transition: transform var(--dur-slow) var(--ease);
   transform-style: preserve-3d;
   backface-visibility: hidden;
   will-change: transform;
@@ -102,5 +104,12 @@
 @media (hover: none) {
   .stage {
     perspective: none;
+  }
+}
+
+/* 50% is a desktop proportion; on a phone it collapses to ~157px. */
+@media (max-width: 900px) {
+  .card {
+    width: min(565px, 100%);
   }
 }

@@ -1,16 +1,46 @@
 .cta {
   position: relative;
   color: var(--text);
-  padding-top: 90px;
+  padding-block-start: 90px;
+  /* Full-bleed: the section spans the true viewport width so its width:100%
+     map reaches the viewport edges instead of being trapped in the max-width
+     .app. overflow:hidden clips the map-skip link while it waits for focus (it
+     parks above the section edge, the way .skipLink parks above the viewport).
+     The scrollbar-width overshoot of 100vw is clipped by body { overflow-x:
+     hidden }. margin-inline-start is logical, so it centers in RTL (Hebrew). */
+  width: 100vw;
+  margin-inline: calc(50% - 50vw) 0;
+  overflow: hidden;
 }
 
+/* Keyboard escape hatch rendered before the iframe: hidden at rest, revealed
+   on keyboard focus. The map iframe swallows arrow-key scrolling, so this is
+   the way out that does not go through Google's UI. */
+.mapSkip {
+  position: absolute;
+  inset-block-start: 8px;
+  /* Not flush to 0: the focus ring (2px outline + 3px offset) would be clipped
+     by the section's overflow while revealed. */
+  inset-inline-start: 6px;
+  z-index: 2;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 15px;
+  transform: translateY(-150%);
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.mapSkip:focus-visible {
+  transform: translateY(0);
+}
+
+/* Spans its parent (.cta), which is itself full-bleed, so the map reaches the
+   true viewport edges. */
 .map {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   display: block;
-  width: 100vw;
+  width: 100%;
   max-width: none;
-  height: 553px;
+  height: clamp(320px, 40vw, 553px);
   border: 0;
 }

@@ -1,0 +1,132 @@
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: var(--page-top);
+  padding-bottom: 96px;
+  padding-inline: var(--gutter);
+}
+
+.heading {
+  font-family: var(--display);
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.subheading {
+  margin-top: 56px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0.65;
+}
+
+.branches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: var(--container);
+  margin-top: 20px;
+}
+
+.branch {
+  composes: glass from global;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 40px 36px;
+}
+
+.branchName {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.address {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.mapLink {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  border-block-end: 1px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+
+.mapLink:hover {
+  border-block-end-color: var(--accent);
+}
+
+.reach {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 32px 64px;
+  margin-top: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item a {
+  font-family: var(--display);
+  font-size: 24px;
+  letter-spacing: 0.02em;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.item a:hover {
+  color: var(--accent);
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 64px;
+  block-size: 64px;
+  border-radius: var(--radius-pill);
+  background: var(--panel);
+  color: var(--text);
+  transition:
+    color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.social:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social:hover {
+    transform: none;
+  }
+}

@@ -1,19 +1,23 @@
 .footer {
-  padding: 150px var(--gutter) 90px;
+  padding-block: clamp(72px, 10vw, 150px) 90px;
+  padding-inline: var(--gutter);
   color: var(--text);
-  border-top: 1px solid rgba(217, 217, 217, 0.2);
+  border-block-start: 1px solid var(--divider-soft);
 }
 
 .columns {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 40px;
   margin-bottom: 80px;
 }
 
 .columnHeading {
+  font-family: var(--display);
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   color: var(--text);
   margin-bottom: 20px;
 }
@@ -27,20 +31,29 @@
   gap: 14px;
 }
 
-.link {
+.item {
   font-size: 15px;
   opacity: 0.85;
-  transition: opacity 0.15s ease;
+}
+
+.link {
+  display: inline-block;
+  transition:
+    color var(--dur-fast) var(--ease),
+    opacity var(--dur-fast) var(--ease);
 }
 
 .link:hover {
   opacity: 1;
+  color: var(--accent);
 }
 
 .bottom {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 32px;
 }
 
 .socials {
@@ -48,19 +61,20 @@
   gap: 10px;
 }
 
-.social {
-  composes: glass from global;
-  width: 64px;
-  height: 64px;
-  border: none;
-  border-radius: 32px;
+.social.social {
+  inline-size: 64px;
+  block-size: 64px;
+  /* Overrides .glass's borders and square corners at equal specificity, so the
+     result does not depend on stylesheet order. */
+  border: 0;
+  border-radius: var(--radius-pill);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text);
   transition:
-    color 0.15s ease,
-    transform 0.15s ease;
+    color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
 }
 
 .social:hover {
@@ -70,4 +84,11 @@
 
 .social:active {
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social:hover,
+  .social:active {
+    transform: none;
+  }
 }

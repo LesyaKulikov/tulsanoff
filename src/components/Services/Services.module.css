@@ -35,9 +35,9 @@
   border: 0;
   background: transparent;
   transition:
-    color 0.3s ease,
-    opacity 0.3s ease,
-    transform 0.3s ease;
+    color var(--dur-base) var(--ease),
+    opacity var(--dur-base) var(--ease),
+    transform var(--dur-base) var(--ease);
 }
 
 .category {
@@ -58,11 +58,10 @@
   content: '';
   position: absolute;
   bottom: 0;
-  left: 10px;
-  right: 10px;
+  inset-inline: 10px;
   height: 2px;
   background: var(--accent);
-  animation: tab-underline 0.3s ease;
+  animation: tab-underline var(--dur-base) var(--ease);
 }
 
 @keyframes tab-underline {
@@ -76,12 +75,24 @@
   }
 }
 
+/* Wrapped labels clip inside the fixed 57px pill once the row gets narrow. */
+@media (max-width: 1200px) {
+  .category,
+  .categoryActive {
+    height: auto;
+    min-height: 57px;
+    padding: 12px 10px;
+  }
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 26px;
   row-gap: 30px;
   align-content: start;
+  /* Reserves the tallest tab's height (4 cards → 2 rows + gap), so switching
+     categories doesn't jump the page and the first paint has no reflow. */
   min-height: calc((100cqw - 26px) * 299 / 551 + 30px);
 }
 
@@ -112,7 +123,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform var(--dur-slow) var(--ease);
 }
 
 .card:hover .photo {
@@ -122,7 +133,10 @@
 .tint {
   position: absolute;
   inset: 0;
-  background: rgba(60, 36, 10, 0.22);
+  /* One-off warm tint baked for the sports photo — deliberately not a
+     surface token, it composites over the image rather than a background. */
+  --card-tint: rgba(60, 36, 10, 0.22);
+  background: var(--card-tint);
   pointer-events: none;
 }
 
@@ -132,8 +146,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 24px;
-  background: rgba(255, 252, 250, 0.13);
+  padding-inline-start: 24px;
+  background: var(--panel);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
@@ -147,7 +161,9 @@
   color: var(--text);
   white-space: nowrap;
   min-width: 0;
-  transition: color 0.25s ease;
+  transition:
+    color var(--dur-base) var(--ease),
+    letter-spacing var(--dur-base) var(--ease);
 }
 
 .card:hover .label {
@@ -163,7 +179,7 @@
   align-items: center;
   justify-content: center;
   color: var(--text);
-  transition: color 0.25s ease;
+  transition: color var(--dur-base) var(--ease);
 }
 
 .card:hover .arrow {

@@ -2,8 +2,12 @@
   position: relative;
   color: var(--text);
   margin-top: 185px;
+  /* Full-bleed: break out of the max-width .app to the true viewport width so
+     the band spans edge to edge. The scrollbar-width overshoot of 100vw is
+     clipped by body { overflow-x: hidden }. margin-inline-start is logical, so
+     it centers correctly in RTL (Hebrew). */
   width: 100vw;
-  margin-left: calc(50% - 50vw);
+  margin-inline: calc(50% - 50vw) 0;
 }
 
 .band {
@@ -29,19 +33,23 @@
 .glow {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(8, 10, 7, 0) 0%, rgba(8, 10, 7, 0.6) 100%);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg) 0%, transparent) 0%,
+    color-mix(in srgb, var(--bg) 60%, transparent) 100%
+  );
 }
 
 .heading {
   position: absolute;
   top: -28px;
-  right: var(--gutter);
+  inset-inline-end: var(--gutter);
   font-family: var(--display);
-  font-size: 160px;
+  font-size: clamp(48px, 13vw, 160px);
   font-weight: 700;
-  letter-spacing: 6%;
+  letter-spacing: 0.06em;
   line-height: 136%;
-  text-align: right;
+  text-align: end;
   text-transform: uppercase;
   white-space: nowrap;
   text-shadow: 0 20px 60px var(--shadow);
@@ -52,9 +60,12 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: var(--gutter);
+  inset-inline-start: var(--gutter);
   width: 565px;
-  height: 456px;
+  /* Fixed height spills the CTA when copy runs long; keep the designed
+     minimum but let the card grow. */
+  height: auto;
+  min-height: 456px;
   padding: 60px 55px;
   display: flex;
   flex-direction: column;
@@ -66,29 +77,29 @@
   font-size: 36px;
   font-weight: 700;
   line-height: 136%;
-  letter-spacing: 6%;
-  text-shadow: 0 4px 40px rgba(36, 28, 26, 0.25);
+  letter-spacing: 0.06em;
+  text-shadow: 0 4px 40px var(--shadow);
 }
 
 .type {
   font-size: 24px;
   font-weight: 700;
   line-height: 144%;
-  letter-spacing: 10%;
+  letter-spacing: 0.1em;
   color: var(--accent);
 }
 
 .body {
   font-size: 20px;
   line-height: 144%;
-  letter-spacing: 10%;
+  letter-spacing: 0.1em;
   max-width: 403px;
 }
 
 .note {
   font-size: 16px;
   line-height: 144%;
-  letter-spacing: 6%;
+  letter-spacing: 0.06em;
   opacity: 0.75;
 }
 
@@ -102,8 +113,14 @@
 
 @media (max-width: 1200px) {
   .card {
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* Logical centering (works in both writing directions; the old
+       left + translate(-50%) recipe breaks under RTL). */
+    inset-inline: 0;
+    margin-inline: auto;
     max-width: calc(100vw - 40px);
+  }
+
+  .heading {
+    white-space: normal;
   }
 }

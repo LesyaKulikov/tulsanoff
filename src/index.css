@@ -16,19 +16,46 @@
 }
 
 :root {
+  /* Color */
   --bg: #080a07;
   --bg-tint: #4d6546;
   --text: #fffdfb;
   --accent: #d4fbc8;
   --button: #43553e;
-  --panel: rgba(255, 255, 255, 0.12);
-  --panel-strong: rgba(12, 14, 10, 0.62);
-  --divider: #d9d9d9;
-  --shadow: rgba(37, 29, 25, 0.25);
 
+  /* Translucent surfaces. Every panel/scrim/hairline in the app derives from these. */
+  --panel: rgb(255 254 250 / 13%);
+  --panel-strong: rgb(12 14 10 / 62%);
+  --scrim: rgb(8 10 7 / 60%);
+  --divider: rgb(217 217 217 / 28%);
+  --divider-soft: rgb(217 217 217 / 20%);
+  --divider-strong: rgb(255 255 255 / 45%);
+  --glass-edge: rgb(255 255 255 / 14%);
+  --shadow: rgb(37 29 25 / 25%);
+  --shadow-deep: rgb(0 0 0 / 55%);
+
+  /* Layout */
+  --app-max: 1920px;
   --container: 1128px;
-  --gutter: 156px;
+  /* Scales down from the 1440px artboard's 156px gutter so narrow viewports
+     keep a usable content column instead of a fixed 156px on both sides. */
+  --gutter: clamp(20px, 10.83vw, 156px);
+  --header-h: 118px;
+  /* Distance from the top of the page to the first section, below the fixed header. */
+  --page-top: calc(var(--header-h) + 40px);
 
+  /* Radius */
+  --radius-flat: 0;
+  --radius-card: 12px;
+  --radius-pill: 32px;
+
+  /* Motion — one hover/transition vocabulary for the whole app. */
+  --dur-fast: 0.15s;
+  --dur-base: 0.25s;
+  --dur-slow: 0.4s;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Type */
   --sans: 'Inter Variable', system-ui, 'Segoe UI', Roboto, sans-serif;
   --display: 'Neutral Face', var(--sans);
 
@@ -84,8 +111,77 @@ button {
   cursor: pointer;
 }
 
+/* Keyboard focus is the only indication of position for keyboard users, and the
+   default UA ring is invisible against --bg. One rule covers every control. */
+:where(a, button, [tabindex], input, select, textarea):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Programmatic focus targets (route changes) are announced to screen readers but
+   should not draw a ring. */
+.app main:focus {
+  outline: none;
+}
+
+/* Visually hidden but available to assistive technology. */
+.srOnly {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skipLink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 15px;
+  transform: translateY(-120%);
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.skipLink:focus-visible {
+  transform: translateY(0);
+}
+
 .app {
-  max-width: 1920px;
+  max-width: var(--app-max);
   margin: 0 auto;
   position: relative;
+}
+
+/* MotionConfig reducedMotion="user" covers framer-motion transforms, but not CSS
+   transitions and keyframes (hero crossfades, photo zooms, hover states, the
+   tab-underline animation). This is the CSS-side safety net. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Hebrew is a right-to-left language; the whole layout mirrors when active. */
+[dir='rtl'] .app {
+  direction: rtl;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --header-h: 84px;
+  }
 }

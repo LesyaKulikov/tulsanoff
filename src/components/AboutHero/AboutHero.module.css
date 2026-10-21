@@ -1,15 +1,19 @@
 .hero {
   position: relative;
   color: var(--text);
-  padding-top: 170px;
-  padding-bottom: 90px;
+  padding-block: 170px 90px;
 }
 
+/* Full-bleed band without the 100vw + calc(50% - 50vw) trick: that pattern is
+   wider than the viewport by the scrollbar width and overflows horizontally. */
 .band {
   position: relative;
-  min-height: 743px;
+  min-height: min(743px, 90vh);
+  /* Full-bleed: break out of the max-width .app to the true viewport width. The
+     scrollbar-width overshoot of 100vw is clipped by body { overflow-x: hidden }.
+     margin-inline-start is logical, so it centers in RTL (Hebrew). */
   width: 100vw;
-  margin-left: calc(50% - 50vw);
+  margin-inline: calc(50% - 50vw) 0;
   overflow: hidden;
 }
 

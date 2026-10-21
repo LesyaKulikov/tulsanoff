@@ -1,14 +1,19 @@
 .hero {
   position: relative;
   color: var(--text);
-  padding-top: 170px;
+  padding-block-start: 170px;
 }
 
+/* Full-bleed band without the 100vw + calc(50% - 50vw) trick: that pattern is
+   wider than the viewport by the scrollbar width and overflows horizontally. */
 .band {
   position: relative;
   min-height: 743px;
+  /* Full-bleed: break out of the max-width .app to the true viewport width. The
+     scrollbar-width overshoot of 100vw is clipped by body { overflow-x: hidden }.
+     margin-inline-start is logical, so it centers in RTL (Hebrew). */
   width: 100vw;
-  margin-left: calc(50% - 50vw);
+  margin-inline: calc(50% - 50vw) 0;
   overflow: hidden;
 }
 
@@ -29,13 +34,17 @@
 
 .card {
   composes: glass from global;
-  background: linear-gradient(180deg, rgba(255, 254, 250, 0.12) 0%, rgba(255, 254, 250, 0.32) 100%);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: calc(var(--gutter) + max(0px, (100vw - 1920px) / 2));
+  /* Aligns the card's outer edge with the content column: on viewports wider
+     than the 1920px app the extra max(0px, …) offset tracks the app's centering,
+     so the card stays on the text grid instead of drifting to the viewport edge.
+     Logical (not `right:`) so it mirrors to the left column in RTL. */
+  inset-inline-end: calc(var(--gutter) + max(0px, (100vw - var(--app-max)) / 2));
   width: 565px;
-  height: 456px;
+  height: auto;
+  min-height: 456px;
   padding: 60px 55px;
   display: flex;
   flex-direction: column;
@@ -43,12 +52,18 @@
   gap: 16px;
 }
 
+/* Doubled specificity so the gradient beats `.glass`'s background no matter
+   which stylesheet loads first (see the note at the top of glass.css). */
+.card.card {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--text) 12%, transparent) 0%, color-mix(in srgb, var(--text) 32%, transparent) 100%);
+}
+
 .title {
   font-size: 36px;
   font-weight: 700;
   line-height: 136%;
-  letter-spacing: 6%;
-  text-shadow: 0 4px 40px rgba(36, 28, 26, 0.25);
+  letter-spacing: 0.06em;
+  text-shadow: 0 4px 40px var(--shadow);
 }
 
 .nowrap {
@@ -59,21 +74,21 @@
   font-size: 24px;
   font-weight: 700;
   line-height: 144%;
-  letter-spacing: 10%;
+  letter-spacing: 0.1em;
   color: var(--accent);
 }
 
 .body {
   font-size: 20px;
   line-height: 144%;
-  letter-spacing: 10%;
+  letter-spacing: 0.1em;
   max-width: 450px;
 }
 
 .note {
   font-size: 16px;
   line-height: 144%;
-  letter-spacing: 6%;
+  letter-spacing: 0.06em;
   opacity: 0.75;
 }
 
@@ -87,8 +102,8 @@
 
 @media (max-width: 1200px) {
   .card {
-    right: 50%;
-    transform: translate(50%, -50%);
-    max-width: calc(100vw - 40px);
+    inset-inline: 0;
+    margin-inline: auto;
+    max-width: calc(100% - 40px);
   }
 }

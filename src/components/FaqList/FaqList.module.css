@@ -5,7 +5,7 @@
 
 .heading {
   font-family: var(--display);
-  font-size: 64px;
+  font-size: clamp(32px, 6vw, 64px);
   font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 121.75%;
@@ -18,50 +18,70 @@
   gap: 0;
 }
 
+/* Bordered container. The tappable question lives in .trigger so the answer
+   can sit outside the button (screen readers would otherwise read the whole
+   answer as the button's name, and clicks inside it would collapse the row). */
 .row {
+  display: flex;
+  flex-direction: column;
+  padding-block: 20px;
+  padding-inline: 15px;
+  border-block: 1px solid var(--divider);
+  background: transparent;
+  transition:
+    background var(--dur-base) var(--ease),
+    border-color var(--dur-base) var(--ease);
+}
+
+.row + .row {
+  border-block-start: none;
+}
+
+.trigger {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 20px 15px;
-  border-top: 1px solid rgba(213, 213, 213, 0.3);
-  border-bottom: 1px solid rgba(213, 213, 213, 0.3);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
   background: transparent;
-  cursor: pointer;
-  transition: background 0.3s ease, border-color 0.3s ease;
-}
-
-.row + .row {
-  border-top: none;
+  color: inherit;
+  font: inherit;
+  text-align: start;
 }
 
 .open {
-  align-items: flex-start;
-  background: rgba(255, 254, 250, 0.13);
+  background: var(--panel);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-color: transparent;
+}
+
+.open .trigger {
+  align-items: flex-start;
 }
 
 .label {
   font-family: var(--display);
   font-size: 16px;
   font-weight: 400;
+  /* Neutral Face ships static 400/700 faces (font-weight picks the face);
+     the variation setting lets the weight ease when Inter Variable — the
+     fallback face, which is a variable font — renders the label. */
+  font-variation-settings: 'wght' 400;
   line-height: 173%;
   letter-spacing: 0.1em;
-  transition: color 0.3s ease;
+  transition:
+    color var(--dur-base) var(--ease),
+    font-variation-settings var(--dur-base) var(--ease);
 }
 
 .open .label {
   font-weight: 700;
+  font-variation-settings: 'wght' 700;
   color: var(--accent);
-}
-
-.details {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  width: 100%;
 }
 
 .bodyWrap {
@@ -81,7 +101,7 @@
   align-items: center;
   justify-content: center;
   color: var(--text);
-  transition: transform 0.3s ease;
+  transition: transform var(--dur-base) var(--ease);
 }
 
 .iconOpen {

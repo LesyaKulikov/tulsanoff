@@ -15,11 +15,11 @@
 }
 
 .rows {
-  border-top: 1px solid rgba(217, 217, 217, 0.28);
+  border-top: 1px solid var(--divider);
 }
 
 .row {
-  border-bottom: 1px solid rgba(217, 217, 217, 0.28);
+  border-bottom: 1px solid var(--divider);
 }
 
 .head,

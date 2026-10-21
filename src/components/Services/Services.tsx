@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
 import { Arrow } from '../Arrow/Arrow'
@@ -7,6 +7,8 @@ import { reveal, fadeUp, scaleIn, EASE } from '../../animation/variants'
 import styles from './Services.module.css'
 
 const CATS = ['cat0', 'cat1', 'cat2'] as const
+
+const PANEL_ID = 'services-tabpanel'
 
 const CARDS: ReadonlyArray<ReadonlyArray<{ n: number; src: string; slug: string }>> = [
   [
@@ -20,15 +22,43 @@ const CARDS: ReadonlyArray<ReadonlyArray<{ n: number; src: string; slug: string 
     { n: 5, src: '/images/video-frame.jpg', slug: 'shvedskiy' },
     { n: 6, src: '/images/anti-tsellyulit.jpg', slug: 'anti-tsellyulit' },
   ],
-    [{ n: 7, src: '/images/dlya-par.jpg', slug: 'dlya-par' }],
+  [{ n: 7, src: '/images/dlya-par.jpg', slug: 'dlya-par' }],
 ]
 
 export function Services() {
   const [active, setActive] = useState(0)
 
+  // WAI-ARIA tabs pattern: arrows/Home/End move selection between the tabs.
+  const handleTabKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
+    const last = CATS.length - 1
+    let next: number
+    switch (event.key) {
+      case 'ArrowRight':
+      case 'ArrowDown':
+        next = active === last ? 0 : active + 1
+        break
+      case 'ArrowLeft':
+      case 'ArrowUp':
+        next = active === 0 ? last : active - 1
+        break
+      case 'Home':
+        next = 0
+        break
+      case 'End':
+        next = last
+        break
+      default:
+        return
+    }
+    event.preventDefault()
+    setActive(next)
+    event.currentTarget.querySelectorAll<HTMLButtonElement>('[role="tab"]')[next]?.focus()
+  }
+
   return (
     <section className={styles.services} data-test-id="services">
       <motion.h2
+        id="services-heading"
         className={styles.heading}
         data-test-id="services-heading"
         {...reveal(fadeUp(0, { duration: 0.8, distance: 32 }))}
@@ -39,15 +69,21 @@ export function Services() {
       <motion.div
         className={styles.categories}
         data-test-id="services-categories"
+        role="tablist"
+        aria-labelledby="services-heading"
+        onKeyDown={handleTabKeyDown}
         {...reveal(fadeUp(0.1, { duration: 0.7, distance: 24 }))}
       >
         {CATS.map((cat, i) => (
           <button
             type="button"
             key={cat}
+            role="tab"
+            id={`services-tab-${i}`}
+            aria-selected={i === active}
+            aria-controls={PANEL_ID}
             className={i === active ? styles.categoryActive : styles.category}
             data-test-id={`services-category-${i}`}
-            aria-pressed={i === active}
             onClick={() => setActive(i)}
           >
             <Message id={`services.${cat}`} />
@@ -58,6 +94,9 @@ export function Services() {
       <AnimatePresence mode="wait">
         <motion.div
           key={active}
+          id={PANEL_ID}
+          role="tabpanel"
+          aria-labelledby={`services-tab-${active}`}
           className={styles.grid}
           exit={{ opacity: 0, transition: { duration: 0.2, ease: EASE } }}
         >

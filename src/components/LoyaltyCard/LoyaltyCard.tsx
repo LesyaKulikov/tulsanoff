@@ -3,7 +3,13 @@ import { motion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
 import { Button } from '../Button/Button'
 import { reveal, fadeUp } from '../../animation/variants'
+import { ROUTES } from '../../routes'
 import styles from './LoyaltyCard.module.css'
+
+/** Intrinsic size of public/images/loyalty-card.jpg. Together with
+ * `aspect-ratio` on `.card`, this keeps the 3D card (and the CTA below it)
+ * from jumping while the image loads. */
+const CARD_IMG = { width: 1600, height: 861 } as const
 
 export function LoyaltyCard() {
   const cardRef = useRef<HTMLDivElement>(null)
@@ -13,13 +19,18 @@ export function LoyaltyCard() {
     const card = cardRef.current
     const glow = glowRef.current
     if (!card || !glow) return
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
-    let bounds: DOMRect | null = null
+    // Live queries: toggling OS hover / reduced-motion in settings takes
+    // effect without a page reload.
+    const hoverMQ = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+    let tracking = false
 
     const rotateToMouse = (e: PointerEvent) => {
-      if (!bounds) return
+      // Re-read on every move: the card can scroll or resize mid-hover, and a
+      // stale rect would skew both the tilt axis and the highlight position.
+      const bounds = card.getBoundingClientRect()
       const center = {
         x: e.clientX - bounds.left - bounds.width / 2,
         y: e.clientY - bounds.top - bounds.height / 2,
@@ -36,37 +47,56 @@ export function LoyaltyCard() {
         )
       `
 
+      // `center` is already relative to the card's middle, so adding half the
+      // card back places the highlight exactly at the cursor. (The old ×2
+      // swept it from -0.5w to 1.5w — half of it outside the card, moving at
+      // twice the cursor speed.)
       glow.style.backgroundImage = `
         radial-gradient(
           circle at
-          ${center.x * 2 + bounds.width / 2}px
-          ${center.y * 2 + bounds.height / 2}px,
-          #ffffff55,
-          #0000000f
+          ${center.x + bounds.width / 2}px
+          ${center.y + bounds.height / 2}px,
+          rgb(255 255 255 / 33%),
+          rgb(0 0 0 / 6%)
         )
       `
     }
 
-    const onMouseEnter = () => {
-      bounds = card.getBoundingClientRect()
-      card.style.transition = 'none'
-      document.addEventListener('pointermove', rotateToMouse)
-    }
-
-    const onMouseLeave = () => {
+    const stopTracking = () => {
       document.removeEventListener('pointermove', rotateToMouse)
-      card.style.transition = 'transform 0.45s ease-out'
+      // '' restores the CSS transition so the card eases back to flat.
+      card.style.transition = ''
       card.style.transform = ''
       glow.style.backgroundImage = ''
     }
 
-    card.addEventListener('mouseenter', onMouseEnter)
-    card.addEventListener('mouseleave', onMouseLeave)
+    const onMouseEnter = () => {
+      card.style.transition = 'none'
+      document.addEventListener('pointermove', rotateToMouse)
+    }
+
+    const setTracking = (on: boolean) => {
+      if (on === tracking) return
+      tracking = on
+      if (on) {
+        card.addEventListener('mouseenter', onMouseEnter)
+        card.addEventListener('mouseleave', stopTracking)
+      } else {
+        card.removeEventListener('mouseenter', onMouseEnter)
+        card.removeEventListener('mouseleave', stopTracking)
+        stopTracking()
+      }
+    }
+
+    const sync = () => setTracking(hoverMQ.matches && !reduceMQ.matches)
+    sync()
+    hoverMQ.addEventListener('change', sync)
+    reduceMQ.addEventListener('change', sync)
 
     return () => {
-      document.removeEventListener('pointermove', rotateToMouse)
-      card.removeEventListener('mouseenter', onMouseEnter)
-      card.removeEventListener('mouseleave', onMouseLeave)
+      hoverMQ.removeEventListener('change', sync)
+      reduceMQ.removeEventListener('change', sync)
+      setTracking(false)
     }
   }, [])
 
@@ -77,6 +107,8 @@ export function LoyaltyCard() {
           <img
             className={styles.image}
             src="/images/loyalty-card.jpg"
+            width={CARD_IMG.width}
+            height={CARD_IMG.height}
             alt=""
             loading="lazy"
             decoding="async"
@@ -88,7 +120,7 @@ export function LoyaltyCard() {
       <motion.span
         className={styles.mark}
         data-test-id="services-loyalty-heading"
-        {...reveal(fadeUp(0.1, { duration: 0.7, distance: 20 }))}
+        {...reveal(fadeUp(0.1, { duration: 0.7, distance: 20, opacity: 0.6 }))}
       >
         <Message id="servicesPage.loyalty.heading" />
       </motion.span>
@@ -111,7 +143,7 @@ export function LoyaltyCard() {
       <motion.p
         className={styles.note}
         data-test-id="services-loyalty-note"
-        {...reveal(fadeUp(0.32, { duration: 0.75, distance: 24 }))}
+        {...reveal(fadeUp(0.32, { duration: 0.75, distance: 24, opacity: 0.85 }))}
       >
         <Message id="servicesPage.loyalty.note" />
       </motion.p>
@@ -125,7 +157,7 @@ export function LoyaltyCard() {
       </motion.ul>
 
       <motion.div {...reveal(fadeUp(0.44, { duration: 0.7, distance: 24 }))}>
-        <Button to="/contacts" className={styles.cta} data-test-id="services-loyalty-cta">
+        <Button to={ROUTES.contacts} className={styles.cta} data-test-id="services-loyalty-cta">
           <Message id="servicesPage.loyalty.cta" />
         </Button>
       </motion.div>

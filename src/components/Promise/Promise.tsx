@@ -9,7 +9,7 @@ export function Promise() {
       <motion.span
         className={styles.mark}
         data-test-id="promise-mark"
-        {...reveal(fadeUp(0, { duration: 0.8, distance: 20 }))}
+        {...reveal(fadeUp(0, { duration: 0.8, distance: 20, opacity: 0.6 }))}
       >
         <Message id="promise.body" />
       </motion.span>

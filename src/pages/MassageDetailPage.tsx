@@ -24,6 +24,7 @@ const TABS: TabDef[] = [
   { id: 'about', kind: 'prose', max: 6 },
   { id: 'indications', kind: 'chips', max: 6 },
   { id: 'benefits', kind: 'numbered', max: 8 },
+  { id: 'approach', kind: 'prose', max: 6 },
 ]
 
 function useTabItems(slug: string, tab: TabDef) {
@@ -37,11 +38,15 @@ function useTabItems(slug: string, tab: TabDef) {
     if (hasMessage(id, locale)) items.push(id)
   }
 
-  return { base, items }
+  // The lead is optional copy exactly like the items above: an author who
+  // writes `content.indications.0` but no `...lead` must not see a raw id.
+  const hasLead = hasMessage(`${base}.lead`, locale)
+
+  return { base, items, hasLead }
 }
 
 function TabPanel({ slug, tab }: { slug: string; tab: TabDef }) {
-  const { base, items } = useTabItems(slug, tab)
+  const { base, items, hasLead } = useTabItems(slug, tab)
 
   if (tab.kind === 'prose') {
     return (
@@ -58,9 +63,11 @@ function TabPanel({ slug, tab }: { slug: string; tab: TabDef }) {
   if (tab.kind === 'chips') {
     return (
       <div className={styles.prose}>
-        <p className={styles.lead}>
-          <Message id={`${base}.lead`} />
-        </p>
+        {hasLead && (
+          <p className={styles.lead}>
+            <Message id={`${base}.lead`} />
+          </p>
+        )}
         <ul className={styles.chips}>
           {items.map((id) => (
             <li className={styles.chip} key={id}>
@@ -74,9 +81,11 @@ function TabPanel({ slug, tab }: { slug: string; tab: TabDef }) {
 
   return (
     <div className={styles.prose}>
-      <p className={styles.lead}>
-        <Message id={`${base}.lead`} />
-      </p>
+      {hasLead && (
+        <p className={styles.lead}>
+          <Message id={`${base}.lead`} />
+        </p>
+      )}
       <ul className={styles.numbered}>
         {items.map((id, i) => (
           <li className={styles.item} key={id}>
@@ -119,14 +128,14 @@ export function MassageDetailPage() {
           <motion.h1
             className={styles.title}
             data-test-id="massage-title"
-            {...reveal(fadeUp(0.06, { duration: 0.85, distance: 34 }))}
+            {...reveal(fadeUp(0.05, { duration: 0.85, distance: 34 }))}
           >
             <Message id={`servicesPage.massage.${massage.id}.title`} />
           </motion.h1>
 
           <motion.p
             className={styles.eyebrow}
-            {...reveal(fadeUp(0.16, { duration: 0.7, distance: 20 }))}
+            {...reveal(fadeUp(0.1, { duration: 0.7, distance: 20 }))}
           >
             <Message id={`servicesPage.massage.${massage.id}.subtitle`} />
           </motion.p>
@@ -137,11 +146,11 @@ export function MassageDetailPage() {
             <motion.img
               className={styles.photo}
               src={massage.image}
-              alt=""
+              alt={intl.formatMessage({ id: `servicesPage.massage.${massage.id}.title` })}
               decoding="async"
               fetchPriority="high"
               data-test-id="massage-photo"
-              {...reveal(fadeUp(0.1, { duration: 0.9, distance: 32 }))}
+              {...reveal(fadeUp(0.15, { duration: 0.9, distance: 32 }))}
             />
 
             <motion.dl
@@ -161,7 +170,7 @@ export function MassageDetailPage() {
               ))}
             </motion.dl>
 
-            <motion.div {...reveal(fadeUp(0.3, { duration: 0.7, distance: 24 }))}>
+            <motion.div {...reveal(fadeUp(0.25, { duration: 0.7, distance: 24 }))}>
               <Button to={ROUTES.contacts} className={styles.book} data-test-id="massage-book">
                 <Message id="servicesPage.detail.book" />
                 <Arrow />
@@ -171,21 +180,26 @@ export function MassageDetailPage() {
 
           {tabs.length > 0 && (
             <div className={styles.content}>
-              {tabs.map((tab, i) => (
-                <motion.article
-                  className={styles.section}
-                  key={tab.id}
-                  data-test-id={`massage-section-${tab.id}`}
-                  {...reveal(fadeUp(0.05 + i * 0.05, { duration: 0.7, distance: 26 }))}
-                >
-                  <div className={styles.sectionHead}>
-                    <h2 className={styles.sectionLabel} data-test-id={`massage-tab-${tab.id}`}>
-                      <Message id={`servicesPage.detail.tabs.${tab.id}`} />
-                    </h2>
-                  </div>
-                  <TabPanel slug={massage.id} tab={tab} />
-                </motion.article>
-              ))}
+              {tabs.map((tab, i) => {
+                // Delays follow document order — back → title → eyebrow →
+                // photo → facts → book → content — so nothing appears above a
+                // control that has not animated in yet.
+                return (
+                  <motion.article
+                    className={styles.section}
+                    key={tab.id}
+                    data-test-id={`massage-section-${tab.id}`}
+                    {...reveal(fadeUp(0.3 + i * 0.05, { duration: 0.7, distance: 26 }))}
+                  >
+                    <div className={styles.sectionHead}>
+                      <h2 className={styles.sectionLabel} data-test-id={`massage-tab-${tab.id}`}>
+                        <Message id={`servicesPage.detail.tabs.${tab.id}`} />
+                      </h2>
+                    </div>
+                    <TabPanel slug={massage.id} tab={tab} />
+                  </motion.article>
+                )
+              })}
             </div>
           )}
         </div>
