@@ -37,7 +37,11 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  inset-inline-end: var(--gutter);
+  /* Aligns the card's outer edge with the content column: on viewports wider
+     than the 1920px app the extra max(0px, …) offset tracks the app's centering,
+     so the card stays on the text grid instead of drifting to the viewport edge.
+     Logical (not `right:`) so it mirrors to the left column in RTL. */
+  inset-inline-end: calc(var(--gutter) + max(0px, (100vw - var(--app-max)) / 2));
   width: 565px;
   height: auto;
   min-height: 456px;

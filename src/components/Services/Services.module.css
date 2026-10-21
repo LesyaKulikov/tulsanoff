@@ -1,9 +1,5 @@
 .services {
   container-type: inline-size;
-  /* Caps the section at the content column so the two card columns don't run
-     away on very wide viewports; the gutters do the centering. */
-  max-width: calc(var(--container) + 2 * var(--gutter));
-  margin-inline: auto;
   padding: 100px var(--gutter);
   color: var(--text);
 }
@@ -95,11 +91,15 @@
   column-gap: 26px;
   row-gap: 30px;
   align-content: start;
+  /* Reserves the tallest tab's height (4 cards → 2 rows + gap), so switching
+     categories doesn't jump the page and the first paint has no reflow. */
+  min-height: calc((100cqw - 26px) * 299 / 551 + 30px);
 }
 
 @media (max-width: 1200px) {
   .grid {
     grid-template-columns: 1fr;
+    min-height: calc(100cqw * 299 / 551 * 4 + 90px);
   }
 }
 

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Message } from '../i18n/Message'
 import { SocialLinks } from '../components/SocialLinks/SocialLinks'
+import { CONTACTS_SOCIAL_LINKS } from '../contacts'
 import { reveal, fadeUp } from '../animation/variants'
 import { BRANCHES, EMAIL, PHONES, mapsUrl } from '../contacts'
 import styles from './ContactsPage.module.css'
@@ -68,7 +69,11 @@ export function ContactsPage() {
         </ul>
 
         <div className={styles.socials}>
-          <SocialLinks className={styles.social} testIdPrefix="contacts-social" />
+          <SocialLinks
+            links={CONTACTS_SOCIAL_LINKS}
+            className={styles.social}
+            testIdPrefix="contacts-social"
+          />
         </div>
       </motion.div>
     </motion.section>

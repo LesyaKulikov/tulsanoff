@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { CtaButton } from '../CtaButton/CtaButton'
 import { Message } from '../../i18n/Message'
 import { SocialLinks } from '../SocialLinks/SocialLinks'
+import { FOOTER_SOCIAL_LINKS } from '../../contacts'
 import { EMAIL, PHONES } from '../../contacts'
 import { ROUTES } from '../../routes'
 import { reveal, fadeUp } from '../../animation/variants'
@@ -85,7 +86,11 @@ export function Footer() {
 
       <motion.div className={styles.bottom} {...reveal(fadeUp(0.3, { duration: 0.75, distance: 30 }))}>
         <div className={styles.socials}>
-          <SocialLinks className={styles.social} testIdPrefix="footer-social" />
+          <SocialLinks
+            links={FOOTER_SOCIAL_LINKS}
+            className={styles.social}
+            testIdPrefix="footer-social"
+          />
         </div>
 
         <CtaButton messageId="footer.cta" testId="footer-book" />

@@ -521,8 +521,8 @@
     "cta": "Book Now",
     "social": {
       "tgAlt": "Telegram",
-      "waAlt": "WhatsApp",
-      "igAlt": "Instagram"
+      "igAlt": "Instagram",
+      "fbAlt": "Facebook"
     }
   }
 }

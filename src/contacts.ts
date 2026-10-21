@@ -5,39 +5,55 @@
  * value the copy alone cannot: the `tel:`/`mailto:`/map target. The *display*
  * labels still come from the locale files so they translate.
  *
- * Consumers: Hero, Footer and ContactsPage — previously each carried its own
- * copy of these links, and the Facebook entry had no URL at all so it silently
- * navigated to the homepage.
+ * Consumers: Hero, Footer and ContactsPage each render a different subset via
+ * the shared `SocialLinks` component, so the rows are defined separately rather
+ * than as one shared list. The Facebook entry has no public URL, so it carries
+ * `href: undefined` and renders as a labelled non-link — a bare `<a>` with an
+ * empty target would silently navigate to the homepage (the original bug).
+ * WhatsApp is deliberately *not* a social channel here: it is the booking line,
+ * linked from the CTA buttons (`WHATSAPP_URL`).
  */
 
 export interface SocialLink {
-  key: 'telegram' | 'instagram' | 'whatsapp'
-  href: string
+  key: 'telegram' | 'instagram' | 'facebook'
+  /** Absent for channels without a public URL yet (Facebook renders as a non-link). */
+  href?: string
   /** Locale id for the accessible name. */
   labelId: string
-  icon: 'telegram' | 'instagram' | 'whatsapp'
+  icon: 'telegram' | 'instagram' | 'facebook'
 }
 
-export const SOCIAL_LINKS: readonly SocialLink[] = [
-  {
-    key: 'telegram',
-    href: 'https://t.me/tulsanoff_massage_studio',
-    labelId: 'footer.social.tgAlt',
-    icon: 'telegram',
-  },
-  {
-    key: 'whatsapp',
-    href: 'https://wa.me/972504082976',
-    labelId: 'footer.social.waAlt',
-    icon: 'whatsapp',
-  },
-  {
-    key: 'instagram',
-    href: 'https://www.instagram.com/tulsanoff_massage',
-    labelId: 'footer.social.igAlt',
-    icon: 'instagram',
-  },
-]
+/** WhatsApp booking line — lives on the CTA buttons, not in the social rows. */
+export const WHATSAPP_URL = 'https://wa.me/972504082976'
+
+const TELEGRAM: SocialLink = {
+  key: 'telegram',
+  href: 'https://t.me/tulsanoff_massage_studio',
+  labelId: 'footer.social.tgAlt',
+  icon: 'telegram',
+}
+
+const INSTAGRAM: SocialLink = {
+  key: 'instagram',
+  href: 'https://www.instagram.com/tulsanoff_massage',
+  labelId: 'footer.social.igAlt',
+  icon: 'instagram',
+}
+
+const FACEBOOK: SocialLink = {
+  key: 'facebook',
+  labelId: 'footer.social.fbAlt',
+  icon: 'facebook',
+}
+
+/** Hero social row: telegram + instagram only. */
+export const HERO_SOCIAL_LINKS: readonly SocialLink[] = [TELEGRAM, INSTAGRAM]
+
+/** Footer social row: telegram + instagram + facebook. */
+export const FOOTER_SOCIAL_LINKS: readonly SocialLink[] = [TELEGRAM, INSTAGRAM, FACEBOOK]
+
+/** Contacts page social row (matches the footer). */
+export const CONTACTS_SOCIAL_LINKS: readonly SocialLink[] = [TELEGRAM, INSTAGRAM, FACEBOOK]
 
 export interface Phone {
   /** Already-formatted number, shown to the user. */

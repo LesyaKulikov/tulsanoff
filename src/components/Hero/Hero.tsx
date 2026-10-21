@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
 import { CtaButton } from '../CtaButton/CtaButton'
 import { SocialLinks } from '../SocialLinks/SocialLinks'
+import { HERO_SOCIAL_LINKS } from '../../contacts'
 import { enter, fadeUp } from '../../animation/variants'
 import styles from './Hero.module.css'
 
@@ -76,7 +77,11 @@ export function Hero() {
             <Message id="hero.title" />
           </motion.h1>
           <motion.div className={styles.socials} {...enter(fadeUp(0.5, { duration: 0.7, distance: 24 }))}>
-            <SocialLinks className={styles.socialBtn} testIdPrefix="hero-social" />
+            <SocialLinks
+              links={HERO_SOCIAL_LINKS}
+              className={styles.socialBtn}
+              testIdPrefix="hero-social"
+            />
           </motion.div>
         </div>
         <motion.div className={styles.cta} {...enter(fadeUp(0.62, { duration: 0.7, distance: 24 }))}>
