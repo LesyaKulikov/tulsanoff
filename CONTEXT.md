@@ -20,7 +20,7 @@ A unique semantic key into a locale file used for all user-facing copy, grouped 
 _Avoid_: translation key, string key
 
 **Locale file**:
-A `{ "key": "value" }` JSON file holding the copy for one language. `en-US.json` is the shipped default; two more locales are planned but not yet present.
+A `{ "key": "value" }` JSON file holding the copy for one language. `ru-RU.json` is the shipped default, with `he-IL.json` as the second locale the header switcher offers; `en-US.json` is kept complete but is not exposed in the UI yet. Hebrew is right-to-left — the active locale sets `<html dir>`.
 _Avoid_: lang file (when being precise)
 
 **Component**:

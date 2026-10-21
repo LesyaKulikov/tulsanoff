@@ -52,7 +52,7 @@ src/
 
 ## i18n
 
-All user-facing copy lives in locale files under `src/i18n/` as message IDs. The default locale is `en-US`; additional locales are planned.
+All user-facing copy lives in locale files under `src/i18n/` as message IDs. The default locale is `ru-RU`; `he-IL` is the second locale the header switcher offers, and `en-US` is kept complete for possible later use. The active locale drives `<html lang>` and `<html dir>`, so Hebrew lays out right-to-left.
 
 ## Gallery
 
