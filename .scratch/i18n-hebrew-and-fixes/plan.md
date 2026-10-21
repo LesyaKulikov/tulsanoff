@@ -171,27 +171,34 @@ The biggest bucket. **Pull one component per step** so any layout break is
 isolated to a single component. After each, re-run the verify checklist and
 pay special attention to that component.
 
-- [ ] **6.1 Hero** — `src/components/Hero/*` (DOM order, video reduced-motion)
-- [ ] **6.2 Approach** — `src/components/Approach/*` (heading)
-- [ ] **6.3 Services** — `src/components/Services/*` (ARIA tabs)
-- [ ] **6.4 ServicesGrid** — `src/components/ServicesGrid/*` (ARIA tabs)
-- [ ] **6.5 ServiceCard** — `src/components/ServiceCard/*` (alt/aria)
-- [ ] **6.6 ServicesMasonry** — `src/components/ServicesMasonry/*` (dedupe)
-- [ ] **6.7 FaqList** — `src/components/FaqList/*` (real button)
-- [ ] **6.8 LoyaltyCard** — `src/components/LoyaltyCard/*` (glow math + CLS)
-- [ ] **6.9 Masters** — `src/components/Masters/*` (hover-reachable CTA)
-- [ ] **6.10 SubscriptionBand** — `src/components/SubscriptionBand/*`
-- [ ] **6.11 Promise** — `src/components/Promise/*`
-- [ ] **6.12 AboutHero** — `src/components/AboutHero/*`
-- [ ] **6.13 AboutDescription** — `src/components/AboutDescription/*`
-- [ ] **6.14 AboutMasters** — `src/components/AboutMasters/*` (ARIA tabs,
-      querySelector crash fix)
-- [ ] **6.15 CertificateHero** — `src/components/CertificateHero/*`
-- [ ] **6.16 CtaBand + CtaButton** — `src/components/CtaBand/*`,
-      `src/components/CtaButton/*`
-- [ ] **6.17 Button** — `src/components/Button/*` (discriminated union)
-- [ ] **6.18 Arrow** — `src/components/Arrow/Arrow.tsx`
-- [ ] **6.19 BlinkText** — `src/components/BlinkText/*`
+- [x] **6.1 Hero** — `src/components/Hero/*` (DOM order, video reduced-motion) **+ full-bleed fix**
+- [x] **6.2 Approach** — `src/components/Approach/*` (heading) *clustered 6.2–6.6*
+- [x] **6.3 Services** — `src/components/Services/*` (ARIA tabs)
+- [x] **6.4 ServicesGrid** — `src/components/ServicesGrid/*` (ARIA tabs)
+- [x] **6.5 ServiceCard** — `src/components/ServiceCard/*` (alt/aria)
+- [x] **6.6 ServicesMasonry** — `src/components/ServicesMasonry/*` (dedupe)
+- [x] **6.7 FaqList** — `src/components/FaqList/*` (real button) *aria-expanded verified*
+- [x] **6.8 LoyaltyCard** — `src/components/LoyaltyCard/*` (glow math + CLS) *clustered 6.8–6.9*
+- [x] **6.9 Masters** — `src/components/Masters/*` (hover-reachable CTA) *`:focus-within` reveal verified*
+- [x] **6.10 SubscriptionBand** — `src/components/SubscriptionBand/*` **+ full-bleed fix**
+- [x] **6.11 Promise** — `src/components/Promise/*`
+- [x] **6.12 AboutHero** — `src/components/AboutHero/*` **+ full-bleed fix**
+- [x] **6.13 AboutDescription** — `src/components/AboutDescription/*` *clustered 6.13–6.14*
+- [x] **6.14 AboutMasters** — `src/components/AboutMasters/*` (ARIA tabs,
+      querySelector crash fix) *no console errors = crash fixed*
+- [x] **6.15 CertificateHero** — `src/components/CertificateHero/*` **+ full-bleed fix**
+- [x] **6.16 CtaBand + CtaButton** — `src/components/CtaBand/*`,
+      `src/components/CtaButton/*` **+ full-bleed fix (`.cta`)**
+- [x] **6.17 Button** — `src/components/Button/*` (discriminated union) *clustered 6.17–6.19*
+- [x] **6.18 Arrow** — `src/components/Arrow/Arrow.tsx`
+- [x] **6.19 BlinkText** — `src/components/BlinkText/*`
+
+*Phase 6 complete. All 19 components applied; the 5 full-bleed fixes (Hero,
+SubscriptionBand, AboutHero, CertificateHero, CtaBand) baked in per the ⚠️ note
+above. Every full-bleed section measured at 2560px spans the full viewport with
+no horizontal overflow; RU verified throughout. Isolation was per-cluster for
+attribute-only changes (6.2–6.6, 6.8–6.9, 6.13–6.14, 6.17–6.19) and one-at-a-time
+for every layout-affecting component.*
 
 ## Phase 7 — Page-level wiring
 
