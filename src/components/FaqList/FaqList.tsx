@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
 import { reveal, fadeUp, EASE } from '../../animation/variants'
 import styles from './FaqList.module.css'
@@ -21,6 +21,7 @@ interface FaqListProps {
 
 export function FaqList({ base = 'faq', rowIds = ROW_IDS, testId = 'faq' }: FaqListProps) {
   const [open, setOpen] = useState<string | null>(null)
+  const reduce = useReducedMotion()
 
   return (
     <section className={styles.faq} data-test-id={testId}>
@@ -35,48 +36,58 @@ export function FaqList({ base = 'faq', rowIds = ROW_IDS, testId = 'faq' }: FaqL
       <div className={styles.panel}>
         {rowIds.map((n, i) => {
           const isOpen = open === n
+          const questionId = `${testId}-question-${n}`
+          const answerId = `${testId}-answer-${n}`
           return (
             <motion.div
               key={n}
               className={`${styles.row} ${isOpen ? styles.open : ''}`}
               data-test-id={`${testId}-row-${n}`}
-              onClick={() => setOpen(isOpen ? null : n)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault()
-                  setOpen(isOpen ? null : n)
-                }
-              }}
-              aria-expanded={isOpen}
               {...reveal(fadeUp(0.08 + i * 0.07, { duration: 0.7, distance: 28 }))}
             >
-              <div className={styles.details}>
-                <p className={styles.label}>
+              {/* The button wraps only the question; the answer is a sibling
+                  region so screen readers don't announce it as the button's
+                  name and clicks inside it don't collapse the row. */}
+              <button
+                type="button"
+                id={questionId}
+                className={styles.trigger}
+                aria-expanded={isOpen}
+                aria-controls={isOpen ? answerId : undefined}
+                onClick={() => setOpen(isOpen ? null : n)}
+              >
+                <span className={styles.label}>
                   <Message id={`${base}.${n}.label`} />
-                </p>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      className={styles.bodyWrap}
-                      initial={{ height: 0, opacity: 0, marginTop: 0 }}
-                      animate={{ height: 'auto', opacity: 1, marginTop: 10 }}
-                      exit={{ height: 0, opacity: 0, marginTop: 0 }}
-                      transition={{ duration: 0.35, ease: EASE }}
-                    >
-                      <p className={styles.body}>
-                        <Message id={`${base}.${n}.body`} />
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-              <span className={`${styles.icon} ${isOpen ? styles.iconOpen : ''}`}>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M7 1v12M1 7h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </span>
+                </span>
+                <span className={`${styles.icon} ${isOpen ? styles.iconOpen : ''}`}>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path
+                      d="M7 1v12M1 7h12"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    id={answerId}
+                    role="region"
+                    aria-labelledby={questionId}
+                    className={styles.bodyWrap}
+                    initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                    animate={{ height: 'auto', opacity: 1, marginTop: 10 }}
+                    exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                    transition={{ duration: reduce ? 0 : 0.35, ease: EASE }}
+                  >
+                    <p className={styles.body}>
+                      <Message id={`${base}.${n}.body`} />
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           )
         })}
