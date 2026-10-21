@@ -48,6 +48,34 @@ in isolation.
 
 ---
 
+## ⚠️ KNOWN BUG in the reference — full-bleed sections (FIXED, bake into phase 6)
+
+**Found & fixed during diagnosis.** The reference rewrote the full-bleed
+("overflow") sections from a `100vw` breakout to `width: 100%`. But `width:100%`
+is relative to the centered `.app` container (`max-width:1920px`), **not** the
+viewport. So on any monitor **wider than 1920px** every full-bleed section gets
+trapped in the 1920px container with dark bands on both sides — exactly the
+"containers that limit content size + sections that can't overflow" symptom.
+It's invisible ≤1920px, which is why 1440px looked fine.
+
+**The fix** (verified at 1440/2560, RU/HE, no horizontal overflow). When applying
+these 5 components in phase 6, use the FIXED rules, not the reference's:
+
+- **Hero** — `.background`, `.mediaLayer`, `.scrim` (absolute): restore
+  `left:50%; transform:translateX(-50%); width:100vw` (physical → centers in RTL too).
+- **SubscriptionBand** — `.plan`: `width:100vw; margin-inline: calc(50% - 50vw) 0`.
+- **CertificateHero** — `.band`: `width:100vw; margin-inline: calc(50% - 50vw) 0`.
+- **AboutHero** — `.band`: `width:100vw; margin-inline: calc(50% - 50vw) 0`.
+- **CtaBand** — make **`.cta`** full-bleed (`width:100vw; margin-inline:calc(50% - 50vw) 0`)
+  so its `width:100%` map becomes full-viewport; keep `overflow:hidden` on `.cta`
+  (it clips the a11y map-skip link). Leave `.map` at `width:100%`.
+
+The scrollbar-width overshoot from `100vw` is clipped by the existing
+`body { overflow-x: hidden }`. `margin-inline-start` is logical, so the static
+bands center correctly in Hebrew RTL. **Re-create this patch when you reach
+phase 6** — it was not committed to the reference branch (which stays pristine
+as "the original work").
+
 ## Phase 1 — i18n infrastructure (no visual change)
 
 Logic only. Should not alter layout at all. Prerequisite for locale work.
