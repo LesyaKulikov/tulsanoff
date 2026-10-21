@@ -14,7 +14,7 @@ const COLUMNS = [
 export function AboutDescription() {
   return (
     <section className={styles.section} data-test-id="about-description">
-      <motion.h3
+      <motion.h2
         className={styles.statement}
         data-test-id="about-description-statement"
         {...reveal(fadeUp(0.12, { duration: 0.9, distance: 44 }))}
@@ -25,7 +25,7 @@ export function AboutDescription() {
             accent: (chunks) => <span className={styles.accent}>{chunks}</span>,
           }}
         />
-      </motion.h3>
+      </motion.h2>
 
       <motion.span
         className={styles.line}

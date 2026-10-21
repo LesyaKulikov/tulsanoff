@@ -1,14 +1,17 @@
 .masters {
-  padding: 100px var(--gutter) 0;
+  padding-block: 100px 0;
+  padding-inline: var(--gutter);
   color: var(--text);
   display: flex;
   flex-direction: column;
   gap: 48px;
 }
 
+/* Matches the sibling section headings (FaqList) — one scale for every
+   section heading on the page. */
 .heading {
   font-family: var(--display);
-  font-size: 42px;
+  font-size: clamp(32px, 6vw, 64px);
   font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 1.22;
@@ -26,6 +29,9 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   overflow: hidden;
+  /* Deep links (#about-master-*) and keyboard focus scroll the card into
+     view; keep it clear of the fixed header. */
+  scroll-margin-top: var(--header-h);
 }
 
 .panel.reverse {
@@ -48,7 +54,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform var(--dur-slow) var(--ease);
 }
 
 .panel:hover .photo {
@@ -81,10 +87,10 @@
 
 .exp {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: baseline;
   gap: 10px;
   padding: 9px 15px;
-  white-space: nowrap;
 }
 
 .expValue {
@@ -99,6 +105,7 @@
   font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  text-wrap: balance;
   opacity: 0.85;
 }
 
@@ -129,7 +136,7 @@
 .rule {
   display: block;
   height: 1px;
-  background: rgba(255, 255, 255, 0.22);
+  background: var(--divider);
 }
 
 .body {
@@ -161,8 +168,8 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transition:
-    color 0.3s ease,
-    opacity 0.3s ease;
+    color var(--dur-base) var(--ease),
+    opacity var(--dur-base) var(--ease);
 }
 
 .tab {
@@ -182,12 +189,11 @@
 .tabActive::after {
   content: '';
   position: absolute;
-  left: 0;
-  right: 0;
+  inset-inline: 0;
   bottom: 0;
   height: 2px;
   background: var(--accent);
-  animation: tab-underline 0.3s ease;
+  animation: tab-underline var(--dur-base) var(--ease);
 }
 
 @keyframes tab-underline {
@@ -201,8 +207,12 @@
   }
 }
 
+/* One reserved slot for every breakpoint, so the .exp badge underneath does not
+   jump when the tab changes. flex-grow lets the panel soak up any slack in the
+   stretched card, which pins .exp to the bottom on wide layouts. */
 .tabpanel {
-  min-height: 136px;
+  flex: 1 1 auto;
+  min-height: 168px;
 }
 
 .credentials {
@@ -255,26 +265,9 @@
   .name {
     font-size: 44px;
   }
-
-  .tabpanel {
-    min-height: 150px;
-  }
 }
 
 @media (min-width: 1500px) {
-  .heading {
-    font-size: 64px;
-  }
-
-  .panel,
-  .panel.reverse {
-    grid-template-columns: 1fr 2fr;
-  }
-
-  .panel.reverse {
-    grid-template-columns: 2fr 1fr;
-  }
-
   .content {
     gap: 26px;
     padding: 56px 64px;
@@ -296,11 +289,26 @@
     font-size: 18px;
   }
 
-  .tabpanel {
-    min-height: 168px;
-  }
-
   .credential {
     font-size: 16px;
+  }
+}
+
+/* The global reduced-motion block neuters durations, but this hover zoom and
+   the underline keyframe should not run at all. */
+@media (prefers-reduced-motion: reduce) {
+  .photo,
+  .tab,
+  .tabActive {
+    transition: none;
+  }
+
+  .panel:hover .photo {
+    transform: none;
+    transition: none;
+  }
+
+  .tabActive::after {
+    animation: none;
   }
 }

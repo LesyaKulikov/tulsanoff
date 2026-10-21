@@ -66,8 +66,11 @@
 .philosophy {
   max-width: 64ch;
   padding-top: calc(26px * var(--scale));
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-block-start: 1px solid var(--divider);
   font-size: clamp(18px, 1.8vw, calc(23px * var(--scale)));
+  /* This block does not set font-family, so it inherits Inter Variable from
+     :root — a variable font whose weight axis includes a true 600. (Neutral
+     Face's static 400/700 limit does not apply here.) */
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 1.55;
