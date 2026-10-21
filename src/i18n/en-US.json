@@ -4,9 +4,13 @@
     "link1": "Certificates",
     "link2": "About us",
     "link3": "Contacts",
-    "lang": "HEB",
+    "langLabel": "Switch language",
+    "menuLabel": "Open menu",
     "cta": "Book a session",
     "logoAlt": "TULSANOFF"
+  },
+  "a11y": {
+    "skipToContent": "Skip to content"
   },
   "hero": {
     "chip": "20% off your first massage",
@@ -17,8 +21,6 @@
     "body": "Instead of standard schemes we use targeted diagnostics and authorial healing techniques aimed precisely at your problem"
   },
   "approach": {
-    "heading": "our approach",
-    "note": "We help you restore your resources, feel tone in your body and return to deep, quality rest.",
     "0": {
       "num": "9+",
       "title": "years of experience",
@@ -33,13 +35,11 @@
       "num": "92%",
       "title": "visible result",
       "body": "The vast majority of clients report significant relief and resolution of their problem after the first sessions."
-    }
+    },
+    "heading": "our approach",
+    "note": "We help you restore your resources, feel tone in your body and return to deep, quality rest."
   },
   "services": {
-    "heading": "services",
-    "cat0": "Therapy & wellness",
-    "cat1": "Relax & aesthetics",
-    "cat2": "Special formats",
     "0": {
       "label": "medical"
     },
@@ -63,10 +63,13 @@
     },
     "7": {
       "label": "for couples"
-    }
+    },
+    "heading": "services",
+    "cat0": "Therapy & wellness",
+    "cat1": "Relax & aesthetics",
+    "cat2": "Special formats"
   },
   "masters": {
-    "heading": "our masters",
     "0": {
       "name": "Mark Tulsanoff",
       "role": "specialist in therapeutic massage",
@@ -76,30 +79,15 @@
       "name": "Larisa Kulikova",
       "role": "specialist in medical massage",
       "cta": "Learn more"
-    }
+    },
+    "heading": "our masters"
   },
   "story": {
     "heading": "THE STORY OF OUR STUDIO",
     "subheading": "We help you restore your resources, feel tone in your body and return to deep, quality rest.",
     "playAlt": "Watch video"
   },
-  "testimonials": {
-    "heading": "reviews",
-    "0": {
-      "name": "Elena Makarova",
-      "body": "We bring back muscle tone so the lightness lasts"
-    },
-    "1": {
-      "name": "Zhenya Serov",
-      "body": "We bring back muscle tone so the lightness lasts"
-    },
-    "2": {
-      "name": "Elena Makarova",
-      "body": "We bring back muscle tone so the lightness lasts"
-    }
-  },
   "faq": {
-    "heading": "FREQUENTLY ASKED QUESTIONS",
     "0": {
       "label": "How to prepare for a massage session?",
       "body": "Avoid heavy meals 1.5 hours before the session. It is advisable to take a hygienic shower before the procedure."
@@ -115,12 +103,14 @@
     "3": {
       "label": "Is it normal to feel pain after a massage?",
       "body": "Mild soreness (like after a workout) for 1–2 days after deep muscle work is a normal body reaction."
-    }
+    },
+    "heading": "FREQUENTLY ASKED QUESTIONS"
   },
   "cta": {
     "heading": "We help you restore your resources, feel tone in your body and return to deep, quality rest.",
     "body": "We help you restore your resources, feel tone in your body and return to deep, quality rest.",
-    "button": "Book a session"
+    "button": "Book a session",
+    "mapTitle": "TULSANOFF on Google Maps"
   },
   "about": {
     "heading": "About us"
@@ -135,7 +125,6 @@
       "cta": "LEARN MORE"
     },
     "faq": {
-      "heading": "CERTIFICATE QUESTIONS",
       "0": {
         "label": "In what form can I purchase a certificate?",
         "body": "Digital — we'll send it by email, WhatsApp or Telegram, whichever you prefer. Physical in a gift envelope — you can pick it up at the studio."
@@ -151,32 +140,31 @@
       "3": {
         "label": "Can I add a personal congratulation to the certificate?",
         "body": "Yes — when ordering, please give the name of the person you're gifting it to, your own name and a message, and we'll add them to the voucher or the digital email."
-      }
+      },
+      "heading": "CERTIFICATE QUESTIONS"
     }
   },
   "contacts": {
-    "heading": "Contacts"
+    "heading": "Contacts",
+    "branches": {
+      "heading": "Branches"
+    },
+    "branch": {
+      "0": "Petah Tikva",
+      "1": "Ramat Gan"
+    },
+    "mapCta": "Open on the map",
+    "reach": {
+      "heading": "Get in touch"
+    }
+  },
+  "notFound": {
+    "heading": "Page not found",
+    "body": "The page may have been moved, or the link is out of date.",
+    "cta": "Back to the homepage"
   },
   "servicesPage": {
     "heading": "services",
-    "card": {
-      "0": {
-        "title": "medical massage",
-        "type": "author's technique",
-        "body": "We bring back muscle tone so the lightness lasts"
-      },
-      "1": {
-        "title": "facial massage",
-        "type": "author's technique",
-        "body": "We bring back muscle tone so the lightness lasts"
-      },
-      "2": {
-        "title": "massage for couples",
-        "type": "author's technique",
-        "body": "We bring back muscle tone so the lightness lasts"
-      }
-    },
-    "more": "learn more",
     "detail": {
       "back": "back to massages",
       "classification": "classification",
@@ -204,19 +192,19 @@
             "1": "Unlike a general relaxation massage, the focus here is on specific problem areas. The technique and intensity are chosen individually — taking into account the person's condition, lifestyle, physical activity and body features."
           },
           "indications": {
-            "lead": "The massage may help with:",
             "0": "muscle overexertion, stiffness and limited movement",
             "1": "discomfort in the back, neck and shoulders",
-            "2": "recovery after physical loads"
+            "2": "recovery after physical loads",
+            "lead": "The massage may help with:"
           },
           "benefits": {
-            "lead": "Medical massage helps to:",
             "0": "reduce muscle tension and spasms",
             "1": "ease the feeling of pain and discomfort",
             "2": "improve mobility and tissue elasticity",
             "3": "boost circulation in the treated area",
             "4": "speed up recovery after physical loads",
-            "5": "give the body a feeling of freedom and comfort"
+            "5": "give the body a feeling of freedom and comfort",
+            "lead": "Medical massage helps to:"
           },
           "approach": {
             "0": "Every session is built individually: we identify the areas that need special attention and choose techniques according to your current condition and goals."
@@ -238,11 +226,11 @@
             "3": "The massage is adapted to your individual features, keeping it comfortable and safe at every stage of facial care."
           },
           "benefits": {
-            "lead": "What IQ hiro massage gives you:",
             "0": "effective lymphatic drainage — reduces puffiness, flushes toxins and improves the complexion",
             "1": "deep muscle work — releases tension, helps prevent wrinkles and keeps the skin toned",
             "2": "fast recovery after a lift, correction or blepharoplasty — helps resolve swelling and bruises sooner, improves blood circulation and stimulates tissue regeneration",
-            "3": "natural lifting — without injections or aggressive intervention"
+            "3": "natural lifting — without injections or aggressive intervention",
+            "lead": "What IQ hiro massage gives you:"
           }
         }
       },
@@ -259,12 +247,12 @@
             "1": "Want to relax, restore your energy and simply enjoy the moment? A shared massage is not only pleasure, but also care for your health."
           },
           "benefits": {
-            "lead": "5 reasons to book a massage for couples:",
             "0": "stress relief — help yourself and your partner release tension and tiredness",
             "1": "care for your health — better blood circulation, less muscular tension and overall recovery",
             "2": "energy and balance — after the massage you feel lightness and a surge of energy",
             "3": "quality rest — shared relaxation helps you sleep and recover better",
-            "4": "a new experience — an unusual and pleasant time together worth trying"
+            "4": "a new experience — an unusual and pleasant time together worth trying",
+            "lead": "5 reasons to book a massage for couples:"
           }
         }
       },
@@ -282,19 +270,19 @@
             "2": "The intensity and pace of the massage are chosen individually so the session is as comfortable as possible and lets you truly rest — physically and emotionally."
           },
           "indications": {
-            "lead": "The massage especially suits periods of:",
             "0": "stress and high load",
             "1": "overstrain and fatigue",
-            "2": "simply wanting to stop and let the body rest fully"
+            "2": "simply wanting to stop and let the body rest fully",
+            "lead": "The massage especially suits periods of:"
           },
           "benefits": {
-            "lead": "Relaxation massage helps to:",
             "0": "relieve muscular tension",
             "1": "reduce the feeling of tiredness",
             "2": "relax after physical and emotional loads",
             "3": "improve overall wellbeing",
             "4": "feel lightness and comfort in the body",
-            "5": "restore a sense of inner calm"
+            "5": "restore a sense of inner calm",
+            "lead": "Relaxation massage helps to:"
           }
         }
       },
@@ -311,20 +299,12 @@
             "1": "This massage helps relax the muscles, improve blood circulation, relieve tension and speed up recovery after intense training or competition."
           },
           "benefits": {
-            "lead": "Depending on the goal, different methods may be used:",
             "0": "warming-up massage — done before a workout or competition to prepare the muscles for the load and improve their flexibility",
             "1": "relaxation massage — applied after a training to relieve tension, speed up the removal of lactic acid and improve recovery",
-            "2": "therapeutic massage — used to treat injuries and pain in the muscles or joints"
+            "2": "therapeutic massage — used to treat injuries and pain in the muscles or joints",
+            "lead": "Depending on the goal, different methods may be used:"
           }
         }
-      },
-      "glubokotkanniy": {
-        "title": "deep tissue",
-        "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. We address the cause of pain and specific tension points, tailoring the technique and intensity to each client.",
-        "classification": "therapy & wellness",
-        "duration": "60\\90",
-        "forWhom": "everyone"
       },
       "shvedskiy": {
         "title": "swedish massage",
@@ -340,17 +320,17 @@
             "2": "In our studio the intensity and depth of the work are chosen individually — taking into account the condition of the muscles, your sensitivity and your preferences."
           },
           "indications": {
-            "lead": "The massage suits those who:",
             "0": "want to release accumulated tiredness",
             "1": "want to relax",
-            "2": "want to feel lightness in the body"
+            "2": "want to feel lightness in the body",
+            "lead": "The massage suits those who:"
           },
           "benefits": {
-            "lead": "Swedish massage helps to:",
             "0": "improve blood circulation",
             "1": "reduce muscular stiffness",
             "2": "lower the stress level",
-            "3": "improve overall wellbeing"
+            "3": "improve overall wellbeing",
+            "lead": "Swedish massage helps to:"
           }
         }
       },
@@ -368,19 +348,19 @@
             "2": "After a session you often feel a pleasant sense of lightness, relaxation and freedom of movement."
           },
           "indications": {
-            "lead": "The massage suits those who:",
             "0": "spend a lot of time sitting or on their feet",
             "1": "feel a heavy body and are prone to swelling",
-            "2": "want massage as part of overall body care"
+            "2": "want massage as part of overall body care",
+            "lead": "The massage suits those who:"
           },
           "benefits": {
-            "lead": "Lymphatic drainage massage helps to:",
             "0": "reduce swelling and fluid retention",
             "1": "ease the feeling of heaviness in the legs",
             "2": "improve microcirculation",
             "3": "support recovery after physical loads",
             "4": "improve the look and condition of the tissues",
-            "5": "give the body a feeling of lightness"
+            "5": "give the body a feeling of lightness",
+            "lead": "Lymphatic drainage massage helps to:"
           }
         }
       },
@@ -399,20 +379,12 @@
             "3": "A course of procedures is recommended to maintain the effect."
           },
           "benefits": {
-            "lead": "Effect of the procedure:",
             "0": "the skin can look smoother and firmer",
-            "1": "signs of cellulite become less visible"
+            "1": "signs of cellulite become less visible",
+            "lead": "Effect of the procedure:"
           }
         }
       }
-    },
-    "label": {
-      "0": "relax",
-      "1": "sports",
-      "2": "deep tissue",
-      "3": "swedish",
-      "4": "lymphatic drainage",
-      "5": "anti-cellulite"
     },
     "plan": {
       "heading": "subscription",
@@ -461,12 +433,6 @@
       "body": "We bring back muscle tone so the lightness lasts"
     },
     "masters": {
-      "heading": "our masters",
-      "tabs": {
-        "about": "about",
-        "training": "training",
-        "qualifications": "qualifications"
-      },
       "0": {
         "index": "01",
         "name": "Mark",
@@ -496,10 +462,15 @@
           "2": "hatha yoga · Yoga Center Tapas Israel",
           "3": "IQ chair massage · Massage school of Elena Zemskova"
         }
+      },
+      "heading": "our masters",
+      "tabs": {
+        "about": "about",
+        "training": "training",
+        "qualifications": "qualifications"
       }
     },
     "faq": {
-      "heading": "FREQUENTLY ASKED QUESTIONS",
       "0": {
         "label": "What types of massage do you offer at your studio?",
         "body": "We offer medical, sports, restorative, Swedish, relaxing, lymphatic drainage and anti-cellulite massage, as well as IQ bodywork. The technique is chosen individually."
@@ -523,34 +494,35 @@
       "5": {
         "label": "How do I book a massage?",
         "body": "Message us on WhatsApp or Telegram, telling us the service you would like and your preferred branch. We will help you choose a specialist and arrange a time for your visit."
-      }
+      },
+      "heading": "FREQUENTLY ASKED QUESTIONS"
     }
   },
   "footer": {
     "addresses": {
-      "heading": "ADDRESSES",
       "0": "Odem 8 Petah Tikva",
-      "1": "Bialik 63 Ramat Gan"
+      "1": "Bialik 63 Ramat Gan",
+      "heading": "ADDRESSES"
     },
     "contacts": {
-      "heading": "CONTACTS",
       "0": "PHONE:",
       "1": "+972 50 408 2976",
       "2": "+972 53 583 3823",
-      "3": "LMLMASSAGE@gmail.com"
+      "3": "LMLMASSAGE@gmail.com",
+      "heading": "CONTACTS"
     },
     "nav": {
-      "heading": "NAVIGATION",
       "0": "Services",
       "1": "Certificates",
       "2": "About us",
-      "3": "Contacts"
+      "3": "Contacts",
+      "heading": "NAVIGATION"
     },
     "cta": "Book Now",
     "social": {
       "tgAlt": "Telegram",
-      "igAlt": "Instagram",
-      "fbAlt": "Facebook"
+      "waAlt": "WhatsApp",
+      "igAlt": "Instagram"
     }
   }
 }
