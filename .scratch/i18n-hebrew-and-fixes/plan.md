@@ -113,12 +113,16 @@ ALONE so a break here is unambiguous.
 Structural. `Layout.tsx` wraps every page, so a break here shows up
 everywhere.
 
-- [ ] **3.1 Routes + 404 page.** Pull `src/routes.ts`, `src/pages/NotFoundPage.tsx`,
+- [x] **3.1 Routes + 404 page.** Pull `src/routes.ts`, `src/pages/NotFoundPage.tsx`,
       `src/pages/Page.module.css`. Add the catch-all route to `src/App.tsx`
       (edit by hand — App.tsx also has other changes, so only take the route
       additions). Verify: a bogus URL shows the 404 page.
-- [ ] **3.2 Layout shell.** Pull `src/Layout.tsx`, `src/App.tsx` fully. Verify
+      *Done `2f7a616`. App.tsx hand-edited to match reference (import NotFoundPage,
+      serviceDetail, notFound route). 404 route renders (raw-id fallback until phase 4).*
+- [x] **3.2 Layout shell.** Pull `src/Layout.tsx`, `src/App.tsx` fully. Verify
       route transitions, scroll-to-top, skip link, header/footer on every page.
+      *Done `2f7a616`. Layout a11y/scroll/focus. Verified: skip link + main#main-content
+      wired, nav + route transitions work, no console errors.*
 
 ## Phase 4 — Hebrew locale + language switcher + RTL
 
