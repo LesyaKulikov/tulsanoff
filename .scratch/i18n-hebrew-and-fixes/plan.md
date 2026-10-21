@@ -130,15 +130,21 @@ Medium risk. RTL flips layout but only when Hebrew is selected; the logical-
 properties conversion could affect Russian if done wrong. Verify in BOTH
 languages.
 
-- [ ] **4.1 Locale registry + provider.** Pull `src/i18n/LocaleProvider.tsx`,
+- [x] **4.1 Locale registry + provider.** Pull `src/i18n/LocaleProvider.tsx`,
       `src/i18n/localeContext.ts`, `src/main.tsx`. Verify RU renders as before.
-- [ ] **4.2 Hebrew + en locale files.** Pull `src/i18n/he-IL.json`,
+      *Done. RU identical, `lang=ru-RU dir=ltr`, no errors.*
+- [x] **4.2 Hebrew + en locale files.** Pull `src/i18n/he-IL.json`,
       `src/i18n/ru-RU.json`, `src/i18n/en-US.json`, `index.html`. Verify RU
       copy unchanged.
-- [ ] **4.3 Header switcher + RTL.** Pull `src/components/Header/Header.tsx`,
+      *Done. RU nav/h1/h2 unchanged; skip link + 404 now resolve to real Russian
+      text (were raw ids); `index.html` lang=en→ru; build clean. Note: locale
+      files live at `src/i18n/*.json`, not `src/i18n/locales/`.*
+- [x] **4.3 Header switcher + RTL.** Pull `src/components/Header/Header.tsx`,
       `src/components/Header/Header.module.css`. Verify RU↔HE switch, that
       Hebrew shows RTL and does not break the header, and localStorage
       persistence.
+      *Done `11c09ba`. Clean test: `null→he-IL/rtl` in one click, survives reload,
+      toggles back to `ru-RU/ltr`, Hebrew h1 correct, no errors. Left on RU.*
 
 ## Phase 5 — Contacts rebuild
 
