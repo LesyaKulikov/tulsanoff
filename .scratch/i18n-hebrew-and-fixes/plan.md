@@ -202,36 +202,54 @@ for every layout-affecting component.*
 
 ## Phase 7 — Page-level wiring
 
-- [ ] **7.1 ServicesPage** — `src/pages/ServicesPage.tsx`
-- [ ] **7.2 CertificatesPage** — `src/pages/CertificatesPage.tsx`
-- [ ] **7.3 AboutPage** — `src/pages/AboutPage.tsx`
-- [ ] **7.4 MassageDetailPage** — `src/pages/MassageDetailPage.tsx`,
+- [x] **7.1 ServicesPage** — `src/pages/ServicesPage.tsx` *clustered 7.1–7.4*
+- [x] **7.2 CertificatesPage** — `src/pages/CertificatesPage.tsx`
+- [x] **7.3 AboutPage** — `src/pages/AboutPage.tsx`
+- [x] **7.4 MassageDetailPage** — `src/pages/MassageDetailPage.tsx`,
       `src/pages/MassageDetailPage.module.css`
+      *Done. All 4 render (сервисы/сертификаты/О нас/МЕДИЦИНСКИЙ), no overflow/errors.*
 
 ## Phase 8 — Deletions (low risk)
 
 Removing components that are no longer mounted. Verify nothing references them
 (build must stay clean).
 
-- [ ] **8.1 Delete orphans.** Remove `src/components/Testimonials/*`,
+- [x] **8.1 Delete orphans.** Remove `src/components/Testimonials/*`,
       `src/components/MassagesSection/*`, `src/components/StudioCard/*`,
       `src/components/Chevron/Chevron.tsx`. Verify build clean and no page
       tries to import them.
+      *Done. Only self-references remained; tsc/lint/build all clean after removal.*
 
 ## Phase 9 — Docs (zero layout risk)
 
-- [ ] **9.1 Docs + ADR.** Pull `CONTEXT.md`, `README.md`,
+- [x] **9.1 Docs + ADR.** Pull `CONTEXT.md`, `README.md`,
       `docs/adr/0001-i18n-message-id-fallback.md`.
+      *Done. Domain docs + ADR.*
 
 ---
 
 ## Final
 
-- [ ] Full verify checklist passes at desktop AND mobile, in RU AND HE.
+- [x] Full verify checklist passes at desktop AND mobile, in RU AND HE.
+      *DONE. 28-combo overflow sweep (RU+HE × 2560+390 × 7 pages) = 0 failures;
+      0 console errors across all pages in HE; screenshots captured
+      (final-mobile-ru / final-mobile-he / final-desktop-he-2560). Full-bleed,
+      RTL mirroring, and Hebrew copy all confirmed.*
 - [ ] `glubokotkanniy` (deep tissue) copy removal reviewed — confirm it is
       really dead, or restore it.
+      *INVESTIGATED: removal is CONSISTENT. The `glubokotkanniy` service card is
+      gone from `Services.tsx` CARDS (only meditsinskiy/limfaticheskiy/sport), its
+      locale block + `label` list entry removed, and `grep glubokotkanniy src/` =
+      zero references. Nothing renders a blank slot. **Needs your call:** keep it
+      removed (consistent, recommended) vs. restore the deep-tissue service
+      (requires card + locale + image + route).*
 - [ ] `certificates.hero.cta` copy/target mismatch ("LEARN MORE" → `/contacts`)
       decided.
+      *INVESTIGATED: `CertificateHero.tsx:44` button → `ROUTES.contacts`, label =
+      "УЗНАТЬ ПОДРОБНЕЕ" (RU) / "למד עוד" (HE) / "LEARN MORE" (EN). Mismatch:
+      "learn more" sends users to the contact page. **Needs your call:** (a) keep
+      as-is, (b) change copy to contact-oriented ("Связаться"/"Записаться"/"צור
+      קשר"), or (c) retarget the button elsewhere.*
 - [ ] Merge `feature/i18n-hebrew-iterative` → `main`.
 - [ ] Delete the `feature/i18n-hebrew-and-fixes` snapshot branch (or keep for
       reference).
