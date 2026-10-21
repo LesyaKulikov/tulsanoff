@@ -235,24 +235,49 @@ Removing components that are no longer mounted. Verify nothing references them
       0 console errors across all pages in HE; screenshots captured
       (final-mobile-ru / final-mobile-he / final-desktop-he-2560). Full-bleed,
       RTL mirroring, and Hebrew copy all confirmed.*
-- [ ] `glubokotkanniy` (deep tissue) copy removal reviewed — confirm it is
+- [x] `glubokotkanniy` (deep tissue) copy removal reviewed — confirm it is
       really dead, or restore it.
       *INVESTIGATED: removal is CONSISTENT. The `glubokotkanniy` service card is
       gone from `Services.tsx` CARDS (only meditsinskiy/limfaticheskiy/sport), its
       locale block + `label` list entry removed, and `grep glubokotkanniy src/` =
-      zero references. Nothing renders a blank slot. **Needs your call:** keep it
-      removed (consistent, recommended) vs. restore the deep-tissue service
-      (requires card + locale + image + route).*
-- [ ] `certificates.hero.cta` copy/target mismatch ("LEARN MORE" → `/contacts`)
+      zero references. Nothing renders a blank slot.
+      **DECIDED: stays removed.** The user is doing their own Hebrew copy pass
+      later; restoring would reintroduce a service the current content set omits.*
+- [x] `certificates.hero.cta` copy/target mismatch ("LEARN MORE" → `/contacts`)
       decided.
       *INVESTIGATED: `CertificateHero.tsx:44` button → `ROUTES.contacts`, label =
-      "УЗНАТЬ ПОДРОБНЕЕ" (RU) / "למד עוד" (HE) / "LEARN MORE" (EN). Mismatch:
-      "learn more" sends users to the contact page. **Needs your call:** (a) keep
-      as-is, (b) change copy to contact-oriented ("Связаться"/"Записаться"/"צור
-      קשר"), or (c) retarget the button elsewhere.*
-- [ ] Merge `feature/i18n-hebrew-iterative` → `main`.
-- [ ] Delete the `feature/i18n-hebrew-and-fixes` snapshot branch (or keep for
+      "УЗНАТЬ ПОДРОБНЕЕ" (RU) / "למד עוד" (HE) / "LEARN MORE" (EN).
+      **DECIDED: keep as-is for now** — "learn more" → contacts is defensible for
+      gift-certificate enquiries, and the user is doing their own Hebrew copy
+      pass later; revisit the label then if desired.*
+- [x] Merge `feature/i18n-hebrew-iterative` → `main`.
+      *DONE via a `--no-ff` merge commit; `main` pushed to origin.*
+- [x] Delete the `feature/i18n-hebrew-and-fixes` snapshot branch (or keep for
       reference).
+      **KEPT for reference** (local only, never pushed): it is the only pristine
+      copy of the pre-fix reference implementation. Delete any time with
+      `git branch -D feature/i18n-hebrew-and-fixes`.
+
+## Post-plan fixes (commit `70cd97c`)
+
+Three regressions the user caught in the re-applied work; fixed and verified:
+
+1. **Social rows** split per consumer — hero `[telegram, instagram]`, footer +
+   contacts `[telegram, instagram, facebook]`. Facebook restored as a labelled
+   non-link `<span>` (no public URL yet — wire it up when one exists); `fbAlt`
+   locale key restored (ru/he/en).
+2. **WhatsApp moved onto the CTAs**: every ЗАПИСАТЬСЯ button opens
+   `https://wa.me/972504082976` in a new tab.
+3. **Width regressions above 1920px**: services `max-width` cap removed
+   (content 1128 → 1608px at 2560) and `.grid` min-height reservations restored
+   (stable height across category tabs); certificate-hero card offset restored
+   as a logical property, so it tracks the content column in LTR and mirrors in
+   RTL.
+
+Verified at 2560 (RU+HE) and true 390×844 mobile: 0 overflow, 0 console errors;
+tsc/oxlint/build clean. Operational note: the dev server's file watcher went
+stale mid-work — restart `npm run dev` after many edits instead of trusting HMR
+(Windows watcher flakiness).
 
 ## Notes
 
