@@ -281,8 +281,8 @@ stale mid-work — restart `npm run dev` after many edits instead of trusting HM
 
 ## Notes
 
-- `.scratch/homepage/issues/01-responsive-layout.md` is still open; structural
-  causes were fixed but visual confirmation is pending — close it during the
-  relevant phase (2 and 6).
+- `.scratch/homepage/issues/01-responsive-layout.md` is **closed (2026-10-22)**:
+  structural causes fixed in phases 2 and 6, then verified via overflow sweeps
+  at 390/768/1024/2560 in RU and HE (49 combos, 0 failures).
 - Keep CSS on logical properties (`padding-inline`, `inset-inline-start`) so
   Hebrew RTL keeps working.

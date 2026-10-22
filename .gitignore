@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 raw/
+
+# Diagnostic screenshots stay local — .scratch tracks markdown (plans/issues);
+# the verification evidence set was committed explicitly, future dumps are not.
+.scratch/**/*.png
