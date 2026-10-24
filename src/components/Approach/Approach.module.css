@@ -41,6 +41,26 @@
   flex-direction: column;
   padding: 36px 28px;
   min-height: 280px;
+  position: relative;
+  box-shadow:
+    0 0 0 1px var(--glass-edge),
+    0 40px 120px -40px rgb(212 251 200 / 18%);
+}
+
+/* Subtle mint sheen + glow, matching the contacts concierge card. */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgb(212 251 200 / 14%), transparent 40%, transparent 60%, rgb(212 251 200 / 8%));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .num {

@@ -62,6 +62,9 @@
   transform: translateY(-50%);
   inset-inline-start: var(--gutter);
   width: 565px;
+  box-shadow:
+    0 0 0 1px var(--glass-edge),
+    0 40px 120px -40px rgb(212 251 200 / 18%);
   /* Fixed height spills the CTA when copy runs long; keep the designed
      minimum but let the card grow. */
   height: auto;
@@ -71,6 +74,22 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
+}
+
+/* Subtle mint sheen + glow, matching the contacts concierge card. */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgb(212 251 200 / 14%), transparent 40%, transparent 60%, rgb(212 251 200 / 8%));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .title {
