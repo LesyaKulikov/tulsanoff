@@ -3,9 +3,8 @@
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: var(--page-top);
-  padding-bottom: 96px;
+  justify-content: center;
+  padding-block: var(--page-top);
   padding-inline: var(--gutter);
 }
 
@@ -13,6 +12,7 @@
   position: relative;
   width: 100%;
   max-width: 760px;
+  margin-inline: auto;
   composes: glass from global;
   padding: 64px 56px;
   display: flex;
