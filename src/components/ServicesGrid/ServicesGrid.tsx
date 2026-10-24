@@ -12,8 +12,18 @@ const CATEGORIES = [
   { id: 'cat2', slugs: ['dlya-par'] },
 ] as const
 
+// Persists the open accordion panel across client-side navigation, so returning
+// from a massage detail page keeps the panel the user had open instead of
+// resetting to the first one.
+let rememberedOpen: number | null = 0
+
 export function ServicesGrid() {
-  const [open, setOpen] = useState<number | null>(0)
+  const [open, setOpenState] = useState<number | null>(rememberedOpen)
+  const setOpen = (next: number | null) => {
+    // oxlint-disable-next-line react(globals)
+    rememberedOpen = next
+    setOpenState(next)
+  }
 
   return (
     <section className={styles.services} data-test-id="services-grid">
