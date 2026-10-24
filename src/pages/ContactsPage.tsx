@@ -12,9 +12,6 @@ export function ContactsPage() {
         className={styles.card}
         {...reveal(fadeUp(0, { duration: 0.9, distance: 24 }))}
       >
-        <p className={styles.eyebrow}>
-          <Message id="contacts.heading" />
-        </p>
         <h1 className={styles.heading}>Контакты</h1>
         <p className={styles.lede}>
           Две студии — Петах-Тиква и Рамат-Ган. Приезжайте или напишите нам — подберём время
