@@ -6,6 +6,7 @@ import { MassageDetailPage } from './pages/MassageDetailPage'
 import { CertificatesPage } from './pages/CertificatesPage'
 import { AboutPage } from './pages/AboutPage'
 import { ContactsPage } from './pages/ContactsPage'
+import { ContactsPreviewPage } from './pages/ContactsPreviewPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { ROUTES } from './routes'
 
@@ -19,6 +20,7 @@ function App() {
         <Route path={ROUTES.certificates} element={<CertificatesPage />} />
         <Route path={ROUTES.about} element={<AboutPage />} />
         <Route path={ROUTES.contacts} element={<ContactsPage />} />
+        <Route path={ROUTES.contactsPreview} element={<ContactsPreviewPage />} />
         <Route path={ROUTES.notFound} element={<NotFoundPage />} />
       </Route>
     </Routes>

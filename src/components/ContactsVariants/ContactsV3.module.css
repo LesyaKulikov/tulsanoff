@@ -1,0 +1,209 @@
+/* Variant 3 — Concierge Card: centered, intimate, single glass card. */
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--page-top);
+  padding-bottom: 96px;
+  padding-inline: var(--gutter);
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  composes: glass from global;
+  padding: 64px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  /* subtle accent glow */
+  box-shadow:
+    0 0 0 1px var(--glass-edge),
+    0 40px 120px -40px rgb(212 251 200 / 18%);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgb(212 251 200 / 14%), transparent 40%, transparent 60%, rgb(212 251 200 / 8%));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+}
+
+.heading {
+  font-family: var(--display);
+  font-size: clamp(44px, 7vw, 72px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 0.95;
+  text-align: center;
+}
+
+.lede {
+  text-align: center;
+  max-width: 44ch;
+  margin-inline: auto;
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+  opacity: 0.8;
+}
+
+.branchList {
+  display: flex;
+  flex-direction: column;
+}
+
+.branch {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 0;
+  border-block-end: 1px solid var(--divider);
+}
+
+.branch:last-child {
+  border-block-end: 0;
+}
+
+.branchRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.branchName {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mapLink {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  border-block-end: 1px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease);
+  white-space: nowrap;
+}
+
+.mapLink:hover {
+  border-block-end-color: var(--accent);
+}
+
+.address {
+  font-size: 15px;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.contactRows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.contactRow {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.contactRow a {
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.contactRow a:hover {
+  color: var(--accent);
+}
+
+.socialRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding-top: 8px;
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 56px;
+  block-size: 56px;
+  border-radius: var(--radius-pill);
+  background: var(--panel);
+  color: var(--text);
+  transition:
+    color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.social:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+  .card {
+    padding: 40px 28px;
+  }
+
+  .branchRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social {
+    transition: none;
+  }
+
+  .social:hover {
+    transform: none;
+  }
+}
