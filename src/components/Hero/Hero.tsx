@@ -14,8 +14,17 @@ export function Hero() {
   const [activeVideo, setActiveVideo] = useState(0)
   const [showVideo, setShowVideo] = useState(false)
   const prefersReducedMotion = useReducedMotion()
-  const loadedRef = useRef([false, false])
+  const failedRef = useRef([false, false])
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
+
+  // Next clip that hasn't failed to load, or `from` when every clip has failed.
+  const advancePast = useCallback((from: number): number => {
+    for (let step = 1; step <= VIDEOS.length; step++) {
+      const next = (from + step) % VIDEOS.length
+      if (!failedRef.current[next]) return next
+    }
+    return from
+  }, [])
 
   useEffect(() => {
     const video = videoRefs.current[activeVideo]
@@ -24,18 +33,49 @@ export function Hero() {
     }
   }, [activeVideo, showVideo, prefersReducedMotion])
 
-  const handleLoaded = useCallback((index: number) => {
-    loadedRef.current[index] = true
+  // Browsers pause autoplaying video when the tab is hidden or the OS enters a
+  // power-saving state. Nothing restarts it otherwise, so the hero would freeze
+  // mid-clip until a state change. Resume the active clip when we regain focus.
+  useEffect(() => {
+    if (prefersReducedMotion) return
+    const resume = () => {
+      if (document.visibilityState !== 'visible') return
+      const video = videoRefs.current[activeVideo]
+      if (video && showVideo && video.paused) video.play().catch(() => {})
+    }
+    document.addEventListener('visibilitychange', resume)
+    window.addEventListener('focus', resume)
+    return () => {
+      document.removeEventListener('visibilitychange', resume)
+      window.removeEventListener('focus', resume)
+    }
+  }, [activeVideo, showVideo, prefersReducedMotion])
+
+  const handleLoaded = useCallback(() => {
     // Reduced motion keeps the static hero.jpg poster instead of the crossfading video.
     if (prefersReducedMotion) return
-    if (loadedRef.current.every(Boolean) && !showVideo) {
-      setShowVideo(true)
-    }
+    // Reveal as soon as the *first* clip is playable. Requiring every clip to load
+    // meant one slow or missing file left the whole hero stuck on the static poster.
+    if (!showVideo) setShowVideo(true)
   }, [prefersReducedMotion, showVideo])
 
   const handleEnded = useCallback(() => {
-    setActiveVideo((prev) => (prev + 1) % VIDEOS.length)
-  }, [])
+    setActiveVideo((prev) => advancePast(prev))
+  }, [advancePast])
+
+  const handleError = useCallback(
+    (index: number) => {
+      failedRef.current[index] = true
+      // Every clip broken: fall back to the static poster, not a blank layer.
+      if (failedRef.current.every(Boolean)) {
+        setShowVideo(false)
+        return
+      }
+      // Otherwise skip past the broken clip, but only if it's the one on screen.
+      setActiveVideo((prev) => (prev === index ? advancePast(prev) : prev))
+    },
+    [advancePast],
+  )
 
   return (
     <section className={styles.hero} data-test-id="hero">
@@ -57,7 +97,8 @@ export function Hero() {
             aria-hidden="true"
             muted
             playsInline
-            onCanPlay={() => handleLoaded(i)}
+            onCanPlay={handleLoaded}
+            onError={() => handleError(i)}
             onEnded={i === activeVideo ? handleEnded : undefined}
           />
         ))}
