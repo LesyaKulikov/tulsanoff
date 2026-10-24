@@ -1,117 +1,177 @@
+/* Contacts page — Variant 3 (Concierge Card). */
 .page {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding-top: var(--page-top);
   padding-bottom: 96px;
   padding-inline: var(--gutter);
 }
 
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  composes: glass from global;
+  padding: 64px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  box-shadow:
+    0 0 0 1px var(--glass-edge),
+    0 40px 120px -40px rgb(212 251 200 / 18%);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgb(212 251 200 / 14%), transparent 40%, transparent 60%, rgb(212 251 200 / 8%));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+}
+
 .heading {
   font-family: var(--display);
-  font-size: clamp(28px, 5vw, 42px);
-  font-weight: 400;
-  letter-spacing: 0.06em;
+  font-size: clamp(44px, 7vw, 72px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  line-height: 0.95;
+  text-align: center;
 }
 
-.subheading {
-  margin-top: 56px;
+.lede {
+  text-align: center;
+  max-width: 44ch;
+  margin-inline: auto;
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
   font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--text);
-  opacity: 0.65;
+  color: var(--accent);
+  text-align: center;
+  opacity: 0.8;
 }
 
-.branches {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  width: 100%;
-  max-width: var(--container);
-  margin-top: 20px;
+.branchList {
+  display: flex;
+  flex-direction: column;
 }
 
 .branch {
-  composes: glass from global;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 40px 36px;
+  gap: 6px;
+  padding: 20px 0;
+  border-block-end: 1px solid var(--divider);
+}
+
+.branch:last-child {
+  border-block-end: 0;
+}
+
+.branchRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .branchName {
   font-family: var(--display);
-  font-size: 28px;
-  font-weight: 400;
+  font-size: 22px;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.address {
-  font-size: 16px;
-  line-height: 1.6;
-  opacity: 0.85;
-}
-
 .mapLink {
-  margin-top: auto;
-  align-self: flex-start;
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: 0.04em;
   color: var(--accent);
   border-block-end: 1px solid transparent;
   transition: border-color var(--dur-fast) var(--ease);
+  white-space: nowrap;
 }
 
 .mapLink:hover {
   border-block-end-color: var(--accent);
 }
 
-.reach {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 32px 64px;
-  margin-top: 20px;
+.address {
+  font-size: 15px;
+  line-height: 1.5;
+  opacity: 0.8;
 }
 
-.list {
+.contactRows {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  align-items: center;
 }
 
-.item a {
+.contactRow {
   font-family: var(--display);
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: 700;
   letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.contactRow a {
   transition: color var(--dur-fast) var(--ease);
 }
 
-.item a:hover {
+.contactRow a:hover {
   color: var(--accent);
 }
 
-.socials {
+.socialRow {
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 14px;
+  padding-top: 8px;
 }
 
 .social {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  inline-size: 64px;
-  block-size: 64px;
+  inline-size: 56px;
+  block-size: 56px;
   border-radius: var(--radius-pill);
   background: var(--panel);
   color: var(--text);
@@ -125,7 +185,23 @@
   transform: translateY(-2px);
 }
 
+@media (max-width: 700px) {
+  .card {
+    padding: 40px 28px;
+  }
+
+  .branchRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .social {
+    transition: none;
+  }
+
   .social:hover {
     transform: none;
   }
