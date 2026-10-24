@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
 import { ServiceCard } from '../ServiceCard/ServiceCard'
 import { getMassage } from '../../massages'
-import { EASE } from '../../animation/variants'
+import { enter, fadeUp, EASE } from '../../animation/variants'
 import styles from './ServicesGrid.module.css'
 
 const CATEGORIES = [
@@ -17,12 +17,13 @@ export function ServicesGrid() {
 
   return (
     <section className={styles.services} data-test-id="services-grid">
-      <h2
+      <motion.h2
         className={styles.heading}
         data-test-id="services-grid-heading"
+        {...enter(fadeUp(0.45, { duration: 0.6, distance: 32 }))}
       >
         <Message id="servicesPage.heading" />
-      </h2>
+      </motion.h2>
 
       <div className={styles.rows} data-test-id="services-grid-rows">
         {CATEGORIES.map((cat, i) => {
