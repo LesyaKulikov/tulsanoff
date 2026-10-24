@@ -2,6 +2,7 @@
   position: relative;
   color: var(--text);
   padding-block-start: 170px;
+  padding-block-end: 90px;
 }
 
 /* Full-bleed band without the 100vw + calc(50% - 50vw) trick: that pattern is
