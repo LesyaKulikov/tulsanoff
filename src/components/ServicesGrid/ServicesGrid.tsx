@@ -20,7 +20,7 @@ export function ServicesGrid() {
       <motion.h2
         className={styles.heading}
         data-test-id="services-grid-heading"
-        {...enter(fadeUp(0.45, { duration: 0.6, distance: 32 }))}
+        {...enter(fadeUp(0, { duration: 0.8, distance: 32 }))}
       >
         <Message id="servicesPage.heading" />
       </motion.h2>

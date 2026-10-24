@@ -4,7 +4,6 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { Header } from './components/Header/Header'
 import { CtaBand } from './components/CtaBand/CtaBand'
 import { Footer } from './components/Footer/Footer'
-import { EASE } from './animation/variants'
 import { ROUTES } from './routes'
 import { Message } from './i18n/Message'
 
@@ -51,10 +50,6 @@ export function Layout() {
           key={location.pathname}
           ref={mainRef}
           tabIndex={-1}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.22, ease: EASE } }}
-          transition={{ duration: 0.4, ease: EASE }}
         >
           <Outlet />
         </motion.main>
