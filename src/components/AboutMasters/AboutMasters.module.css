@@ -34,16 +34,16 @@
   scroll-margin-top: var(--header-h);
   box-shadow:
     0 0 0 1px var(--glass-edge),
-    0 40px 120px -40px rgb(212 251 200 / 18%);
+    0 32px 80px -32px rgb(212 251 200 / 12%);
 }
 
-/* Subtle mint sheen + glow, matching the contacts concierge card. */
+/* Subtle mint sheen + glow, matching the contacts concierge card (toned down). */
 .panel::before {
   content: '';
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgb(212 251 200 / 14%), transparent 40%, transparent 60%, rgb(212 251 200 / 8%));
+  background: linear-gradient(135deg, rgb(212 251 200 / 10%), transparent 40%, transparent 60%, rgb(212 251 200 / 5%));
   pointer-events: none;
   z-index: 0;
 }
