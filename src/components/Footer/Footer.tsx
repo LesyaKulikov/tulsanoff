@@ -63,9 +63,10 @@ export function Footer() {
 
                   const href = CONTACT_ROUTES[n]
                   if (href) {
+                    const isPhone = n === '1' || n === '2'
                     return (
                       <li key={n} className={styles.item} data-test-id={`footer-${col.key}-${n}`}>
-                        <a href={href} className={styles.link}>
+                        <a href={href} className={styles.link} dir={isPhone ? 'ltr' : undefined}>
                           <Message id={id} />
                         </a>
                       </li>

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { IntlProvider } from 'react-intl'
 import {
   DEFAULT_LOCALE,
@@ -30,26 +30,43 @@ function persist(locale: LocaleKey) {
   }
 }
 
-/**
- * Owns the active locale: feeds react-intl, persists the choice, and keeps
- * `<html lang>` and `<html dir>` in sync so screen readers announce the language
- * correctly and Hebrew lays out right-to-left.
- */
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<LocaleKey>(readStoredLocale)
+  const localeRef = useRef(locale)
+  useEffect(() => { localeRef.current = locale }, [locale])
+
+  const [anim] = useState<string>('blur')
+
+  useEffect(() => {
+    const root = document.documentElement
+    root.classList.remove('lang-anim-blur', 'lang-anim-slide', 'lang-anim-stagger')
+    root.classList.add('lang-anim-' + anim)
+  }, [anim])
+
+  const commitLocale = useCallback((next: LocaleKey) => {
+    const root = document.documentElement
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduce) {
+      root.classList.remove('lang-switching')
+      setLocaleState(next)
+      persist(next)
+      return
+    }
+    root.classList.add('lang-switching')
+    window.setTimeout(() => {
+      setLocaleState(next)
+      persist(next)
+      window.setTimeout(() => root.classList.remove('lang-switching'), 80)
+    }, 170)
+  }, [])
 
   const setLocale = useCallback((next: LocaleKey) => {
-    setLocaleState(next)
-    persist(next)
-  }, [])
+    commitLocale(next)
+  }, [commitLocale])
 
   const toggleLocale = useCallback(() => {
-    setLocaleState((current) => {
-      const next = nextLocale(current)
-      persist(next)
-      return next
-    })
-  }, [])
+    commitLocale(nextLocale(localeRef.current))
+  }, [commitLocale])
 
   useEffect(() => {
     const root = document.documentElement

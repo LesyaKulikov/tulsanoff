@@ -14,7 +14,7 @@
   },
   "hero": {
     "chip": "20% off your first massage",
-    "title": "INDIVIDUAL DIAGNOSTICS AND THERAPEUTIC MASSAGE IN ISRAEL"
+    "title": "INDIVIDUAL DIAGNOSTICS AND\nTHERAPEUTIC MASSAGE IN ISRAEL"
   },
   "promise": {
     "title": "<accent>We help the body</accent> regain its natural balance",
@@ -144,6 +144,7 @@
   },
   "contacts": {
     "heading": "Contacts",
+    "lede": "Two studios — Petah Tikva and Ramat Gan. Visit or write to us — we'll find a time and a master for your request.",
     "branches": {
       "heading": "Branches"
     },

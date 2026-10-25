@@ -30,7 +30,9 @@
 
 .center {
   position: absolute;
-  inset-inline-start: 50%;
+  /* Physical (not logical) centering so the logo stays centered in RTL too:
+     inset-inline-start + translateX(-50%) drifts in Hebrew. */
+  left: 50%;
   transform: translateX(-50%);
 }
 

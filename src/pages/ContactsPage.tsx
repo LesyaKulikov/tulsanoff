@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Message } from '../i18n/Message'
+import { Arrow } from '../components/Arrow/Arrow'
 import { SocialLinks } from '../components/SocialLinks/SocialLinks'
 import { CONTACTS_SOCIAL_LINKS, BRANCHES, PHONES, EMAIL, mapsUrl } from '../contacts'
 import { reveal, fadeUp } from '../animation/variants'
@@ -12,10 +13,11 @@ export function ContactsPage() {
         className={styles.card}
         {...reveal(fadeUp(0, { duration: 0.9, distance: 24 }))}
       >
-        <h1 className={styles.heading}>Контакты</h1>
+        <h1 className={styles.heading}>
+          <Message id="contacts.heading" />
+        </h1>
         <p className={styles.lede}>
-          Две студии — Петах-Тиква и Рамат-Ган. Приезжайте или напишите нам — подберём время
-          и мастера под ваш запрос.
+          <Message id="contacts.lede" />
         </p>
 
         <div className={styles.section}>
@@ -35,7 +37,7 @@ export function ContactsPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Message id="contacts.mapCta" /> →
+                    <Message id="contacts.mapCta" /> <Arrow />
                   </a>
                 </div>
                 <p className={styles.address}>
@@ -53,7 +55,9 @@ export function ContactsPage() {
           <div className={styles.contactRows}>
             {PHONES.map((phone) => (
               <p key={phone.href} className={styles.contactRow}>
-                <a href={`tel:${phone.href}`}>{phone.display}</a>
+                <a href={`tel:${phone.href}`} dir="ltr">
+                  {phone.display}
+                </a>
               </p>
             ))}
             <p className={styles.contactRow}>

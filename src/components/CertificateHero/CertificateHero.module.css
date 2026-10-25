@@ -42,7 +42,9 @@
      than the 1920px app the extra max(0px, …) offset tracks the app's centering,
      so the card stays on the text grid instead of drifting to the viewport edge.
      Logical (not `right:`) so it mirrors to the left column in RTL. */
-  inset-inline-end: calc(var(--gutter) + max(0px, (100vw - var(--app-max)) / 2));
+  /* Physical (right) in both locales: the user wants the card on the right in
+     Hebrew as well, not mirrored to the left. */
+  right: calc(var(--gutter) + max(0px, (100vw - var(--app-max)) / 2));
   width: 565px;
   height: auto;
   min-height: 456px;

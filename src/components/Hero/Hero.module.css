@@ -67,9 +67,15 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 25px;
   padding: 0 var(--gutter) 52px;
   height: fit-content;
+}
+
+.topGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .cta {
@@ -94,24 +100,45 @@
   gap: 25px;
 }
 
+.bottomRow {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
 .title {
   font-family: var(--display);
-  font-size: 24px;
+  font-size: 48px;
   font-weight: 700;
-  line-height: 144%;
+  line-height: 110%;
   /* % letter-spacing is invalid CSS and gets dropped by browsers. */
   letter-spacing: 0.1em;
   text-transform: uppercase;
   flex: 1;
   min-width: 0;
+  max-width: 100%;
+  /* Honor the explicit \\n in the locale title so it always renders as 2 lines. */
+  white-space: pre-line;
+}
+
+/* Restore the original (pre-redesign) title look for Russian. */
+.titleOriginal {
+  font-size: 36px !important;
+  line-height: 144%;
   max-width: 680px;
+  white-space: normal;
 }
 
 .socials {
+  position: absolute;
+  bottom: 0;
+  inset-inline-end: 0;
   display: flex;
   gap: 10px;
   flex-shrink: 0;
-  margin-inline-start: 40px;
 }
 
 .socialBtn {
@@ -140,7 +167,7 @@
 
 @media (min-width: 1500px) {
   .title {
-    font-size: 36px;
+    font-size: 64px;
   }
 }
 

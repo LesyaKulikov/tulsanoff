@@ -89,6 +89,98 @@ body {
   overflow-x: hidden;
 }
 
+/* Language-switch animation variants. The active variant is selected by a
+   class on <html> (lang-anim-blur | lang-anim-slide | lang-anim-stagger).
+   Applied to text/interactive elements only, so the hero video stays sharp. */
+html.lang-switching main h1,
+html.lang-switching main h2,
+html.lang-switching main h3,
+html.lang-switching main h4,
+html.lang-switching main p,
+html.lang-switching main span,
+html.lang-switching main a,
+html.lang-switching main button,
+html.lang-switching main li {
+  transition: opacity 0.17s ease, filter 0.17s ease, transform 0.17s ease;
+}
+
+/* 3. Blur crossfade */
+html.lang-anim-blur.lang-switching main h1,
+html.lang-anim-blur.lang-switching main h2,
+html.lang-anim-blur.lang-switching main h3,
+html.lang-anim-blur.lang-switching main h4,
+html.lang-anim-blur.lang-switching main p,
+html.lang-anim-blur.lang-switching main span,
+html.lang-anim-blur.lang-switching main a,
+html.lang-anim-blur.lang-switching main button,
+html.lang-anim-blur.lang-switching main li {
+  opacity: 0.25;
+  filter: blur(6px);
+}
+
+/* 4. Slide + fade */
+html.lang-anim-slide.lang-switching main h1,
+html.lang-anim-slide.lang-switching main h2,
+html.lang-anim-slide.lang-switching main h3,
+html.lang-anim-slide.lang-switching main h4,
+html.lang-anim-slide.lang-switching main p,
+html.lang-anim-slide.lang-switching main span,
+html.lang-anim-slide.lang-switching main a,
+html.lang-anim-slide.lang-switching main button,
+html.lang-anim-slide.lang-switching main li {
+  opacity: 0.25;
+  transform: translateY(14px);
+}
+
+/* 6. Stagger */
+html.lang-anim-stagger.lang-switching main h1,
+html.lang-anim-stagger.lang-switching main h2,
+html.lang-anim-stagger.lang-switching main h3,
+html.lang-anim-stagger.lang-switching main h4,
+html.lang-anim-stagger.lang-switching main p,
+html.lang-anim-stagger.lang-switching main span,
+html.lang-anim-stagger.lang-switching main a,
+html.lang-anim-stagger.lang-switching main button,
+html.lang-anim-stagger.lang-switching main li {
+  opacity: 0.2;
+  transform: translateY(10px);
+  transition: opacity 0.17s ease, transform 0.17s ease;
+}
+
+html:not(.lang-switching) main h1,
+html:not(.lang-switching) main h2,
+html:not(.lang-switching) main h3,
+html:not(.lang-switching) main h4,
+html:not(.lang-switching) main p,
+html:not(.lang-switching) main span,
+html:not(.lang-switching) main a,
+html:not(.lang-switching) main button,
+html:not(.lang-switching) main li {
+  opacity: 1;
+  filter: none;
+  transform: none;
+  transition: opacity 0.2s ease, filter 0.2s ease, transform 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.lang-switching main h1,
+  html.lang-switching main h2,
+  html.lang-switching main h3,
+  html.lang-switching main h4,
+  html.lang-switching main p,
+  html.lang-switching main span,
+  html.lang-switching main a,
+  html.lang-switching main button,
+  html.lang-switching main li {
+    transition: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+
+
 img {
   display: block;
   max-width: 100%;
