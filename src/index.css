@@ -86,6 +86,7 @@ body.bg-offset {
   background-position-y: -34vw;
 }
 
+html,
 body {
   overflow-x: hidden;
 }
@@ -95,6 +96,17 @@ body {
    mirroring the Russian setup (Neutral Face display + Inter body).
    Active variant is chosen by a class on <html>: hefont-1..hefont-4. */
 html[dir='rtl'] { --sans: 'Heebo', system-ui, 'Segoe UI', Roboto, sans-serif; --display: 'Assistant', var(--sans); }
+
+/* On large screens, scale Hebrew typography up ~20% (except the hero title). */
+@media (min-width: 1500px) {
+  html[dir='rtl'] {
+    zoom: 1.2;
+  }
+  /* Keep the hero title at its intended size. */
+  html[dir='rtl'] [data-test-id='hero-title'] {
+    zoom: 0.8333;
+  }
+}
 
 /* Language-switch animation variants. The active variant is selected by a
    class on <html> (lang-anim-blur | lang-anim-slide | lang-anim-stagger).
