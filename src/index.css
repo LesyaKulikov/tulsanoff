@@ -1,4 +1,5 @@
 @import '@fontsource-variable/inter';
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Assistant:wght@400;500;700;800&family=Alef:wght@400;700&family=Secular+One&display=swap');
 @import './glass.css';
 
 @font-face {
@@ -88,6 +89,12 @@ body.bg-offset {
 body {
   overflow-x: hidden;
 }
+
+/* Hebrew font variations for the display/sans stack (RTL only).
+   Each variant pairs a squared display font with a readable body font,
+   mirroring the Russian setup (Neutral Face display + Inter body).
+   Active variant is chosen by a class on <html>: hefont-1..hefont-4. */
+html[dir='rtl'] { --sans: 'Heebo', system-ui, 'Segoe UI', Roboto, sans-serif; --display: 'Assistant', var(--sans); }
 
 /* Language-switch animation variants. The active variant is selected by a
    class on <html> (lang-anim-blur | lang-anim-slide | lang-anim-stagger).

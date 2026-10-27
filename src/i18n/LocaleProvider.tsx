@@ -72,6 +72,7 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     const root = document.documentElement
     root.lang = locale
     root.dir = getDirection(locale)
+    // Hebrew uses Assistant (display) + Heebo (body); Russian keeps Neutral Face + Inter.
   }, [locale])
 
   const value = useMemo<LocaleContextValue>(
