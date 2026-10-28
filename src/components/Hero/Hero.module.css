@@ -132,6 +132,12 @@
   white-space: normal;
 }
 
+/* Hebrew title: slightly smaller, narrower box so it wraps to 3 lines. */
+:global(html[dir='rtl']) .title {
+  font-size: 40px;
+  max-width: 420px;
+}
+
 .socials {
   position: absolute;
   bottom: 0;
