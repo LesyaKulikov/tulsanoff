@@ -126,9 +126,9 @@
 
 /* Restore the original (pre-redesign) title look for Russian. */
 .titleOriginal {
-  font-size: 36px !important;
+  font-size: 30px !important;
   line-height: 144%;
-  max-width: 680px;
+  max-width: 900px;
   white-space: normal;
 }
 
