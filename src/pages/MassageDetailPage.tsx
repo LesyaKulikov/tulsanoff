@@ -112,7 +112,7 @@ export function MassageDetailPage() {
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight
       const progress = max > 0 ? window.scrollY / max : 0
-      setPhotoOffset(progress * -120)
+      setPhotoOffset(progress * -400)
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
