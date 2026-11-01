@@ -156,6 +156,7 @@ export function MassageDetailPage() {
 
         <div className={tabs.length > 0 ? styles.columns : `${styles.columns} ${styles.columnsSolo}`}>
           <aside className={styles.rail}>
+            <span style={{ color: 'red' }}>offset: {photoOffset}</span>
             <div style={{ transform: `translateY(${photoOffset}px)` }}>
               <motion.img
                 className={styles.photo}
