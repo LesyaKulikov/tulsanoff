@@ -29,7 +29,7 @@ export function QuizCtaB() {
         }}
       >
         <img
-          src="/images/quiz-cta.jpg"
+          src="/images/quiz-cta.webp"
           alt=""
           aria-hidden="true"
           decoding="async"
