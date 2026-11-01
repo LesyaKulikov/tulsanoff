@@ -52,7 +52,8 @@
 }
 
 .rail {
-  position: static;
+  position: sticky;
+  top: 132px;
   display: flex;
   flex-direction: column;
   gap: 26px;
