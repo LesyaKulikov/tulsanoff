@@ -1,6 +1,5 @@
 .page {
-  padding-block: var(--page-top) 96px;
-  padding-inline: var(--gutter);
+  padding: 158px var(--gutter) 0;
   color: var(--text);
 }
 
@@ -11,11 +10,6 @@
   font-size: 16px;
   letter-spacing: 0.06em;
   line-height: 144%;
-  transition: color var(--dur-fast) var(--ease);
-}
-
-.back:hover {
-  color: var(--accent);
 }
 
 .top {
@@ -24,8 +18,8 @@
   justify-content: space-between;
   gap: 32px;
   margin-top: 34px;
-  padding-block-end: 34px;
-  border-bottom: 1px solid var(--divider);
+  padding-bottom: 34px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 .title {
@@ -35,18 +29,16 @@
   letter-spacing: 0.02em;
   line-height: 0.98;
   text-transform: uppercase;
-  overflow-wrap: anywhere;
-  word-break: break-word;
 }
 
 .eyebrow {
   flex: none;
-  padding-block-end: 14px;
+  padding-bottom: 14px;
   font-family: var(--display);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.24em;
-  text-align: end;
+  text-align: right;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -60,8 +52,7 @@
 }
 
 .rail {
-  position: sticky;
-  top: calc(var(--header-h) + 14px);
+  position: static;
   display: flex;
   flex-direction: column;
   gap: 26px;
@@ -79,7 +70,7 @@
   display: flex;
   flex-direction: column;
   margin: 0;
-  border-top: 1px solid var(--divider);
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 .fact {
@@ -89,7 +80,7 @@
   gap: 16px;
   margin: 0;
   padding: 14px 0;
-  border-bottom: 1px solid var(--divider-soft);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .factLabel {
@@ -105,7 +96,7 @@
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  text-align: end;
+  text-align: right;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -145,20 +136,17 @@
   width: auto;
 }
 
-/* Hairlines are tokens, not ad-hoc rgba(): the structural rules around the
-   header and fact list use --divider, list separators use --divider-soft, and
-   the lighter section rule uses --glass-edge. */
 .section {
   padding: 40px 0;
-  border-bottom: 1px solid var(--glass-edge);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .section:first-of-type {
-  padding-block-start: 0;
+  padding-top: 0;
 }
 
 .section:last-child {
-  padding-block-end: 8px;
+  padding-bottom: 8px;
   border-bottom: 0;
 }
 
@@ -208,8 +196,8 @@
   display: flex;
   gap: 14px;
   padding: 14px 18px;
-  background: var(--panel);
-  border-inline-start: 2px solid var(--accent);
+  background: rgba(255, 255, 255, 0.07);
+  border-left: 2px solid var(--accent);
   font-size: 16px;
   letter-spacing: 0.02em;
   line-height: 1.5;
@@ -228,11 +216,11 @@
   align-items: baseline;
   gap: 22px;
   padding: 16px 0;
-  border-top: 1px solid var(--divider-soft);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .item:last-child {
-  border-bottom: 1px solid var(--divider-soft);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .itemIndex {
@@ -252,16 +240,20 @@
 }
 
 @media (max-width: 1200px) {
+  .page {
+    padding-top: 134px;
+  }
+
   .top {
     flex-direction: column;
     align-items: flex-start;
     gap: 18px;
-    padding-block-end: 26px;
+    padding-bottom: 26px;
   }
 
   .eyebrow {
-    padding-block-end: 0;
-    text-align: start;
+    padding-bottom: 0;
+    text-align: left;
   }
 
   .columns {

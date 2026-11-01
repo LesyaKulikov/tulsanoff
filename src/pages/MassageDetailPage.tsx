@@ -1,6 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { Arrow } from '../components/Arrow/Arrow'
 import { Button } from '../components/Button/Button'
@@ -18,36 +17,18 @@ type TabKind = 'prose' | 'chips' | 'numbered'
 interface TabDef {
   id: string
   kind: TabKind
-  max: number
+  count: number
 }
 
 const TABS: TabDef[] = [
-  { id: 'about', kind: 'prose', max: 6 },
-  { id: 'indications', kind: 'chips', max: 6 },
-  { id: 'benefits', kind: 'numbered', max: 8 },
-  { id: 'approach', kind: 'prose', max: 6 },
+  { id: 'about', kind: 'prose', count: 2 },
+  { id: 'indications', kind: 'chips', count: 3 },
+  { id: 'benefits', kind: 'numbered', count: 6 },
 ]
 
-function useTabItems(slug: string, tab: TabDef) {
-  const intl = useIntl()
-  const locale = intl.locale as LocaleKey
-  const base = `servicesPage.massage.${slug}.content.${tab.id}`
-  const items: string[] = []
-
-  for (let i = 0; i < tab.max; i++) {
-    const id = `${base}.${i}`
-    if (hasMessage(id, locale)) items.push(id)
-  }
-
-  // The lead is optional copy exactly like the items above: an author who
-  // writes `content.indications.0` but no `...lead` must not see a raw id.
-  const hasLead = hasMessage(`${base}.lead`, locale)
-
-  return { base, items, hasLead }
-}
-
 function TabPanel({ slug, tab }: { slug: string; tab: TabDef }) {
-  const { base, items, hasLead } = useTabItems(slug, tab)
+  const base = `servicesPage.massage.${slug}.content.${tab.id}`
+  const items = Array.from({ length: tab.count }, (_, i) => `${base}.${i}`)
 
   if (tab.kind === 'prose') {
     return (
@@ -64,11 +45,9 @@ function TabPanel({ slug, tab }: { slug: string; tab: TabDef }) {
   if (tab.kind === 'chips') {
     return (
       <div className={styles.prose}>
-        {hasLead && (
-          <p className={styles.lead}>
-            <Message id={`${base}.lead`} />
-          </p>
-        )}
+        <p className={styles.lead}>
+          <Message id={`${base}.lead`} />
+        </p>
         <ul className={styles.chips}>
           {items.map((id) => (
             <li className={styles.chip} key={id}>
@@ -82,11 +61,9 @@ function TabPanel({ slug, tab }: { slug: string; tab: TabDef }) {
 
   return (
     <div className={styles.prose}>
-      {hasLead && (
-        <p className={styles.lead}>
-          <Message id={`${base}.lead`} />
-        </p>
-      )}
+      <p className={styles.lead}>
+        <Message id={`${base}.lead`} />
+      </p>
       <ul className={styles.numbered}>
         {items.map((id, i) => (
           <li className={styles.item} key={id}>
@@ -106,18 +83,6 @@ export function MassageDetailPage() {
   const intl = useIntl()
   const locale = intl.locale as LocaleKey
   const massage = id ? getMassage(id) : undefined
-  const [photoOffset, setPhotoOffset] = useState(0)
-
-  useEffect(() => {
-    const onScroll = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight
-      const progress = max > 0 ? window.scrollY / max : 0
-      setPhotoOffset(progress * -400)
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   if (!massage) {
     return <Navigate to={ROUTES.services} replace />
@@ -141,14 +106,14 @@ export function MassageDetailPage() {
           <motion.h1
             className={styles.title}
             data-test-id="massage-title"
-            {...reveal(fadeUp(0.05, { duration: 0.85, distance: 34 }))}
+            {...reveal(fadeUp(0.06, { duration: 0.85, distance: 34 }))}
           >
             <Message id={`servicesPage.massage.${massage.id}.title`} />
           </motion.h1>
 
           <motion.p
             className={styles.eyebrow}
-            {...reveal(fadeUp(0.1, { duration: 0.7, distance: 20 }))}
+            {...reveal(fadeUp(0.16, { duration: 0.7, distance: 20 }))}
           >
             <Message id={`servicesPage.massage.${massage.id}.subtitle`} />
           </motion.p>
@@ -156,15 +121,14 @@ export function MassageDetailPage() {
 
         <div className={tabs.length > 0 ? styles.columns : `${styles.columns} ${styles.columnsSolo}`}>
           <aside className={styles.rail}>
-            <span style={{ color: 'red' }}>offset: {photoOffset}</span>
-            <img
+            <motion.img
               className={styles.photo}
               src={massage.image}
-              alt={intl.formatMessage({ id: `servicesPage.massage.${massage.id}.title` })}
+              alt=""
               decoding="async"
               fetchPriority="high"
               data-test-id="massage-photo"
-              style={{ transform: `translateY(${photoOffset}px) scale(1.15)`, border: '5px solid red' }}
+              {...reveal(fadeUp(0.1, { duration: 0.9, distance: 32 }))}
             />
 
             <motion.dl
@@ -184,7 +148,7 @@ export function MassageDetailPage() {
               ))}
             </motion.dl>
 
-            <motion.div {...reveal(fadeUp(0.25, { duration: 0.7, distance: 24 }))}>
+            <motion.div {...reveal(fadeUp(0.3, { duration: 0.7, distance: 24 }))}>
               <Button to={ROUTES.contacts} className={styles.book} data-test-id="massage-book">
                 <Message id="servicesPage.detail.book" />
                 <Arrow />
@@ -194,26 +158,21 @@ export function MassageDetailPage() {
 
           {tabs.length > 0 && (
             <div className={styles.content}>
-              {tabs.map((tab, i) => {
-                // Delays follow document order — back → title → eyebrow →
-                // photo → facts → book → content — so nothing appears above a
-                // control that has not animated in yet.
-                return (
-                  <motion.article
-                    className={styles.section}
-                    key={tab.id}
-                    data-test-id={`massage-section-${tab.id}`}
-                    {...reveal(fadeUp(0.3 + i * 0.05, { duration: 0.7, distance: 26 }))}
-                  >
-                    <div className={styles.sectionHead}>
-                      <h2 className={styles.sectionLabel} data-test-id={`massage-tab-${tab.id}`}>
-                        <Message id={`servicesPage.detail.tabs.${tab.id}`} />
-                      </h2>
-                    </div>
-                    <TabPanel slug={massage.id} tab={tab} />
-                  </motion.article>
-                )
-              })}
+              {tabs.map((tab, i) => (
+                <motion.article
+                  className={styles.section}
+                  key={tab.id}
+                  data-test-id={`massage-section-${tab.id}`}
+                  {...reveal(fadeUp(0.05 + i * 0.05, { duration: 0.7, distance: 26 }))}
+                >
+                  <div className={styles.sectionHead}>
+                    <h2 className={styles.sectionLabel} data-test-id={`massage-tab-${tab.id}`}>
+                      <Message id={`servicesPage.detail.tabs.${tab.id}`} />
+                    </h2>
+                  </div>
+                  <TabPanel slug={massage.id} tab={tab} />
+                </motion.article>
+              ))}
             </div>
           )}
         </div>
