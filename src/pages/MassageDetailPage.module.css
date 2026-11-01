@@ -52,8 +52,7 @@
 }
 
 .rail {
-  position: sticky;
-  top: 132px;
+  position: static;
   display: flex;
   flex-direction: column;
   gap: 26px;
@@ -65,6 +64,8 @@
   aspect-ratio: 4 / 5;
   max-height: 42vh;
   object-fit: cover;
+  position: sticky;
+  top: calc(var(--header-h) + 14px);
 }
 
 .facts {
