@@ -164,7 +164,7 @@ export function MassageDetailPage() {
               decoding="async"
               fetchPriority="high"
               data-test-id="massage-photo"
-              style={{ transform: `translateY(${photoOffset}px)` }}
+              style={{ transform: `translateY(${photoOffset}px)`, border: '5px solid red' }}
             />
 
             <motion.dl
