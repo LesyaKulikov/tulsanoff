@@ -1,5 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 import { useIntl } from 'react-intl'
 import { Arrow } from '../components/Arrow/Arrow'
 import { Button } from '../components/Button/Button'
@@ -106,7 +106,7 @@ export function MassageDetailPage() {
   const locale = intl.locale as LocaleKey
   const massage = id ? getMassage(id) : undefined
   const { scrollYProgress } = useScroll()
-  const photoY = useTransform(scrollYProgress, [0, 1], [0, -180])
+  void scrollYProgress
 
   if (!massage) {
     return <Navigate to={ROUTES.services} replace />
@@ -145,17 +145,15 @@ export function MassageDetailPage() {
 
         <div className={tabs.length > 0 ? styles.columns : `${styles.columns} ${styles.columnsSolo}`}>
           <aside className={styles.rail}>
-            <motion.div style={{ y: photoY }}>
-              <motion.img
-                className={styles.photo}
-                src={massage.image}
-                alt={intl.formatMessage({ id: `servicesPage.massage.${massage.id}.title` })}
-                decoding="async"
-                fetchPriority="high"
-                data-test-id="massage-photo"
-                {...reveal(fadeUp(0.15, { duration: 0.9, distance: 32 }))}
-              />
-            </motion.div>
+            <motion.img
+              className={styles.photo}
+              src={massage.image}
+              alt={intl.formatMessage({ id: `servicesPage.massage.${massage.id}.title` })}
+              decoding="async"
+              fetchPriority="high"
+              data-test-id="massage-photo"
+              {...reveal(fadeUp(0.15, { duration: 0.9, distance: 32 }))}
+            />
 
             <motion.dl
               className={styles.facts}
