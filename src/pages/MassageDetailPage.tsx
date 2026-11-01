@@ -1,5 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { Arrow } from '../components/Arrow/Arrow'
 import { Button } from '../components/Button/Button'
@@ -83,6 +84,18 @@ export function MassageDetailPage() {
   const intl = useIntl()
   const locale = intl.locale as LocaleKey
   const massage = id ? getMassage(id) : undefined
+  const [photoOffset, setPhotoOffset] = useState(0)
+
+  useEffect(() => {
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight
+      const progress = max > 0 ? window.scrollY / max : 0
+      setPhotoOffset(progress * 200)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   if (!massage) {
     return <Navigate to={ROUTES.services} replace />
@@ -121,15 +134,17 @@ export function MassageDetailPage() {
 
         <div className={tabs.length > 0 ? styles.columns : `${styles.columns} ${styles.columnsSolo}`}>
           <aside className={styles.rail}>
-            <motion.img
-              className={styles.photo}
-              src={massage.image}
-              alt=""
-              decoding="async"
-              fetchPriority="high"
-              data-test-id="massage-photo"
-              {...reveal(fadeUp(0.1, { duration: 0.9, distance: 32 }))}
-            />
+            <div style={{ transform: `translateY(${photoOffset}px)` }}>
+              <motion.img
+                className={styles.photo}
+                src={massage.image}
+                alt=""
+                decoding="async"
+                fetchPriority="high"
+                data-test-id="massage-photo"
+                {...reveal(fadeUp(0.1, { duration: 0.9, distance: 32 }))}
+              />
+            </div>
 
             <motion.dl
               className={styles.facts}
