@@ -1,5 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { motion, useScroll } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { useIntl } from 'react-intl'
 import { Arrow } from '../components/Arrow/Arrow'
 import { Button } from '../components/Button/Button'
@@ -106,7 +106,7 @@ export function MassageDetailPage() {
   const locale = intl.locale as LocaleKey
   const massage = id ? getMassage(id) : undefined
   const { scrollYProgress } = useScroll()
-  void scrollYProgress
+  const photoY = useTransform(scrollYProgress, [0, 1], [0, -120])
 
   if (!massage) {
     return <Navigate to={ROUTES.services} replace />
@@ -145,7 +145,7 @@ export function MassageDetailPage() {
 
         <div className={tabs.length > 0 ? styles.columns : `${styles.columns} ${styles.columnsSolo}`}>
           <aside className={styles.rail}>
-            <div style={{ transform: 'translateY(-120px)' }}>
+            <motion.div style={{ y: photoY }}>
               <motion.img
                 className={styles.photo}
                 src={massage.image}
@@ -155,7 +155,7 @@ export function MassageDetailPage() {
                 data-test-id="massage-photo"
                 {...reveal(fadeUp(0.15, { duration: 0.9, distance: 32 }))}
               />
-            </div>
+            </motion.div>
 
             <motion.dl
               className={styles.facts}
