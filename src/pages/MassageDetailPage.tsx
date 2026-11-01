@@ -145,15 +145,17 @@ export function MassageDetailPage() {
 
         <div className={tabs.length > 0 ? styles.columns : `${styles.columns} ${styles.columnsSolo}`}>
           <aside className={styles.rail}>
-            <motion.img
-              className={styles.photo}
-              src={massage.image}
-              alt={intl.formatMessage({ id: `servicesPage.massage.${massage.id}.title` })}
-              decoding="async"
-              fetchPriority="high"
-              data-test-id="massage-photo"
-              {...reveal(fadeUp(0.15, { duration: 0.9, distance: 32 }))}
-            />
+            <div style={{ transform: 'translateY(-120px)' }}>
+              <motion.img
+                className={styles.photo}
+                src={massage.image}
+                alt={intl.formatMessage({ id: `servicesPage.massage.${massage.id}.title` })}
+                decoding="async"
+                fetchPriority="high"
+                data-test-id="massage-photo"
+                {...reveal(fadeUp(0.15, { duration: 0.9, distance: 32 }))}
+              />
+            </div>
 
             <motion.dl
               className={styles.facts}
