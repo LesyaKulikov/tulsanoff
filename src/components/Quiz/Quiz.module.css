@@ -1,0 +1,232 @@
+.quiz {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.step,
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.progressText {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.progressBar {
+  height: 4px;
+  width: 100%;
+  background: var(--divider);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--accent);
+  transition: width var(--dur-base) var(--ease);
+}
+
+.question {
+  font-family: var(--display);
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  width: 100%;
+  padding: 18px 22px;
+  background: var(--panel);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--glass-edge);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.4;
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+
+.option:hover {
+  background: var(--button);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.optionSelected {
+  background: var(--button);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.optionLabel {
+  flex: 1;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.backBtn {
+  background: transparent;
+  border: 1px solid var(--glass-edge);
+  color: var(--text);
+  padding: 12px 20px;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+
+.backBtn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.nextBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-inline-start: auto;
+  padding: 12px 24px;
+  background: var(--button);
+  color: var(--text);
+  border: 0;
+  font-family: var(--display);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.nextBtn:hover:not(:disabled) {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.nextBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Result */
+.resultEyebrow {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.resultTitle {
+  font-family: var(--display);
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.resultCard {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 24px;
+  background: var(--panel);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--glass-edge);
+  padding: 20px;
+}
+
+.resultPhoto {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+}
+
+.resultBody {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.resultName {
+  font-family: var(--display);
+  font-size: clamp(18px, 2.4vw, 24px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.resultDesc {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.resultActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.restart {
+  align-self: flex-start;
+  background: transparent;
+  border: 0;
+  color: var(--text);
+  opacity: 0.7;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.restart:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .resultCard {
+    grid-template-columns: 1fr;
+  }
+  .resultPhoto {
+    min-height: 180px;
+  }
+  .option {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+}

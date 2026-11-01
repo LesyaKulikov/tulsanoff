@@ -5,6 +5,7 @@ import { BlinkText } from '../BlinkText/BlinkText'
 import { CtaButton } from '../CtaButton/CtaButton'
 import { Message } from '../../i18n/Message'
 import { useLocale } from '../../i18n/localeContext'
+import { useQuizModal } from '../Quiz/useQuizModal'
 import { nextLocale, switcherLabel } from '../../i18n/messages'
 import { ROUTES } from '../../routes'
 import { enter, fadeUp, EASE } from '../../animation/variants'
@@ -19,6 +20,7 @@ const NAV_LINKS = [
 
 export function Header() {
   const { locale, toggleLocale } = useLocale()
+  const { openQuiz } = useQuizModal()
   const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
   const [lastPath, setLastPath] = useState(location.pathname)
@@ -57,6 +59,16 @@ export function Header() {
             </NavLink>
           </motion.div>
         ))}
+        <motion.div {...enter(fadeUp(delay(0.18 + NAV_LINKS.length * 0.07), { duration: 0.6, distance: -12 }))}>
+          <button
+            type="button"
+            className={`${styles.navLink} ${styles.navButton}`}
+            onClick={openQuiz}
+            data-test-id="nav-link-link4"
+          >
+            <BlinkText id="nav.link4" />
+          </button>
+        </motion.div>
       </nav>
 
       <div className={styles.center} data-test-id="logo">
@@ -133,6 +145,16 @@ export function Header() {
                   </NavLink>
                 </li>
               ))}
+              <li>
+                <button
+                  type="button"
+                  className={`${styles.menuLink} ${styles.navButton}`}
+                  onClick={openQuiz}
+                  data-test-id="mobile-nav-link-link4"
+                >
+                  <Message id="nav.link4" />
+                </button>
+              </li>
             </ul>
             <button
               type="button"

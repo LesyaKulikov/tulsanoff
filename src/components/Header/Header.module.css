@@ -30,6 +30,18 @@
   transition: color var(--dur-fast) var(--ease);
 }
 
+/* Reset native <button> chrome so the quiz entry matches the NavLink items. */
+.navButton {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 0;
+}
+
 .navLink:hover,
 .navLinkActive {
   color: var(--accent);

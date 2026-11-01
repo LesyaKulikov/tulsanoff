@@ -5,13 +5,16 @@ import { MotionConfig } from 'framer-motion'
 import './index.css'
 import App from './App.tsx'
 import { LocaleProvider } from './i18n/LocaleProvider'
+import { QuizModalProvider } from './components/Quiz/QuizModalProvider'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <MotionConfig reducedMotion="user">
       <BrowserRouter>
         <LocaleProvider>
-          <App />
+          <QuizModalProvider>
+            <App />
+          </QuizModalProvider>
         </LocaleProvider>
       </BrowserRouter>
     </MotionConfig>
