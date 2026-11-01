@@ -182,10 +182,48 @@
 @media (max-width: 900px) {
   .titleRow {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+
+  .topGroup {
+    align-items: center;
+  }
+
+  .chip {
+    align-self: center;
   }
 
   .socials {
+    position: static;
     margin-inline-start: 0;
+  }
+
+  .cta {
+    align-self: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .titleOriginal {
+    font-size: 20px !important;
+  }
+
+  :global(html[dir='rtl']) .title {
+    font-size: 22px;
+  }
+
+  .socialBtn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .content {
+    align-items: center;
+    text-align: center;
   }
 }

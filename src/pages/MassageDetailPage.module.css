@@ -35,6 +35,8 @@
   letter-spacing: 0.02em;
   line-height: 0.98;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .eyebrow {

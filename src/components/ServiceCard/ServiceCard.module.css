@@ -84,3 +84,24 @@
 .link:hover .arrow {
   color: var(--accent);
 }
+
+@media (max-width: 720px) {
+  .label {
+    font-size: 12px;
+  }
+
+  .labelBar {
+    height: 48px;
+    padding-inline-start: 16px;
+  }
+
+  .arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .arrow svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}

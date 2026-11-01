@@ -67,3 +67,19 @@
     grid-column: auto;
   }
 }
+
+@media (max-width: 720px) {
+  .services {
+    padding: var(--page-top) var(--gutter) 0;
+  }
+
+  .heading {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  .categoryHeading {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+}

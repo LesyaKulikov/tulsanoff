@@ -26,7 +26,7 @@
 .headOpen {
   width: 100%;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 36px;
   padding: 34px 0;
@@ -133,5 +133,16 @@
 
   .grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .services {
+    padding: var(--page-top) var(--gutter) 0;
+  }
+
+  .heading {
+    font-size: 30px;
+    margin-bottom: 24px;
   }
 }

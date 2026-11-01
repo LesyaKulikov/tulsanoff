@@ -86,8 +86,10 @@ body.bg-offset {
   background-position-y: -34vw;
 }
 
+html,
 body {
   overflow-x: hidden;
+  overscroll-behavior-x: none;
 }
 
 /* Hebrew font variations for the display/sans stack (RTL only).
@@ -279,7 +281,7 @@ button {
   direction: rtl;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
   :root {
     --header-h: 84px;
   }

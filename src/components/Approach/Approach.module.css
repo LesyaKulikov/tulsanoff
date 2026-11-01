@@ -35,6 +35,27 @@
   }
 }
 
+@media (max-width: 720px) {
+  .approach {
+    padding: var(--page-top) var(--gutter);
+  }
+
+  .heading {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  .note {
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .card {
+    padding: 28px 22px;
+    min-height: 240px;
+  }
+}
+
 .card {
   composes: glass from global;
   display: flex;

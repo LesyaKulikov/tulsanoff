@@ -136,10 +136,61 @@
        left + translate(-50%) recipe breaks under RTL). */
     inset-inline: 0;
     margin-inline: auto;
-    max-width: calc(100vw - 40px);
+    max-width: calc(100vw - (2 * var(--gutter)));
   }
 
   .heading {
     white-space: normal;
+  }
+}
+
+@media (max-width: 720px) {
+  .plan {
+    margin-top: 120px;
+  }
+
+  .inner {
+    min-height: 520px;
+  }
+
+  .card {
+    padding: 32px 24px;
+    min-height: 400px;
+  }
+
+  .heading {
+    font-size: 36px;
+    line-height: 120%;
+    position: static;
+    text-align: start;
+    top: auto;
+    inset-inline-end: auto;
+    margin-bottom: 24px;
+  }
+
+  .card {
+    position: static;
+    transform: none;
+    inset-inline: auto;
+    margin-inline: auto;
+  }
+
+  .inner {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .type {
+    font-size: 20px;
+  }
+
+  .body {
+    font-size: 16px;
   }
 }

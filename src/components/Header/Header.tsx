@@ -42,6 +42,7 @@ export function Header() {
     <motion.header
       className={styles.header}
       data-test-id="header"
+      data-menu-open={menuOpen}
       {...enter(fadeUp(0, { duration: 0.7, distance: -24 }))}
     >
       <nav className={styles.nav} aria-label="primary" data-test-id="nav">
@@ -133,6 +134,18 @@ export function Header() {
                 </li>
               ))}
             </ul>
+            <button
+              type="button"
+              className={styles.menuLang}
+              onClick={toggleLocale}
+              lang={target === 'he-IL' ? 'he' : 'ru'}
+              data-test-id="mobile-lang-toggle"
+            >
+              <span>{switcherLabel(target)}</span>
+              <span className="srOnly">
+                <Message id="nav.langLabel" />
+              </span>
+            </button>
           </motion.nav>
         )}
       </AnimatePresence>

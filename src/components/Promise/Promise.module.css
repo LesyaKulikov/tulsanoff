@@ -9,7 +9,7 @@
 }
 
 .mark {
-  font-size: 15px;
+  font-size: clamp(11px, 1.8vw, 13px);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   /* The 0.6 dimming lives in the fadeUp variant: motion sets inline opacity,
@@ -24,7 +24,7 @@
   font-weight: 700;
   letter-spacing: 0.01em;
   line-height: 1.05;
-  max-width: 16ch;
+  max-width: min(16ch, 100%);
 }
 
 .accent {
@@ -35,4 +35,16 @@
   width: 120px;
   height: 2px;
   background: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .promise {
+    padding: var(--page-top) var(--gutter);
+    gap: 24px;
+  }
+
+  .title {
+    font-size: 28px;
+    max-width: min(16ch, 100%);
+  }
 }

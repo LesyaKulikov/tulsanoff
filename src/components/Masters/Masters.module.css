@@ -121,13 +121,6 @@
   opacity: 1;
 }
 
-@media (hover: none) {
-  .hoverOverlay,
-  .hoverLink {
-    opacity: 1;
-  }
-}
-
 @media (min-width: 1500px) {
   .heading {
     font-size: 64px;
@@ -137,5 +130,35 @@
 @media (max-width: 1000px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .name {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 720px) {
+  .masters {
+    padding: var(--page-top) var(--gutter);
+  }
+
+  .heading {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+
+  .name {
+    font-size: 30px;
+  }
+
+  .role {
+    font-size: 12px;
+  }
+
+  .text {
+    padding: 16px;
+    gap: 8px;
   }
 }

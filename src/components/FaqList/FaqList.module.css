@@ -3,6 +3,26 @@
   color: var(--text);
 }
 
+@media (max-width: 720px) {
+  .faq {
+    padding: var(--page-top) var(--gutter);
+  }
+
+  .heading {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+
+  .row {
+    padding-block: 16px;
+    padding-inline: 12px;
+  }
+
+  .label {
+    font-size: 15px;
+  }
+}
+
 .heading {
   font-family: var(--display);
   font-size: clamp(32px, 6vw, 64px);

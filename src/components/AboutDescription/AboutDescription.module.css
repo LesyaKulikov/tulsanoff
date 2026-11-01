@@ -103,7 +103,7 @@
 
 @media (max-width: 1200px) {
   .section {
-    padding: 56px var(--gutter);
+    padding: var(--page-top) var(--gutter);
   }
 
   .columns {
@@ -118,6 +118,12 @@
 @media (min-width: 1500px) {
   .section {
     --scale: 1.12;
+  }
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding: var(--page-top) var(--gutter);
   }
 }
 
