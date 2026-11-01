@@ -1,5 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import { useIntl } from 'react-intl'
 import { Arrow } from '../components/Arrow/Arrow'
 import { Button } from '../components/Button/Button'
@@ -105,6 +106,9 @@ export function MassageDetailPage() {
   const intl = useIntl()
   const locale = intl.locale as LocaleKey
   const massage = id ? getMassage(id) : undefined
+  const pageRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({ target: pageRef, offset: ['start end', 'end start'] })
+  const photoY = useTransform(scrollYProgress, [0, 1], [0, -80])
 
   if (!massage) {
     return <Navigate to={ROUTES.services} replace />
@@ -116,7 +120,7 @@ export function MassageDetailPage() {
 
   return (
     <>
-      <section className={styles.page} data-test-id="massage-detail">
+      <section ref={pageRef} className={styles.page} data-test-id="massage-detail">
         <motion.div {...reveal(fadeUp(0, { duration: 0.6, distance: 20 }))}>
           <Link className={styles.back} to={ROUTES.services} data-test-id="massage-back">
             <Arrow style={{ transform: 'rotate(180deg)' }} />
@@ -143,15 +147,17 @@ export function MassageDetailPage() {
 
         <div className={tabs.length > 0 ? styles.columns : `${styles.columns} ${styles.columnsSolo}`}>
           <aside className={styles.rail}>
-            <motion.img
-              className={styles.photo}
-              src={massage.image}
-              alt={intl.formatMessage({ id: `servicesPage.massage.${massage.id}.title` })}
-              decoding="async"
-              fetchPriority="high"
-              data-test-id="massage-photo"
-              {...reveal(fadeUp(0.15, { duration: 0.9, distance: 32 }))}
-            />
+            <motion.div style={{ y: photoY }}>
+              <motion.img
+                className={styles.photo}
+                src={massage.image}
+                alt={intl.formatMessage({ id: `servicesPage.massage.${massage.id}.title` })}
+                decoding="async"
+                fetchPriority="high"
+                data-test-id="massage-photo"
+                {...reveal(fadeUp(0.15, { duration: 0.9, distance: 32 }))}
+              />
+            </motion.div>
 
             <motion.dl
               className={styles.facts}
