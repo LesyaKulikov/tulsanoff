@@ -157,17 +157,15 @@ export function MassageDetailPage() {
         <div className={tabs.length > 0 ? styles.columns : `${styles.columns} ${styles.columnsSolo}`}>
           <aside className={styles.rail}>
             <span style={{ color: 'red' }}>offset: {photoOffset}</span>
-            <div style={{ transform: `translateY(${photoOffset}px)` }}>
-              <motion.img
-                className={styles.photo}
-                src={massage.image}
-                alt={intl.formatMessage({ id: `servicesPage.massage.${massage.id}.title` })}
-                decoding="async"
-                fetchPriority="high"
-                data-test-id="massage-photo"
-                {...reveal(fadeUp(0.15, { duration: 0.9, distance: 32 }))}
-              />
-            </div>
+            <img
+              className={styles.photo}
+              src={massage.image}
+              alt={intl.formatMessage({ id: `servicesPage.massage.${massage.id}.title` })}
+              decoding="async"
+              fetchPriority="high"
+              data-test-id="massage-photo"
+              style={{ transform: `translateY(${photoOffset}px)` }}
+            />
 
             <motion.dl
               className={styles.facts}
