@@ -7,9 +7,8 @@
  *
  * Consumers: Hero, Footer and ContactsPage each render a different subset via
  * the shared `SocialLinks` component, so the rows are defined separately rather
- * than as one shared list. The Facebook entry has no public URL, so it carries
- * `href: undefined` and renders as a labelled non-link — a bare `<a>` with an
- * empty target would silently navigate to the homepage (the original bug).
+ * than as one shared list. Facebook now has a public URL and renders as a
+ * normal link like the other channels.
  * WhatsApp is deliberately *not* a social channel here: it is the booking line,
  * linked from the CTA buttons (`WHATSAPP_URL`).
  */
@@ -42,6 +41,7 @@ const INSTAGRAM: SocialLink = {
 
 const FACEBOOK: SocialLink = {
   key: 'facebook',
+  href: 'https://www.facebook.com/share/1G9TiUoRDR/',
   labelId: 'footer.social.fbAlt',
   icon: 'facebook',
 }
