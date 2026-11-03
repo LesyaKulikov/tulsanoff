@@ -92,21 +92,30 @@ export function Quiz() {
   const currentAnswer =
     step === 0 ? category : step === 1 ? situation : pressure
 
-  const canNext =
-    step === 0 ? category !== null : step === 1 ? situation !== null : pressure !== null
-
   const handleSelect = (id: string) => {
-    if (step === 0) setCategory(id as Category)
-    else if (step === 1) setSituation(id)
-    else setPressure(id as Pressure)
-  }
-
-  const handleNext = () => {
-    if (step < 2) {
-      setStep((s) => s + 1)
-    } else if (category && situation && pressure) {
-      setResult(computeResult(category, situation, pressure))
+    let nextCategory = category
+    let nextSituation = situation
+    let nextPressure = pressure
+    if (step === 0) {
+      setCategory(id as Category)
+      nextCategory = id as Category
+    } else if (step === 1) {
+      setSituation(id)
+      nextSituation = id
+    } else {
+      setPressure(id as Pressure)
+      nextPressure = id as Pressure
     }
+
+    // Advance automatically: selecting an answer moves to the next step
+    // (or computes the result on the last step) without an extra "continue" click.
+    window.setTimeout(() => {
+      if (step < 2) {
+        setStep((s) => s + 1)
+      } else if (nextCategory && nextSituation && nextPressure) {
+        setResult(computeResult(nextCategory, nextSituation, nextPressure))
+      }
+    }, 220)
   }
 
   const handleBack = () => {
@@ -234,16 +243,6 @@ export function Quiz() {
                   <Message id="quiz.back" />
                 </button>
               )}
-              <button
-                type="button"
-                className={styles.nextBtn}
-                onClick={handleNext}
-                disabled={!canNext}
-                data-test-id="quiz-next"
-              >
-                <Message id="quiz.next" />
-                <Arrow />
-              </button>
             </div>
           </motion.div>
         )}
