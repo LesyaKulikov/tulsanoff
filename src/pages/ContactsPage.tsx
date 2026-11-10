@@ -31,14 +31,15 @@ export function ContactsPage() {
                   <h3 className={styles.branchName}>
                     <Message id={branch.nameId} />
                   </h3>
-                  <a
+                  <motion.a
                     className={styles.mapLink}
                     href={mapsUrl(branch.mapQuery)}
                     target="_blank"
                     rel="noopener noreferrer"
+                    {...reveal(fadeUp(0.12, { duration: 0.7, distance: 16 }))}
                   >
                     <Message id="contacts.mapCta" /> <Arrow />
-                  </a>
+                  </motion.a>
                 </div>
                 <p className={styles.address}>
                   <Message id={branch.addressId} />

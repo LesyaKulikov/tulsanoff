@@ -117,16 +117,28 @@
 }
 
 .mapLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 13px;
   letter-spacing: 0.04em;
   color: var(--accent);
   border-block-end: 1px solid transparent;
-  transition: border-color var(--dur-fast) var(--ease);
+  transition:
+    border-color 0.3s var(--ease),
+    transform 0.3s var(--ease),
+    opacity 0.3s var(--ease);
   white-space: nowrap;
 }
 
 .mapLink:hover {
   border-block-end-color: var(--accent);
+  transform: translateX(4px) !important;
+  opacity: 0.8;
+}
+
+.mapLink:hover svg {
+  transform: translateX(2px) !important;
 }
 
 .address {

@@ -13,6 +13,10 @@
   overflow: hidden;
 }
 
+.ctaContacts {
+  padding-block-start: 0;
+}
+
 /* Keyboard escape hatch rendered before the iframe: hidden at rest, revealed
    on keyboard focus. The map iframe swallows arrow-key scrolling, so this is
    the way out that does not go through Google's UI. */

@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion'
 import { useIntl } from 'react-intl'
+import { useLocation } from 'react-router-dom'
 import { Message } from '../../i18n/Message'
 import { resolveMessage } from '../../i18n/messages'
 import { BRANCHES, mapsUrl } from '../../contacts'
+import { ROUTES } from '../../routes'
 import { reveal, fadeIn } from '../../animation/variants'
 import styles from './CtaBand.module.css'
 
@@ -11,6 +13,8 @@ const MAP_BRANCH = BRANCHES[0]
 
 export function CtaBand() {
   const intl = useIntl()
+  const location = useLocation()
+  const isContacts = location.pathname === ROUTES.contacts
   // `cta.mapTitle` is not authored in the locale files yet, and a hardcoded
   // English iframe title would be announced as-is in every locale.
   const mapTitle = resolveMessage('cta.mapTitle', intl.locale) ?? 'TULSANOFF on Google Maps'
@@ -19,7 +23,7 @@ export function CtaBand() {
   // animating transform on it is a scroll-jank hotspot.
   return (
     <motion.section
-      className={styles.cta}
+      className={`${styles.cta} ${isContacts ? styles.ctaContacts : ''}`}
       data-test-id="cta-band"
       {...reveal(fadeIn(0, 0.6))}
     >
