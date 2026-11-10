@@ -3,6 +3,9 @@
   color: var(--text);
   padding-block-start: 170px;
   padding-block-end: 90px;
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
 }
 
 /* Full-bleed band without the 100vw + calc(50% - 50vw) trick: that pattern is
@@ -13,8 +16,11 @@
   /* Full-bleed: break out of the max-width .app to the true viewport width. The
      scrollbar-width overshoot of 100vw is clipped by body { overflow-x: hidden }.
      margin-inline-start is logical, so it centers in RTL (Hebrew). */
-  width: 100vw;
-  margin-inline: calc(50% - 50vw) 0;
+  width: 100%;
+  flex: 0 0 55%;
+  max-width: var(--container);
+  margin-inline-start: var(--gutter);
+  margin-inline-end: 0;
   overflow: hidden;
 }
 
@@ -35,27 +41,30 @@
 
 .card {
   composes: glass from global;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  /* Aligns the card's outer edge with the content column: on viewports wider
-     than the 1920px app the extra max(0px, …) offset tracks the app's centering,
-     so the card stays on the text grid instead of drifting to the viewport edge.
-     Logical (not `right:`) so it mirrors to the left column in RTL. */
-  /* Physical (right) in both locales: the user wants the card on the right in
-     Hebrew as well, not mirrored to the left. */
-  right: calc(var(--gutter) + max(0px, (100vw - var(--app-max)) / 2));
-  width: 565px;
+  position: static;
+  flex: 0 0 27%;
+  width: auto;
+  margin-inline-end: var(--gutter);
   height: auto;
   min-height: 456px;
   padding: 60px 55px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 32px;
   box-shadow:
     0 0 0 1px var(--glass-edge),
     0 40px 120px -40px rgb(212 251 200 / 18%);
+}
+
+.bottom {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 25px;
 }
 
 /* Subtle mint sheen + glow, matching the contacts concierge card. */
@@ -74,17 +83,15 @@
   z-index: 1;
 }
 
-/* Doubled specificity so the gradient beats `.glass`'s background no matter
-   which stylesheet loads first (see the note at the top of glass.css). */
-.card.card {
-  background: linear-gradient(180deg, color-mix(in srgb, var(--text) 12%, transparent) 0%, color-mix(in srgb, var(--text) 32%, transparent) 100%);
-}
+
 
 .title {
-  font-size: 36px;
+  font-family: var(--display);
+  font-size: 40px;
   font-weight: 700;
-  line-height: 136%;
-  letter-spacing: 0.06em;
+  line-height: 110%;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   text-shadow: 0 4px 40px var(--shadow);
 }
 
@@ -101,10 +108,10 @@
 }
 
 .body {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 144%;
   letter-spacing: 0.1em;
-  max-width: 450px;
+  max-width: 100%;
 }
 
 .note {
@@ -114,12 +121,39 @@
   opacity: 0.75;
 }
 
+.benefits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 144%;
+}
+
+.benefits li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.benefits li::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+}
+
 .bottom {
   margin-top: auto;
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 25px;
 }
 
 @media (max-width: 1200px) {

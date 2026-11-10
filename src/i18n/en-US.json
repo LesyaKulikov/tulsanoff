@@ -121,6 +121,11 @@
       "type": "The perfect gift",
       "body": "Here you can buy <gift>gift cards</gift> and massage certificates as a gift for your loved ones and friends",
       "note": "The certificate or gift card is available in both printed and digital versions",
+      "benefit": {
+        "0": "For any massage service",
+        "1": "Valid for 6 months",
+        "2": "Printed or digital version"
+      },
       "cta": "LEARN MORE"
     },
     "faq": {

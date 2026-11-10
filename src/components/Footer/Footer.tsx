@@ -4,7 +4,7 @@ import { CtaButton } from '../CtaButton/CtaButton'
 import { Message } from '../../i18n/Message'
 import { SocialLinks } from '../SocialLinks/SocialLinks'
 import { FOOTER_SOCIAL_LINKS } from '../../contacts'
-import { EMAIL, PHONES } from '../../contacts'
+import { EMAIL, PHONES, BRANCHES, mapsUrl } from '../../contacts'
 import { ROUTES } from '../../routes'
 import { reveal, fadeUp } from '../../animation/variants'
 import styles from './Footer.module.css'
@@ -23,7 +23,13 @@ const COLS: readonly Column[] = [
 const CONTACT_ROUTES: Record<string, string> = {
   '1': `tel:${PHONES[0].href}`,
   '2': `tel:${PHONES[1].href}`,
-  '3': `mailto:${EMAIL}`,
+  '3': `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`,
+}
+
+/** `footer.addresses.*` maps to its branch's Google Maps page. */
+const ADDRESS_ROUTES: Record<string, string> = {
+  '0': mapsUrl(BRANCHES[0].mapQuery),
+  '1': mapsUrl(BRANCHES[1].mapQuery),
 }
 
 export function Footer() {
@@ -61,9 +67,9 @@ export function Footer() {
                     )
                   }
 
-                  const href = CONTACT_ROUTES[n]
+                  const href = col.kind === 'addresses' ? ADDRESS_ROUTES[n] : CONTACT_ROUTES[n]
                   if (href) {
-                    const isPhone = n === '1' || n === '2'
+                    const isPhone = col.kind === 'contacts' && (n === '1' || n === '2')
                     return (
                       <li key={n} className={styles.item} data-test-id={`footer-${col.key}-${n}`}>
                         <a href={href} className={styles.link} dir={isPhone ? 'ltr' : undefined}>
