@@ -41,7 +41,7 @@
 
 .card {
   composes: glass from global;
-  position: static;
+  position: relative;
   flex: 0 0 27%;
   width: auto;
   margin-inline-end: var(--gutter);
