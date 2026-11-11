@@ -187,10 +187,6 @@
       "meditsinskiy": {
         "title": "medical massage",
         "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. We address the cause of pain and specific tension points, tailoring the technique and intensity to each client.",
-        "classification": "therapy",
-        "duration": "45\\60\\90",
-        "forWhom": "everyone",
         "content": {
           "about": {
             "0": "Medical massage is a targeted work with muscles and soft tissues that helps ease tension and discomfort, improve mobility and support the body's recovery.",
@@ -219,10 +215,6 @@
       "massazh-litsa": {
         "title": "facial massage",
         "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. Natural rejuvenation and recovery after cosmetic procedures.",
-        "classification": "aesthetics",
-        "duration": "45\\60",
-        "forWhom": "everyone",
         "content": {
           "about": {
             "0": "IQ hiro massage — youthful face without compromise and a fast recovery!",
@@ -242,10 +234,6 @@
       "dlya-par": {
         "title": "massage for couples",
         "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. Shared rest and care for your health in a single session.",
-        "classification": "special format",
-        "duration": "60\\90",
-        "forWhom": "couples",
         "content": {
           "about": {
             "0": "Massage for two — harmony, care and rest next to the person you love!",
@@ -264,10 +252,6 @@
       "relaks": {
         "title": "relax",
         "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. A soft technique for deep relaxation and recovery after a busy day.",
-        "classification": "relax & aesthetics",
-        "duration": "45\\60\\90",
-        "forWhom": "everyone",
         "content": {
           "about": {
             "0": "Relaxation massage is a soft and calm technique focused on deep relaxation of the body, easing muscular and emotional tension and recovery after a busy day.",
@@ -294,10 +278,6 @@
       "sport": {
         "title": "sports massage",
         "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. A specialized technique for improving physical condition and recovery after loads.",
-        "classification": "therapy & wellness",
-        "duration": "45\\60\\90",
-        "forWhom": "athletes",
         "content": {
           "about": {
             "0": "Sports massage is a specialized massage technique focused on improving physical condition, supporting recovery after physical loads and preventing injuries in athletes.",
@@ -314,10 +294,6 @@
       "shvedskiy": {
         "title": "swedish massage",
         "subtitle": "classic technique",
-        "description": "We bring back muscle tone so the lightness lasts. A classic relaxing massage with an individually chosen intensity.",
-        "classification": "relax & aesthetics",
-        "duration": "45\\60",
-        "forWhom": "everyone",
         "content": {
           "about": {
             "0": "Swedish massage is a classic full-body massage focused on relaxing the muscles, easing tension and recovery after everyday loads.",
@@ -342,10 +318,6 @@
       "limfaticheskiy": {
         "title": "lymphatic drainage",
         "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. A gentle technique for improving lymph flow and reducing fluid retention in the tissues.",
-        "classification": "therapy & wellness",
-        "duration": "45\\60\\90",
-        "forWhom": "everyone",
         "content": {
           "about": {
             "0": "Lymphatic drainage massage is a gentle technique focused on improving lymph flow and reducing fluid retention in the tissues.",
@@ -372,10 +344,6 @@
       "anti-tsellyulit": {
         "title": "anti-cellulite",
         "subtitle": "author's technique",
-        "description": "We bring back muscle tone so the lightness lasts. Intense work with the subcutaneous tissues for smoother, firmer skin.",
-        "classification": "relax & aesthetics",
-        "duration": "45\\60\\90",
-        "forWhom": "everyone",
         "content": {
           "about": {
             "0": "Anti-cellulite massage is an intense massage focused on improving the look of the skin, reducing puffiness and working with the subcutaneous tissues.",

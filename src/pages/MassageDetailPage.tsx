@@ -33,11 +33,14 @@ function TabPanel({ slug, tab }: { slug: string; tab: TabDef }) {
   if (tab.kind === 'prose') {
     return (
       <div className={styles.prose}>
-        {items.map((id) => (
-          <p key={id}>
-            <Message id={id} />
-          </p>
-        ))}
+        <p>
+          {items.map((id, i) => (
+            <span key={id}>
+              {i > 0 ? ' ' : ''}
+              <Message id={id} />
+            </span>
+          ))}
+        </p>
       </div>
     )
   }
