@@ -40,10 +40,10 @@
   --container: 1128px;
   /* Scales down from the 1440px artboard's 156px gutter so narrow viewports
      keep a usable content column instead of a fixed 156px on both sides. */
-  --gutter: clamp(20px, 10.83vw, 156px);
+  --gutter: clamp(16px, 6vw, 156px);
   --header-h: 118px;
   /* Distance from the top of the page to the first section, below the fixed header. */
-  --page-top: calc(var(--header-h) + 40px);
+  --page-top: calc(var(--header-h) + 24px);
 
   /* Radius */
   --radius-flat: 0;

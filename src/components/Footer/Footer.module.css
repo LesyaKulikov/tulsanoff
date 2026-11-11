@@ -1,5 +1,5 @@
 .footer {
-  padding-block: clamp(72px, 10vw, 150px) 90px;
+  padding-block: clamp(48px, 8vw, 150px) 72px;
   padding-inline: var(--gutter);
   color: var(--text);
   border-block-start: 1px solid var(--divider-soft);

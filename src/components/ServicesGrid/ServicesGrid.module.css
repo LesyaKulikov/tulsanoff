@@ -142,7 +142,28 @@
   }
 
   .heading {
-    font-size: 30px;
-    margin-bottom: 24px;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .head,
+  .headOpen {
+    gap: 12px;
+    padding: 18px 0;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .plus {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .grid {
+    gap: 16px;
+    padding: 4px 0 28px;
   }
 }

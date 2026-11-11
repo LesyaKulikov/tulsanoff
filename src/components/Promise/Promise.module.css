@@ -40,11 +40,21 @@
 @media (max-width: 720px) {
   .promise {
     padding: var(--page-top) var(--gutter);
-    gap: 24px;
+    gap: 20px;
+  }
+
+  .mark {
+    font-size: 12px;
+    max-width: 100%;
   }
 
   .title {
-    font-size: 28px;
-    max-width: min(16ch, 100%);
+    font-size: 36px;
+    max-width: 100%;
+    line-height: 1.1;
+  }
+
+  .line {
+    width: 80px;
   }
 }
