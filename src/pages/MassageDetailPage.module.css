@@ -43,6 +43,14 @@
   color: var(--accent);
 }
 
+.description {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 70ch;
+  margin: 0 0 24px;
+  opacity: 0.9;
+}
+
 .columns {
   display: grid;
   grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
@@ -235,6 +243,41 @@
 }
 
 .itemText {
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  line-height: 1.55;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 74ch;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 22px;
+  background: var(--panel);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-block: 0.5px solid var(--glass-edge);
+  border-inline: 1px solid var(--divider-strong);
+  border-radius: var(--radius-flat);
+}
+
+.cardIndex {
+  flex: none;
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.cardText {
   font-size: 17px;
   letter-spacing: 0.02em;
   line-height: 1.55;

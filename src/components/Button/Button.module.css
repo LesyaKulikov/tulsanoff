@@ -40,6 +40,11 @@
 .primary {
   background: var(--button);
   color: var(--text);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.primary:hover:not(:disabled):not([aria-disabled='true']) {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28), 0 0 12px rgba(255, 255, 255, 0.12);
 }
 
 .inverse {

@@ -10,9 +10,9 @@ import { ROUTES } from '../routes'
 import { reveal, fadeUp } from '../animation/variants'
 import styles from './MassageDetailPage.module.css'
 
-const FACTS = ['classification', 'duration', 'forWhom'] as const
 
-type TabKind = 'prose' | 'chips' | 'numbered'
+
+type TabKind = 'prose' | 'chips' | 'cards'
 
 interface TabDef {
   id: string
@@ -23,7 +23,7 @@ interface TabDef {
 const TABS: TabDef[] = [
   { id: 'about', kind: 'prose', count: 2 },
   { id: 'indications', kind: 'chips', count: 3 },
-  { id: 'benefits', kind: 'numbered', count: 6 },
+  { id: 'benefits', kind: 'cards', count: 4 },
 ]
 
 function TabPanel({ slug, tab }: { slug: string; tab: TabDef }) {
@@ -64,16 +64,16 @@ function TabPanel({ slug, tab }: { slug: string; tab: TabDef }) {
       <p className={styles.lead}>
         <Message id={`${base}.lead`} />
       </p>
-      <ul className={styles.numbered}>
+      <div className={styles.cards}>
         {items.map((id, i) => (
-          <li className={styles.item} key={id}>
-            <span className={styles.itemIndex}>{String(i + 1).padStart(2, '0')}</span>
-            <span className={styles.itemText}>
+          <div className={styles.card} key={id}>
+            <span className={styles.cardIndex}>{String(i + 1).padStart(2, '0')}</span>
+            <span className={styles.cardText}>
               <Message id={id} />
             </span>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   )
 }
@@ -131,22 +131,6 @@ export function MassageDetailPage() {
               {...reveal(fadeUp(0.1, { duration: 0.9, distance: 32 }))}
             />
 
-            <motion.dl
-              className={styles.facts}
-              data-test-id="massage-facts"
-              {...reveal(fadeUp(0.2, { duration: 0.7, distance: 24 }))}
-            >
-              {FACTS.map((fact) => (
-                <div className={styles.fact} key={fact} data-test-id={`massage-fact-${fact}`}>
-                  <dt className={styles.factLabel}>
-                    <Message id={`servicesPage.detail.${fact}`} />
-                  </dt>
-                  <dd className={styles.factValue}>
-                    <Message id={`servicesPage.massage.${massage.id}.${fact}`} />
-                  </dd>
-                </div>
-              ))}
-            </motion.dl>
 
             <motion.div {...reveal(fadeUp(0.3, { duration: 0.7, distance: 24 }))}>
               <Button to={ROUTES.contacts} className={styles.book} data-test-id="massage-book">
