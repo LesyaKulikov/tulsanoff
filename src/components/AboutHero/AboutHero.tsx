@@ -16,7 +16,7 @@ export function AboutHero() {
       <motion.div className={styles.band} {...reveal(fadeUp(0, { duration: 0.9, distance: 24 }))}>
         <img
           className={styles.photo}
-          src="/images/about-hero-strip.jpg"
+          src="/tulsanoff/images/about-hero-strip.jpg"
           alt=""
           aria-hidden="true"
           decoding="async"

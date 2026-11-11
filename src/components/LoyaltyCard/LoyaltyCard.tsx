@@ -106,7 +106,7 @@ export function LoyaltyCard() {
         <div ref={cardRef} className={styles.card} data-test-id="services-loyalty-card">
           <img
             className={styles.image}
-            src="/images/loyalty-card.jpg"
+            src="/tulsanoff/images/loyalty-card.jpg"
             width={CARD_IMG.width}
             height={CARD_IMG.height}
             alt=""

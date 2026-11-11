@@ -78,7 +78,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: var(--bg) url('/images/background.webp') top / cover no-repeat;
+  background: var(--bg) url('/tulsanoff/images/background.webp') top / cover no-repeat;
 }
 
 html.bg-offset,

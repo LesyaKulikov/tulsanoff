@@ -9,8 +9,8 @@ import styles from './Masters.module.css'
 const MotionLink = motion.create(Link)
 
 const CARDS = [
-  { n: '0', src: '/images/big-card-a.jpg' },
-  { n: '1', src: '/images/big-card-b.jpg' },
+  { n: '0', src: '/tulsanoff/images/big-card-a.jpg' },
+  { n: '1', src: '/tulsanoff/images/big-card-b.jpg' },
 ] as const
 
 export function Masters() {
