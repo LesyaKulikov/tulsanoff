@@ -12,7 +12,7 @@ export function SubscriptionBand() {
         data-test-id="services-plan-band"
         {...reveal(fadeUp(0, { duration: 0.95, distance: 48 }))}
       >
-        <img className={styles.photo} src="/tulsanoff/images/plan-band.jpg" alt="" loading="lazy" decoding="async" />
+        <img className={styles.photo} src=`${import.meta.env.BASE_URL}images/plan-band.jpg`" alt="" loading="lazy" decoding="async" />
         <div className={styles.glow} />
 
         <div className={styles.inner} data-test-id="services-plan-inner">

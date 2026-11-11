@@ -7,8 +7,8 @@ import { reveal, enter, fadeUp, scaleIn, EASE } from '../../animation/variants'
 import styles from './AboutMasters.module.css'
 
 const CARDS = [
-  { n: '0', src: '/tulsanoff/images/big-card-a.jpg' },
-  { n: '1', src: '/tulsanoff/images/big-card-b.jpg' },
+  { n: '0', src: `${import.meta.env.BASE_URL}images/big-card-a.jpg`' },
+  { n: '1', src: `${import.meta.env.BASE_URL}images/big-card-b.jpg`' },
 ] as const
 
 const TABS = ['about', 'training', 'qualifications'] as const

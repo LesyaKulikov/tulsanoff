@@ -84,7 +84,7 @@ export function Hero() {
     <section className={styles.hero} data-test-id="hero">
       <img
         className={`${styles.background} ${showVideo ? styles.hidden : ''}`}
-        src="/tulsanoff/images/hero.jpg"
+        src=`${import.meta.env.BASE_URL}images/hero.jpg`"
         alt=""
         decoding="async"
         fetchPriority="high"
@@ -96,7 +96,7 @@ export function Hero() {
             ref={(el) => { videoRefs.current[i] = el }}
             className={`${styles.video} ${activeVideo === i && showVideo ? styles.active : ''}`}
             src={src}
-            poster="/tulsanoff/images/hero.jpg"
+            poster=`${import.meta.env.BASE_URL}images/hero.jpg`"
             aria-hidden="true"
             muted
             playsInline

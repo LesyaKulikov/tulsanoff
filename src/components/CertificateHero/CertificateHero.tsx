@@ -12,7 +12,7 @@ export function CertificateHero() {
       <div className={styles.band}>
         <motion.img
           className={styles.photo}
-          src="/tulsanoff/images/Free_Business_Card_Mockup_2@2x.jpg"
+          src=`${import.meta.env.BASE_URL}images/Free_Business_Card_Mockup_2@2x.jpg`"
           alt=""
           decoding="async"
           fetchPriority="high"

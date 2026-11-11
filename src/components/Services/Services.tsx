@@ -12,17 +12,17 @@ const PANEL_ID = 'services-tabpanel'
 
 const CARDS: ReadonlyArray<ReadonlyArray<{ n: number; src: string; slug: string }>> = [
   [
-    { n: 0, src: '/tulsanoff/images/meditsinskiy.jpg', slug: 'meditsinskiy' },
-    { n: 1, src: '/tulsanoff/images/limfaticheskiy.jpg', slug: 'limfaticheskiy' },
-    { n: 2, src: '/tulsanoff/images/sport.jpg', slug: 'sport' },
+    { n: 0, src: `${import.meta.env.BASE_URL}images/meditsinskiy.jpg`', slug: 'meditsinskiy' },
+    { n: 1, src: `${import.meta.env.BASE_URL}images/limfaticheskiy.jpg`', slug: 'limfaticheskiy' },
+    { n: 2, src: `${import.meta.env.BASE_URL}images/sport.jpg`', slug: 'sport' },
   ],
   [
-    { n: 3, src: '/tulsanoff/images/massazh-litsa.jpg', slug: 'massazh-litsa' },
-    { n: 4, src: '/tulsanoff/images/relaks.jpg', slug: 'relaks' },
-    { n: 5, src: '/tulsanoff/images/video-frame.jpg', slug: 'shvedskiy' },
-    { n: 6, src: '/tulsanoff/images/anti-tsellyulit.jpg', slug: 'anti-tsellyulit' },
+    { n: 3, src: `${import.meta.env.BASE_URL}images/massazh-litsa.jpg`', slug: 'massazh-litsa' },
+    { n: 4, src: `${import.meta.env.BASE_URL}images/relaks.jpg`', slug: 'relaks' },
+    { n: 5, src: `${import.meta.env.BASE_URL}images/video-frame.jpg`', slug: 'shvedskiy' },
+    { n: 6, src: `${import.meta.env.BASE_URL}images/anti-tsellyulit.jpg`', slug: 'anti-tsellyulit' },
   ],
-  [{ n: 7, src: '/tulsanoff/images/dlya-par.jpg', slug: 'dlya-par' }],
+  [{ n: 7, src: `${import.meta.env.BASE_URL}images/dlya-par.jpg`', slug: 'dlya-par' }],
 ]
 
 export function Services() {
