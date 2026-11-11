@@ -9,7 +9,7 @@ import { enter, fadeUp } from '../../animation/variants'
 import styles from './Hero.module.css'
 
 
-const VIDEOS = ['/hero-video1.mp4', '/hero-video2.mp4']
+const VIDEOS = [`${import.meta.env.BASE_URL}hero-video1.mp4`, `${import.meta.env.BASE_URL}hero-video2.mp4`]
 
 export function Hero() {
   const { locale } = useLocale()
