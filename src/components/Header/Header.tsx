@@ -75,7 +75,7 @@ export function Header() {
         <NavLink to={ROUTES.home} end aria-label="TULSANOFF">
           <motion.img
             className={styles.logo}
-            src=`${import.meta.env.BASE_URL}images/logo.png`"
+            src={`${import.meta.env.BASE_URL}images/logo.png`}
             alt="TULSANOFF"
             {...enter(fadeUp(delay(0.1), { duration: 0.7, distance: -12 }))}
           />
