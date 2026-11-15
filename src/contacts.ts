@@ -67,7 +67,7 @@ export const PHONES: readonly Phone[] = [
   { display: '+972 53 583 3823', href: '+972535833823' },
 ]
 
-export const EMAIL = 'LMLMASSAGE@gmail.com'
+export const EMAIL = 'Tulsanoffmassage@gmail.com'
 
 export interface Branch {
   key: string
