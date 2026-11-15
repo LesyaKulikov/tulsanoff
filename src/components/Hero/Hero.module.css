@@ -241,11 +241,29 @@
 
   .topGroup {
     gap: 12px;
-    align-items: flex-start;
+    align-items: center;
+    order: 0;
   }
 
   .chip {
-    align-self: flex-start;
+    align-self: center;
+    width: calc(100% - 2 * var(--gutter));
+    justify-content: center;
+  }
+
+  .titleRow {
+    order: -1;
+  }
+
+  .cta {
+    width: calc(100% - 2 * var(--gutter));
+    justify-content: center;
+    align-self: center;
+  }
+
+  .socials {
+    align-self: center;
+    order: 2;
   }
 
   .cta {
