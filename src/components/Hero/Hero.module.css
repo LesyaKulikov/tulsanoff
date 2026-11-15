@@ -234,6 +234,11 @@
     padding: 0 var(--gutter) 32px;
   }
 
+  .titleRow {
+    align-items: flex-start;
+    text-align: start;
+  }
+
   .topGroup {
     gap: 12px;
   }
