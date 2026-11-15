@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Message } from '../../i18n/Message'
 import { reveal, fadeUp } from '../../animation/variants'
 import styles from './Approach.module.css'
@@ -6,9 +7,49 @@ import styles from './Approach.module.css'
 const STEPS = ['0', '1', '2'] as const
 
 export function Approach() {
+  const [active, setActive] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => setActive((a) => (a + 1) % STEPS.length), 4000)
+    return () => clearInterval(id)
+  }, [])
+
   return (
     <section className={styles.approach} data-test-id="approach">
-      <div className={styles.grid}>
+      <div className={styles.carousel}>
+        <AnimatePresence mode="wait">
+          <motion.article
+            key={active}
+            className={styles.card}
+            data-test-id={`approach-step-${STEPS[active]}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <span className={styles.num}>
+              <Message id={`approach.${STEPS[active]}.num`} />
+            </span>
+            <h3 className={styles.title}>
+              <Message id={`approach.${STEPS[active]}.title`} />
+            </h3>
+            <p className={styles.body}>
+              <Message id={`approach.${STEPS[active]}.body`} />
+            </p>
+          </motion.article>
+        </AnimatePresence>
+        <div className={styles.dots}>
+          {STEPS.map((_, i) => (
+            <button
+              key={i}
+              className={`${styles.dot} ${i === active ? styles.dotActive : ''}`}
+              onClick={() => setActive(i)}
+              aria-label={`slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+      <div className={styles.gridDesktop}>
         {STEPS.map((n, i) => (
           <motion.article
             key={n}

@@ -29,18 +29,44 @@
   gap: 20px;
 }
 
+.carousel {
+  display: none;
+}
+
+.gridDesktop {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 @media (max-width: 1000px) {
-  .grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 16px;
-    padding-bottom: 8px;
+  .gridDesktop {
+    display: none;
   }
 
-  .grid > * {
-    flex: 0 0 85%;
-    scroll-snap-align: center;
+  .carousel {
+    display: block;
+    position: relative;
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+  }
+
+  .dotActive {
+    background: var(--accent);
   }
 }
 
