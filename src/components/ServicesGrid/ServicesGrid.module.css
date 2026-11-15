@@ -56,7 +56,6 @@
     letter-spacing 0.3s ease;
 }
 
-.head:hover .title,
 .headOpen .title {
   color: var(--accent);
   letter-spacing: 0.07em;
