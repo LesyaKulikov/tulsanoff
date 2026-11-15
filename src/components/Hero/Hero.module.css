@@ -241,6 +241,11 @@
 
   .topGroup {
     gap: 12px;
+    align-items: flex-start;
+  }
+
+  .chip {
+    align-self: flex-start;
   }
 
   .cta {
