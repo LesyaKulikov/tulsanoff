@@ -60,8 +60,6 @@
   composes: glass from global;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  align-items: center;
   padding: 36px 28px;
   min-height: 280px;
   position: relative;
