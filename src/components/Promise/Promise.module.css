@@ -11,7 +11,7 @@
 .mark {
   font-size: clamp(11px, 1.8vw, 13px);
 
-:lang(he) .mark {
+[lang^="he"] .mark {
   font-size: clamp(15px, 2.2vw, 18px);
 }
   letter-spacing: 0.22em;
@@ -31,7 +31,7 @@
   max-width: min(16ch, 100%);
 }
 
-:lang(he) .title {
+[lang^="he"] .title {
   font-size: clamp(64px, 10vw, 165px);
 }
 
