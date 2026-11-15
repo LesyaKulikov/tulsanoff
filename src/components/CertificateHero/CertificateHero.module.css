@@ -164,7 +164,7 @@
     bottom: 16px;
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 2 * var(--gutter));
+    width: calc(100% - 4 * var(--gutter));
     z-index: 2;
   }
 
