@@ -35,14 +35,14 @@ export function ServicesGrid() {
         <Message id="servicesPage.heading" />
       </motion.h2>
 
-      <div className={styles.rows} data-test-id="services-grid-rows">
+      <motion.div className={styles.rows} data-test-id="services-grid-rows" initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}>
         {CATEGORIES.map((cat, i) => {
           const isOpen = open === i
           const hero = getMassage(cat.slugs[0])
           const headId = `services-grid-head-${i}`
           const panelId = `services-grid-panel-${i}`
           return (
-            <div key={cat.id} className={styles.row} data-test-id={`services-grid-row-${i}`}>
+            <motion.div key={cat.id} className={styles.row} data-test-id={`services-grid-row-${i}`} variants={fadeUp(0, { duration: 0.6, distance: 24 })}>
               <button
                 type="button"
                 id={headId}
@@ -96,10 +96,10 @@ export function ServicesGrid() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           )
         })}
-      </div>
+      </motion.div>
     </section>
   )
 }
