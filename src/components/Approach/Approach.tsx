@@ -8,15 +8,27 @@ const STEPS = ['0', '1', '2'] as const
 
 export function Approach() {
   const [active, setActive] = useState(0)
+  const [touchStart, setTouchStart] = useState<number | null>(null)
 
   useEffect(() => {
     const id = setInterval(() => setActive((a) => (a + 1) % STEPS.length), 4000)
     return () => clearInterval(id)
   }, [])
 
+  const handleTouchStart = (e: React.TouchEvent) => setTouchStart(e.touches[0].clientX)
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return
+    const diff = e.changedTouches[0].clientX - touchStart
+    if (Math.abs(diff) > 50) {
+      if (diff < 0) setActive((a) => (a + 1) % STEPS.length)
+      else setActive((a) => (a - 1 + STEPS.length) % STEPS.length)
+    }
+    setTouchStart(null)
+  }
+
   return (
     <section className={styles.approach} data-test-id="approach">
-      <div className={styles.carousel}>
+      <div className={styles.carousel} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         <AnimatePresence mode="wait">
           <motion.article
             key={active}
