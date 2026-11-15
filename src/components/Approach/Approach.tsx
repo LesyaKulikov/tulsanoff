@@ -13,7 +13,7 @@ export function Approach() {
   useEffect(() => {
     const id = setInterval(() => setActive((a) => (a + 1) % STEPS.length), 5000)
     return () => clearInterval(id)
-  }, [])
+  }, [active])
 
   const handleTouchStart = (e: React.TouchEvent) => setTouchStart(e.touches[0].clientX)
   const handleTouchEnd = (e: React.TouchEvent) => {
