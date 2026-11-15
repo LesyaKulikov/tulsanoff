@@ -9,7 +9,7 @@
 }
 
 .mark {
-  font-size: clamp(11px, 1.8vw, 13px);
+  font-size: clamp(14px, 2.2vw, 18px);
 
 [lang^="he"] .mark {
   font-size: clamp(18px, 2.6vw, 22px) !important;
