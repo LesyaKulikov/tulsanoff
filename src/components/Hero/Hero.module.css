@@ -248,7 +248,7 @@
 
   .chip {
     align-self: center;
-    width: calc(100% - 2 * var(--gutter));
+    width: 100%;
     justify-content: center;
   }
 
@@ -257,7 +257,7 @@
   }
 
   .cta {
-    width: calc(100% - 2 * var(--gutter));
+    width: 100%;
     justify-content: center;
     align-self: center;
   }
