@@ -279,8 +279,9 @@
 
   .bottomRow {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
+    width: 100%;
   }
 
   .socials {
