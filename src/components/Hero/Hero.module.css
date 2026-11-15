@@ -206,7 +206,7 @@
 
 @media (max-width: 720px) {
   .hero {
-    min-height: 100svh;
+    min-height: 88svh;
   }
 
   .title {
