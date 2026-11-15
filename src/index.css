@@ -81,6 +81,13 @@ body {
   background: var(--bg) url('/tulsanoff/images/background.webp') top / cover no-repeat;
 }
 
+@media (max-width: 720px) {
+  html,
+  body {
+    background: #0D110C;
+  }
+}
+
 html.bg-offset,
 body.bg-offset {
   background-position-y: -34vw;
