@@ -295,6 +295,11 @@
     padding-bottom: 26px;
   }
 
+  .title {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+
   .eyebrow {
     padding-bottom: 0;
     text-align: left;
