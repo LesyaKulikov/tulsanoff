@@ -49,6 +49,10 @@
     position: relative;
   }
 
+  .carousel .card {
+    min-height: 260px;
+  }
+
   .dots {
     display: flex;
     justify-content: center;
