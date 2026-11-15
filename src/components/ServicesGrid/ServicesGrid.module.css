@@ -138,7 +138,7 @@
 
 @media (max-width: 720px) {
   .services {
-    padding: calc(var(--page-top) + 24px) var(--gutter) 0;
+    padding: calc(var(--page-top) + 48px) var(--gutter) 0;
   }
 
   .heading {
