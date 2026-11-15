@@ -228,15 +228,15 @@
   }
 
   .content {
-    align-items: flex-start;
-    text-align: start;
+    align-items: center;
+    text-align: center;
     gap: 16px;
     padding: 0 var(--gutter) 32px;
   }
 
   .titleRow {
-    align-items: flex-start;
-    text-align: start;
+    align-items: center;
+    text-align: center;
   }
 
   .topGroup {
