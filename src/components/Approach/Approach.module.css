@@ -53,6 +53,10 @@
     min-height: 260px;
   }
 
+  .carousel .title {
+    white-space: nowrap;
+  }
+
   .dots {
     display: flex;
     justify-content: center;
