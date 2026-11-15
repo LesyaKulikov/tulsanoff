@@ -261,6 +261,10 @@
     align-self: center;
   }
 
+  .cta > * {
+    width: 100%;
+  }
+
   .socials {
     align-self: center;
     order: 2;
