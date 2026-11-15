@@ -83,14 +83,14 @@ export const BRANCHES: readonly Branch[] = [
   {
     key: 'petah-tikva',
     nameId: 'contacts.branch.0',
-    addressId: 'footer.addresses.0',
-    mapQuery: 'Odem+St+8+Petah+Tikva',
+    addressId: 'footer.addresses.1',
+    mapQuery: 'Shaham+8+Petah+Tikva',
   },
   {
     key: 'ramat-gan',
     nameId: 'contacts.branch.1',
-    addressId: 'footer.addresses.1',
-    mapQuery: 'Bialik+63+Ramat+Gan',
+    addressId: 'footer.addresses.0',
+    mapQuery: 'Mavo+Zeev+5+Ramat+Gan',
   },
 ]
 
