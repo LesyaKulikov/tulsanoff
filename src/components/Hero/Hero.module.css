@@ -215,7 +215,8 @@
   }
 
   .titleOriginal {
-    font-size: 20px !important;
+    font-size: 58px !important;
+    line-height: 1.2;
   }
 
   :global(html[dir='rtl']) .title {
