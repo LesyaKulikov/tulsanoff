@@ -11,7 +11,7 @@ export function Approach() {
   const [touchStart, setTouchStart] = useState<number | null>(null)
 
   useEffect(() => {
-    const id = setInterval(() => setActive((a) => (a + 1) % STEPS.length), 4000)
+    const id = setInterval(() => setActive((a) => (a + 1) % STEPS.length), 6000)
     return () => clearInterval(id)
   }, [])
 
