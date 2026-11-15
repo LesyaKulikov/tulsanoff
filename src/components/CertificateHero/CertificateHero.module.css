@@ -152,6 +152,20 @@
     padding-block-start: 120px;
     padding-block-end: 60px;
     gap: 16px;
+    position: relative;
+  }
+
+  .band {
+    position: relative;
+  }
+
+  .card {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 2 * var(--gutter));
+    z-index: 2;
   }
 
   .band {
