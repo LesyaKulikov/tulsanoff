@@ -205,8 +205,13 @@
 }
 
 @media (max-width: 720px) {
+  .hero {
+    min-height: 100svh;
+  }
+
   .title {
-    font-size: 24px;
+    font-size: 26px;
+    line-height: 1.15;
   }
 
   .titleOriginal {
@@ -214,16 +219,31 @@
   }
 
   :global(html[dir='rtl']) .title {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .socialBtn {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
   }
 
   .content {
     align-items: center;
     text-align: center;
+    gap: 16px;
+    padding: 0 var(--gutter) 32px;
+  }
+
+  .topGroup {
+    gap: 12px;
+  }
+
+  .cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bottomRow {
+    justify-content: center;
   }
 }
