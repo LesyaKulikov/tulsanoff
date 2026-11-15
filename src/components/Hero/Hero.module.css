@@ -244,6 +244,13 @@
   }
 
   .bottomRow {
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .socials {
+    position: static;
+    margin-inline-start: 0;
   }
 }
