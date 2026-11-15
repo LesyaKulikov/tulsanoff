@@ -202,11 +202,6 @@
   .cta {
     align-self: center;
   }
-
-  .cta > * {
-    width: 100% !important;
-    display: flex !important;
-  }
 }
 
 @media (max-width: 720px) {
