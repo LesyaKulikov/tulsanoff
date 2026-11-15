@@ -116,7 +116,7 @@
 
 @media (max-width: 720px) {
   .loyalty {
-    padding: var(--page-top) var(--gutter) 80px;
+    padding: calc(var(--page-top) * 2) var(--gutter) 80px;
     gap: 20px;
   }
 
