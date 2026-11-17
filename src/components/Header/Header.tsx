@@ -9,6 +9,8 @@ import { useQuizModal } from '../Quiz/useQuizModal'
 import { nextLocale, switcherLabel } from '../../i18n/messages'
 import { ROUTES } from '../../routes'
 import { enter, fadeUp, EASE } from '../../animation/variants'
+import { HERO_SOCIAL_LINKS } from '../../contacts'
+import { SocialLinks } from '../SocialLinks/SocialLinks'
 import styles from './Header.module.css'
 
 const NAV_LINKS = [
@@ -128,6 +130,18 @@ export function Header() {
         </button>
       </motion.div>
 
+      {menuOpen && (
+        <div className={styles.menuHeader}>
+          <NavLink to={ROUTES.home} end aria-label="TULSANOFF" data-test-id="mobile-menu-logo">
+            <img
+              className={styles.menuLogo}
+              src={`${import.meta.env.BASE_URL}images/logo.png`}
+              alt="TULSANOFF"
+            />
+          </NavLink>
+        </div>
+      )}
+
       <AnimatePresence>
         {menuOpen && (
           <motion.nav
@@ -177,6 +191,13 @@ export function Header() {
                 <Message id="nav.langLabel" />
               </span>
             </button>
+            <div className={styles.menuSocials}>
+              <SocialLinks
+                links={HERO_SOCIAL_LINKS}
+                className={styles.menuSocialLink}
+                testIdPrefix="mobile-menu-social"
+              />
+            </div>
           </motion.nav>
         )}
       </AnimatePresence>
