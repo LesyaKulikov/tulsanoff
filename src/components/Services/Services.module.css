@@ -72,6 +72,7 @@
     transform: scaleX(0);
     opacity: 0;
   }
+
   to {
     transform: scaleX(1);
     opacity: 1;
@@ -80,6 +81,7 @@
 
 /* Wrapped labels clip inside the fixed 57px pill once the row gets narrow. */
 @media (max-width: 1200px) {
+
   .category,
   .categoryActive {
     height: auto;
@@ -106,17 +108,19 @@
     max-width: 100%;
   }
 
-  .grid {
+  .services .grid {
     min-height: auto !important;
+    gap: 16px;
+    padding: 4px 0 28px;
   }
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 26px;
-  row-gap: 30px;
+  gap: 26px;
   align-content: start;
+  padding: 4px 0 44px;
   /* Reserves the tallest tab's height (4 cards → 2 rows + gap), so switching
      categories doesn't jump the page and the first paint has no reflow. */
   min-height: calc((100cqw - 26px) * 299 / 551 + 30px);
@@ -232,4 +236,3 @@
 .card:hover .arrow {
   color: var(--accent);
 }
-
