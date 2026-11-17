@@ -1,5 +1,6 @@
 import { useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { Message } from '../../i18n/Message'
 import { Arrow } from '../Arrow/Arrow'
 import { massageRoute } from '../../routes'
@@ -7,6 +8,7 @@ import { reveal, fadeUp, scaleIn, EASE } from '../../animation/variants'
 import styles from './Services.module.css'
 
 const CATS = ['cat0', 'cat1', 'cat2'] as const
+const MotionLink = motion.create(Link)
 
 const PANEL_ID = 'services-tabpanel'
 
@@ -101,9 +103,9 @@ export function Services() {
           exit={{ opacity: 0, transition: { duration: 0.2, ease: EASE } }}
         >
           {CARDS[active].map((card, i) => (
-            <motion.a
+            <MotionLink
               key={card.n}
-              href={massageRoute(card.slug)}
+              to={massageRoute(card.slug)}
               className={styles.card}
               data-test-id={`service-card-${card.n}`}
               {...reveal(scaleIn(i * 0.08, { from: 0.97, distance: 34, duration: 0.85 }))}
@@ -140,7 +142,7 @@ export function Services() {
                   <Arrow style={{ width: 28, height: 28 }} />
                 </span>
               </span>
-            </motion.a>
+            </MotionLink>
           ))}
         </motion.div>
       </AnimatePresence>
