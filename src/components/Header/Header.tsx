@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { NavLink, useLocation } from 'react-router-dom'
 import { BlinkText } from '../BlinkText/BlinkText'
@@ -23,7 +23,15 @@ export function Header() {
   const { openQuiz } = useQuizModal()
   const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const [lastPath, setLastPath] = useState(location.pathname)
+
+  useEffect(() => {
+    const updateScrollState = () => setIsScrolled(window.scrollY > 0)
+    updateScrollState()
+    window.addEventListener('scroll', updateScrollState, { passive: true })
+    return () => window.removeEventListener('scroll', updateScrollState)
+  }, [])
 
   // Entrance delays would otherwise leave the nav invisible for ~1s for users
   // who have asked their OS to reduce motion.
@@ -45,6 +53,7 @@ export function Header() {
       className={styles.header}
       data-test-id="header"
       data-menu-open={menuOpen}
+      data-scrolled={isScrolled}
       {...enter(fadeUp(0, { duration: 0.7, distance: -24 }))}
     >
       <nav className={styles.nav} aria-label="primary" data-test-id="nav">
