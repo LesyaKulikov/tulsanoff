@@ -65,18 +65,37 @@
   }
 
   .dot {
-    flex: 0 0 8px;
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 auto;
     width: 8px;
     height: 8px;
-    border-radius: 50%;
+    border-radius: 4px;
     border: none;
     background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
     padding: 0;
   }
 
-  .dotActive {
+  .dotActive::after {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
     background: var(--accent);
+    content: '';
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: dot-progress 5s linear forwards;
+  }
+
+  :global(html[dir='rtl']) .dotActive::after {
+    transform-origin: right center;
+  }
+
+  @keyframes dot-progress {
+    to {
+      transform: scaleX(1);
+    }
   }
 }
 
@@ -124,7 +143,7 @@
   z-index: 0;
 }
 
-.card > * {
+.card>* {
   position: relative;
   z-index: 1;
 }

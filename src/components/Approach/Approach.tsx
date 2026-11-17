@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Message } from '../../i18n/Message'
-import { reveal, fadeUp } from '../../animation/variants'
+import { reveal, fadeUp, EASE } from '../../animation/variants'
 import styles from './Approach.module.css'
 
 const STEPS = ['0', '1', '2'] as const
@@ -52,11 +52,16 @@ export function Approach() {
         </AnimatePresence>
         <div className={styles.dots}>
           {STEPS.map((_, i) => (
-            <button
+            <motion.button
               key={i}
+              initial={false}
+              animate={{
+                width: i === active ? 28 : 8,
+              }}
               className={`${styles.dot} ${i === active ? styles.dotActive : ''}`}
               onClick={() => setActive(i)}
               aria-label={`slide ${i + 1}`}
+              transition={{ width: { duration: 0.65, ease: EASE } }}
             />
           ))}
         </div>
