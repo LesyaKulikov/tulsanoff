@@ -174,7 +174,6 @@
   padding-block-end: 24px;
   background: var(--panel-strong);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border-block-end: 1px solid var(--glass-edge);
   z-index: 9;
 }

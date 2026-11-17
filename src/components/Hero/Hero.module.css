@@ -210,12 +210,10 @@
   }
 
   .scrim {
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--bg) 28%, transparent) 0%,
-      transparent 34%,
-      color-mix(in srgb, var(--bg) 82%, transparent) 100%
-    );
+    background: linear-gradient(180deg,
+        color-mix(in srgb, var(--bg) 28%, transparent) 0%,
+        transparent 34%,
+        color-mix(in srgb, var(--bg) 82%, transparent) 100%);
   }
 
   .title {
@@ -292,7 +290,7 @@
     align-self: stretch;
   }
 
-  .cta > * {
+  .cta>* {
     width: 100% !important;
     display: flex !important;
   }
