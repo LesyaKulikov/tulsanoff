@@ -83,8 +83,6 @@
   z-index: 1;
 }
 
-
-
 .title {
   font-family: var(--display);
   font-size: 40px;
@@ -146,106 +144,75 @@
   background: var(--accent);
 }
 
-@media (max-width: 720px) {
+/* Below 1200px the 55/27 row leaves the card too narrow to read, so stack the
+   image above the card. The band goes full-bleed; the card keeps a readable
+   measure and stays centered. */
+@media (max-width: 1200px) {
   .hero {
     flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
     padding-block-start: 120px;
-    padding-block-end: 60px;
-    gap: 16px;
-    position: relative;
-  }
-
-  .band {
-    position: relative;
-  }
-
-  .card {
-    position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 4 * var(--gutter));
-    z-index: 2;
+    padding-block-end: 70px;
   }
 
   .band {
     flex: 0 0 auto;
     width: 100%;
     max-width: none;
+    min-height: min(480px, 72vw);
     margin-inline: 0;
-    min-height: 260px;
-  }
-
-  .photo {
-    object-position: center center;
   }
 
   .card {
     flex: 0 0 auto;
     width: 100%;
-    min-height: auto;
-    padding: 32px 24px;
-    margin-inline-end: 0;
-    gap: 16px;
-  }
-
-  .title {
-    font-size: 28px;
-  }
-
-  .type {
-    font-size: 20px;
-  }
-
-  .body {
-    font-size: 16px;
-  }
-}
-
-.bottom {
-  margin-top: auto;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 25px;
-}
-
-@media (max-width: 1200px) {
-  .card {
-    inset-inline: 0;
+    max-width: 640px;
     margin-inline: auto;
-    max-width: calc(100vw - (2 * var(--gutter)));
+    min-height: 0;
+    padding: 44px 40px;
+    gap: 26px;
   }
 }
 
 @media (max-width: 720px) {
   .hero {
+    gap: 16px;
     padding-block-start: 120px;
-    padding-block-end: 60px;
+    padding-block-end: 56px;
   }
 
-  .band {
-    min-height: 600px;
+  .photo {
+    object-position: center;
   }
 
   .card {
-    padding: 32px 24px;
-    min-height: 380px;
-    width: calc(100vw - (2 * var(--gutter)));
+    width: auto;
+    max-width: none;
+    margin-inline: var(--gutter);
+    padding: 28px 22px;
+    gap: 16px;
   }
 
   .title {
-    font-size: 28px;
+    font-size: 27px;
   }
 
   .type {
-    font-size: 20px;
+    font-size: 19px;
   }
 
-  .body {
-    font-size: 16px;
-    max-width: 100%;
+  .benefits {
+    font-size: 15px;
+    gap: 9px;
+  }
+
+  .bottom {
+    align-items: stretch;
+  }
+
+  /* Full-width CTA: a thumb-sized target, matching the homepage mobile CTA. */
+  .bottom > * {
+    width: 100%;
   }
 }
