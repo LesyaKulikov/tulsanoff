@@ -2,6 +2,8 @@
   position: fixed;
   inset-block-start: 0;
   inset-inline: 0;
+  max-width: var(--app-max);
+  margin-inline: auto;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -9,13 +11,22 @@
   block-size: var(--header-h);
   padding-inline: var(--gutter);
   color: var(--text);
+  transition: backdrop-filter var(--dur-base) var(--ease);
+}
+
+.header::before {
+  position: absolute;
+  inset-block: 0;
+  inset-inline: calc((100% - 100vw) / 2);
+  z-index: -1;
   background-color: transparent;
-  transition: background-color 1.2s var(--ease), backdrop-filter var(--dur-base) var(--ease);
+  content: '';
+  transition: background-color 1.2s var(--ease);
 }
 
 .header::after {
   position: absolute;
-  inset-inline: 0;
+  inset-inline: calc((100% - 100vw) / 2);
   inset-block-end: 0;
   block-size: 2px;
   background: rgb(255 255 255 / 35%);
@@ -32,7 +43,11 @@
 }
 
 .header[data-scrolled='true'] {
-  background-color: #0D110C;
+  --header-background: #0D110C;
+}
+
+.header[data-scrolled='true']::before {
+  background-color: var(--header-background);
 }
 
 .header[data-scrolled='true']::after {
