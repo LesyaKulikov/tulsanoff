@@ -128,7 +128,7 @@
   block-size: 14px;
 }
 
-.menuIcon > span {
+.menuIcon>span {
   display: block;
   block-size: 2px;
   inline-size: 100%;
@@ -138,15 +138,15 @@
     transform var(--dur-fast) var(--ease);
 }
 
-.menuButton[aria-expanded='true'] .menuIcon > span:nth-child(1) {
+.menuButton[aria-expanded='true'] .menuIcon>span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
 }
 
-.menuButton[aria-expanded='true'] .menuIcon > span:nth-child(2) {
+.menuButton[aria-expanded='true'] .menuIcon>span:nth-child(2) {
   opacity: 0;
 }
 
-.menuButton[aria-expanded='true'] .menuIcon > span:nth-child(3) {
+.menuButton[aria-expanded='true'] .menuIcon>span:nth-child(3) {
   transform: translateY(-6px) rotate(-45deg);
 }
 
