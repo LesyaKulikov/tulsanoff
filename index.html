@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preload" as="image" href="/images/background.webp" />
+    <!-- The hero photo is the LCP/poster on every viewport. The body backdrop is
+         desktop-only (mobile paints a solid color below 720px), so preloading it
+         unconditionally wasted 300KB on mobile and crowded the JS download. -->
+    <link rel="preload" as="image" href="/images/hero.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/background.webp" media="(min-width: 721px)" />
     <title>TULSANOFF</title>
   </head>
   <body>

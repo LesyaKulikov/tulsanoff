@@ -1,11 +1,15 @@
 @import '@fontsource-variable/inter';
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Assistant:wght@400;500;700;800&family=Alef:wght@400;700&family=Secular+One&display=swap');
 @import './glass.css';
+
+/* Heebo/Assistant (RTL locales only) are injected by LocaleProvider on demand —
+   an @import here made every visitor wait on a render-blocking Google Fonts
+   chain for fonts only Hebrew ever uses. */
 
 @font-face {
   font-family: 'Neutral Face';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: url('./assets/fonts/NeutralFace.woff') format('woff');
 }
 
@@ -13,6 +17,7 @@
   font-family: 'Neutral Face';
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
   src: url('./assets/fonts/NeutralFaceBold.woff') format('woff');
 }
 

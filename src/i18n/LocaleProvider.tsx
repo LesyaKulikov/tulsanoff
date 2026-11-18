@@ -71,8 +71,26 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const root = document.documentElement
     root.lang = locale
-    root.dir = getDirection(locale)
+    const dir = getDirection(locale)
+    root.dir = dir
     // Hebrew uses Assistant (display) + Heebo (body); Russian keeps Neutral Face + Inter.
+    // The RTL families are fetched only when an RTL locale is actually active, so the
+    // default Russian build never waits on a render-blocking Google Fonts round trip.
+    if (dir === 'rtl' && !document.getElementById('rtl-fonts')) {
+      const preconnect = document.createElement('link')
+      preconnect.rel = 'preconnect'
+      preconnect.href = 'https://fonts.googleapis.com'
+      const preconnectCdn = document.createElement('link')
+      preconnectCdn.rel = 'preconnect'
+      preconnectCdn.href = 'https://fonts.gstatic.com'
+      preconnectCdn.crossOrigin = 'anonymous'
+      const fonts = document.createElement('link')
+      fonts.id = 'rtl-fonts'
+      fonts.rel = 'stylesheet'
+      fonts.href =
+        'https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;700;800&family=Heebo:wght@400;500;700;900&display=swap'
+      document.head.append(preconnect, preconnectCdn, fonts)
+    }
   }, [locale])
 
   const value = useMemo<LocaleContextValue>(

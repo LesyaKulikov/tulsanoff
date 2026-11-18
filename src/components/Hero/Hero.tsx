@@ -90,21 +90,28 @@ export function Hero() {
         fetchPriority="high"
       />
       <div className={styles.mediaLayer}>
-        {VIDEOS.map((src, i) => (
-          <video
-            key={src}
-            ref={(el) => { videoRefs.current[i] = el }}
-            className={`${styles.video} ${activeVideo === i && showVideo ? styles.active : ''}`}
-            src={src}
-            poster={`${import.meta.env.BASE_URL}images/hero.jpg`}
-            aria-hidden="true"
-            muted
-            playsInline
-            onCanPlay={handleLoaded}
-            onError={() => handleError(i)}
-            onEnded={i === activeVideo ? handleEnded : undefined}
-          />
-        ))}
+        {/* The clips are ~5MB together. Only the first one is mounted up front; the
+            rest join once the first clip is playable (or if it errors), so a slow
+            network is not loading a second full clip while the first is still
+            buffering. Reduced-motion users get the poster with no video fetch at all. */}
+        {!prefersReducedMotion &&
+          VIDEOS.map((src, i) =>
+            i === 0 || showVideo || activeVideo === i ? (
+              <video
+                key={src}
+                ref={(el) => { videoRefs.current[i] = el }}
+                className={`${styles.video} ${activeVideo === i && showVideo ? styles.active : ''}`}
+                src={src}
+                poster={`${import.meta.env.BASE_URL}images/hero.jpg`}
+                aria-hidden="true"
+                muted
+                playsInline
+                onCanPlay={handleLoaded}
+                onError={() => handleError(i)}
+                onEnded={i === activeVideo ? handleEnded : undefined}
+              />
+            ) : null,
+          )}
       </div>
       <div className={styles.scrim} />
 

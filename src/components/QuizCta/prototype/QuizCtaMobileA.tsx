@@ -24,6 +24,7 @@ export function QuizCtaMobileA() {
           src={`${import.meta.env.BASE_URL}images/quiz-cta.webp`}
           alt=""
           aria-hidden="true"
+          loading="lazy"
           decoding="async"
         />
         <div className={styles.scrim} />
