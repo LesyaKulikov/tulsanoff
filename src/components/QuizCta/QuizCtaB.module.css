@@ -1,0 +1,46 @@
+/* PROTOTYPE: the desktop and mobile layouts both render in the DOM; these
+   wrappers pick one per breakpoint so the mobile variants can be compared with
+   a URL param without touching the desktop design. */
+.desktop {
+  display: block;
+}
+
+.mobile {
+  display: none;
+}
+
+/* Desktop eyebrow, in the same treatment as the hero chip at mobile: accent
+   text with a leading rule, no pill, no letter-spacing. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.eyebrow::before {
+  inline-size: 18px;
+  block-size: 1px;
+  background: currentColor;
+  content: '';
+}
+
+@media (max-width: 720px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+}

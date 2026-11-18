@@ -1,0 +1,108 @@
+.root {
+  padding: 40px var(--gutter) 64px;
+}
+
+.ticket {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 20px 44px rgb(0 0 0 / 42%);
+}
+
+.stub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 24px 20px 20px;
+}
+
+.seconds {
+  font-family: var(--display);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.unit {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* The seam: dashed line plus two punched holes at the ticket edges. */
+.perf {
+  position: relative;
+  margin: 0 20px;
+  border-block-start: 2px dashed color-mix(in srgb, var(--bg) 38%, transparent);
+}
+
+.perf::before,
+.perf::after {
+  content: '';
+  position: absolute;
+  inset-block-start: -12px;
+  inline-size: 24px;
+  block-size: 24px;
+  border-radius: 50%;
+  /* Punches through to the mobile page background (index.css @max-width:720). */
+  background: #0d110c;
+}
+
+.perf::before {
+  inset-inline-start: -32px;
+}
+
+.perf::after {
+  inset-inline-end: -32px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.heading {
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.intro {
+  font-size: 14px;
+  line-height: 1.55;
+  opacity: 0.78;
+}
+
+/* Doubled specificity beats Button.primary without depending on stylesheet
+   order between the global module and this one. */
+.cta.cta {
+  block-size: 52px;
+  inline-size: 100%;
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--accent);
+  box-shadow: none;
+}
+
+.cta.cta:hover:not(:disabled):not([aria-disabled='true']) {
+  box-shadow: 0 8px 20px rgb(0 0 0 / 28);
+}
