@@ -5,20 +5,10 @@ import { Arrow } from '../Arrow/Arrow'
 import { useQuizModal } from '../Quiz/useQuizModal'
 import { reveal, fadeUp } from '../../animation/variants'
 import servicesStyles from '../Services/Services.module.css'
-// PROTOTYPE: mobile variants, switchable with ?variant=A|B on the home route.
-// They live under prototype/ and are dev-only; the desktop layout is unchanged.
 import { QuizCtaMobileA } from './prototype/QuizCtaMobileA'
-import { QuizCtaMobileB } from './prototype/QuizCtaMobileB'
 import shellStyles from './QuizCtaB.module.css'
 
-export type QuizCtaMobileVariant = 'A' | 'B'
-
-interface QuizCtaBProps {
-  /** Which mobile design to render below 720px. Ignored on desktop. */
-  mobileVariant?: QuizCtaMobileVariant
-}
-
-export function QuizCtaB({ mobileVariant = 'A' }: QuizCtaBProps = {}) {
+export function QuizCtaB() {
   const { openQuiz } = useQuizModal()
   return (
     <>
@@ -89,7 +79,7 @@ export function QuizCtaB({ mobileVariant = 'A' }: QuizCtaBProps = {}) {
       </div>
 
       <div className={shellStyles.mobile}>
-        {mobileVariant === 'B' ? <QuizCtaMobileB /> : <QuizCtaMobileA />}
+        <QuizCtaMobileA />
       </div>
     </>
   )
