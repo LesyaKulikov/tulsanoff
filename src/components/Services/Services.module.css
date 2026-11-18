@@ -43,16 +43,20 @@
     transform var(--dur-base) var(--ease);
 }
 
-.category {
+/* Duplicated class beats `html:not(.lang-switching) main button { opacity: 1 }`
+   in index.css — same trick as `.social.social` in glass.css. Without it these
+   render at full opacity and the dimmed state never shows. */
+.category.category {
   color: var(--text);
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
-.category:hover {
+.category.category:hover,
+.category.category:focus-visible {
   opacity: 1;
 }
 
-.categoryActive {
+.categoryActive.categoryActive {
   color: var(--accent);
   opacity: 1;
 }
