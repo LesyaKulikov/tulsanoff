@@ -112,6 +112,31 @@
     max-width: 100%;
   }
 
+  /* Stacked rows: stroke the side of the active label instead of an
+     underline beneath it (same treatment as the master tabs). The button's
+     10px inline padding already gapes the stroke from the text. Desktop
+     keeps the underline. */
+  .categoryActive::after {
+    inset-inline-start: 0;
+    inset-inline-end: auto;
+    top: 12px;
+    bottom: 12px;
+    width: 2px;
+    height: auto;
+    animation: tab-stroke var(--dur-base) var(--ease);
+  }
+
+  @keyframes tab-stroke {
+    from {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+    to {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
   .services .grid {
     min-height: auto !important;
     gap: 16px;

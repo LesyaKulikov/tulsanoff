@@ -284,9 +284,11 @@
   }
 
   /* The 16/10 band is far shorter than the 2:3 portraits, so the default
-     centre crop cuts the heads off — bias the window toward the top. */
+     centre crop cuts the heads off — bias the window toward the top. 16%
+     puts card 0's face ~17% below the band edge without clipping card 1's
+     hair (its head starts higher, at 12% of the source). */
   .photo {
-    object-position: center 12%;
+    object-position: center 16%;
   }
 
   .content {
@@ -305,6 +307,30 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+  }
+
+  /* In the stacked list an underline under each full-width label reads
+     heavy — stroke the side of the active label instead (10px gutter,
+     matching the services categories). Desktop keeps the underline. */
+  .tabActive::after {
+    inset-inline-start: -8px;
+    inset-inline-end: auto;
+    top: 0;
+    bottom: 9px;
+    width: 2px;
+    height: auto;
+    animation: tab-stroke var(--dur-base) var(--ease);
+  }
+
+  @keyframes tab-stroke {
+    from {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+    to {
+      transform: scaleY(1);
+      opacity: 1;
+    }
   }
 }
 
