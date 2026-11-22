@@ -191,12 +191,16 @@
     opacity var(--dur-base) var(--ease);
 }
 
-.tab {
+/* Duplicated class beats `html:not(.lang-switching) main button { opacity: 1 }`
+   in index.css — same trick as Services `.category.category`. Without it the
+   computed opacity stays 1 and the dimmed state never shows. */
+.tab.tab {
   color: var(--text);
-  opacity: 0.55;
+  opacity: 0.5;
 }
 
-.tab:hover {
+.tab.tab:hover,
+.tab.tab:focus-visible {
   opacity: 1;
 }
 
@@ -279,12 +283,28 @@
     aspect-ratio: 16 / 10;
   }
 
+  /* The 16/10 band is far shorter than the 2:3 portraits, so the default
+     centre crop cuts the heads off — bias the window toward the top. */
+  .photo {
+    object-position: center 12%;
+  }
+
   .content {
     padding: 36px 32px;
   }
 
   .name {
     font-size: 44px;
+  }
+}
+
+@media (max-width: 720px) {
+  /* One category per line instead of the 2+1 wrap the row gap produces at
+     390px, mirroring the stacked services categories on phones. */
+  .tabs {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
 
