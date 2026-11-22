@@ -280,15 +280,19 @@
 
   .media {
     min-height: 0;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 3;
   }
 
-  /* The 16/10 band is far shorter than the 2:3 portraits, so the default
-     centre crop cuts the heads off — bias the window toward the top. 16%
-     puts card 0's face ~17% below the band edge without clipping card 1's
-     hair (its head starts higher, at 12% of the source). */
+  /* The band is far shorter than the 2:3 portraits, so the default centre
+     crop cuts the heads off — bias the window toward the top. Card 1's head
+     starts higher in the source (12%), so 16% frames it; card 0's head sits
+     lower (16.4%) and needs a deeper window to clear the same headroom. */
   .photo {
     object-position: center 16%;
+  }
+
+  .panel:first-child .photo {
+    object-position: center 22%;
   }
 
   .content {
