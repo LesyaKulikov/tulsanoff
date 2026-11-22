@@ -42,6 +42,13 @@
    least as wide as the viewport (no gap at the wrap) while the band stays
    far shorter than the 743px desktop crop. */
 @media (max-width: 720px) {
+  /* Mobile hero padding follows the CertificateHero mobile hero (120/56)
+     rather than the desktop mockup's 170/90 — the strap band is short now,
+     so the section does not need that much air around it. */
+  .hero {
+    padding-block: 120px 56px;
+  }
+
   .band {
     min-height: 0;
     height: clamp(200px, 56vw, 260px);
