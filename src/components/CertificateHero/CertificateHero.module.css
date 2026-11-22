@@ -186,25 +186,41 @@
     object-position: center;
   }
 
+  .band {
+    width: auto;
+    margin-inline: var(--gutter);
+  }
+
   .card {
     width: auto;
     max-width: none;
     margin-inline: var(--gutter);
     padding: 28px 22px;
-    gap: 16px;
+    gap: 22px;
   }
 
   .title {
-    font-size: 27px;
+    max-width: 100%;
+    font-size: 23px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    overflow-wrap: anywhere;
   }
 
   .type {
     font-size: 19px;
+    line-height: 1.2;
+  }
+
+  .body {
+    line-height: 1.55;
+    letter-spacing: 0.04em;
   }
 
   .benefits {
     font-size: 15px;
-    gap: 9px;
+    gap: 12px;
+    line-height: 1.5;
   }
 
   .bottom {
