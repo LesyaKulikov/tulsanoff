@@ -37,9 +37,13 @@ export function Layout() {
         mode="wait"
         onExitComplete={() => {
           setRenderedPath(location.pathname)
-          // Hash navigation is handled by the target page, which smooth-scrolls
-          // to the anchor; resetting to the top here would race it.
-          if (!window.location.hash) window.scrollTo(0, 0)
+          // Anchor navigation (#/about#some-id) is handled by the target page,
+          // which smooth-scrolls to the anchor; resetting to the top here would
+          // race it. This must be react-router's location.hash — under
+          // HashRouter window.location.hash always holds the route itself
+          // (#/about) and is never empty, which kept the previous page's
+          // scroll position on every menu navigation.
+          if (!location.hash) window.scrollTo(0, 0)
           // Return focus to the new page so keyboard and screen-reader users are
           // not stranded on a link that just unmounted.
           mainRef.current?.focus()
