@@ -163,6 +163,14 @@
   padding: 20px;
 }
 
+/* Grid items default to an automatic min-size of min-content; the photo's
+   min-content (its intrinsic width) is wider than the mobile card, which
+   blew the track past the card and pushed the photo out of the frame.
+   min-width: 0 lets the fr track clamp to the card instead. */
+.resultCard > * {
+  min-width: 0;
+}
+
 .resultPhoto {
   width: 100%;
   height: 100%;
@@ -190,6 +198,9 @@
   line-height: 1.6;
   opacity: 0.85;
   margin: 0;
+  /* The ADR-0001 missing-key fallback renders the message id itself — an
+     unbreakable token that would overflow this narrow card. Let it wrap. */
+  overflow-wrap: anywhere;
 }
 
 .resultActions {

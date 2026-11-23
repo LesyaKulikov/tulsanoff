@@ -176,7 +176,9 @@ export function Quiz() {
                   <Message id={`servicesPage.massage.${result}.title`} />
                 </h3>
                 <p className={styles.resultDesc}>
-                  <Message id={`servicesPage.massage.${result}.description`} />
+                  {/* The first paragraph of the massage's description section —
+                      the same copy the detail page opens with, already localized. */}
+                  <Message id={`servicesPage.massage.${result}.content.about.0`} />
                 </p>
                 <div className={styles.resultActions}>
                   <Button to={massageRoute(result)} variant="primary" data-test-id="quiz-result-details">
