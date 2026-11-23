@@ -88,7 +88,72 @@ export function LoyaltyCard() {
       }
     }
 
-    const sync = () => setTracking(hoverMQ.matches && !reduceMQ.matches)
+    // ---- finger path (touch devices only) --------------------------------
+    // Same tilt and glow, driven by a finger instead of the cursor. pan-y on
+    // .card hands vertical swipes to the page, so we wait for horizontal
+    // intent before lighting up: a scroll gesture that merely starts on the
+    // card leaves it flat instead of flashing a tilt until pointercancel.
+    const SLOP = 4
+    let touchOn = false
+    let engaged = false
+    let origin = { x: 0, y: 0 }
+
+    const endTouch = () => {
+      document.removeEventListener('pointermove', onTouchMove)
+      document.removeEventListener('pointerup', endTouch)
+      document.removeEventListener('pointercancel', endTouch)
+      if (engaged) {
+        engaged = false
+        stopTracking()
+      }
+    }
+
+    const onTouchMove = (e: PointerEvent) => {
+      if (!engaged) {
+        const dx = Math.abs(e.clientX - origin.x)
+        const dy = Math.abs(e.clientY - origin.y)
+        if (Math.max(dx, dy) < SLOP) return
+        if (dy > dx) {
+          // Vertical intent — the browser is scrolling; never claim it.
+          endTouch()
+          return
+        }
+        engaged = true
+        card.style.transition = 'none'
+      }
+      rotateToMouse(e)
+    }
+
+    const onTouchStart = (e: PointerEvent) => {
+      // Some browsers fire compatibility mouse events too; ignore them here.
+      if (e.pointerType === 'mouse') return
+      origin = { x: e.clientX, y: e.clientY }
+      engaged = false
+      // Touch pointers implicitly capture to the card, so moves and the
+      // matching pointerup / pointercancel keep bubbling to the document.
+      document.addEventListener('pointermove', onTouchMove)
+      document.addEventListener('pointerup', endTouch)
+      document.addEventListener('pointercancel', endTouch)
+    }
+
+    const setTouchTracking = (on: boolean) => {
+      if (on === touchOn) return
+      touchOn = on
+      if (on) {
+        card.addEventListener('pointerdown', onTouchStart)
+      } else {
+        card.removeEventListener('pointerdown', onTouchStart)
+        endTouch()
+      }
+    }
+
+    const sync = () => {
+      // The two paths are mutually exclusive: fine pointers keep the mouse
+      // tilt, everything else (phones, tablets) gets the finger tilt below.
+      const allow = !reduceMQ.matches
+      setTracking(hoverMQ.matches && allow)
+      setTouchTracking(!hoverMQ.matches && allow)
+    }
     sync()
     hoverMQ.addEventListener('change', sync)
     reduceMQ.addEventListener('change', sync)

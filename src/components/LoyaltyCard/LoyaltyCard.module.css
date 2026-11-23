@@ -80,6 +80,9 @@
   /* Matches the jpg's intrinsic 1600×861, so the box (and everything below
      it) is reserved before the image loads. */
   aspect-ratio: 1600 / 861;
+  /* Finger tilt on touch: horizontal drags drive the 3D effect, vertical
+     swipes stay with the page scroll. */
+  touch-action: pan-y;
   border-radius: var(--radius-card);
   box-shadow: 0 40px 90px var(--shadow-deep);
   transition: transform var(--dur-slow) var(--ease);
@@ -99,12 +102,6 @@
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-}
-
-@media (hover: none) {
-  .stage {
-    perspective: none;
-  }
 }
 
 /* 50% is a desktop proportion; on a phone it collapses to ~157px. */
