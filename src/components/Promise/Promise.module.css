@@ -20,8 +20,7 @@
 
 /* Hebrew needs a larger mark than Latin/Cyrillic. This rule was previously
    nested inside .mark, where it compiled to a descendant selector that never
-   matched; kept top-level so its specificity also wins over the small mobile
-   .mark size below. */
+   matched; kept top-level so it actually matches. */
 [lang^="he"] .mark {
   font-size: clamp(18px, 2.6vw, 22px);
 }
@@ -58,6 +57,12 @@
   .mark {
     font-size: 10px;
     max-width: 100%;
+  }
+
+  /* 18px pushed the long Hebrew line onto three rows on a phone; step it
+     back to a single size that still reads clearly above the 10px baseline. */
+  [lang^="he"] .mark {
+    font-size: 14px;
   }
 
   .title {
