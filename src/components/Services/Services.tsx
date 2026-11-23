@@ -1,4 +1,4 @@
-import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
+import { useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Message } from '../../i18n/Message'
@@ -30,15 +30,13 @@ const CARDS: ReadonlyArray<ReadonlyArray<{ n: number; src: string; slug: string 
 export function Services() {
   const [active, setActive] = useState(0)
   const reduce = useReducedMotion()
-  const categoriesRef = useRef<HTMLDivElement>(null)
 
-  // Grids differ in height (1–4 cards), so keeping the old scroll offset
-  // lands mid-grid. Switching re-anchors the categories below the fixed
-  // header; clicking the already-active tab leaves the scroll alone.
+  // Switching tabs returns the page to the top so the new grid starts fresh
+  // instead of keeping the old offset; the active tab leaves scroll alone.
   const goToCategory = (i: number) => {
     if (i === active) return
     setActive(i)
-    categoriesRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' })
   }
 
   // WAI-ARIA tabs pattern: arrows/Home/End move selection between the tabs.
@@ -81,7 +79,6 @@ export function Services() {
       </motion.h2>
 
       <motion.div
-        ref={categoriesRef}
         className={styles.categories}
         data-test-id="services-categories"
         role="tablist"

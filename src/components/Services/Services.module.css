@@ -17,8 +17,6 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 30px;
-  /* Switching tabs re-anchors the list here, clear of the fixed header. */
-  scroll-margin-top: var(--header-h);
 }
 
 .category,

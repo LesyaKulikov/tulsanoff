@@ -29,15 +29,13 @@ function MasterCard({ n, src, reverse, delay }: MasterCardProps) {
   // Roving tabindex: only the selected tab is in the tab order, so Tab moves
   // past the tablist instead of stopping on every tab.
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([])
-  const tabsRef = useRef<HTMLDivElement>(null)
 
-  // Panels differ in height, so keeping the old scroll offset lands mid-panel
-  // (or past a shorter one). Switching re-anchors the tablist below the fixed
-  // header; clicking the already-active tab leaves the scroll alone.
+  // Switching tabs returns the page to the top so the new panel starts fresh
+  // instead of keeping the old offset; the active tab leaves scroll alone.
   const goToTab = (i: number) => {
     if (i === active) return
     setActive(i)
-    tabsRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' })
   }
 
   const base = `about-master-${n}`
@@ -105,7 +103,6 @@ function MasterCard({ n, src, reverse, delay }: MasterCardProps) {
         <span className={styles.rule} />
 
         <div
-          ref={tabsRef}
           className={styles.tabs}
           role="tablist"
           aria-labelledby={`${base}-name`}
