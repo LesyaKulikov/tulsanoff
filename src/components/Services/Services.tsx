@@ -1,5 +1,5 @@
 import { useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Message } from '../../i18n/Message'
 import { Arrow } from '../Arrow/Arrow'
@@ -29,15 +29,6 @@ const CARDS: ReadonlyArray<ReadonlyArray<{ n: number; src: string; slug: string 
 
 export function Services() {
   const [active, setActive] = useState(0)
-  const reduce = useReducedMotion()
-
-  // Switching tabs returns the page to the top so the new grid starts fresh
-  // instead of keeping the old offset; the active tab leaves scroll alone.
-  const goToCategory = (i: number) => {
-    if (i === active) return
-    setActive(i)
-    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' })
-  }
 
   // WAI-ARIA tabs pattern: arrows/Home/End move selection between the tabs.
   const handleTabKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
@@ -62,8 +53,8 @@ export function Services() {
         return
     }
     event.preventDefault()
-    goToCategory(next)
-    // preventScroll keeps focus from racing our own smooth scroll.
+    setActive(next)
+    // preventScroll: switching tabs must not move the page.
     event.currentTarget.querySelectorAll<HTMLButtonElement>('[role="tab"]')[next]?.focus({ preventScroll: true })
   }
 
@@ -96,7 +87,7 @@ export function Services() {
             aria-controls={PANEL_ID}
             className={i === active ? styles.categoryActive : styles.category}
             data-test-id={`services-category-${i}`}
-            onClick={() => goToCategory(i)}
+            onClick={() => setActive(i)}
           >
             <Message id={`services.${cat}`} />
           </button>
