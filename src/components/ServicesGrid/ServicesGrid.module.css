@@ -159,7 +159,7 @@
   }
 
   .title {
-    font-size: 20px;
+    font-size: 17px;
   }
 
   :global(html[dir='rtl']) .title {
