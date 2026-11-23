@@ -47,13 +47,19 @@
 
 .title {
   font-family: var(--display);
-  font-size: clamp(28px, 4.2vw, 52px);
+  /* Neutral Face (LTR) sets wider than Assistant (RTL), so the Cyrillic heads
+     read a size bigger at the same px — scale LTR down and pin RTL below. */
+  font-size: clamp(25px, 3.8vw, 46px);
   font-weight: 700;
   letter-spacing: 0.05em;
   line-height: 115%;
   transition:
     color 0.25s ease,
     letter-spacing 0.3s ease;
+}
+
+:global(html[dir='rtl']) .title {
+  font-size: clamp(28px, 4.2vw, 52px);
 }
 
 .headOpen .title {
@@ -152,6 +158,10 @@
   }
 
   .title {
+    font-size: 20px;
+  }
+
+  :global(html[dir='rtl']) .title {
     font-size: 22px;
   }
 
