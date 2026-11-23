@@ -27,7 +27,9 @@ export function ContactsV2() {
           <p className={styles.eyebrow}>
             <Message id="contacts.heading" />
           </p>
-          <h1 className={styles.heading}>Контакты</h1>
+          <h1 className={styles.heading}>
+            <Message id="contacts.heading" />
+          </h1>
           <p className={styles.phone}>
             <a href={`tel:${PHONES[0].href}`}>{PHONES[0].display}</a>
           </p>
@@ -75,7 +77,9 @@ export function ContactsV2() {
 
         <div className={styles.reach}>
           <div className={styles.reachGroup}>
-            <span className={styles.reachLabel}>Телефоны</span>
+            <span className={styles.reachLabel}>
+              <Message id="contacts.reach.phones" />
+            </span>
             {PHONES.map((phone) => (
               <span key={phone.href} className={styles.reachValue}>
                 <a href={`tel:${phone.href}`}>{phone.display}</a>
@@ -89,7 +93,9 @@ export function ContactsV2() {
             </span>
           </div>
           <div className={styles.reachGroup}>
-            <span className={styles.reachLabel}>Соцсети</span>
+            <span className={styles.reachLabel}>
+              <Message id="contacts.reach.social" />
+            </span>
             <div className={styles.socialRow}>
               <SocialLinks
                 links={CONTACTS_SOCIAL_LINKS}

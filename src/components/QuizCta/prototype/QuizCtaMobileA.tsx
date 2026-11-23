@@ -28,7 +28,9 @@ export function QuizCtaMobileA() {
           decoding="async"
         />
         <div className={styles.scrim} />
-        <span className={styles.badge}>Подбор за 30 секунд</span>
+        <span className={styles.badge}>
+          <Message id="quiz.ctaEyebrow" />
+        </span>
       </motion.div>
 
       <motion.div

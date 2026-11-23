@@ -124,7 +124,8 @@
       "benefit": {
         "0": "For any massage service",
         "1": "Valid for 6 months",
-        "2": "Printed or digital version"
+        "2": "Printed or digital version",
+        "3": "Fast booking with consultation on WhatsApp"
       },
       "cta": "LEARN MORE"
     },
@@ -160,7 +161,9 @@
     },
     "mapCta": "Open on the map",
     "reach": {
-      "heading": "Get in touch"
+      "heading": "Get in touch",
+      "phones": "Phones",
+      "social": "Social media"
     }
   },
   "notFound": {
@@ -287,6 +290,7 @@
             "0": "warming-up massage — done before a workout or competition to prepare the muscles for the load and improve their flexibility",
             "1": "relaxation massage — applied after a training to relieve tension, speed up the removal of lactic acid and improve recovery",
             "2": "therapeutic massage — used to treat injuries and pain in the muscles or joints",
+            "3": "return mobility, lightness and flexibility to the body",
             "lead": "Depending on the goal, different methods may be used:"
           }
         }
@@ -354,6 +358,8 @@
           "benefits": {
             "0": "the skin can look smoother and firmer",
             "1": "signs of cellulite become less visible",
+            "2": "reduce fluid retention and noticeable puffiness",
+            "3": "stimulate microcirculation and tissue metabolism",
             "lead": "Effect of the procedure:"
           }
         }
@@ -469,6 +475,54 @@
         "body": "Message us on WhatsApp or Telegram, telling us the service you would like and your preferred branch. We will help you choose a specialist and arrange a time for your visit."
       },
       "heading": "FREQUENTLY ASKED QUESTIONS"
+    }
+  },
+  "quiz": {
+    "ctaEyebrow": "Match in 30 seconds",
+    "heading": "Massage match",
+    "intro": "Answer 3 questions and we'll recommend the massage that suits you best.",
+    "progress": "Step {current} of {total}",
+    "back": "Back",
+    "next": "Next",
+    "restart": "Start again",
+    "step1": {
+      "title": "What matters most to you right now?",
+      "option": {
+        "health": "Health and muscles: relieve pain or tension and recover after strain",
+        "beauty": "Beauty and shape: reduce puffiness, firm the skin and restore lightness",
+        "relax": "Rest and reset: relieve stress and fully unwind"
+      }
+    },
+    "step2": {
+      "title": "Which option describes your situation best?",
+      "health": {
+        "sedentary": "A sedentary job, with tension in the neck, shoulders and back",
+        "chronic": "Chronic pain or nerve compression that requires a therapeutic approach",
+        "sport": "Muscles feel tired or sore after sports or physical work"
+      },
+      "beauty": {
+        "edema": "I feel puffiness and heaviness in my body",
+        "zones": "I want to focus on problem areas, skin tone and silhouette"
+      },
+      "relax": {
+        "face": "I want to focus on the face: release tension and refresh my complexion",
+        "maxrelax": "I want maximum relaxation with soft, soothing movements",
+        "fullbody": "I want a pleasant whole-body massage without pain or strong pressure"
+      }
+    },
+    "step3": {
+      "title": "What pressure and intensity are comfortable for you?",
+      "option": {
+        "soft": "Soft and gentle (smooth and relaxing)",
+        "moderate": "Moderate classic massage (noticeable but comfortable and pain-free)",
+        "intensive": "Intensive / deep (muscle and trigger-point work)"
+      }
+    },
+    "result": {
+      "title": "We recommend",
+      "subtitle": "Based on your answers:",
+      "details": "Learn more about the massage",
+      "book": "Book"
     }
   },
   "footer": {

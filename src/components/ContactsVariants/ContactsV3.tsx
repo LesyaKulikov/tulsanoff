@@ -15,10 +15,11 @@ export function ContactsV3() {
         <p className={styles.eyebrow}>
           <Message id="contacts.heading" />
         </p>
-        <h1 className={styles.heading}>Контакты</h1>
+        <h1 className={styles.heading}>
+          <Message id="contacts.heading" />
+        </h1>
         <p className={styles.lede}>
-          Две студии — Петах-Тиква и Рамат-Ган. Приезжайте или напишите нам — подберём время
-          и мастера под ваш запрос.
+          <Message id="contacts.lede" />
         </p>
 
         <div className={styles.section}>

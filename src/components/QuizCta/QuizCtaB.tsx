@@ -62,7 +62,9 @@ export function QuizCtaB() {
               WebkitBackdropFilter: 'blur(14px)',
             }}
           >
-            <span className={shellStyles.eyebrow}>Подбор за 30 секунд</span>
+            <span className={shellStyles.eyebrow}>
+              <Message id="quiz.ctaEyebrow" />
+            </span>
             <h2 className={servicesStyles.heading} style={{ color: 'var(--text)', margin: 0 }}>
               <Message id="quiz.heading" />
             </h2>

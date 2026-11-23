@@ -1,11 +1,14 @@
 .root {
   padding: 40px 0 64px;
   color: var(--text);
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .media {
   position: relative;
   block-size: 320px;
+  inline-size: 100%;
   overflow: hidden;
 }
 
@@ -96,4 +99,14 @@
   block-size: 52px;
   inline-size: 100%;
   font-size: 14px;
+}
+
+@media (max-width: 360px) {
+  .heading {
+    font-size: 18px;
+  }
+
+  .card {
+    padding-inline: 20px;
+  }
 }

@@ -12,10 +12,11 @@ export function ContactsV1() {
         <p className={styles.eyebrow}>
           <Message id="contacts.heading" />
         </p>
-        <h1 className={styles.heading}>Контакты</h1>
+        <h1 className={styles.heading}>
+          <Message id="contacts.heading" />
+        </h1>
         <p className={styles.lede}>
-          Две студии в Петах-Тикве и Рамат-Гане. Запись по телефону или через мессенджеры —
-          ответим в течение часа в рабочее время.
+          <Message id="contacts.lede" />
         </p>
       </motion.div>
 
