@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import type { KeyboardEvent } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { useIntl } from 'react-intl'
 import { Message } from '../../i18n/Message'
 import { reveal, enter, fadeUp, scaleIn, EASE } from '../../animation/variants'
@@ -25,9 +25,20 @@ interface MasterCardProps {
 function MasterCard({ n, src, reverse, delay }: MasterCardProps) {
   const [active, setActive] = useState(0)
   const intl = useIntl()
+  const reduce = useReducedMotion()
   // Roving tabindex: only the selected tab is in the tab order, so Tab moves
   // past the tablist instead of stopping on every tab.
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([])
+  const tabsRef = useRef<HTMLDivElement>(null)
+
+  // Panels differ in height, so keeping the old scroll offset lands mid-panel
+  // (or past a shorter one). Switching re-anchors the tablist below the fixed
+  // header; clicking the already-active tab leaves the scroll alone.
+  const goToTab = (i: number) => {
+    if (i === active) return
+    setActive(i)
+    tabsRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
+  }
 
   const base = `about-master-${n}`
   const panelId = `${base}-tabpanel`
@@ -53,8 +64,9 @@ function MasterCard({ n, src, reverse, delay }: MasterCardProps) {
             ? 0
             : last
 
-    setActive(next)
-    tabRefs.current[next]?.focus()
+    goToTab(next)
+    // preventScroll keeps focus from racing our own smooth scroll.
+    tabRefs.current[next]?.focus({ preventScroll: true })
   }
 
   return (
@@ -93,6 +105,7 @@ function MasterCard({ n, src, reverse, delay }: MasterCardProps) {
         <span className={styles.rule} />
 
         <div
+          ref={tabsRef}
           className={styles.tabs}
           role="tablist"
           aria-labelledby={`${base}-name`}
@@ -112,7 +125,7 @@ function MasterCard({ n, src, reverse, delay }: MasterCardProps) {
               aria-selected={i === active}
               aria-controls={panelId}
               tabIndex={i === active ? 0 : -1}
-              onClick={() => setActive(i)}
+              onClick={() => goToTab(i)}
               onKeyDown={onKeyDown}
             >
               <Message id={`aboutPage.masters.tabs.${tab}`} />

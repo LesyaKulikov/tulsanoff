@@ -173,6 +173,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px 26px;
+  /* Switching tabs re-anchors the list here, clear of the fixed header. */
+  scroll-margin-top: var(--header-h);
 }
 
 .tab,

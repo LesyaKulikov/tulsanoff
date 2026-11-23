@@ -1,5 +1,5 @@
-import { useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Message } from '../../i18n/Message'
 import { Arrow } from '../Arrow/Arrow'
@@ -29,6 +29,17 @@ const CARDS: ReadonlyArray<ReadonlyArray<{ n: number; src: string; slug: string 
 
 export function Services() {
   const [active, setActive] = useState(0)
+  const reduce = useReducedMotion()
+  const categoriesRef = useRef<HTMLDivElement>(null)
+
+  // Grids differ in height (1–4 cards), so keeping the old scroll offset
+  // lands mid-grid. Switching re-anchors the categories below the fixed
+  // header; clicking the already-active tab leaves the scroll alone.
+  const goToCategory = (i: number) => {
+    if (i === active) return
+    setActive(i)
+    categoriesRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
+  }
 
   // WAI-ARIA tabs pattern: arrows/Home/End move selection between the tabs.
   const handleTabKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
@@ -53,8 +64,9 @@ export function Services() {
         return
     }
     event.preventDefault()
-    setActive(next)
-    event.currentTarget.querySelectorAll<HTMLButtonElement>('[role="tab"]')[next]?.focus()
+    goToCategory(next)
+    // preventScroll keeps focus from racing our own smooth scroll.
+    event.currentTarget.querySelectorAll<HTMLButtonElement>('[role="tab"]')[next]?.focus({ preventScroll: true })
   }
 
   return (
@@ -69,6 +81,7 @@ export function Services() {
       </motion.h2>
 
       <motion.div
+        ref={categoriesRef}
         className={styles.categories}
         data-test-id="services-categories"
         role="tablist"
@@ -86,7 +99,7 @@ export function Services() {
             aria-controls={PANEL_ID}
             className={i === active ? styles.categoryActive : styles.category}
             data-test-id={`services-category-${i}`}
-            onClick={() => setActive(i)}
+            onClick={() => goToCategory(i)}
           >
             <Message id={`services.${cat}`} />
           </button>
