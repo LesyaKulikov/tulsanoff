@@ -313,6 +313,15 @@
     gap: 8px;
   }
 
+  /* A short label like «косметическая акупунктура» fits on one line while
+     the others wrap, leaving its glass pill shorter. A single-column grid
+     with equal rows keeps every credential exactly the same size. */
+  .credentials {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: 1fr;
+  }
+
   /* In the stacked list an underline under each full-width label reads
      heavy — stroke the side of the active label instead (10px gutter,
      matching the services categories). Desktop keeps the underline. */
