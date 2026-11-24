@@ -3,7 +3,11 @@ import { Message } from '../../i18n/Message'
 import { reveal, fadeUp } from '../../animation/variants'
 import styles from './AboutHero.module.css'
 
+const STRIP_COPIES = 3
+
 export function AboutHero() {
+  const stripSrc = `${import.meta.env.BASE_URL}images/about-hero-strip.jpg`
+
   return (
     <section className={styles.hero} data-test-id="about-hero">
       {/* Purely decorative band → no alt text. The page still needs a real h1,
@@ -14,26 +18,18 @@ export function AboutHero() {
       </h1>
 
       <motion.div className={styles.band} {...reveal(fadeUp(0, { duration: 0.9, distance: 24 }))}>
-        {/* Below 720px the band becomes a looping marquee (shorter, scrolling
-            sideways) so all three scenes pass by; the duplicate copy makes the
-            wrap seamless. It reuses the same URL, so it is one fetch, and it is
-            display:none on desktop. */}
         <div className={styles.track}>
-          <img
-            className={styles.photo}
-            src={`${import.meta.env.BASE_URL}images/about-hero-strip.jpg`}
-            alt=""
-            aria-hidden="true"
-            decoding="async"
-            fetchPriority="high"
-          />
-          <img
-            className={`${styles.photo} ${styles.clone}`}
-            src={`${import.meta.env.BASE_URL}images/about-hero-strip.jpg`}
-            alt=""
-            aria-hidden="true"
-            decoding="async"
-          />
+          {Array.from({ length: STRIP_COPIES }, (_, index) => (
+            <img
+              key={index}
+              className={styles.photo}
+              src={stripSrc}
+              alt=""
+              aria-hidden="true"
+              decoding="async"
+              fetchPriority={index === 0 ? 'high' : undefined}
+            />
+          ))}
         </div>
       </motion.div>
     </section>

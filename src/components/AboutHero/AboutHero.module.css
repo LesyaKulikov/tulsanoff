@@ -17,30 +17,27 @@
   overflow: hidden;
 }
 
-/* Positioned context for .photo — keeps the desktop crop identical to the
-   previous layout where the image was a direct child of .band. */
 .track {
   position: absolute;
-  inset: 0;
-}
-
-.clone {
-  display: none;
+  inset: auto;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: max-content;
+  height: 100%;
+  animation: about-hero-strap 22s linear infinite;
 }
 
 .photo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
+  position: static;
+  flex: none;
+  width: auto;
   height: 100%;
   object-fit: cover;
 }
 
-/* The strip (1792x592) is far wider than a phone: as a tall cover crop it
-   showed a single slice. On mobile it becomes a short band that scrolls the
-   whole collage past in a loop. Height is clamped so one copy is always at
-   least as wide as the viewport (no gap at the wrap) while the band stays
-   far shorter than the 743px desktop crop. */
+/* Keep the desktop band height; only shorten it on phones so the scenes pass
+   by at a comfortable scale. */
 @media (max-width: 720px) {
   /* Mobile hero padding follows the CertificateHero mobile hero (120/56)
      rather than the desktop mockup's 170/90 — the strap band is short now,
@@ -53,31 +50,10 @@
     min-height: 0;
     height: clamp(200px, 56vw, 260px);
   }
+}
 
-  .track {
-    inset: auto;
-    top: 0;
-    left: 0;
-    display: flex;
-    width: max-content;
-    height: 100%;
-    animation: about-hero-strap 22s linear infinite;
-  }
-
-  .photo {
-    position: static;
-    flex: none;
-    width: auto;
-    height: 100%;
-  }
-
-  .clone {
-    display: block;
-  }
-
-  :global(html[dir='rtl']) .track {
-    animation-direction: reverse;
-  }
+:global(html[dir='rtl']) .track {
+  animation-direction: reverse;
 }
 
 @keyframes about-hero-strap {
@@ -85,6 +61,6 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(-33.333333%);
   }
 }
