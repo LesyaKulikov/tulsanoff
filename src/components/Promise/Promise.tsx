@@ -10,6 +10,7 @@ export function Promise() {
         className={styles.mark}
         data-test-id="promise-mark"
         {...reveal(fadeUp(0, { duration: 0.8, distance: 20, opacity: 0.6 }))}
+        viewport={{ once: true, margin: '0px' }}
       >
         <Message id="promise.body" />
       </motion.span>

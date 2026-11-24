@@ -112,10 +112,29 @@
     max-width: 100%;
   }
 
-  /* Stacked rows: stroke the side of the active label instead of an
-     underline beneath it (same treatment as the master tabs). The button's
-     10px inline padding already gapes the stroke from the text. Desktop
-     keeps the underline. */
+  .services .grid {
+    min-height: auto !important;
+    gap: 16px;
+    padding: 4px 0 28px;
+  }
+}
+
+@media (max-width: 1499.99px) {
+  .categories {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .services .grid {
+    min-height: auto;
+  }
+
+  .category,
+  .categoryActive {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+
   .categoryActive::after {
     inset-inline-start: 0;
     inset-inline-end: auto;
@@ -131,16 +150,11 @@
       transform: scaleY(0);
       opacity: 0;
     }
+
     to {
       transform: scaleY(1);
       opacity: 1;
     }
-  }
-
-  .services .grid {
-    min-height: auto !important;
-    gap: 16px;
-    padding: 4px 0 28px;
   }
 }
 
@@ -150,15 +164,13 @@
   gap: 26px;
   align-content: start;
   padding: 4px 0 44px;
-  /* Reserves the tallest tab's height (4 cards → 2 rows + gap), so switching
-     categories doesn't jump the page and the first paint has no reflow. */
+  /* Desktop reserves the tallest tab's height so category changes don't jump. */
   min-height: calc((100cqw - 26px) * 299 / 551 + 30px);
 }
 
 @media (max-width: 1200px) {
   .grid {
     grid-template-columns: 1fr;
-    min-height: calc(100cqw * 299 / 551 * 4 + 90px);
   }
 }
 

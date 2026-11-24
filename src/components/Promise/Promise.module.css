@@ -75,3 +75,15 @@
     width: 80px;
   }
 }
+
+@media (min-width: 721px) and (max-width: 1499px) {
+  .promise {
+    padding-block-start: 48px;
+    gap: 40px;
+  }
+
+  .title,
+  [lang^="he"] .title {
+    font-size: clamp(48px, 5.5vw, 84px);
+  }
+}

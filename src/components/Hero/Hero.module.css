@@ -318,3 +318,27 @@
     margin-inline-start: 0;
   }
 }
+
+@media (min-width: 721px) and (max-width: 1499px) {
+  .hero {
+    min-height: 88svh;
+  }
+
+  .background,
+  .video {
+    object-position: center 30%;
+  }
+
+  .title {
+    font-size: 38px;
+  }
+
+  .titleOriginal {
+    font-size: 26px !important;
+    max-width: 560px;
+  }
+
+  :global(html[dir='rtl']) .title {
+    font-size: 34px;
+  }
+}
