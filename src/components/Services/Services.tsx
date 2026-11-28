@@ -1,6 +1,6 @@
 import { useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Message } from '../../i18n/Message'
 import { Arrow } from '../Arrow/Arrow'
 import { massageRoute } from '../../routes'
@@ -29,6 +29,7 @@ const CARDS: ReadonlyArray<ReadonlyArray<{ n: number; src: string; slug: string 
 
 export function Services() {
   const [active, setActive] = useState(0)
+  const location = useLocation()
 
   // WAI-ARIA tabs pattern: arrows/Home/End move selection between the tabs.
   const handleTabKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
@@ -107,6 +108,13 @@ export function Services() {
             <MotionLink
               key={card.n}
               to={massageRoute(card.slug)}
+              state={{
+                returnTo: {
+                  pathname: location.pathname,
+                  search: location.search,
+                  hash: location.hash,
+                },
+              }}
               className={styles.card}
               data-test-id={`service-card-${card.n}`}
               {...reveal(scaleIn(i * 0.08, { from: 0.97, distance: 34, duration: 0.85 }))}

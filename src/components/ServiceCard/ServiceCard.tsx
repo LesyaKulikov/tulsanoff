@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useIntl } from 'react-intl'
 import { Message } from '../../i18n/Message'
 import { Arrow } from '../Arrow/Arrow'
@@ -18,6 +18,7 @@ interface ServiceCardProps {
 
 export function ServiceCard({ slug, image, label, index = 0, className, objectPosition }: ServiceCardProps) {
   const intl = useIntl()
+  const location = useLocation()
   const serviceName = intl.formatMessage({ id: label })
 
   return (
@@ -26,7 +27,17 @@ export function ServiceCard({ slug, image, label, index = 0, className, objectPo
       data-test-id={`service-card-${slug}`}
       {...reveal(scaleIn(index * 0.06, { from: 0.97, distance: 34, duration: 0.85 }))}
     >
-      <Link to={massageRoute(slug)} className={styles.link}>
+      <Link
+        to={massageRoute(slug)}
+        state={{
+          returnTo: {
+            pathname: location.pathname,
+            search: location.search,
+            hash: location.hash,
+          },
+        }}
+        className={styles.link}
+      >
         <div className={styles.media}>
           <img
             className={styles.photo}

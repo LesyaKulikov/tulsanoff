@@ -1,5 +1,5 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, type LinkProps } from 'react-router-dom'
 import styles from './Button.module.css'
 
 /**
@@ -17,6 +17,7 @@ interface ButtonOwnProps {
 type ButtonLinkProps = ButtonOwnProps &
   Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children' | 'className' | 'href'> & {
     to: string
+    state?: LinkProps['state']
     /** Present-but-undefined here keeps the union discriminated on `to`. */
     href?: undefined
   }

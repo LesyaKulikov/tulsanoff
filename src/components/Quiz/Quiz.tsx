@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
 import { Button } from '../Button/Button'
@@ -83,6 +84,7 @@ function computeResult(category: Category, situation: string, pressure: Pressure
 
 export function Quiz() {
   const reduce = useReducedMotion()
+  const location = useLocation()
   const [step, setStep] = useState(0)
   const [category, setCategory] = useState<Category | null>(null)
   const [situation, setSituation] = useState<string | null>(null)
@@ -181,7 +183,18 @@ export function Quiz() {
                   <Message id={`servicesPage.massage.${result}.content.about.0`} />
                 </p>
                 <div className={styles.resultActions}>
-                  <Button to={massageRoute(result)} variant="primary" data-test-id="quiz-result-details">
+                  <Button
+                    to={massageRoute(result)}
+                    state={{
+                      returnTo: {
+                        pathname: location.pathname,
+                        search: location.search,
+                        hash: location.hash,
+                      },
+                    }}
+                    variant="primary"
+                    data-test-id="quiz-result-details"
+                  >
                     <Message id="quiz.result.details" />
                     <Arrow />
                   </Button>

@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useLocation, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useIntl } from 'react-intl'
 import { Arrow } from '../components/Arrow/Arrow'
@@ -83,6 +83,7 @@ function TabPanel({ slug, tab }: { slug: string; tab: TabDef }) {
 
 export function MassageDetailPage() {
   const { id } = useParams<{ id: string }>()
+  const location = useLocation()
   const intl = useIntl()
   const locale = intl.locale as LocaleKey
   const massage = id ? getMassage(id) : undefined
@@ -94,12 +95,18 @@ export function MassageDetailPage() {
   const tabs = TABS.filter((tab) =>
     hasMessage(`servicesPage.massage.${massage.id}.content.${tab.id}.0`, locale),
   )
+  const returnTo = location.state?.returnTo
+  const backTo =
+    returnTo &&
+    (returnTo.pathname === ROUTES.home || returnTo.pathname === ROUTES.services)
+      ? returnTo
+      : ROUTES.services
 
   return (
     <>
       <section className={styles.page} data-test-id="massage-detail">
         <motion.div {...reveal(fadeUp(0, { duration: 0.6, distance: 20 }))}>
-          <Link className={styles.back} to={ROUTES.services} data-test-id="massage-back">
+          <Link className={styles.back} to={backTo} data-test-id="massage-back">
             <Arrow style={{ transform: 'rotate(180deg)' }} />
             <Message id="servicesPage.detail.back" />
           </Link>
