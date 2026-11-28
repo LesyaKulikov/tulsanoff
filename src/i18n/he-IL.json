@@ -15,7 +15,13 @@
     "primaryNavigation": "ניווט ראשי",
     "mobileNavigation": "ניווט במכשיר נייד",
     "close": "סגירה",
-    "carouselSlide": "שקופית {slide}"
+    "carousel": "קרוסלה",
+    "approachCarousel": "הגישה שלנו",
+    "carouselSlideRole": "שקופית",
+    "carouselPosition": "שקופית {current} מתוך {total}",
+    "carouselSlide": "הצגת שקופית {slide}",
+    "pauseCarousel": "השהיית החלפת שקופיות",
+    "resumeCarousel": "חידוש החלפת שקופיות"
   },
   "hero": {
     "chip": "20% הנחה על העיסוי הראשון",

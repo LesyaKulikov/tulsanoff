@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Message } from '../../i18n/Message'
@@ -90,22 +90,30 @@ export function Quiz() {
   const [situation, setSituation] = useState<string | null>(null)
   const [pressure, setPressure] = useState<Pressure | null>(null)
   const [result, setResult] = useState<string | null>(null)
+  const optionsRef = useRef<HTMLDivElement>(null)
+  const pendingFocusRef = useRef<'options' | 'result' | null>(null)
 
   const currentAnswer =
     step === 0 ? category : step === 1 ? situation : pressure
+
+  const setAnswer = (id: string) => {
+    if (step === 0) setCategory(id as Category)
+    else if (step === 1) setSituation(id)
+    else setPressure(id as Pressure)
+  }
 
   const handleSelect = (id: string) => {
     let nextCategory = category
     let nextSituation = situation
     let nextPressure = pressure
     if (step === 0) {
-      setCategory(id as Category)
+      setAnswer(id)
       nextCategory = id as Category
     } else if (step === 1) {
-      setSituation(id)
+      setAnswer(id)
       nextSituation = id
     } else {
-      setPressure(id as Pressure)
+      setAnswer(id)
       nextPressure = id as Pressure
     }
 
@@ -113,8 +121,10 @@ export function Quiz() {
     // (or computes the result on the last step) without an extra "continue" click.
     window.setTimeout(() => {
       if (step < 2) {
+        pendingFocusRef.current = 'options'
         setStep((s) => s + 1)
       } else if (nextCategory && nextSituation && nextPressure) {
+        pendingFocusRef.current = 'result'
         setResult(computeResult(nextCategory, nextSituation, nextPressure))
       }
     }, 220)
@@ -122,13 +132,18 @@ export function Quiz() {
 
   const handleBack = () => {
     if (result) {
+      pendingFocusRef.current = 'options'
       setResult(null)
       return
     }
-    if (step > 0) setStep((s) => s - 1)
+    if (step > 0) {
+      pendingFocusRef.current = 'options'
+      setStep((s) => s - 1)
+    }
   }
 
   const handleRestart = () => {
+    pendingFocusRef.current = 'options'
     setStep(0)
     setCategory(null)
     setSituation(null)
@@ -144,6 +159,59 @@ export function Quiz() {
         : step === 2
           ? PRESSURES
           : []
+
+  const handleRadioKeyDown = (event: ReactKeyboardEvent<HTMLButtonElement>, index: number) => {
+    const isRtl = document.documentElement.dir === 'rtl'
+    const forwardKey = isRtl ? 'ArrowLeft' : 'ArrowRight'
+    const backwardKey = isRtl ? 'ArrowRight' : 'ArrowLeft'
+    const last = options.length - 1
+    let next = index
+
+    switch (event.key) {
+      case 'ArrowDown':
+        next = index === last ? 0 : index + 1
+        break
+      case 'ArrowUp':
+        next = index === 0 ? last : index - 1
+        break
+      case 'ArrowRight':
+      case 'ArrowLeft':
+        if (event.key === forwardKey) next = index === last ? 0 : index + 1
+        else if (event.key === backwardKey) next = index === 0 ? last : index - 1
+        else return
+        break
+      case 'Home':
+        next = 0
+        break
+      case 'End':
+        next = last
+        break
+      default:
+        return
+    }
+
+    event.preventDefault()
+    const option = options[next]
+    if (!option) return
+    setAnswer(option.id)
+    optionsRef.current?.querySelectorAll<HTMLButtonElement>('[role="radio"]')[next]?.focus()
+  }
+
+  const attachOptionsRef = (node: HTMLDivElement | null) => {
+    optionsRef.current = node
+    if (!node || pendingFocusRef.current !== 'options') return
+    pendingFocusRef.current = null
+
+    const radios = node.querySelectorAll<HTMLButtonElement>('[role="radio"]')
+    const selected = Array.from(radios).find((radio) => radio.getAttribute('aria-checked') === 'true')
+    ;(selected ?? radios[0])?.focus()
+  }
+
+  const attachResultHeadingRef = (node: HTMLHeadingElement | null) => {
+    if (!node || pendingFocusRef.current !== 'result') return
+    pendingFocusRef.current = null
+    node.focus()
+  }
 
   const resultMassage = result ? getMassage(result) : undefined
 
@@ -162,7 +230,7 @@ export function Quiz() {
             <p className={styles.resultEyebrow}>
               <Message id="quiz.result.subtitle" />
             </p>
-            <h2 id="quiz-question" className={styles.resultTitle}>
+            <h2 id="quiz-question" ref={attachResultHeadingRef} className={styles.resultTitle} tabIndex={-1}>
               <Message id="quiz.result.title" />
             </h2>
             <div className={styles.resultCard}>
@@ -237,8 +305,8 @@ export function Quiz() {
               <Message id={STEP_TITLES[step]} />
             </h2>
 
-            <div className={styles.options} role="radiogroup" aria-labelledby="quiz-question">
-              {options.map((opt) => {
+            <div ref={attachOptionsRef} className={styles.options} role="radiogroup" aria-labelledby="quiz-question">
+              {options.map((opt, i) => {
                 const selected = currentAnswer === opt.id
                 return (
                   <button
@@ -246,7 +314,9 @@ export function Quiz() {
                     type="button"
                     role="radio"
                     aria-checked={selected}
+                    tabIndex={selected || (!currentAnswer && i === 0) ? 0 : -1}
                     className={selected ? `${styles.option} ${styles.optionSelected}` : styles.option}
+                    onKeyDown={(event) => handleRadioKeyDown(event, i)}
                     onClick={() => handleSelect(opt.id)}
                     data-test-id={`quiz-option-${opt.id}`}
                   >

@@ -59,9 +59,21 @@
 
   .dots {
     display: flex;
+    align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 8px;
     margin-top: 12px;
+  }
+
+  .rotationControl {
+    padding: 6px 10px;
+    border: 1px solid var(--glass-edge);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-size: 13px;
   }
 
   .dot {

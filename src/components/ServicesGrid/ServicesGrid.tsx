@@ -49,7 +49,7 @@ export function ServicesGrid() {
                 className={isOpen ? styles.headOpen : styles.head}
                 onClick={() => setOpen(isOpen ? null : i)}
                 aria-expanded={isOpen}
-                aria-controls={panelId}
+                aria-controls={isOpen ? panelId : undefined}
                 data-test-id={`services-grid-head-${i}`}
               >
                 <span className={styles.index}>0{i + 1}</span>

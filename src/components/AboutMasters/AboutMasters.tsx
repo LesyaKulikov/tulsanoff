@@ -38,15 +38,12 @@ function MasterCard({ n, src, reverse, delay }: MasterCardProps) {
     event.preventDefault()
 
     const last = TABS.length - 1
+    const isRtl = document.documentElement.dir === 'rtl'
     const next =
       key === 'ArrowRight'
-        ? active === last
-          ? 0
-          : active + 1
+        ? (active + (isRtl ? -1 : 1) + TABS.length) % TABS.length
         : key === 'ArrowLeft'
-          ? active === 0
-            ? last
-            : active - 1
+          ? (active + (isRtl ? 1 : -1) + TABS.length) % TABS.length
           : key === 'Home'
             ? 0
             : last

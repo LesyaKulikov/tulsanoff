@@ -234,7 +234,7 @@ button {
 
 /* Programmatic focus targets (route changes) are announced to screen readers but
    should not draw a ring. */
-.app main:focus {
+.app main:focus:not(:focus-visible) {
   outline: none;
 }
 

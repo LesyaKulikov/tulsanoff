@@ -27,7 +27,7 @@ export function QuizModal({ open, onClose }: QuizModalProps) {
 
       if (e.key !== 'Tab') return
       const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
-        'a[href], button:not(:disabled), [tabindex]:not([tabindex="-1"])',
+        'a[href], button:not(:disabled):not([tabindex="-1"]), input:not(:disabled):not([tabindex="-1"]), select:not(:disabled):not([tabindex="-1"]), textarea:not(:disabled):not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])',
       )
       if (!focusable?.length) {
         e.preventDefault()

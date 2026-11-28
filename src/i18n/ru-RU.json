@@ -15,7 +15,13 @@
     "primaryNavigation": "Основная навигация",
     "mobileNavigation": "Мобильная навигация",
     "close": "Закрыть",
-    "carouselSlide": "Слайд {slide}"
+    "carousel": "карусель",
+    "approachCarousel": "Наш подход",
+    "carouselSlideRole": "слайд",
+    "carouselPosition": "Слайд {current} из {total}",
+    "carouselSlide": "Показать слайд {slide}",
+    "pauseCarousel": "Приостановить смену слайдов",
+    "resumeCarousel": "Возобновить смену слайдов"
   },
   "hero": {
     "chip": "Скидка 20% на первый массаж",

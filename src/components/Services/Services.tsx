@@ -34,15 +34,20 @@ export function Services() {
   // WAI-ARIA tabs pattern: arrows/Home/End move selection between the tabs.
   const handleTabKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
     const last = CATS.length - 1
+    const isRtl = document.documentElement.dir === 'rtl'
     let next: number
     switch (event.key) {
       case 'ArrowRight':
+        next = (active + (isRtl ? -1 : 1) + CATS.length) % CATS.length
+        break
       case 'ArrowDown':
-        next = active === last ? 0 : active + 1
+        next = (active + 1) % CATS.length
         break
       case 'ArrowLeft':
+        next = (active + (isRtl ? 1 : -1) + CATS.length) % CATS.length
+        break
       case 'ArrowUp':
-        next = active === 0 ? last : active - 1
+        next = (active + last) % CATS.length
         break
       case 'Home':
         next = 0
@@ -86,6 +91,7 @@ export function Services() {
             id={`services-tab-${i}`}
             aria-selected={i === active}
             aria-controls={PANEL_ID}
+            tabIndex={i === active ? 0 : -1}
             className={i === active ? styles.categoryActive : styles.category}
             data-test-id={`services-category-${i}`}
             onClick={() => setActive(i)}

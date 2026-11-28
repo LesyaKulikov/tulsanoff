@@ -15,7 +15,13 @@
     "primaryNavigation": "Primary navigation",
     "mobileNavigation": "Mobile navigation",
     "close": "Close",
-    "carouselSlide": "Slide {slide}"
+    "carousel": "carousel",
+    "approachCarousel": "Our approach",
+    "carouselSlideRole": "slide",
+    "carouselPosition": "Slide {current} of {total}",
+    "carouselSlide": "Show slide {slide}",
+    "pauseCarousel": "Pause slide rotation",
+    "resumeCarousel": "Resume slide rotation"
   },
   "hero": {
     "chip": "20% off your first massage",

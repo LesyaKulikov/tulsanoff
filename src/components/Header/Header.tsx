@@ -121,7 +121,7 @@ export function Header() {
           type="button"
           className={styles.menuButton}
           aria-expanded={menuOpen}
-          aria-controls="mobile-menu"
+          aria-controls={menuOpen ? 'mobile-menu' : undefined}
           onClick={() => setMenuOpen((v) => !v)}
           data-test-id="menu-toggle"
         >
