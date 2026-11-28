@@ -218,6 +218,12 @@ export function Quiz() {
             <div className={styles.progress}>
               <span className={styles.progressText}>
                 <Message id="quiz.progress" values={{ current: step + 1, total: 3 }} />
+                {step === 1 && category && (
+                  <>
+                    {' '}
+                    <Message id={`quiz.step2.path.${category}`} />
+                  </>
+                )}
               </span>
               <div className={styles.progressBar} aria-hidden="true">
                 <div
