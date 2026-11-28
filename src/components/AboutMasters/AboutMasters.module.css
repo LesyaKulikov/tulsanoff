@@ -26,6 +26,7 @@
 
 .panel {
   composes: glass from global;
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 2fr;
   overflow: hidden;
