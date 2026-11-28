@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { IntlProvider } from 'react-intl'
 import {
   DEFAULT_LOCALE,
@@ -68,11 +68,15 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     commitLocale(nextLocale(localeRef.current))
   }, [commitLocale])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const root = document.documentElement
     root.lang = locale
     const dir = getDirection(locale)
     root.dir = dir
+  }, [locale])
+
+  useEffect(() => {
+    const dir = getDirection(locale)
     // Hebrew uses Assistant (display) + Heebo (body); Russian keeps Neutral Face + Inter.
     // The RTL families are fetched only when an RTL locale is actually active, so the
     // default Russian build never waits on a render-blocking Google Fonts round trip.

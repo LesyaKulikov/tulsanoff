@@ -21,7 +21,7 @@ export function ContactsV2() {
           title={mapTitle}
           src={`https://www.google.com/maps?q=${MAP_BRANCH.mapQuery}&output=embed`}
           loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer"
         />
         <motion.div className={styles.mapOverlay} {...reveal(fadeUp(0.15, { duration: 0.7, distance: 20 }))}>
           <p className={styles.eyebrow}>
@@ -45,9 +45,9 @@ export function ContactsV2() {
       </motion.div>
 
       <div className={styles.body}>
-        <p className={styles.sectionTitle}>
+        <h2 className={styles.sectionTitle}>
           <Message id="contacts.branches.heading" />
-        </p>
+        </h2>
         <div className={styles.branches}>
           {BRANCHES.map((branch, i) => (
             <motion.div

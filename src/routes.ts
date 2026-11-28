@@ -6,6 +6,9 @@ export const ROUTES = {
   certificates: '/certificates',
   about: '/about',
   contacts: '/contacts',
+  privacy: '/privacy',
+  terms: '/terms',
+  accessibility: '/accessibility',
   /** Catch-all — matches anything the routes above do not. */
   notFound: '*',
 } as const

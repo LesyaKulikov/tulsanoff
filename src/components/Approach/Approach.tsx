@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Message } from '../../i18n/Message'
+import { useIntl } from 'react-intl'
 import { reveal, fadeUp, EASE } from '../../animation/variants'
 import styles from './Approach.module.css'
 
 const STEPS = ['0', '1', '2'] as const
 
 export function Approach() {
+  const intl = useIntl()
   const [active, setActive] = useState(0)
   const [touchStart, setTouchStart] = useState<number | null>(null)
 
@@ -42,9 +44,9 @@ export function Approach() {
             <span className={styles.num}>
               <Message id={`approach.${STEPS[active]}.num`} />
             </span>
-            <h3 className={styles.title}>
+            <h2 className={styles.title}>
               <Message id={`approach.${STEPS[active]}.title`} />
-            </h3>
+            </h2>
             <p className={styles.body}>
               <Message id={`approach.${STEPS[active]}.body`} />
             </p>
@@ -60,7 +62,7 @@ export function Approach() {
               }}
               className={`${styles.dot} ${i === active ? styles.dotActive : ''}`}
               onClick={() => setActive(i)}
-              aria-label={`slide ${i + 1}`}
+              aria-label={intl.formatMessage({ id: 'a11y.carouselSlide' }, { slide: i + 1 })}
               transition={{ width: { duration: 0.65, ease: EASE } }}
             />
           ))}
@@ -77,9 +79,9 @@ export function Approach() {
             <span className={styles.num}>
               <Message id={`approach.${n}.num`} />
             </span>
-            <h3 className={styles.title}>
+            <h2 className={styles.title}>
               <Message id={`approach.${n}.title`} />
-            </h3>
+            </h2>
             <p className={styles.body}>
               <Message id={`approach.${n}.body`} />
             </p>

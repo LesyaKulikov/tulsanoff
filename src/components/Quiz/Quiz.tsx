@@ -162,7 +162,7 @@ export function Quiz() {
             <p className={styles.resultEyebrow}>
               <Message id="quiz.result.subtitle" />
             </p>
-            <h2 className={styles.resultTitle}>
+            <h2 id="quiz-question" className={styles.resultTitle}>
               <Message id="quiz.result.title" />
             </h2>
             <div className={styles.resultCard}>
@@ -233,11 +233,11 @@ export function Quiz() {
               </div>
             </div>
 
-            <h2 className={styles.question}>
+            <h2 id="quiz-question" className={styles.question}>
               <Message id={STEP_TITLES[step]} />
             </h2>
 
-            <div className={styles.options} role="radiogroup" aria-label="quiz-options">
+            <div className={styles.options} role="radiogroup" aria-labelledby="quiz-question">
               {options.map((opt) => {
                 const selected = currentAnswer === opt.id
                 return (

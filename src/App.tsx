@@ -7,6 +7,7 @@ import { CertificatesPage } from './pages/CertificatesPage'
 import { AboutPage } from './pages/AboutPage'
 import { ContactsPage } from './pages/ContactsPage'
 import { NotFoundPage } from './pages/NotFoundPage'
+import { LegalPage } from './pages/LegalPage'
 import { ROUTES } from './routes'
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
         <Route path={ROUTES.certificates} element={<CertificatesPage />} />
         <Route path={ROUTES.about} element={<AboutPage />} />
         <Route path={ROUTES.contacts} element={<ContactsPage />} />
+        <Route path={ROUTES.privacy} element={<LegalPage section="privacy" />} />
+        <Route path={ROUTES.terms} element={<LegalPage section="terms" />} />
+        <Route path={ROUTES.accessibility} element={<LegalPage section="accessibility" />} />
         <Route path={ROUTES.notFound} element={<NotFoundPage />} />
       </Route>
     </Routes>

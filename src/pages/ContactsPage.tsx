@@ -21,9 +21,9 @@ export function ContactsPage() {
         </p>
 
         <div className={styles.section}>
-          <p className={styles.sectionTitle}>
+          <h2 className={styles.sectionTitle}>
             <Message id="contacts.branches.heading" />
-          </p>
+          </h2>
           <div className={styles.branchList}>
             {BRANCHES.map((branch) => (
               <div key={branch.key} className={styles.branch}>
@@ -50,9 +50,9 @@ export function ContactsPage() {
         </div>
 
         <div className={styles.section}>
-          <p className={styles.sectionTitle}>
+          <h2 className={styles.sectionTitle}>
             <Message id="contacts.reach.heading" />
-          </p>
+          </h2>
           <div className={styles.contactRows}>
             {PHONES.map((phone) => (
               <p key={phone.href} className={styles.contactRow}>

@@ -10,6 +10,11 @@ import { reveal, fadeUp } from '../../animation/variants'
 import styles from './Footer.module.css'
 
 const FOOTER_ROUTES = [ROUTES.services, ROUTES.certificates, ROUTES.about, ROUTES.contacts] as const
+const LEGAL_LINKS = [
+  { key: 'privacy', to: ROUTES.privacy },
+  { key: 'terms', to: ROUTES.terms },
+  { key: 'accessibility', to: ROUTES.accessibility },
+] as const
 
 type Column = { key: string; kind: 'nav' | 'addresses' | 'contacts'; items: readonly string[] }
 
@@ -26,12 +31,6 @@ const CONTACT_ROUTES: Record<string, string> = {
   '3': `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`,
 }
 
-/** `footer.addresses.*` maps to its branch's Google Maps page. */
-const ADDRESS_ROUTES: Record<string, string> = {
-  '0': mapsUrl(BRANCHES[0].mapQuery),
-  '1': mapsUrl(BRANCHES[1].mapQuery),
-}
-
 export function Footer() {
   return (
     <footer className={styles.footer} data-test-id="footer">
@@ -44,12 +43,16 @@ export function Footer() {
           return (
             <Wrapper
               key={col.key}
+              aria-labelledby={col.kind === 'nav' ? 'footer-nav-heading' : undefined}
               data-test-id={`footer-col-${col.key}`}
               {...reveal(fadeUp(i * 0.1, { duration: 0.75, distance: 30 }))}
             >
-              <h3 className={styles.columnHeading}>
+              <h2
+                id={col.kind === 'nav' ? 'footer-nav-heading' : undefined}
+                className={styles.columnHeading}
+              >
                 <Message id={`footer.${col.key}.heading`} />
-              </h3>
+              </h2>
               <ul className={styles.linkList}>
                 {col.items.map((n, j) => {
                   const id = `footer.${col.key}.${n}`
@@ -67,7 +70,14 @@ export function Footer() {
                     )
                   }
 
-                  const href = col.kind === 'addresses' ? ADDRESS_ROUTES[n] : CONTACT_ROUTES[n]
+                  const addressBranch =
+                    col.kind === 'addresses' ? BRANCHES.find((branch) => branch.addressId === id) : undefined
+                  const href =
+                    col.kind === 'addresses'
+                      ? addressBranch
+                        ? mapsUrl(addressBranch.mapQuery)
+                        : undefined
+                      : CONTACT_ROUTES[n]
                   if (href) {
                     const isPhone = col.kind === 'contacts' && (n === '1' || n === '2')
                     return (
@@ -89,6 +99,27 @@ export function Footer() {
             </Wrapper>
           )
         })}
+      </div>
+
+      <div className={styles.legalNotice} data-test-id="footer-legal">
+        <p className={styles.disclaimer}>
+          <Message id="footer.disclaimer" />
+        </p>
+        <nav className={styles.legalNav} aria-labelledby="footer-legal-heading">
+          <h2 id="footer-legal-heading" className="srOnly">
+            <Message id="footer.legal.heading" />
+          </h2>
+          {LEGAL_LINKS.map(({ key, to }) => (
+            <Link
+              key={key}
+              className={styles.legalLink}
+              to={to}
+              data-test-id={`footer-legal-${key}`}
+            >
+              <Message id={`footer.legal.${key}`} />
+            </Link>
+          ))}
+        </nav>
       </div>
 
       <motion.div className={styles.bottom} {...reveal(fadeUp(0.3, { duration: 0.75, distance: 30 }))}>

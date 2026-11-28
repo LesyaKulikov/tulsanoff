@@ -11,36 +11,40 @@
     "link4": "Quiz"
   },
   "a11y": {
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "primaryNavigation": "Primary navigation",
+    "mobileNavigation": "Mobile navigation",
+    "close": "Close",
+    "carouselSlide": "Slide {slide}"
   },
   "hero": {
     "chip": "20% off your first massage",
-    "title": "INDIVIDUAL DIAGNOSTICS AND\nTHERAPEUTIC MASSAGE IN ISRAEL"
+    "title": "WE TAILOR EACH MASSAGE TO YOUR NEEDS"
   },
   "promise": {
-    "title": "<accent>We help the body</accent> regain its natural balance",
-    "body": "Instead of standard schemes we use targeted diagnostics and authorial healing techniques aimed precisely at your problem"
+    "title": "<accent>WE HELP YOUR BODY</accent> RETURN TO ITS NATURAL BALANCE",
+    "body": "WE CONSIDER MUSCLE CONDITION AND USE PERSONALISED RESTORATIVE TECHNIQUES TO MATCH YOUR REQUEST"
   },
   "approach": {
     "0": {
       "num": "9+",
       "title": "years of experience",
-      "body": "Deep understanding of anatomy, proven techniques and constant refinement of craft for your health."
+      "body": "Knowledge of anatomy, experience and continued learning help us consider your preferences and choose a comfortable massage intensity."
     },
     "1": {
       "num": "1000+",
       "title": "happy clients",
-      "body": "People who trusted us with their well-being and return for recovery, balance, and deep quality rest."
+      "body": "People visit us to take time for themselves, relax and rest from everyday demands."
     },
     "2": {
-      "num": "92%",
-      "title": "visible result",
-      "body": "The vast majority of clients report significant relief and resolution of their problem after the first sessions."
+      "num": "1:1",
+      "title": "individual approach",
+      "body": "We discuss your preferences before a session and agree on a suitable intensity. Experiences vary from person to person."
     }
   },
   "services": {
     "0": {
-      "label": "medical"
+      "label": "medical massage"
     },
     "1": {
       "label": "lymphatic drainage"
@@ -64,50 +68,50 @@
       "label": "for couples"
     },
     "heading": "services",
-    "cat0": "Therapy & wellness",
+    "cat0": "Wellness & recovery",
     "cat1": "Relax & aesthetics",
     "cat2": "Special formats"
   },
   "masters": {
     "0": {
       "name": "Mark Tulsanoff",
-      "role": "specialist in therapeutic massage",
+      "role": "medical massage therapist",
       "cta": "Learn more"
     },
     "1": {
       "name": "Larisa Kulikova",
-      "role": "specialist in medical massage",
+      "role": "medical massage therapist",
       "cta": "Learn more"
     },
     "heading": "our masters"
   },
   "story": {
     "heading": "THE STORY OF OUR STUDIO",
-    "subheading": "We help you restore your resources, feel tone in your body and return to deep, quality rest.",
+    "subheading": "Massage techniques for rest, personal care and comfort after everyday activity.",
     "playAlt": "Watch video"
   },
   "faq": {
     "0": {
       "label": "How to prepare for a massage session?",
-      "body": "Avoid heavy meals 1.5 hours before the session. It is advisable to take a hygienic shower before the procedure."
+      "body": "For comfort, you may wish to schedule a session not immediately after a large meal. A shower before your visit is optional."
     },
     "1": {
       "label": "Which massage to choose if it's my first time?",
       "body": "For the first time, a classic relaxing full-body massage or a back and neck massage is a great choice."
     },
     "2": {
-      "label": "How many sessions are needed for a noticeable effect?",
-      "body": "To relieve severe tension and improve health, a course of 8–10 sessions 2–3 times per week is recommended. For maintenance, 1 session per week is enough."
+      "label": "How often can I have a massage?",
+      "body": "Frequency and number of sessions are chosen individually based on your preferences and comfort. This is not medical advice; consult a physician about health concerns."
     },
     "3": {
       "label": "Is it normal to feel pain after a massage?",
-      "body": "Mild soreness (like after a workout) for 1–2 days after deep muscle work is a normal body reaction."
+      "body": "Some people may experience temporary muscle sensitivity after an intensive massage. Reactions vary; consult a physician if pain is severe or persists."
     },
     "heading": "FREQUENTLY ASKED QUESTIONS"
   },
   "cta": {
-    "heading": "We help you restore your resources, feel tone in your body and return to deep, quality rest.",
-    "body": "We help you restore your resources, feel tone in your body and return to deep, quality rest.",
+    "heading": "We work with muscle tension and offer time to relax and rest after everyday activity.",
+    "body": "We agree on massage intensity according to your preferences; experiences vary from person to person.",
     "button": "Book a session",
     "mapTitle": "TULSANOFF on Google Maps"
   },
@@ -180,8 +184,8 @@
       "forWhom": "for whom",
       "tabs": {
         "about": "about",
-        "indications": "indications",
-        "benefits": "results",
+        "indications": "who it may suit",
+        "benefits": "possible experiences",
         "approach": "approach"
       },
       "book": "Book a session"
@@ -189,29 +193,29 @@
     "massage": {
       "meditsinskiy": {
         "title": "medical massage",
-        "subtitle": "author's technique",
+        "subtitle": "personalized approach",
         "content": {
           "about": {
-            "0": "Medical massage is a targeted work with muscles and soft tissues that helps ease tension and discomfort, improve mobility and support the body's recovery.",
-            "1": "Unlike a general relaxation massage, the focus here is on specific problem areas. The technique and intensity are chosen individually — taking into account the person's condition, lifestyle, physical activity and body features."
+            "0": "A massage focused on muscle tension and feelings of stiffness. Techniques and intensity are agreed based on your comfort and preferences.",
+            "1": "A session can focus on selected areas. This is a wellness service, not medical diagnosis or treatment; consult a physician first about acute or persistent pain."
           },
           "indications": {
             "0": "muscle overexertion, stiffness and limited movement",
             "1": "discomfort in the back, neck and shoulders",
             "2": "recovery after physical loads",
-            "lead": "The massage may help with:"
+            "lead": "You may be interested in this massage if you experience:"
           },
           "benefits": {
-            "0": "reduce muscle tension and spasms",
-            "1": "ease the feeling of pain and discomfort",
-            "2": "improve mobility and tissue elasticity",
-            "3": "boost circulation in the treated area",
-            "4": "speed up recovery after physical loads",
-            "5": "give the body a feeling of freedom and comfort",
-            "lead": "Medical massage helps to:"
+            "0": "a sense of muscle relaxation",
+            "1": "a feeling of reduced tension or heaviness",
+            "2": "comfort while moving",
+            "3": "time to rest after physical activity",
+            "4": "gentle work with selected areas",
+            "5": "an intensity agreed to your preferences",
+            "lead": "Possible experiences vary from person to person:"
           },
           "approach": {
-            "0": "Every session is built individually: we identify the areas that need special attention and choose techniques according to your current condition and goals."
+            "0": "Before a session we discuss your preferences and possible limitations. This is not a medical assessment and does not replace advice from a physician."
           }
         }
       },
@@ -220,17 +224,17 @@
         "subtitle": "author's technique",
         "content": {
           "about": {
-            "0": "IQ hiro massage — youthful face without compromise and a fast recovery!",
-            "1": "IQ hiro massage — relaxation, beauty and recovery in a single session.",
-            "2": "Want to stay youthful, improve your facial contour and recover faster after cosmetic procedures? IQ hiro massage is the ideal solution for natural rejuvenation and rehabilitation.",
-            "3": "The massage is adapted to your individual features, keeping it comfortable and safe at every stage of facial care."
+            "0": "IQ hiro massage uses manual techniques for the face, neck and décolletage.",
+            "1": "The session is adapted to your preferences and comfort.",
+            "2": "The massage is intended for relaxation and personal care; cosmetic results vary and are not guaranteed.",
+            "3": "The massage is not a medical treatment and does not replace advice from a qualified clinician."
           },
           "benefits": {
-            "0": "effective lymphatic drainage — reduces puffiness, flushes toxins and improves the complexion",
-            "1": "deep muscle work — releases tension, helps prevent wrinkles and keeps the skin toned",
-            "2": "fast recovery after a lift, correction or blepharoplasty — helps resolve swelling and bruises sooner, improves blood circulation and stimulates tissue regeneration",
-            "3": "natural lifting — without injections or aggressive intervention",
-            "lead": "What IQ hiro massage gives you:"
+            "0": "a relaxing facial massage",
+            "1": "gentle work with facial and neck muscles",
+            "2": "a personal-care experience without medical claims",
+            "3": "a non-invasive massage technique",
+            "lead": "Features of IQ hiro massage:"
           }
         }
       },
@@ -239,27 +243,27 @@
         "subtitle": "author's technique",
         "content": {
           "about": {
-            "0": "Massage for two — harmony, care and rest next to the person you love!",
-            "1": "Want to relax, restore your energy and simply enjoy the moment? A shared massage is not only pleasure, but also care for your health."
+            "0": "A couples massage is an opportunity to spend time together and rest in a calm setting.",
+            "1": "Techniques and intensity can be agreed individually for each guest. Experiences vary."
           },
           "benefits": {
-            "0": "stress relief — help yourself and your partner release tension and tiredness",
-            "1": "care for your health — better blood circulation, less muscular tension and overall recovery",
-            "2": "energy and balance — after the massage you feel lightness and a surge of energy",
-            "3": "quality rest — shared relaxation helps you sleep and recover better",
+            "0": "time to relax together",
+            "1": "gentle work with muscle tension",
+            "2": "a calm setting and time for yourself",
+            "3": "intensity agreed separately with each guest",
             "4": "a new experience — an unusual and pleasant time together worth trying",
-            "lead": "5 reasons to book a massage for couples:"
+            "lead": "A couples session can include:"
           }
         }
       },
       "relaks": {
         "title": "relax",
-        "subtitle": "author's technique",
+        "subtitle": "relaxation and rest",
         "content": {
           "about": {
-            "0": "Relaxation massage is a soft and calm technique focused on deep relaxation of the body, easing muscular and emotional tension and recovery after a busy day.",
-            "1": "Smooth rhythmic movements help gradually release the accumulated tension, calm down and shift from a constant state of activity into rest. Special attention is paid to the areas where tiredness accumulates most often — the back, neck, shoulders and legs.",
-            "2": "The intensity and pace of the massage are chosen individually so the session is as comfortable as possible and lets you truly rest — physically and emotionally."
+            "0": "A gentle massage technique for relaxation and comfortable rest after a busy day.",
+            "1": "The session uses a calm pace; you can request extra attention to the neck, shoulders, back or legs.",
+            "2": "Pace and intensity are agreed individually according to your preferences."
           },
           "indications": {
             "0": "stress and high load",
@@ -268,13 +272,13 @@
             "lead": "The massage especially suits periods of:"
           },
           "benefits": {
-            "0": "relieve muscular tension",
-            "1": "reduce the feeling of tiredness",
-            "2": "relax after physical and emotional loads",
-            "3": "improve overall wellbeing",
-            "4": "feel lightness and comfort in the body",
-            "5": "restore a sense of inner calm",
-            "lead": "Relaxation massage helps to:"
+            "0": "gentle techniques for relaxation",
+            "1": "a calm pace and comfortable setting",
+            "2": "time to rest after a busy day",
+            "3": "intensity adjusted to your preferences",
+            "4": "individual experiences",
+            "5": "no promise of medical or therapeutic effects",
+            "lead": "Features of relaxation massage:"
           }
         }
       },
@@ -283,15 +287,15 @@
         "subtitle": "author's technique",
         "content": {
           "about": {
-            "0": "Sports massage is a specialized massage technique focused on improving physical condition, supporting recovery after physical loads and preventing injuries in athletes.",
-            "1": "This massage helps relax the muscles, improve blood circulation, relieve tension and speed up recovery after intense training or competition."
+            "0": "Sports massage is an option for people with an active lifestyle, with techniques agreed according to their preferences.",
+            "1": "A session may focus on muscle tension before or after physical activity. It does not diagnose or treat injuries; consult a physician about pain or suspected injury."
           },
           "benefits": {
-            "0": "warming-up massage — done before a workout or competition to prepare the muscles for the load and improve their flexibility",
-            "1": "relaxation massage — applied after a training to relieve tension, speed up the removal of lactic acid and improve recovery",
-            "2": "therapeutic massage — used to treat injuries and pain in the muscles or joints",
-            "3": "return mobility, lightness and flexibility to the body",
-            "lead": "Depending on the goal, different methods may be used:"
+            "0": "massage before or after physical activity",
+            "1": "techniques and intensity agreed in advance",
+            "2": "a session adapted to your comfort",
+            "3": "consult a physician about pain or injury",
+            "lead": "What you can discuss before a session:"
           }
         }
       },
@@ -300,7 +304,7 @@
         "subtitle": "classic technique",
         "content": {
           "about": {
-            "0": "Swedish massage is a classic full-body massage focused on relaxing the muscles, easing tension and recovery after everyday loads.",
+            "0": "Swedish massage is a classic full-body technique often chosen for relaxation after everyday activity.",
             "1": "It combines smooth stroking, rubbing, kneading and gentle vibration techniques.",
             "2": "In our studio the intensity and depth of the work are chosen individually — taking into account the condition of the muscles, your sensitivity and your preferences."
           },
@@ -311,22 +315,22 @@
             "lead": "The massage suits those who:"
           },
           "benefits": {
-            "0": "improve blood circulation",
-            "1": "reduce muscular stiffness",
-            "2": "lower the stress level",
-            "3": "improve overall wellbeing",
-            "lead": "Swedish massage helps to:"
+            "0": "smooth manual techniques",
+            "1": "a comfortable intensity agreed in advance",
+            "2": "time for rest and personal care",
+            "3": "individual experiences",
+            "lead": "Features of Swedish massage:"
           }
         }
       },
       "limfaticheskiy": {
         "title": "lymphatic drainage",
-        "subtitle": "author's technique",
+        "subtitle": "gentle technique",
         "content": {
           "about": {
-            "0": "Lymphatic drainage massage is a gentle technique focused on improving lymph flow and reducing fluid retention in the tissues.",
-            "1": "Smooth rhythmic movements help ease swelling and the feeling of heaviness, especially in the legs, support the natural work of the lymphatic system and promote recovery after physical loads.",
-            "2": "After a session you often feel a pleasant sense of lightness, relaxation and freedom of movement."
+            "0": "A gentle massage technique that some people choose for relaxation and comfort.",
+            "1": "It is not a treatment for swelling or conditions of the lymphatic system.",
+            "2": "Consult a physician before massage about persistent, sudden or unexplained swelling."
           },
           "indications": {
             "0": "spend a lot of time sitting or on their feet",
@@ -335,13 +339,11 @@
             "lead": "The massage suits those who:"
           },
           "benefits": {
-            "0": "reduce swelling and fluid retention",
-            "1": "ease the feeling of heaviness in the legs",
-            "2": "improve microcirculation",
-            "3": "support recovery after physical loads",
-            "4": "improve the look and condition of the tissues",
-            "5": "give the body a feeling of lightness",
-            "lead": "Lymphatic drainage massage helps to:"
+            "0": "gentle massage techniques",
+            "1": "an intensity agreed to your comfort",
+            "2": "experiences vary between people",
+            "3": "massage does not replace medical care for swelling",
+            "lead": "Please consider before booking:"
           }
         }
       },
@@ -350,17 +352,17 @@
         "subtitle": "author's technique",
         "content": {
           "about": {
-            "0": "Anti-cellulite massage is an intense massage focused on improving the look of the skin, reducing puffiness and working with the subcutaneous tissues.",
-            "1": "It combines deep kneading, rubbing and special massage techniques that stimulate local blood circulation and help reduce fluid retention in the tissues.",
-            "2": "The strength and technique depend on how the tissues respond: the specialist takes into account skin sensitivity, the degree of puffiness and overall wellbeing, keeping the procedure effective and comfortable.",
-            "3": "A course of procedures is recommended to maintain the effect."
+            "0": "A cosmetic massage with varying intensity as part of body and skin care.",
+            "1": "Techniques and areas are agreed based on skin sensitivity and your preferences.",
+            "2": "Any cosmetic changes vary and are not guaranteed.",
+            "3": "Massage is not a treatment for illness and does not guarantee body-shape changes."
           },
           "benefits": {
-            "0": "the skin can look smoother and firmer",
-            "1": "signs of cellulite become less visible",
-            "2": "reduce fluid retention and noticeable puffiness",
-            "3": "stimulate microcirculation and tissue metabolism",
-            "lead": "Effect of the procedure:"
+            "0": "a personal-care experience",
+            "1": "cosmetic results vary",
+            "2": "no promise of body-shape or health changes",
+            "3": "intensity can be agreed based on skin sensitivity",
+            "lead": "Features of cosmetic massage:"
           }
         }
       }
@@ -369,12 +371,12 @@
       "heading": "subscription",
       "title": "6 sessions",
       "type": "10% discount",
-      "body": "An investment in your regular wellbeing: recovery, tension relief and deep relaxation.",
+      "body": "A subscription for regular personal care: massage for relaxation and comfort after everyday activity.",
       "note": "Valid for 3 months from the purchase date"
     },
     "loyalty": {
       "heading": "loyalty card",
-      "title": "<accent>A token of attention</accent> to your own health",
+      "title": "<accent>A token of attention</accent> to yourself",
       "note": "We value your trust: with the loyalty card every visit brings you closer to a pleasant bonus.",
       "perks": {
         "0": "9 sessions at your own pace",
@@ -390,12 +392,12 @@
     },
     "description": {
       "statement": "<accent>understand first</accent> then work",
-      "education": "At the core is professional training at the Wingate Institute of Physical Education and Sport, years of hands-on practice and continuous refinement of technique.",
-      "scope": "We work with muscle tension, pain, the aftermath of physical overload, restricted mobility, stress, chronic fatigue and loss of tone.",
+      "education": "The background includes training at the Wingate Institute for Physical Education and Sport (Israel), practical experience and continued development of massage techniques.",
+      "scope": "Sessions may focus on relaxing muscle tension, comfort after physical activity and rest.",
       "principle": {
-        "body": "Before the session — an interview and a condition assessment: complaints, health specifics and possible contraindications. After it we give recovery advice."
+        "body": "Before a session we discuss your preferences and possible limitations. This is not a medical assessment and does not replace advice from a physician."
       },
-      "philosophy": "Massage is not just relaxation, but deliberate work with the body: less discomfort, better wellbeing, freedom of movement.",
+      "philosophy": "Massage is time for rest and personal care, with techniques and intensity agreed to your preferences.",
       "labels": {
         "education": "education",
         "scope": "what we work with",
@@ -409,17 +411,17 @@
     "intro": {
       "brand": "tulsanoff",
       "tagline": "long-term effect",
-      "body": "We bring back muscle tone so the lightness lasts"
+      "body": "Massage techniques for rest and comfort after everyday activity."
     },
     "masters": {
       "0": {
         "index": "01",
         "name": "Mark",
-        "role": "specialist in medical massage",
+        "role": "medical massage therapist",
         "experience": "8+",
         "experienceLabel": "years of experience",
-        "bio": "Founder and driving force behind the tulsanoff massage studio. Trained in medical massage at the Wingate National Institute of Physical Education and Sport (Israel) and completed a course in sports, Swedish and spa massage.",
-        "bio2": "Completed an internship and training with the well-known practitioner of Chinese and alternative medicine Gil Salam (Israel). Certified specialist in cosmetic acupuncture (Israel). Works with an integrated approach drawing on Chinese medicine and osteopathy.",
+        "bio": "Founder of the TULSANOFF massage studio. Trained in medical massage at the Wingate Institute for Physical Education and Sport (Israel) and completed courses in sports, Swedish and spa massage.",
+        "bio2": "Completed an internship and training with Gil Salam in Chinese and complementary medicine (Israel). Studied cosmetic acupuncture and uses selected techniques inspired by Chinese medicine and osteopathy.",
         "credentials": {
           "0": "medical massage · Wingate Institute",
           "1": "sports, Swedish and spa massage",
@@ -430,14 +432,14 @@
       "1": {
         "index": "02",
         "name": "Lora",
-        "role": "specialist in medical massage",
+        "role": "medical massage therapist",
         "experience": "9+",
         "experienceLabel": "years of experience",
-        "bio": "Trained in medical, sports, Swedish and spa massage at the Wingate National Institute of Physical Education and Sport (Israel). Also holds a diploma in classical massage from Newman College (Israel).",
+        "bio": "Studied medical, sports, Swedish and spa massage at the Wingate Institute for Physical Education and Sport (Israel). Also holds a classical massage diploma from Newman Center (Israel).",
         "bio2": "Certified hatha yoga teacher (Yoga Center Tapas Israel) and IQ chair massage specialist (Massage school of Elena Zemskova). Always ready to reach new horizons and bring fresh skills into her work.",
         "credentials": {
           "0": "medical, sports, Swedish and spa massage",
-          "1": "classical massage · Newman College",
+          "1": "classical massage · Newman Center",
           "2": "hatha yoga · Yoga Center Tapas Israel",
           "3": "IQ chair massage · Massage school of Elena Zemskova"
         }
@@ -452,15 +454,15 @@
     "faq": {
       "0": {
         "label": "What types of massage do you offer at your studio?",
-        "body": "We offer medical, sports, restorative, Swedish, relaxing, lymphatic drainage and anti-cellulite massage, as well as IQ bodywork. The technique is chosen individually."
+        "body": "We offer wellness, sports, Swedish, relaxation, lymphatic drainage and cosmetic massage, as well as IQ bodywork. Techniques and intensity are agreed individually."
       },
       "1": {
         "label": "How do I know which massage is right for me?",
-        "body": "Before your first session we hold a consultation, clarifying your complaints, health condition and your preferences. On this basis we select the appropriate massage technique."
+        "body": "Before a session we discuss your preferences and possible limitations. We do not provide medical diagnosis; consult a physician with health concerns."
       },
       "2": {
         "label": "Can I book a massage if I have back and neck pain?",
-        "body": "Yes, we work with muscle tension, stiffness and discomfort in the back and neck. Before the procedure we assess your condition and rule out any contraindications."
+        "body": "We do not diagnose or treat the causes of pain. Consult a physician first about acute or persistent back or neck pain; after that, you can ask whether a session is suitable."
       },
       "3": {
         "label": "Where is your studio located?",
@@ -468,7 +470,7 @@
       },
       "4": {
         "label": "Can I buy a pass for several sessions?",
-        "body": "You can buy passes, certificates or gift cards as you wish. The terms for issuing them can be clarified when booking. We will also help you choose the optimal frequency of procedures depending on your goals."
+        "body": "Ask us about passes, certificates and gift cards when you contact the studio. Session frequency is chosen individually and is not medical advice."
       },
       "5": {
         "label": "How do I book a massage?",
@@ -480,7 +482,7 @@
   "quiz": {
     "ctaEyebrow": "Match in 30 seconds",
     "heading": "Massage match",
-    "intro": "Answer 3 questions and we'll recommend the massage that suits you best.",
+    "intro": "Answer 3 questions to explore a massage option that may match your preferences.",
     "progress": "Step {current} of {total}",
     "back": "Back",
     "next": "Next",
@@ -488,24 +490,29 @@
     "step1": {
       "title": "What matters most to you right now?",
       "option": {
-        "health": "Health and muscles: relieve pain or tension and recover after strain",
-        "beauty": "Beauty and shape: reduce puffiness, firm the skin and restore lightness",
+        "health": "Muscle tension and rest after physical activity",
+        "beauty": "Personal care and appearance",
         "relax": "Rest and reset: relieve stress and fully unwind"
       }
     },
     "step2": {
       "title": "Which option describes your situation best?",
+      "path": {
+        "health": "(muscles and everyday activity)",
+        "beauty": "(personal care and appearance)",
+        "relax": "(rest and relaxation)"
+      },
       "health": {
         "sedentary": "A sedentary job, with tension in the neck, shoulders and back",
-        "chronic": "Chronic pain or nerve compression that requires a therapeutic approach",
-        "sport": "Muscles feel tired or sore after sports or physical work"
+        "chronic": "Persistent muscle tension or stiffness",
+        "sport": "Tiredness after exercise or physical activity"
       },
       "beauty": {
-        "edema": "I feel puffiness and heaviness in my body",
-        "zones": "I want to focus on problem areas, skin tone and silhouette"
+        "edema": "A feeling of heaviness",
+        "zones": "I want to focus on personal care"
       },
       "relax": {
-        "face": "I want to focus on the face: release tension and refresh my complexion",
+        "face": "I want a gentle facial massage and time for personal care",
         "maxrelax": "I want maximum relaxation with soft, soothing movements",
         "fullbody": "I want a pleasant whole-body massage without pain or strong pressure"
       }
@@ -519,8 +526,8 @@
       }
     },
     "result": {
-      "title": "We recommend",
-      "subtitle": "Based on your answers:",
+      "title": "An option to explore",
+      "subtitle": "Based on your answers, you could consider:",
       "details": "Learn more about the massage",
       "book": "Book"
     }
@@ -546,10 +553,46 @@
       "heading": "NAVIGATION"
     },
     "cta": "Book Now",
+    "disclaimer": "Services are for general wellbeing and recovery support. They are not medical services, diagnosis or treatment. Consult a physician about acute pain or chronic conditions.",
+    "legal": {
+      "heading": "Legal information",
+      "privacy": "Privacy policy",
+      "terms": "Terms of use",
+      "accessibility": "Accessibility statement"
+    },
     "social": {
       "tgAlt": "Telegram",
       "igAlt": "Instagram",
       "fbAlt": "Facebook"
+    }
+  },
+  "legal": {
+    "back": "Back to home",
+    "privacy": {
+      "title": "Privacy policy",
+      "intro": "The TULSANOFF website is for informational purposes only. It has no registration, online booking or other forms for collecting personal information.",
+      "data": "The website does not request or store visitors' personal information. If you choose to send contact details or other information to the studio through an external service, that happens outside this website.",
+      "localStorage": "To remember your language choice, the website stores a short preference code (tulsanoff.locale) in your browser's localStorage. It is not used to identify or profile visitors.",
+      "thirdParty": "The website embeds a Google Maps map. When it loads, Google may receive your IP address and technical connection data. When Hebrew is selected, the browser also loads fonts from Google Fonts. Those providers process data under their own privacy policies, outside the website's control.",
+      "externalLinks": "Following telephone, WhatsApp, Telegram, email, social media or map links is your choice. Information you provide through those services is processed by the relevant external providers.",
+      "tracking": "The project contains no analytics scripts, advertising pixels or first-party analytics/marketing cookies. The embedded Google map may use Google's own technologies. No analytics or marketing consent banner is used because those tools are not installed on this website.",
+      "contact": "Website operator: [ЗАПОЛНИТЬ: full legal name, registration details and mailing address]. Privacy inquiries: [ЗАПОЛНИТЬ: email or telephone]."
+    },
+    "terms": {
+      "title": "Terms of use",
+      "intro": "This website provides general information about TULSANOFF and its services. It is intended for informational use.",
+      "information": "Website content is not medical advice, diagnosis or treatment and does not replace consultation with a physician. Do not use it to self-diagnose or change prescribed treatment.",
+      "appointments": "Booking details, service availability and possible limitations are confirmed when contacting the studio. The studio receives visitors by appointment only. Consult a physician first about acute pain, chronic conditions or questions about contraindications.",
+      "externalLinks": "This website includes links to external services. Their content, availability and data processing are governed by the relevant providers' terms.",
+      "operator": "Website operator: [ЗАПОЛНИТЬ: full legal name and registration details]."
+    },
+    "accessibility": {
+      "title": "Accessibility statement",
+      "intro": "TULSANOFF strives to support accessibility in line with Israeli Standard 5568, based on WCAG 2.0 Level AA. This statement describes implemented measures and is not a claim of independent certification.",
+      "measures": "Implemented measures include keyboard navigation, a skip-to-content link, visible focus indicators, semantic landmarks and a consistent heading structure, alt text for informative images and empty alt text for decorative images. Text and focus colors are designed for contrast; the layout is responsive and respects reduced-motion preferences. Language and direction attributes update when switching between Russian and Hebrew.",
+      "limitations": "The embedded Google Maps content is provided by a third party and may have accessibility limitations outside TULSANOFF's control. If the site or map is difficult to use, contact the studio by phone or WhatsApp.",
+      "studio": "The studio receives visitors by appointment only.",
+      "contact": "Accessibility contact: [ЗАПОЛНИТЬ: name, telephone and email]."
     }
   }
 }

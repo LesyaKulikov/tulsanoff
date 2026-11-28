@@ -22,9 +22,9 @@ export function ContactsV1() {
 
       <div className={styles.grid}>
         <div>
-          <p className={styles.colTitle}>
+          <h2 className={styles.colTitle}>
             <Message id="contacts.branches.heading" />
-          </p>
+          </h2>
           <div className={styles.branches}>
             {BRANCHES.map((branch) => (
               <motion.article
@@ -52,9 +52,9 @@ export function ContactsV1() {
         </div>
 
         <div>
-          <p className={styles.colTitle}>
+          <h2 className={styles.colTitle}>
             <Message id="contacts.reach.heading" />
-          </p>
+          </h2>
           <div className={styles.reach}>
             <ul className={styles.phoneList}>
               {PHONES.map((phone) => (

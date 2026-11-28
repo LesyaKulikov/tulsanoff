@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useIntl } from 'react-intl'
 import { Message } from '../../i18n/Message'
 import { reveal, enter, fadeUp, scaleIn, EASE } from '../../animation/variants'
 import styles from './AboutMasters.module.css'
@@ -24,7 +23,6 @@ interface MasterCardProps {
 
 function MasterCard({ n, src, reverse, delay }: MasterCardProps) {
   const [active, setActive] = useState(0)
-  const intl = useIntl()
   // Roving tabindex: only the selected tab is in the tab order, so Tab moves
   // past the tablist instead of stopping on every tab.
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([])
@@ -69,7 +67,7 @@ function MasterCard({ n, src, reverse, delay }: MasterCardProps) {
         <img
           className={styles.photo}
           src={src}
-          alt={intl.formatMessage({ id: `aboutPage.masters.${n}.name` })}
+          alt=""
           loading="lazy"
           decoding="async"
         />

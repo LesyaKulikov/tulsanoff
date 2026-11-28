@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { NavLink, useLocation } from 'react-router-dom'
+import { useIntl } from 'react-intl'
 import { BlinkText } from '../BlinkText/BlinkText'
 import { CtaButton } from '../CtaButton/CtaButton'
 import { Message } from '../../i18n/Message'
@@ -21,6 +22,7 @@ const NAV_LINKS = [
 ] as const
 
 export function Header() {
+  const intl = useIntl()
   const { locale, toggleLocale } = useLocale()
   const { openQuiz } = useQuizModal()
   const location = useLocation()
@@ -58,7 +60,11 @@ export function Header() {
       data-scrolled={isScrolled}
       {...enter(fadeUp(0, { duration: 0.7, distance: -24 }))}
     >
-      <nav className={styles.nav} aria-label="primary" data-test-id="nav">
+      <nav
+        className={styles.nav}
+        aria-label={intl.formatMessage({ id: 'a11y.primaryNavigation' })}
+        data-test-id="nav"
+      >
         {NAV_LINKS.map((link, i) => (
           <motion.div key={link.key} {...enter(fadeUp(delay(0.18 + i * 0.07), { duration: 0.6, distance: -12 }))}>
             <NavLink
@@ -147,11 +153,11 @@ export function Header() {
           <motion.nav
             id="mobile-menu"
             className={styles.menu}
-            aria-label="primary"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: reduce ? 0 : 0.28, ease: EASE }}
+            aria-label={intl.formatMessage({ id: 'a11y.mobileNavigation' })}
             data-test-id="mobile-menu"
           >
             <ul className={styles.menuList}>

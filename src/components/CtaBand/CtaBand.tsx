@@ -15,8 +15,8 @@ export function CtaBand() {
   const intl = useIntl()
   const location = useLocation()
   const isContacts = location.pathname === ROUTES.contacts
-  // `cta.mapTitle` is not authored in the locale files yet, and a hardcoded
-  // English iframe title would be announced as-is in every locale.
+  // Use the active locale so the iframe has a descriptive accessible name in
+  // both LTR and RTL views.
   const mapTitle = resolveMessage('cta.mapTitle', intl.locale) ?? 'TULSANOFF on Google Maps'
 
   // Opacity only: this section wraps a full-viewport map iframe, and
@@ -44,7 +44,7 @@ export function CtaBand() {
         title={mapTitle}
         src={`https://www.google.com/maps?q=${MAP_BRANCH.mapQuery}&output=embed`}
         loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
+        referrerPolicy="no-referrer"
         data-test-id="cta-band-map"
       />
     </motion.section>

@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
-import { useIntl } from 'react-intl'
 import { Message } from '../../i18n/Message'
 import { Arrow } from '../Arrow/Arrow'
 import { massageRoute } from '../../routes'
@@ -17,9 +16,7 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ slug, image, label, index = 0, className, objectPosition }: ServiceCardProps) {
-  const intl = useIntl()
   const location = useLocation()
-  const serviceName = intl.formatMessage({ id: label })
 
   return (
     <motion.div
@@ -42,7 +39,7 @@ export function ServiceCard({ slug, image, label, index = 0, className, objectPo
           <img
             className={styles.photo}
             src={image}
-            alt={serviceName}
+            alt=""
             loading="lazy"
             decoding="async"
             style={objectPosition ? { objectPosition } : undefined}
