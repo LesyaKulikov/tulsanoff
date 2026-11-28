@@ -29,7 +29,14 @@ export function Layout() {
 
   return (
     <div className="app">
-      <a className="skipLink" href="#main-content">
+      <a
+        className="skipLink"
+        href="#main-content"
+        onClick={(event) => {
+          event.preventDefault()
+          mainRef.current?.focus()
+        }}
+      >
         <Message id="a11y.skipToContent" />
       </a>
       <Header />
